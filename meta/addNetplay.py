@@ -4,6 +4,7 @@
 import os
 import sys
 import itertools
+import re
 
 # replace draw_ with ndraw_...
 
@@ -24,18 +25,23 @@ draw_commands = [
 "draw_text"
 ]
 
-re_draw = re.compile("(?<!foo)\b(" + ",".join(draw_commands) + ")")
+re_draw = re.compile("(?<!/\*LOCAL\*/ )\b\(" + "|".join(draw_commands) + "\)")
 
 def repl(match):
+	print(match.group(0))
 	return "n" + match.group(0)
 
-for filename in itertools.chain(os.listdir(scriptDir), os.listdir(objDir)):
-	contents = ""
-	with open(filename, "r") as file:
-		contents = file.read()
+def listdir(dir):
+	return map(lambda d: os.path.join(dir, d), os.listdir(dir))
 	
-	re_draw.sub(repl, contents):
+for filename in itertools.chain(listdir(scriptDir), listdir(objDir)):
+	if filename.endswith(".gmx") or filename.endswith(".gml"):
+		print(filename)
+		contents = ""
+		with open(filename, "r", encoding="utf8") as file:
+			contents = file.read()
 		
-	
-	with open(filename, "w") as file:
-		contents = file.write()
+		contents = re_draw.sub(repl, contents)
+		
+		with open(filename, "w", encoding="utf8") as file:
+			file.write(contents)
