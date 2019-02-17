@@ -164,7 +164,7 @@ if (global.showColoredTextOverlays)
     ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
     ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
-    draw_rectangle(96 - 12 - 4, 160 - 4, 176 + 2, 160 + 23 + 3, false);
+    ndraw_rectangle(96 - 12 - 4, 160 - 4, 176 + 2, 160 + 23 + 3, false);
     
     ndraw_set_color(c_white);
     ndraw_set_alpha(1);

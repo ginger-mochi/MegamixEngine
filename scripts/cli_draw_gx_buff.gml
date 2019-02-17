@@ -19,8 +19,10 @@ switch opcode {
         var subimg = buffer_read(gx,buffer_u8);
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
+        if (spr == -1) break;
         if exclude break;
-        /*LOCAL*/ draw_sprite(spr,
+        /*LOCAL*/ draw_sprite(
+                    spr,
                     subimg,
                     view_xview[0] + spr_x,
                     view_yview[0] + spr_y);
@@ -36,7 +38,9 @@ switch opcode {
         var color  = buffer_read(gx,buffer_u32);
         var alpha  = buffer_read(gx,buffer_f32);
         if exclude break;
-        /*LOCAL*/ draw_sprite_ext(spr,
+        if (spr == -1) break;
+        /*LOCAL*/ draw_sprite_ext(
+                    spr,
                     subimg,
                     view_xview[0] + spr_x,
                     view_yview[0] + spr_y,
@@ -56,7 +60,9 @@ switch opcode {
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
         if exclude break;
-        /*LOCAL*/ draw_sprite_part(spr,
+        if (spr == -1) break;
+        /*LOCAL*/ draw_sprite_part(
+                    spr,
                     subimg,
                     left,
                     top,
@@ -78,8 +84,10 @@ switch opcode {
         var yscale = buffer_read(gx,buffer_f32);
         var color  = buffer_read(gx,buffer_u32);
         var alpha  = buffer_read(gx,buffer_f32);
+        if (spr == -1) break;
         if exclude break;
-        /*LOCAL*/ draw_sprite_part_ext(spr,
+        /*LOCAL*/ draw_sprite_part_ext(
+                    spr,
                     subimg,
                     left,
                     top,
@@ -92,32 +100,7 @@ switch opcode {
                     color,
                     alpha)
         break;
-    case 5: // draw_sprite_part_ext
-        var spr    = dec_spr(buffer_read(gx,buffer_s16));
-        var subimg = buffer_read(gx,buffer_u8);
-        var left   = buffer_read(gx,buffer_u16);
-        var top    = buffer_read(gx,buffer_u16);
-        var width  = buffer_read(gx,buffer_u16);
-        var height = buffer_read(gx,buffer_u16);
-        var spr_x  = buffer_read(gx,buffer_s16);
-        var spr_y  = buffer_read(gx,buffer_s16);
-        var xscale = buffer_read(gx,buffer_f32);
-        var yscale = buffer_read(gx,buffer_f32);
-        var color  = buffer_read(gx,buffer_u32);
-        var alpha  = buffer_read(gx,buffer_u8) / 255;
-        if exclude break;
-        /*LOCAL*/ draw_sprite_part_ext(spr,
-                    subimg,
-                    left,
-                    top,
-                    width,
-                    height,
-                    view_xview[0] + spr_x,
-                    view_yview[0] + spr_y,
-                    xscale,
-                    yscale,
-                    color,
-                    alpha)
+    case 5: // unused
         break;
     case 6: // draw_set_color
         /*LOCAL*/ draw_set_color(buffer_read(gx,buffer_u32));
@@ -138,10 +121,11 @@ switch opcode {
         var rec_y2   = buffer_read(gx,buffer_s16);
         var rec_bool = buffer_read(gx,buffer_bool);
         if exclude break;
-        /*LOCAL*/ draw_rectangle(view_xview[0] + rec_x1,
-                       view_xview[0] + rec_y1,
+        /*LOCAL*/ draw_rectangle(
+                       view_xview[0] + rec_x1,
+                       view_yview[0] + rec_y1,
                        view_xview[0] + rec_x2,
-                       view_xview[0] + rec_y2,
+                       view_yview[0] + rec_y2,
                        rec_bool);
         break
     case 11: //exclude
@@ -155,7 +139,7 @@ switch opcode {
     case 12: // draw player (only if player is local)
         // not currently supported.
         break;
-    case 13: // draw_sprite_part_ext
+    case 13: // draw_sprite_general
         var spr    = dec_spr(buffer_read(gx,buffer_s16));
         var subimg = buffer_read(gx,buffer_u8);
         var left   = buffer_read(gx,buffer_u16);
@@ -172,8 +156,10 @@ switch opcode {
         var c3     = buffer_read(gx,buffer_u32);
         var c4     = buffer_read(gx,buffer_u32);
         var alpha  = buffer_read(gx,buffer_u8) / 255;
+        if (spr == -1) break;
         if exclude break;
-        /*LOCAL*/ draw_sprite_general(spr,
+        /*LOCAL*/ draw_sprite_general(
+                    spr,
                     subimg,
                     left,
                     top,
@@ -191,16 +177,37 @@ switch opcode {
                     alpha);
         break;
     case 14: // draw_text
-        var text_x  = buffer_read(gx,buffer_s16);
-        var text_y  = buffer_read(gx,buffer_s16);
-        var str     = buffer_read(gx,buffer_string);
+        var text_x = buffer_read(gx,buffer_s16);
+        var text_y = buffer_read(gx,buffer_s16);
+        var str    = buffer_read(gx,buffer_string);
         if exclude break;
         /*LOCAL*/ draw_text(
-            view_xview[0] + text_x,
-            view_yview[0] + text_y,
-            str);
+                   view_xview[0] + text_x,
+                   view_yview[0] + text_y,
+                   str);
         break;
-        
+    case 15: // ndraw_rectangles
+        var rec_x1   = buffer_read(gx,buffer_s16);
+        var rec_y1   = buffer_read(gx,buffer_s16);
+        var rec_x2   = buffer_read(gx,buffer_s16);
+        var rec_y2   = buffer_read(gx,buffer_s16);
+        var c1       = buffer_read(gx,buffer_u32);
+        var c2       = buffer_read(gx,buffer_u32);
+        var c3       = buffer_read(gx,buffer_u32);
+        var c4       = buffer_read(gx,buffer_u32);
+        var rec_bool = buffer_read(gx,buffer_bool);
+        if exclude break;
+        /*LOCAL*/ draw_rectangle_colour(
+                       view_xview[0] + rec_x1,
+                       view_yview[0] + rec_y1,
+                       view_xview[0] + rec_x2,
+                       view_yview[0] + rec_y2,
+                       c1,
+                       c2,
+                       c3,
+                       c4,
+                       rec_bool);
+        break
 }
 
 // more commands to process

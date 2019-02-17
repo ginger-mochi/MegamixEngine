@@ -437,7 +437,7 @@ for (i = 0; i &lt; endx; i += 1)
             text += "Disabled";
         }
     }
-    draw_text(128, 48 + i * 16, text);
+    ndraw_text(128, 48 + i * 16, text);
 }
 
 // colored text overlays
@@ -446,8 +446,8 @@ if (global.showColoredTextOverlays)
     ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
     ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
-    draw_rectangle(view_xview[0] + 73, view_yview[0] + 1, view_xview[0] + 182, view_yview[0] + 22, false); // title
-    draw_rectangle(view_xview[0] + 44, view_yview[0] + 28, view_xview[0] + view_wview[0] - 45, view_yview[0] + view_hview[0] - 29, false); // content
+    ndraw_rectangle(view_xview[0] + 73, view_yview[0] + 1, view_xview[0] + 182, view_yview[0] + 22, false); // title
+    ndraw_rectangle(view_xview[0] + 44, view_yview[0] + 28, view_xview[0] + view_wview[0] - 45, view_yview[0] + view_hview[0] - 29, false); // content
     
     ndraw_set_color(c_white);
     ndraw_set_alpha(1);

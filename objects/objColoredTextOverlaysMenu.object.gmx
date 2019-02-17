@@ -382,7 +382,7 @@ if (phase == 2 &amp;&amp; !selected)
             <kind>1</kind>
             <string>// draw bg
 ndraw_set_color(c_black);
-draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
+ndraw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
 
 // draw cursor
 ndraw_set_color(c_white);
@@ -469,8 +469,8 @@ draw_text_ext(view_xview[0] + 43, view_yview[0] + 148 + 19, "This is meant to ai
 ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
 ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
 
-draw_rectangle(view_xview[0], view_yview[0] + 84, view_xview[0] + view_wview[0], view_yview[0] + 140, false);
-draw_rectangle(view_xview[0] + 38, view_yview[0] + 148, view_xview[0] + 256, view_yview[0] + 148 + 63, false);
+ndraw_rectangle(view_xview[0], view_yview[0] + 84, view_xview[0] + view_wview[0], view_yview[0] + 140, false);
+ndraw_rectangle(view_xview[0] + 38, view_yview[0] + 148, view_xview[0] + 256, view_yview[0] + 148 + 63, false);
 
 ndraw_set_color(c_white);
 ndraw_set_alpha(1);

@@ -160,7 +160,7 @@ if (entityCanStep())
             <string>/*
 ///Debug
 var color= draw_get_color();
-draw_rectangle(x,y,x-1+image_xscale*16,y,0);
+ndraw_rectangle(x,y,x-1+image_xscale*16,y,0);
 color=draw_get_color();
 */
 exit;

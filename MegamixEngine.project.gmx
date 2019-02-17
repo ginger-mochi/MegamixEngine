@@ -5152,6 +5152,7 @@
     </scripts>
     <scripts name="netplay">
       <script>scripts\ndraw_rectangle.gml</script>
+      <script>scripts\ndraw_rectangle_colour.gml</script>
       <script>scripts\ndraw_set_alpha.gml</script>
       <script>scripts\ndraw_set_color.gml</script>
       <script>scripts\ndraw_set_valign.gml</script>
@@ -6871,6 +6872,7 @@
       <object>objects\objNetOptions</object>
     </objects>
   </objects>
+  <timelines name="timelines"/>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
     <room>rooms\lvlCopyThisRoom</room>
