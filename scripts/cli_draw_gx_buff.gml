@@ -52,7 +52,7 @@ switch opcode {
         var left   = buffer_read(gx,buffer_u16);
         var top    = buffer_read(gx,buffer_u16);
         var width  = buffer_read(gx,buffer_u16);
-        var height =  buffer_read(gx,buffer_u16);
+        var height = buffer_read(gx,buffer_u16);
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
         if exclude break;
@@ -71,7 +71,7 @@ switch opcode {
         var left   = buffer_read(gx,buffer_u16);
         var top    = buffer_read(gx,buffer_u16);
         var width  = buffer_read(gx,buffer_u16);
-        var height =  buffer_read(gx,buffer_u16);
+        var height = buffer_read(gx,buffer_u16);
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
         var xscale = buffer_read(gx,buffer_f32);
@@ -132,10 +132,10 @@ switch opcode {
         /*LOCAL*/ draw_set_valign(buffer_read(gx,buffer_s8));
         break;
     case 10: // draw_rectangles
-        var rec_x1 = buffer_read(gx,buffer_s16);
-        var rec_y1 = buffer_read(gx,buffer_s16);
-        var rec_x2 = buffer_read(gx,buffer_s16);
-        var rec_y2 = buffer_read(gx,buffer_s16);
+        var rec_x1   = buffer_read(gx,buffer_s16);
+        var rec_y1   = buffer_read(gx,buffer_s16);
+        var rec_x2   = buffer_read(gx,buffer_s16);
+        var rec_y2   = buffer_read(gx,buffer_s16);
         var rec_bool = buffer_read(gx,buffer_bool);
         if exclude break;
         /*LOCAL*/ draw_rectangle(view_xview[0] + rec_x1,
@@ -183,8 +183,6 @@ switch opcode {
                     view_yview[0] + spr_y,
                     xscale,
                     yscale,
-                    color,
-                    alpha,
                     rot,
                     c1,
                     c2,
@@ -192,6 +190,17 @@ switch opcode {
                     c4,
                     alpha);
         break;
+    case 14: // draw_text
+        var text_x  = buffer_read(gx,buffer_s16);
+        var text_y  = buffer_read(gx,buffer_s16);
+        var str     = buffer_read(gx,buffer_string);
+        if exclude break;
+        /*LOCAL*/ draw_text(
+            view_xview[0] + text_x,
+            view_yview[0] + text_y,
+            str);
+        break;
+        
 }
 
 // more commands to process

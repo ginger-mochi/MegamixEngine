@@ -8,7 +8,7 @@ with objNet {
     //TODO: skip if bounds off-screen
   
     //opcode
-    buffer_write(gx_buff, buffer_s8, 5)
+    buffer_write(gx_buff, buffer_s8, 14)
     
     //x
     buffer_write(gx_buff, buffer_s16, round(argument0 - view_xview[0]))

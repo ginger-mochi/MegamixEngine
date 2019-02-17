@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-8000</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>prtAlwaysActive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -257,7 +257,8 @@ for (var i=0;i&lt;console_log_n;i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>net_serve_process();
+            <string>/// handle incoming request from client
+net_serve_process();
 </string>
           </argument>
         </arguments>
@@ -306,75 +307,97 @@ for (var i=0;i&lt;console_log_n;i++) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-/// handle incoming network requests from server
+            <string>/// handle incoming network requests from server
 
-var type = async_load[? "type"]
+var type = async_load[? "type"];
 
-if type == network_type_data {
-    var in_buff = async_load[? "buffer"]
-    var in_buff_size = async_load[? "size"]
+
+if (type == network_type_data)
+{
+    var in_buff = async_load[? "buffer"];
+    var in_buff_size = async_load[? "size"];
+    
     buffer_seek(in_buff, buffer_seek_start, 0);
     buffer_seek(buff, buffer_seek_start, 0);
     
     var packet_type = buffer_read(in_buff, buffer_u8);
-    switch packet_type {
+    switch (packet_type)
+    {
         case PTYPE.welcome:
             var res = buffer_read(in_buff, buffer_u8);
-            if res == RES.approved {
+            if (res == RES.approved)
+            {
                 cli_status = 1;
-                cli_host_title = buffer_read(in_buff, buffer_string)
-                print("Connected to " + cli_host_title, c_green)
-            } else {
+                cli_host_title = buffer_read(in_buff, buffer_string);
+                print("Connected to " + cli_host_title, WL_SHOW, c_green);
+            }
+            else
+            {
                 cli_status = 0;
-                print("Failed to connect to " + cli_status, c_red)
+                printErr("Failed to connect to " + cli_status);
             }
             break;
         case PTYPE.request_players:
-            print("Player count request processed:")
+            print("Player count request processed:");
             var res = buffer_read(in_buff, buffer_u8);
-            if res == RES.approved {
-                if !cli_authorized
-                    print("Authorization received.", c_green)
+            if (res == RES.approved)
+            {
+                if (!cli_authorized)
+                {
+                    print("Authorization received.", WL_SHOW, c_green);
+                }
                 loc_player_ids[loc_player_count] = loc_player_count;
-                loc_forwardControl_ids[loc_player_count] = buffer_read(in_buff, buffer_u16)
+                loc_forwardControl_ids[loc_player_count] = buffer_read(in_buff, buffer_u16);
                 loc_player_count += 1;
                 cli_authorized = true;
                 room_goto(rmNetClient);
-            } else if res == RES.rejected_unauthorized {
+            }
+            else if (res == RES.rejected_unauthorized)
+            {
                 cli_authorized = false;
-                print("Server refused to authorize us.", c_red)
+                printErr("Server refused to authorize us.");
+            }
+            else if (res == RES.rejected)
+            {
+                cli_authorized = false;
+                printErr("Server refused to allocate us player slots.");
             }
             break;
         case PTYPE.gfx:
             var bsize = buffer_get_size(in_buff);
             buffer_copy(in_buff, buffer_tell(in_buff), bsize - buffer_tell(in_buff), gx_buff, 0);
-            buffer_seek(gx_buff, buffer_seek_start, bsize)
+            buffer_seek(gx_buff, buffer_seek_start, bsize);
             break;
         case PTYPE.cmd:
-            while(cli_perform_cmd_buff(in_buff)) {}
+            while (cli_perform_cmd_buff(in_buff))
+            { }
             break;
-        case PTYPE.ping:
-            // add ping time to array:
+        case PTYPE.ping: // add ping time to array: 
             var in_ping_id = buffer_read(in_buff, buffer_u8);
-            if in_ping_id &lt; max_ping_id {
-                if cli_ping_systime[in_ping_id] &gt; 0 {
+            if (in_ping_id &lt; max_ping_id)
+            {
+                if (cli_ping_systime[in_ping_id] &gt; 0)
+                {
                     cli_ping[in_ping_id] = current_time - cli_ping_systime[in_ping_id];
                     cli_ping_waiting[in_ping_id] = false;
+                    
                     // calculate average ping:
                     cli_ping_avg = 0;
-                    for (var i=0;i&lt; max_ping_id; i++) {
+                    for (var i = 0; i &lt; max_ping_id; i++)
+                    {
                         cli_ping_avg += cli_ping[i];
                     }
-                    cli_ping_avg /= 2*max_ping_id;
+                    cli_ping_avg /= 2 * max_ping_id;
                 }
             }
             break;
     }
+    
     // respond
-    if buffer_tell(buff) &gt; 0
+    if (buffer_tell(buff) &gt; 0)
         network_send_udp(cli_socket, cli_host_ip, cli_host_port, buff, buffer_tell(buff));
 }
+
 </string>
           </argument>
         </arguments>
