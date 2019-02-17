@@ -5150,6 +5150,38 @@
       <script>scripts\queuePause.gml</script>
       <script>scripts\queueUnpause.gml</script>
     </scripts>
+    <scripts name="netplay">
+      <script>scripts\ndraw_rectangle.gml</script>
+      <script>scripts\ndraw_set_alpha.gml</script>
+      <script>scripts\ndraw_set_color.gml</script>
+      <script>scripts\ndraw_set_valign.gml</script>
+      <script>scripts\ndraw_sprite.gml</script>
+      <script>scripts\ndraw_set_halign.gml</script>
+      <script>scripts\ndraw_sprite_ext.gml</script>
+      <script>scripts\ndraw_sprite_part.gml</script>
+      <script>scripts\ndraw_sprite_part_ext.gml</script>
+      <script>scripts\ndraw_text.gml</script>
+      <script>scripts\srv_flush_buffers.gml</script>
+      <script>scripts\net_hash.gml</script>
+      <script>scripts\buffer_has.gml</script>
+      <script>scripts\cli_add_tiles.gml</script>
+      <script>scripts\cli_clear_tiles_recent.gml</script>
+      <script>scripts\cli_perform_cmd_buff.gml</script>
+      <script>scripts\cli_set_room_info.gml</script>
+      <script>scripts\client_join.gml</script>
+      <script>scripts\cli_draw_gx_buff.gml</script>
+      <script>scripts\net_serve_process.gml</script>
+      <script>scripts\dec_bg.gml</script>
+      <script>scripts\dec_spr.gml</script>
+      <script>scripts\enc_spr.gml</script>
+      <script>scripts\enc_bg.gml</script>
+      <script>scripts\ncmd_tiles.gml</script>
+      <script>scripts\ndraw_exclude.gml</script>
+      <script>scripts\server_send_udp.gml</script>
+      <script>scripts\server_start.gml</script>
+      <script>scripts\server_broadcast_udp.gml</script>
+    </scripts>
+    <script>scripts\pretty_time.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Level Objects">
@@ -6834,6 +6866,10 @@
         <object>objects\objDialogueBox</object>
       </objects>
     </objects>
+    <objects name="Netplay">
+      <object>objects\objNet</object>
+      <object>objects\objNetOptions</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rmInit</room>
@@ -6848,6 +6884,8 @@
       <room>rooms\rmNewFile</room>
       <room>rooms\rmStageSelect</room>
       <room>rooms\rmOptions</room>
+      <room>rooms\rmNetOptions</room>
+      <room>rooms\rmNetClient</room>
       <room>rooms\rmGameOver</room>
       <room>rooms\rmCredits</room>
       <room>rooms\rmWeaponGet</room>

@@ -31,7 +31,7 @@ canProceed = true;
 drawtext = 0;
 
 option = 0;
-options = 2;
+options = 3;
 
 wait = 16;
 
@@ -111,6 +111,11 @@ freshSaveFile();
                 playSFX(sfxMenuSelect);
                 global.nextRoom = rmOptions;
                 break;
+            case 2: // Netplay
+                canProceed = false;
+                playSFX(sfxMenuSelect);
+                global.nextRoom = rmNetOptions;
+                break;
         }
     }
 }
@@ -144,7 +149,7 @@ draw_set_halign(fa_left);
 
 if (drawtext)
 {
-    draw_text(96, 160, "GAME START##OPTIONS");
+    draw_text(96, 160, "GAME START##OPTIONS##NETPLAY");
 }
 if (canProceed)
 {
