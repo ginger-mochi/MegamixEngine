@@ -67,8 +67,8 @@ screenshotTimer = 0.0;
             <kind>1</kind>
             <string>// console update
 var CONSOLE_MAX = 16;
-draw_set_halign(fa_left);
-draw_set_valign(fa_bottom);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_bottom);
 for (var i = 0; i &lt; CONSOLE_MAX &amp;&amp; i &lt; global.consoleN; i++)
 {
     var messageN = global.consoleN - i - 1;
@@ -278,44 +278,44 @@ if (global.alwaysHealth)
             <kind>1</kind>
             <string>// Console
 var CONSOLE_MAX = 16;
-draw_set_halign(fa_left);
-draw_set_valign(fa_bottom);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_bottom);
 for (var i = 0; i &lt; CONSOLE_MAX &amp;&amp; i &lt; global.consoleN; i++)
 {
     var messageN = global.consoleN - i - 1;
-    draw_set_color(global.consoleColour[messageN]);
-    draw_set_alpha(roundTo(clamp(lerp(5, 0, global.consoleTimer[messageN] / 120), 0, 1), 0.2));
+    ndraw_set_color(global.consoleColour[messageN]);
+    ndraw_set_alpha(roundTo(clamp(lerp(5, 0, global.consoleTimer[messageN] / 120), 0, 1), 0.2));
     draw_text(view_xview[0], view_yview[0] + view_hview[0] - 12 * i, global.consoleMessage[messageN]);
-    draw_set_alpha(1);
+    ndraw_set_alpha(1);
 }
 
 // Debug - objectviewer
 if (viewobjects)
 {
-    draw_set_valign(fa_top);
-    draw_set_color(c_white);
+    ndraw_set_valign(fa_top);
+    ndraw_set_color(c_white);
     
     var cID = 0;
     var yy = view_yview + 16;
     
     if (limit)
     {
-        draw_sprite_ext(sprDot, 0, view_xview + 8, yy, view_wview - 16, limit * 8, 0, c_gray, 0.5);
+        ndraw_sprite_ext(sprDot, 0, view_xview + 8, yy, view_wview - 16, limit * 8, 0, c_gray, 0.5);
         for (_i = 0; limit &gt; _i; _i++)
         {
             cID = ds_list_find_value(ids, _i + scroll);
             
-            draw_set_halign(fa_right);
+            ndraw_set_halign(fa_right);
             draw_text(view_xview + view_wview - 8, yy, string(ds_map_find_value(amounts, cID)) + 'x');
             
-            draw_set_halign(fa_left);
+            ndraw_set_halign(fa_left);
             draw_text(view_xview + 8, yy, string_copy(ds_map_find_value(names, cID), 0, 25));
             
             yy += 8;
         }
     }
     
-    draw_set_halign(fa_left);
+    ndraw_set_halign(fa_left);
     draw_text(view_xview, view_yview, "Total instances: " + string(instance_number(all)));
 }
 
@@ -324,12 +324,12 @@ if (global.recordInputMode &gt; 0)
 {
     if ((global.recordInputFrame mod 30) &gt;= 15)
     {
-        draw_set_halign(fa_right);
+        ndraw_set_halign(fa_right);
         if (global.recordInputFidelity &gt;= 0)
         {
             if (global.recordInputMessage == 0)
             {
-                draw_sprite(sprRecPlay, global.recordInputMode - 1,
+                ndraw_sprite(sprRecPlay, global.recordInputMode - 1,
                     view_xview[0] + view_wview[0] - 32,
                     view_yview[0] + view_hview[0] - 48);
                 draw_text(view_xview[0] + view_wview[0] - 64,
@@ -346,7 +346,7 @@ if (global.recordInputMode &gt; 0)
         }
         else
         {
-            draw_set_color(c_yellow);
+            ndraw_set_color(c_yellow);
             draw_text(
                 view_xview[0] + view_wview[0] - 32,
                 view_yview[0] + view_hview[0] - 48,
@@ -355,7 +355,7 @@ if (global.recordInputMode &gt; 0)
     }
 }
 
-draw_set_color(c_white);
+ndraw_set_color(c_white);
 </string>
           </argument>
         </arguments>

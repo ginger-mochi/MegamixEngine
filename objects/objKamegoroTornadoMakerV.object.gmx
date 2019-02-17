@@ -74,17 +74,17 @@
             <string>for (var i = 0; i &lt; abs(image_yscale); i += 1)
 {
     if (image_yscale &gt;= 1 &amp;&amp; i == image_yscale - 1)
-        draw_sprite_ext(sprite_index, 0, x, y + i * 16, image_xscale, 1, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprite_index, 0, x, y + i * 16, image_xscale, 1, image_angle, image_blend, image_alpha);
     if (image_yscale &gt;= 1 &amp;&amp; i &lt; image_yscale - 1)
-        draw_sprite_ext(sprite_index, 1, x, y + i * 16, image_xscale, 1, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprite_index, 1, x, y + i * 16, image_xscale, 1, image_angle, image_blend, image_alpha);
     if (image_yscale &lt;= -1 &amp;&amp; i &gt; 0)
-        draw_sprite_ext(sprite_index, 1, x, y + i * 16 - (abs(image_yscale) * 16) + 16, image_xscale, -1, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprite_index, 1, x, y + i * 16 - (abs(image_yscale) * 16) + 16, image_xscale, -1, image_angle, image_blend, image_alpha);
     if (image_yscale &lt;= -1 &amp;&amp; i == 0)
-        draw_sprite_ext(sprite_index, 0, x, y + i * 16 - (abs(image_yscale) * 16) + 16, image_xscale, -1, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprite_index, 0, x, y + i * 16 - (abs(image_yscale) * 16) + 16, image_xscale, -1, image_angle, image_blend, image_alpha);
     if (active &amp;&amp; image_yscale &gt;= 1)
-        draw_sprite(sprKamegoroTornadoSpawn, (attackTimer / 3) mod 2, x + 8, y + (image_yscale * 16) - 12);
+        ndraw_sprite(sprKamegoroTornadoSpawn, (attackTimer / 3) mod 2, x + 8, y + (image_yscale * 16) - 12);
     if (active &amp;&amp; image_yscale &lt;= -1)
-        draw_sprite(sprKamegoroTornadoSpawn, (attackTimer / 3) mod 2, x + 8, (y + 12) - (abs(image_yscale) * 16));
+        ndraw_sprite(sprKamegoroTornadoSpawn, (attackTimer / 3) mod 2, x + 8, (y + 12) - (abs(image_yscale) * 16));
 }
 </string>
           </argument>

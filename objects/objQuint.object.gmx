@@ -379,7 +379,7 @@ if (teleporting &amp;&amp; isFight)
         }
         
         // Done teleporting; play a little animation before giving Mega Man control
-        draw_sprite_ext(sprRushTeleport, teleportIndex, round(teleportX),
+        ndraw_sprite_ext(sprRushTeleport, teleportIndex, round(teleportX),
             round(view_yview[0] + teleportY - 24), image_xscale,
             image_yscale, image_angle, c_white, 1);
         if (teleportTimer == 2)
@@ -417,7 +417,7 @@ if (teleporting &amp;&amp; isFight)
     else
     {
         // Teleporting downwards
-        draw_sprite_ext(sprRushTeleport, teleportIndex, round(teleportX),
+        ndraw_sprite_ext(sprRushTeleport, teleportIndex, round(teleportX),
             round(view_yview[0] + teleportY - 24), image_xscale,
             image_yscale, image_angle, c_white, 1);
         if (entityCanStep())
@@ -429,7 +429,7 @@ if (teleporting &amp;&amp; isFight)
 
 if (phase == 0 &amp;&amp; isFight &amp;&amp; !teleporting)
 {
-    draw_sprite_ext(sprSakugarne, 1, round(teleportX), round(ystart),
+    ndraw_sprite_ext(sprSakugarne, 1, round(teleportX), round(ystart),
         image_xscale, image_yscale, image_angle, c_white, 1);
 }
 </string>

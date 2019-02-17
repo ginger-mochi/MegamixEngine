@@ -14,18 +14,18 @@ var opcode = buffer_read(gx,buffer_s8);
 switch opcode {
     case -1:
         return false;
-    case 1: ///*LOCAL*/ draw_sprite
+    case 1: ///*LOCAL*/ ndraw_sprite
         var spr    = dec_spr(buffer_read(gx,buffer_s16));
         var subimg = buffer_read(gx,buffer_u8);
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
         if exclude break;
-        /*LOCAL*/ draw_sprite(spr,
+        /*LOCAL*/ ndraw_sprite(spr,
                     subimg,
                     view_xview[0] + spr_x,
                     view_yview[0] + spr_y);
         break;
-    case 2: ///*LOCAL*/ draw_sprite_ext
+    case 2: ///*LOCAL*/ ndraw_sprite_ext
         var spr    = dec_spr(buffer_read(gx,buffer_s16));
         var subimg = buffer_read(gx,buffer_u8);
         var spr_x  = buffer_read(gx,buffer_s16);
@@ -36,7 +36,7 @@ switch opcode {
         var color  = buffer_read(gx,buffer_u32);
         var alpha  = buffer_read(gx,buffer_f32);
         if exclude break;
-        /*LOCAL*/ draw_sprite_ext(spr,
+        /*LOCAL*/ ndraw_sprite_ext(spr,
                     subimg,
                     view_xview[0] + spr_x,
                     view_yview[0] + spr_y,
@@ -46,7 +46,7 @@ switch opcode {
                     color,
                     alpha)
         break;
-    case 3: ///*LOCAL*/ draw_sprite_part
+    case 3: ///*LOCAL*/ ndraw_sprite_part
         var spr    = dec_spr(buffer_read(gx,buffer_s16));
         var subimg = buffer_read(gx,buffer_u8);
         var left   = buffer_read(gx,buffer_u16);
@@ -56,7 +56,7 @@ switch opcode {
         var spr_x  = buffer_read(gx,buffer_s16);
         var spr_y  = buffer_read(gx,buffer_s16);
         if exclude break;
-        /*LOCAL*/ draw_sprite_part(spr,
+        /*LOCAL*/ ndraw_sprite_part(spr,
                     subimg,
                     left,
                     top,
@@ -65,7 +65,7 @@ switch opcode {
                     view_xview[0] + spr_x,
                     view_yview[0] + spr_y)
         break;
-    case 4: ///*LOCAL*/ draw_sprite_part_ext
+    case 4: ///*LOCAL*/ ndraw_sprite_part_ext
         var spr    = dec_spr(buffer_read(gx,buffer_s16));
         var subimg = buffer_read(gx,buffer_u8);
         var left   = buffer_read(gx,buffer_u16);
@@ -79,7 +79,7 @@ switch opcode {
         var color  = buffer_read(gx,buffer_u32);
         var alpha  = buffer_read(gx,buffer_f32);
         if exclude break;
-        /*LOCAL*/ draw_sprite_part_ext(spr,
+        /*LOCAL*/ ndraw_sprite_part_ext(spr,
                     subimg,
                     left,
                     top,
@@ -101,17 +101,17 @@ switch opcode {
                   view_yview[0] + text_y,
                   text_string);
         break;
-    case 6: ///*LOCAL*/ draw_set_color
-        /*LOCAL*/ draw_set_color(buffer_read(gx,buffer_u32));
+    case 6: ///*LOCAL*/ ndraw_set_color
+        /*LOCAL*/ ndraw_set_color(buffer_read(gx,buffer_u32));
         break;
-    case 7: ///*LOCAL*/ draw_set_alpha
-        /*LOCAL*/ draw_set_alpha(buffer_read(gx,buffer_f32));
+    case 7: ///*LOCAL*/ ndraw_set_alpha
+        /*LOCAL*/ ndraw_set_alpha(buffer_read(gx,buffer_f32));
         break;
-    case 8: ///*LOCAL*/ draw_set_halign
-        /*LOCAL*/ draw_set_halign(buffer_read(gx,buffer_s8));
+    case 8: ///*LOCAL*/ ndraw_set_halign
+        /*LOCAL*/ ndraw_set_halign(buffer_read(gx,buffer_s8));
         break;
-    case 9: ///*LOCAL*/ draw_set_valign
-        /*LOCAL*/ draw_set_valign(buffer_read(gx,buffer_s8));
+    case 9: ///*LOCAL*/ ndraw_set_valign
+        /*LOCAL*/ ndraw_set_valign(buffer_read(gx,buffer_s8));
         break;
     case 10: ///*LOCAL*/ draw_rectangles
         var rec_x1 = buffer_read(gx,buffer_s16);
@@ -156,7 +156,7 @@ switch opcode {
         for (j=0;j<loc_player_count;j += 1) {
             if loc_forwardControl_ids[j] == player_id {
                 for (var i=0;i<4;i++) {
-                    /*LOCAL*/ draw_sprite_part_ext(
+                    /*LOCAL*/ ndraw_sprite_part_ext(
                         spr,i,
                         1+(floor(spriteX)*(SquareSize+3)),
                         1+(floor(spriteY)*(SquareSize+3)),

@@ -266,13 +266,13 @@ var _y = js_center_y + view_yview[0];
 var _js_null_radius = _height * js_null_radius_frac;
 var _js_drag_radius = _height * js_drag_radius_frac;
 
-draw_set_color(c_white);
-draw_set_alpha(0.4);
+ndraw_set_color(c_white);
+ndraw_set_alpha(0.4);
 
 draw_circle(_x, _y, _js_drag_radius, false);
 draw_circle(_x, _y, _js_null_radius, false);
 
-draw_set_alpha(10);
+ndraw_set_alpha(10);
 </string>
           </argument>
         </arguments>

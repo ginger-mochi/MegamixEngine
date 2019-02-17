@@ -468,7 +468,7 @@ destroyDelay = 0;
     {
         for (var z = 0; z &lt; ysc; z++)
         {
-            draw_sprite_ext(sprite_index, image_index,
+            ndraw_sprite_ext(sprite_index, image_index,
                 x + i * sprite_get_width(sprite_index),
                 y + z * sprite_get_height(sprite_index),
                 1, 1, image_angle, image_blend, image_alpha);

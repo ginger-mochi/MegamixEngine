@@ -106,7 +106,7 @@ if (entityCanStep())
             imgIndex = (i mod 2 == 0);
         }
         
-        draw_sprite_ext(sprite_index, imgIndex, x, y + (i * 16), 1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprite_index, imgIndex, x, y + (i * 16), 1, 1, 0, c_white, 1);
     }
 }
 </string>

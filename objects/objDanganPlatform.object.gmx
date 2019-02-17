@@ -93,7 +93,7 @@ if (!global.frozen &amp;&amp; !dead &amp;&amp; !global.timeStopped)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index, image_index, floor(x), floor(y), 1, image_yscale, image_angle, image_blend, image_alpha);
+            <string>ndraw_sprite_ext(sprite_index, image_index, floor(x), floor(y), 1, image_yscale, image_angle, image_blend, image_alpha);
 </string>
           </argument>
         </arguments>

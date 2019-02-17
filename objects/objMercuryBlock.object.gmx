@@ -142,7 +142,7 @@ if (superArmFlashTimer mod (2 * superArmFlashInterval) &gt;= superArmFlashInterv
     draw_set_blend_mode(bm_add);
     drawSelf();
     draw_set_blend_mode(bm_normal);
-    draw_set_alpha(1);
+    ndraw_set_alpha(1);
 }
 </string>
           </argument>

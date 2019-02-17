@@ -882,14 +882,14 @@ if(key != -1 &amp;&amp; !press)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white);
+            <string>ndraw_set_color(c_white);
 
 // center display on non-standard resolutions
 drawXPosition = view_xview[0] + view_wview[0] / 2 - 128;
 drawYPosition = view_yview[0] + view_hview[0] / 2 - 112;
 
 // draw menu bg
-draw_sprite(sprite_index, 0, drawXPosition, drawYPosition);
+ndraw_sprite(sprite_index, 0, drawXPosition, drawYPosition);
 
 // animate cursor
 cursorImgIndex += cursorImgSpd;
@@ -899,7 +899,7 @@ if (cursorImgIndex &gt;= 5)
 }
 
 // draw cursor
-draw_sprite(sprOptionsCursor, cursorImgIndex, drawXPosition + 34, drawYPosition + 52 + (option) * 14 - (optionOffset) * 14);
+ndraw_sprite(sprOptionsCursor, cursorImgIndex, drawXPosition + 34, drawYPosition + 52 + (option) * 14 - (optionOffset) * 14);
 
 // animate arrows
 arrowBlinkTimer -= 1;
@@ -910,8 +910,8 @@ if (arrowBlinkTimer == 0)
 }
 
 // draw arrows
-draw_set_halign(fa_middle);
-draw_set_valign(fa_middle);
+ndraw_set_halign(fa_middle);
+ndraw_set_valign(fa_middle);
 
 if (optionOffset == 0)
 {
@@ -919,7 +919,7 @@ if (optionOffset == 0)
 }
 else if (showArrow)
 {
-    draw_sprite(sprArrow, 2, drawXPosition + 128, drawYPosition + 42);
+    ndraw_sprite(sprArrow, 2, drawXPosition + 128, drawYPosition + 42);
 }
 
 if (optionOffset == array_length_1d(optionText) - visibleOptions)
@@ -928,12 +928,12 @@ if (optionOffset == array_length_1d(optionText) - visibleOptions)
 }
 else if (showArrow)
 {
-    draw_sprite(sprArrow, 3, drawXPosition + 128, drawYPosition + 182);
+    ndraw_sprite(sprArrow, 3, drawXPosition + 128, drawYPosition + 182);
 }
 
 // draw options
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_top);
 for (var j = 0; j &lt; visibleOptions; j++)
 {
     draw_text_ext(drawXPosition + 48, drawYPosition + 52 + j * 14, optionText[optionOffset + j], 14, 256);
@@ -1175,15 +1175,15 @@ for (var j = 0; j &lt; visibleOptions; j++)
     opt += '#';
 }
 
-draw_set_halign(fa_right);
+ndraw_set_halign(fa_right);
 draw_text_ext(drawXPosition + 224, drawYPosition + 52, opt, 14, 256);
 
 
 // draw configure controls popup
 if (newControls)
 {
-    draw_sprite(sprControlconfigureScreen, 0, drawXPosition + 64, drawYPosition + 64);
-    draw_set_halign(fa_center);
+    ndraw_sprite(sprControlconfigureScreen, 0, drawXPosition + 64, drawYPosition + 64);
+    ndraw_set_halign(fa_center);
     if(newControls == 1)
         draw_text(drawXPosition + 128, drawYPosition + 88, 'PRESS KEY FOR');
     else
@@ -1196,13 +1196,13 @@ if (newControls)
 // colored text overlays
 if (global.showColoredTextOverlays)
 {
-    draw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
-    draw_set_alpha(global.coloredTextOverlaysOpacity / 255);
+    ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
+    ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
     draw_rectangle(drawXPosition + 28, drawYPosition + 36, drawXPosition + view_wview[0] - 28, drawYPosition + view_hview[0] - 36, false);
     
-    draw_set_color(c_white);
-    draw_set_alpha(1);
+    ndraw_set_color(c_white);
+    ndraw_set_alpha(1);
 }
 </string>
           </argument>

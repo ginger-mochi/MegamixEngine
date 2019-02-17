@@ -294,7 +294,7 @@ if (instance_exists(birdInstanceStore))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprJetEgg, 0, x, y);
+            <string>ndraw_sprite(sprJetEgg, 0, x, y);
 
 // this code controls the drawing of its jet flame
 
@@ -302,11 +302,11 @@ if (drawFlame == 1)
 {
     if (targetLeft == 0)
     {
-        draw_sprite_ext(sprEggFlame, flameIndex, x - 12, y, 1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprEggFlame, flameIndex, x - 12, y, 1, 1, 0, c_white, 1);
     }
     else
     {
-        draw_sprite_ext(sprEggFlame, flameIndex, x + 13, y, -1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprEggFlame, flameIndex, x + 13, y, -1, 1, 0, c_white, 1);
     }
 }
 </string>

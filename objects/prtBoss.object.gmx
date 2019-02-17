@@ -880,7 +880,7 @@ else if (cutsceneTimer == 20)
         }
         else // Hitspark
         {
-            draw_sprite_ext(sprHitspark, 0, spriteGetXCenter(), spriteGetYCenter(), 1, 1, 0, c_white, 1);
+            ndraw_sprite_ext(sprHitspark, 0, spriteGetXCenter(), spriteGetYCenter(), 1, 1, 0, c_white, 1);
         }
     }
 }

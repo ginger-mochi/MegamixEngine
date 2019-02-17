@@ -200,7 +200,7 @@ if (!global.frozen &amp;&amp; !global.timeStopped)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sprite_index, (image_number - 1) * (1 - global.flag[myFlag]), x, y);
+            <string>ndraw_sprite(sprite_index, (image_number - 1) * (1 - global.flag[myFlag]), x, y);
 </string>
           </argument>
         </arguments>

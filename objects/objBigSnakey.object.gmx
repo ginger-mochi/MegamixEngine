@@ -161,7 +161,7 @@ if (iFrames == 1 || iFrames == 3)
 drawSelf();
 if (floor(blink) &gt; 0)
 {
-    draw_sprite_ext(sprite_index, 1 + floor(blink) - (floor(blink / 3) * 2),
+    ndraw_sprite_ext(sprite_index, 1 + floor(blink) - (floor(blink / 3) * 2),
         round(x), round(y), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
 }

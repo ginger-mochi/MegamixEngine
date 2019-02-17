@@ -359,7 +359,7 @@ if (dead) // when this miniboss is dead, restore objects unless otherwise told n
             <kind>1</kind>
             <string>if (grabbedObject)
 {
-    draw_sprite_ext(storeSprite, storeImageIndex, x + storeXOffset, y + storeYOffset, storeXScale, storeYScale, image_angle, image_blend, image_alpha);
+    ndraw_sprite_ext(storeSprite, storeImageIndex, x + storeXOffset, y + storeYOffset, storeXScale, storeYScale, image_angle, image_blend, image_alpha);
 }
 if (!(attackTimer == 0 &amp;&amp; phase == 0))
 {
@@ -367,7 +367,7 @@ if (!(attackTimer == 0 &amp;&amp; phase == 0))
 }
 
 // debug
-// draw_sprite(sprite_index,0,(view_xview + view_wview/2) + (shotsFired * 32) * (1-(shotsFired mod 2)*2),view_yview+32);
+// ndraw_sprite(sprite_index,0,(view_xview + view_wview/2) + (shotsFired * 32) * (1-(shotsFired mod 2)*2),view_yview+32);
 </string>
           </argument>
         </arguments>

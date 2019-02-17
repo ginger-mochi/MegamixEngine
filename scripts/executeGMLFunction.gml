@@ -183,8 +183,8 @@ else if (fname == "action_draw_rectangle")
     global.gml_fn_retval = action_draw_rectangle(a0, a1, a2, a3, a4);
 else if (fname == "action_draw_score")
     global.gml_fn_retval = action_draw_score(a0, a1, a2);
-else if (fname == "action_draw_sprite")
-    global.gml_fn_retval = action_draw_sprite(a0, a1, a2, a3)
+else if (fname == "action_ndraw_sprite")
+    global.gml_fn_retval = action_ndraw_sprite(a0, a1, a2, a3)
 else if (fname == "action_draw_text")
     global.gml_fn_retval = action_draw_text(a0, a1, a2);
 else if (fname == "action_draw_text_transformed")

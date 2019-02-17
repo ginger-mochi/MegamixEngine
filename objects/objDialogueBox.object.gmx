@@ -273,20 +273,20 @@ if (pos == 1)
 {
     ypos = view_yview + view_hview + 8 * boxOffset;
 }
-draw_sprite_part_ext(sprDialogueBox, 0, 0, 0, 48, 64, view_xview[0], ypos, 1, 1, image_blend, image_alpha); // mugshot section
-draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 1, 64, view_xview[0] + 48, ypos, view_wview[0] - 56, 1, image_blend, image_alpha); // content section
-draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 8, 64, view_xview[0] + view_wview[0] - 8, ypos, 1, 1, image_blend, image_alpha); // right border
+ndraw_sprite_part_ext(sprDialogueBox, 0, 0, 0, 48, 64, view_xview[0], ypos, 1, 1, image_blend, image_alpha); // mugshot section
+ndraw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 1, 64, view_xview[0] + 48, ypos, view_wview[0] - 56, 1, image_blend, image_alpha); // content section
+ndraw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 8, 64, view_xview[0] + view_wview[0] - 8, ypos, 1, 1, image_blend, image_alpha); // right border
 
-draw_sprite_part(sprDialogueBox, 0, 1, 4, 2, 4, view_xview + 4 + (floor(offset / 8) mod 10) * 2, ypos + 4); // moving light
+ndraw_sprite_part(sprDialogueBox, 0, 1, 4, 2, 4, view_xview + 4 + (floor(offset / 8) mod 10) * 2, ypos + 4); // moving light
 
 // text
 if (showtext)
 {
-    draw_sprite_part(sprite_index, -1, 0, 0, 32, 32, view_xview[0] + 5, ypos + 18);
+    ndraw_sprite_part(sprite_index, -1, 0, 0, 32, 32, view_xview[0] + 5, ypos + 18);
     
-    draw_set_halign(fa_left);
-    draw_set_valign(fa_left);
-    draw_set_color(c_white);
+    ndraw_set_halign(fa_left);
+    ndraw_set_valign(fa_left);
+    ndraw_set_color(c_white);
     
     if (string_length(name)) // Draw name
     {
@@ -382,21 +382,21 @@ if (showtext)
         {
             for (i = 1; i &lt;= optionCount; i += 1)
             {
-                draw_sprite_part_ext(sprDialogueOptionBox, 0, 0, 0, 8, 18, view_xview[0], ypos + 45 + 18 * i, 1, 1, image_blend, image_alpha);
-                draw_sprite_part_ext(sprDialogueOptionBox, 0, 8, 0, 8, 18, view_xview[0] + 8, ypos + 45 + 18 * i, (view_wview[0] / 8) - 2, 1, image_blend, image_alpha);
-                draw_sprite_part_ext(sprDialogueOptionBox, 0, 16, 0, 8, 18, view_xview[0] + view_wview - 8, ypos + 45 + 18 * i, 1, 1, image_blend, image_alpha);
+                ndraw_sprite_part_ext(sprDialogueOptionBox, 0, 0, 0, 8, 18, view_xview[0], ypos + 45 + 18 * i, 1, 1, image_blend, image_alpha);
+                ndraw_sprite_part_ext(sprDialogueOptionBox, 0, 8, 0, 8, 18, view_xview[0] + 8, ypos + 45 + 18 * i, (view_wview[0] / 8) - 2, 1, image_blend, image_alpha);
+                ndraw_sprite_part_ext(sprDialogueOptionBox, 0, 16, 0, 8, 18, view_xview[0] + view_wview - 8, ypos + 45 + 18 * i, 1, 1, image_blend, image_alpha);
                 draw_text(view_xview[0] + 19, ypos + 51 + 18 * i, optionText[i - 1]);
             }
             
-            draw_sprite(sprOptionsCursor, offset * 0.2, view_xview[0] + 9, ypos + 51 + 18 * (optionPos + 1));
+            ndraw_sprite(sprOptionsCursor, offset * 0.2, view_xview[0] + 9, ypos + 51 + 18 * (optionPos + 1));
         }
     }
     
     // colored text overlays
     if (global.showColoredTextOverlays)
     {
-        draw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
-        draw_set_alpha(global.coloredTextOverlaysOpacity / 255);
+        ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
+        ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
         
         draw_rectangle(view_xview[0] + 38, ypos, view_xview[0] + view_wview[0], ypos + 62, false); // main text
         
@@ -405,8 +405,8 @@ if (showtext)
             draw_rectangle(view_xview[0], ypos + 45 + 18, view_xview[0] + view_wview[0], ypos + 45 + 17 + 18 * optionCount, false); // dialogue options
         }
         
-        draw_set_color(c_white);
-        draw_set_alpha(1);
+        ndraw_set_color(c_white);
+        ndraw_set_alpha(1);
     }
 }
 </string>

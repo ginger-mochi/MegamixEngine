@@ -364,13 +364,13 @@ event_inherited();
             }
             else
             {
-                draw_sprite_ext(sprite_index, image_index, round(x), round(y + cos(+degtorad(cAngle)) * cDistance),
+                ndraw_sprite_ext(sprite_index, image_index, round(x), round(y + cos(+degtorad(cAngle)) * cDistance),
                     image_xscale, image_yscale, image_angle, image_blend, image_alpha);
             }
         }
         else // Hitspark
         {
-            draw_sprite_ext(sprHitspark, 0, spriteGetXCenter(), spriteGetYCenter(), 1, 1, 0, c_white, 1);
+            ndraw_sprite_ext(sprHitspark, 0, spriteGetXCenter(), spriteGetYCenter(), 1, 1, 0, c_white, 1);
         }
     }
 }

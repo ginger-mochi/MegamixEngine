@@ -381,12 +381,12 @@ if (phase == 2 &amp;&amp; !selected)
           <argument>
             <kind>1</kind>
             <string>// draw bg
-draw_set_color(c_black);
+ndraw_set_color(c_black);
 draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], false);
 
 // draw cursor
-draw_set_color(c_white);
-draw_sprite(sprOptionsCursor, cursorImgIndex, view_xview[0] + 6, view_yview[0] + 8 + option * 12);
+ndraw_set_color(c_white);
+ndraw_sprite(sprOptionsCursor, cursorImgIndex, view_xview[0] + 6, view_yview[0] + 8 + option * 12);
 
 // animate cursor
 cursorImgIndex += cursorImgSpd;
@@ -396,8 +396,8 @@ if (cursorImgIndex &gt;= 5)
 }
 
 // draw options
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_top);
 for (var j = 0; j &lt; array_length_1d(optionText); j++)
 {
     draw_text_ext(view_xview[0] + 16, view_yview[0] + 8 + j * 12, optionText[j], 12, 256);
@@ -443,37 +443,37 @@ for (var j = 0; j &lt; array_length_1d(optionText); j++)
     opt += "#";
 }
 
-draw_set_halign(fa_right);
+ndraw_set_halign(fa_right);
 draw_text_ext(view_xview[0] + 230, view_yview[0] + 8, opt, 12, 256);
 
 // demo text
-draw_set_halign(fa_left);
+ndraw_set_halign(fa_left);
 
 draw_text_ext(view_xview[0] + 8, view_yview[0] + 84 + 8, "This is meant to aid people who suffer from Visual Stress, who have a hard time reading text. Adjust the color until the text is easier to read.", 8, 240);
 
-draw_sprite_part_ext(sprDialogueBox, 0, 0, 0, 48, 64, view_xview[0], view_yview[0] + 148, 1, 1, image_blend, image_alpha); // mugshot section
-draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 1, 64, view_xview[0] + 48, view_yview[0] + 148, view_wview[0] - 56, 1, image_blend, image_alpha); // content section
-draw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 8, 64, view_xview[0] + view_wview[0] - 8, view_yview[0] + 148, 1, 1, image_blend, image_alpha); // right border
+ndraw_sprite_part_ext(sprDialogueBox, 0, 0, 0, 48, 64, view_xview[0], view_yview[0] + 148, 1, 1, image_blend, image_alpha); // mugshot section
+ndraw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 1, 64, view_xview[0] + 48, view_yview[0] + 148, view_wview[0] - 56, 1, image_blend, image_alpha); // content section
+ndraw_sprite_part_ext(sprDialogueBox, 0, 48, 0, 8, 64, view_xview[0] + view_wview[0] - 8, view_yview[0] + 148, 1, 1, image_blend, image_alpha); // right border
 
-draw_sprite_part(sprDialogueBox, 0, 1, 4, 2, 4, view_xview[0] + 4 + (floor(dialogueBoxLightOffset / 8) mod 10) * 2, view_yview[0] + 148 + 4); // moving light
+ndraw_sprite_part(sprDialogueBox, 0, 1, 4, 2, 4, view_xview[0] + 4 + (floor(dialogueBoxLightOffset / 8) mod 10) * 2, view_yview[0] + 148 + 4); // moving light
 dialogueBoxLightOffset++;
 
-// draw_sprite(sprDialogueBox, 0, view_xview[0], view_yview[0] + 148);
-draw_sprite(sprMugshots, 0, view_xview[0] + 5, view_yview[0] + 148 + 18);
+// ndraw_sprite(sprDialogueBox, 0, view_xview[0], view_yview[0] + 148);
+ndraw_sprite(sprMugshots, 0, view_xview[0] + 5, view_yview[0] + 148 + 18);
 
 
 draw_text_color(view_xview[0] + 43, view_yview[0] + 148 + 6, "Developer", global.nesPalette[31], global.nesPalette[31], global.nesPalette[31], global.nesPalette[31], 1);
 draw_text_ext(view_xview[0] + 43, view_yview[0] + 148 + 19, "This is meant to aid people who suffer from Visual Stress, who have a hard time reading text.", 8, 208);
 
 // colored text overlays
-draw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
-draw_set_alpha(global.coloredTextOverlaysOpacity / 255);
+ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
+ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
 
 draw_rectangle(view_xview[0], view_yview[0] + 84, view_xview[0] + view_wview[0], view_yview[0] + 140, false);
 draw_rectangle(view_xview[0] + 38, view_yview[0] + 148, view_xview[0] + 256, view_yview[0] + 148 + 63, false);
 
-draw_set_color(c_white);
-draw_set_alpha(1);
+ndraw_set_color(c_white);
+ndraw_set_alpha(1);
 </string>
           </argument>
         </arguments>

@@ -104,14 +104,14 @@ autoDieTime = 60 * 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_black);
+            <string>ndraw_set_color(c_black);
 storealpha = draw_get_alpha();
-draw_set_alpha(image_alpha);
+ndraw_set_alpha(image_alpha);
 
 draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
     view_yview + view_hview + 1, false);
 
-draw_set_alpha(storealpha);
+ndraw_set_alpha(storealpha);
 </string>
           </argument>
         </arguments>

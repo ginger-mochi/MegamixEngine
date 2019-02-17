@@ -234,19 +234,19 @@ if (introTimer &lt;= 0)
 {
     if (!killed)
     {
-        draw_sprite_ext(sprSharkSubmarineTailJet, jetIndex,
+        ndraw_sprite_ext(sprSharkSubmarineTailJet, jetIndex,
             x + 49 * image_xscale, round(y) - 45 * image_yscale, image_xscale,
             image_yscale, image_angle, image_blend, image_alpha);
-        draw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
+        ndraw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
             x - 10 * image_xscale, round(y) + 61 * image_yscale, image_xscale,
             image_yscale, image_angle, image_blend, image_alpha);
-        draw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
+        ndraw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
             x - 18 * image_xscale, round(y) + 45 * image_yscale, image_xscale,
             image_yscale, image_angle, image_blend, image_alpha);
-        draw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
+        ndraw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
             x + 77 * image_xscale, round(y) - 78 * image_yscale, image_xscale,
             image_yscale, image_angle, image_blend, image_alpha);
-        draw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
+        ndraw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
             x + 85 * image_xscale, round(y) - 101 * image_yscale, image_xscale,
             image_yscale, image_angle, image_blend, image_alpha);
     }
@@ -254,13 +254,13 @@ if (introTimer &lt;= 0)
     {
         if (!instance_exists(hatch1))
         {
-            draw_sprite_ext(sprSharkSubmarineBodyHatch, 3,
+            ndraw_sprite_ext(sprSharkSubmarineBodyHatch, 3,
                 x + 18 * image_xscale, round(y) + 49 * image_yscale,
                 image_xscale, image_yscale, image_angle, image_blend, image_alpha);
         }
         if (!instance_exists(hatch2))
         {
-            draw_sprite_ext(sprSharkSubmarineBodyHatch, 3,
+            ndraw_sprite_ext(sprSharkSubmarineBodyHatch, 3,
                 x + 208 * image_xscale, round(y) + 49 * image_yscale,
                 image_xscale, image_yscale, image_angle, image_blend, image_alpha);
         }
@@ -269,13 +269,13 @@ if (introTimer &lt;= 0)
     {
         if (!instance_exists(hatch1))
         {
-            draw_sprite_ext(sprSharkSubmarineBodyHatch, 0,
+            ndraw_sprite_ext(sprSharkSubmarineBodyHatch, 0,
                 x + 18 * image_xscale, round(y) + 49 * image_yscale,
                 image_xscale, image_yscale, image_angle, image_blend, image_alpha);
         }
         if (!instance_exists(hatch2))
         {
-            draw_sprite_ext(sprSharkSubmarineBodyHatch, 0,
+            ndraw_sprite_ext(sprSharkSubmarineBodyHatch, 0,
                 x + 208 * image_xscale, round(y) + 49 * image_yscale,
                 image_xscale, image_yscale, image_angle, image_blend, image_alpha);
         }
@@ -283,23 +283,23 @@ if (introTimer &lt;= 0)
 }
 else
 {
-    draw_sprite_ext(sprSharkSubmarineTailJet, jetIndex,
+    ndraw_sprite_ext(sprSharkSubmarineTailJet, jetIndex,
         x + 49 * image_xscale, round(y) - 45 * image_yscale, image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);
-    draw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
+    ndraw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
         x - 10 * image_xscale, round(y) + 61 * image_yscale, image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);
-    draw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
+    ndraw_sprite_ext(sprSharkSubmarineWingJet, jetIndex,
         x - 18 * image_xscale, round(y) + 45 * image_yscale, image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);
-    draw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
+    ndraw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
         x + 77 * image_xscale, round(y) - 78 * image_yscale, image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);
-    draw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
+    ndraw_sprite_ext(sprSharkSubmarineUpperJet, jetIndex,
         x + 85 * image_xscale, round(y) - 101 * image_yscale, image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);

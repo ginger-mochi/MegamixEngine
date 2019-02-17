@@ -328,7 +328,7 @@ if (introDone == true)
     }
     
     // Right Arm
-    draw_sprite_ext(sprChangkeyDragonLimbs, 0, (x - 22 * image_xscale) + floor(image_xscale * ox), (y + 10) + floor(oy), image_xscale, image_yscale, image_angle,
+    ndraw_sprite_ext(sprChangkeyDragonLimbs, 0, (x - 22 * image_xscale) + floor(image_xscale * ox), (y + 10) + floor(oy), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
     
     // Right Leg
@@ -341,7 +341,7 @@ if (introDone == true)
         oy = -2;
     }
     
-    draw_sprite_ext(sprChangkeyDragonLimbs, 2, (x - 89 * image_xscale) + floor(image_xscale * ox), (y + 18) + floor(oy), image_xscale, image_yscale, image_angle,
+    ndraw_sprite_ext(sprChangkeyDragonLimbs, 2, (x - 89 * image_xscale) + floor(image_xscale * ox), (y + 18) + floor(oy), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
     
     // Body
@@ -366,7 +366,7 @@ if (introDone == true)
         oy = -2;
     }
     
-    draw_sprite_ext(sprChangkeyDragonLimbs, 1, (x - 42 * image_xscale) + floor(image_xscale * ox), (y + 6) + floor(oy), image_xscale, image_yscale, image_angle,
+    ndraw_sprite_ext(sprChangkeyDragonLimbs, 1, (x - 42 * image_xscale) + floor(image_xscale * ox), (y + 6) + floor(oy), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
     
     // Left Leg
@@ -378,7 +378,7 @@ if (introDone == true)
         oy = -2;
     }
     
-    draw_sprite_ext(sprChangkeyDragonLimbs, 3, (x - 110 * image_xscale) + floor(image_xscale * ox), (y + 20) + floor(oy), image_xscale, image_yscale, image_angle,
+    ndraw_sprite_ext(sprChangkeyDragonLimbs, 3, (x - 110 * image_xscale) + floor(image_xscale * ox), (y + 20) + floor(oy), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
     
     // Draw eyes
@@ -390,22 +390,22 @@ if (introDone == true)
         if (changkeyNumber &lt;= 3)
             frame = 3;
         
-        draw_sprite_ext(sprChangkeyDragonEyes, frame, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprChangkeyDragonEyes, frame, x, y, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
     }
     else //if ((iFrames &gt; 0) || (dead))
     {
-        draw_sprite_ext(sprChangkeyDragonEyes, 2, x, y, image_xscale, image_yscale, image_angle,
+        ndraw_sprite_ext(sprChangkeyDragonEyes, 2, x, y, image_xscale, image_yscale, image_angle,
             image_blend, image_alpha);
     }
 }
 else // Intro animation
 {
-    draw_sprite_ext(sprChangkeyDragonEyes, 0, round(x), round(y), image_xscale, image_yscale, image_angle,
+    ndraw_sprite_ext(sprChangkeyDragonEyes, 0, round(x), round(y), image_xscale, image_yscale, image_angle,
         image_blend, image_alpha);
-    draw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale,
+    ndraw_sprite_ext(sprite_index, -1, round(x), round(y), image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30));
-    draw_sprite_ext(sprChangkeyDragonEyes, 1, round(x), round(y), image_xscale,
+    ndraw_sprite_ext(sprChangkeyDragonEyes, 1, round(x), round(y), image_xscale,
         image_yscale, image_angle, image_blend,
         1 - ((floor(introTimer / (30 / 2)) * (30 / 2)) / 30));
 }

@@ -326,7 +326,7 @@ iFrames = max(1, hitInvun);
                 }
                 
                 d3d_set_fog(true, flashcol, 0, 0);
-                draw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
+                ndraw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
                     headShark.image_xscale, headShark.image_yscale,
                     image_angle, image_blend, image_alpha);
                 d3d_set_fog(false, 0, 0, 0);
@@ -334,7 +334,7 @@ iFrames = max(1, hitInvun);
                 if (iceTimer &gt; 0 &amp;&amp; (iceTimer &gt; iceBlinkTime || (iceTimer &lt;= iceBlinkTime &amp;&amp; iceTimer mod 4 == 0)))
                 {
                     draw_set_blend_mode(bm_add);
-                    draw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
+                    ndraw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
                         headShark.image_xscale, headShark.image_yscale,
                         image_angle, image_blend, image_alpha);
                     draw_set_blend_mode(bm_normal);
@@ -342,7 +342,7 @@ iFrames = max(1, hitInvun);
             }
             else
             {
-                draw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
+                ndraw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
                     headShark.image_xscale, headShark.image_yscale,
                     image_angle, image_blend, image_alpha);
             }
@@ -350,7 +350,7 @@ iFrames = max(1, hitInvun);
     }
     else
     {
-        draw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
+        ndraw_sprite_ext(sprSharkSubmarineCannon, cannonIndex, x, round(y),
             headShark.image_xscale, headShark.image_yscale, image_angle, image_blend,
             1 - ((floor(parent.introTimer / (30 / 2)) * (30 / 2)) / 30) / 2);
     }

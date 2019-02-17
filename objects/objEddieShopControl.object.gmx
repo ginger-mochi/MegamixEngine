@@ -644,10 +644,10 @@ else
 draw_self();
 
 draw_set_font(global.font);
-draw_set_color(c_white);
-draw_set_halign(fa_center);
+ndraw_set_color(c_white);
+ndraw_set_halign(fa_center);
 
-draw_sprite(sprLargeBolt, 0, 1311, 322);
+ndraw_sprite(sprLargeBolt, 0, 1311, 322);
 v = string(myBolts);
 repeat (4 - string_length(v))
 {
@@ -669,12 +669,12 @@ if (inShop)
     // row 1 images + prices
     if (global.eTanks &gt;= 9)
     {
-        draw_sprite_ext(sprETankGrey, 0, optionTableX[1], optionTableY[1], 1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprETankGrey, 0, optionTableX[1], optionTableY[1], 1, 1, 0, c_white, 1);
         draw_text(optionTableX[1] + 8, optionTableY[1] + 16 + 4, "SOLD");
     }
     else
     {
-        draw_sprite_ext(sprETank, 0, optionTableX[1], optionTableY[1], 1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprETank, 0, optionTableX[1], optionTableY[1], 1, 1, 0, c_white, 1);
         draw_text(optionTableX[1] + 8, optionTableY[1] + 16 + 4, string(priceTable[1]));
     }
     
@@ -682,24 +682,24 @@ if (inShop)
     {
         if (optionTableVariable[i] &gt;= 1)
         {
-            draw_sprite_ext(optionTableImageBought[i], optionTableImageIndexBought[i], optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
+            ndraw_sprite_ext(optionTableImageBought[i], optionTableImageIndexBought[i], optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
             draw_text(optionTableX[i] + 8, optionTableY[i] + 16 + 4, "SOLD");
             
             if ((i == 3 &amp;&amp; global.disableChargeUpgrade) || (i == 4 &amp;&amp; global.disableDropUpgrade) || (i == 5 &amp;&amp; global.disableShotUpgrade)
                 || (i == 6 &amp;&amp; global.disableSkullAmulet) || (i == 7 &amp;&amp; global.disableSturdyHelmet) || (i == 8 &amp;&amp; global.disableConverter))
             {
-                draw_sprite_ext(sprUpgrades, 8, optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
+                ndraw_sprite_ext(sprUpgrades, 8, optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
             }
         }
         else
         {
-            draw_sprite_ext(optionTableImageInStock[i], optionTableImageIndexInStock[i], optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
+            ndraw_sprite_ext(optionTableImageInStock[i], optionTableImageIndexInStock[i], optionTableX[i], optionTableY[i], 1, 1, 0, c_white, 1);
             draw_text(optionTableX[i] + 8, optionTableY[i] + 16 + 4, string(priceTable[i]));
         }
     }
     
     // cursor
-    draw_sprite_ext(sprShopCursor, cursorImageIndex, optionTableX[option], optionTableY[option], 1, 1, 0, c_white, 1);
+    ndraw_sprite_ext(sprShopCursor, cursorImageIndex, optionTableX[option], optionTableY[option], 1, 1, 0, c_white, 1);
 }
 </string>
           </argument>

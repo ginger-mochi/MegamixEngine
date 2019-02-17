@@ -677,7 +677,7 @@ for (var i = 0; i &lt; array_length_1d(controllerTargets); i++)
         var lastFrame = crosshairFrame[i];
         crosshairFrame[i] = min(img, crosshairFrame[i] + 0.4);
         
-        draw_sprite(sprHomingSniperCrosshair, floor(crosshairFrame[i]),
+        ndraw_sprite(sprHomingSniperCrosshair, floor(crosshairFrame[i]),
             bboxGetXCenterObject(controllerTargets[i]),
             bboxGetYCenterObject(controllerTargets[i]));
         

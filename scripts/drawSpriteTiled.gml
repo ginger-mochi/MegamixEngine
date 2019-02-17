@@ -9,7 +9,7 @@
 // argument3 = mid layer sprite tiles
 // argument4 = bottom layer sprite tiles
 // DRAW THE START SPOT TILE
-draw_sprite_ext(argument2, -1, x, y, 1, 1, 0, image_blend, image_alpha);
+ndraw_sprite_ext(argument2, -1, x, y, 1, 1, 0, image_blend, image_alpha);
 
 var i, j;
 
@@ -23,7 +23,7 @@ if (image_xscale > 1)
         
         //
         {
-            draw_sprite_ext(argument2, -1, x + (argument0 * i), y, 1, 1, 0,
+            ndraw_sprite_ext(argument2, -1, x + (argument0 * i), y, 1, 1, 0,
                 image_blend, image_alpha);
             
             // DRAW ALL Y ROW TILES EXCEPT THE FIRST
@@ -37,11 +37,11 @@ if (image_xscale > 1)
                         < view_yview + 240 + argument1) //
                     {
                         if (j == image_yscale - 1)
-                            draw_sprite_ext(argument4, -1, x + (argument0 * i),
+                            ndraw_sprite_ext(argument4, -1, x + (argument0 * i),
                                 y + (argument1 * j), 1, 1, 0, image_blend,
                                 image_alpha);
                         else
-                            draw_sprite_ext(argument3, -1, x + (argument0 * i),
+                            ndraw_sprite_ext(argument3, -1, x + (argument0 * i),
                                 y + (argument1 * j), 1, 1, 0, image_blend,
                                 image_alpha);
                     }
@@ -62,10 +62,10 @@ if (image_yscale > 1)
         //
         {
             if (i == image_yscale - 1)
-                draw_sprite_ext(argument4, -1, x, y + (argument1 * i), 1, 1, 0,
+                ndraw_sprite_ext(argument4, -1, x, y + (argument1 * i), 1, 1, 0,
                     image_blend, image_alpha);
             else
-                draw_sprite_ext(argument3, -1, x, y + (argument1 * i), 1, 1, 0,
+                ndraw_sprite_ext(argument3, -1, x, y + (argument1 * i), 1, 1, 0,
                     image_blend, image_alpha);
         }
     }

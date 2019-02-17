@@ -30,7 +30,7 @@ var SquareSize = 48;
 
 for (var i = 0; i < 4; i += 1)
 {
-    draw_sprite_part_ext(costume, i,
+    ndraw_sprite_part_ext(costume, i,
         1 + (floor(sheetX) * (SquareSize + 3)),
         1 + (floor(sheetY) * (SquareSize + 3)), SquareSize,
         SquareSize, round(_x) - (24 * _xscale),

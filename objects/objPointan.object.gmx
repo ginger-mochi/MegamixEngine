@@ -269,20 +269,20 @@ if (!dead &amp;&amp; phase == 1)
     var bottom = (prevY &gt;= y) * prevY + (prevY &lt; y) * y;
     var left = (prevX &lt; x) * prevX + (prevX &gt;= x) * x;
     var right = (prevX &gt;= x) * prevX + (prevX &lt; x) * x;
-    draw_sprite(sprPointanSelectionSquare, 0, left, top);
-    draw_sprite(sprPointanSelectionSquare, 2, left, bottom);
-    draw_sprite(sprPointanSelectionSquare, 4, right, bottom);
-    draw_sprite(sprPointanSelectionSquare, 6, right, top);
+    ndraw_sprite(sprPointanSelectionSquare, 0, left, top);
+    ndraw_sprite(sprPointanSelectionSquare, 2, left, bottom);
+    ndraw_sprite(sprPointanSelectionSquare, 4, right, bottom);
+    ndraw_sprite(sprPointanSelectionSquare, 6, right, top);
     
     for (var i = 1; i &lt; floor(width / 4); i += 1)
     {
-        draw_sprite(sprPointanSelectionSquare, 7, left + i * 4, top);
-        draw_sprite(sprPointanSelectionSquare, 3, left + i * 4, bottom);
+        ndraw_sprite(sprPointanSelectionSquare, 7, left + i * 4, top);
+        ndraw_sprite(sprPointanSelectionSquare, 3, left + i * 4, bottom);
     }
     for (var i = 1; i &lt; floor(height / 4); i += 1)
     {
-        draw_sprite(sprPointanSelectionSquare, 1, left, top + i * 4);
-        draw_sprite(sprPointanSelectionSquare, 5, right, top + i * 4);
+        ndraw_sprite(sprPointanSelectionSquare, 1, left, top + i * 4);
+        ndraw_sprite(sprPointanSelectionSquare, 5, right, top + i * 4);
     }
 }
 </string>

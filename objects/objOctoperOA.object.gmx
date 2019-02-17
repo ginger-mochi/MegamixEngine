@@ -404,7 +404,7 @@ if (iFrames == 1 || iFrames == 3)
 if (xscaleStorage &lt;= 0)
 {
     image_xscale = 1;
-    draw_sprite_part_ext(sprite_index, image_index, 0, 0, sprite_width,
+    ndraw_sprite_part_ext(sprite_index, image_index, 0, 0, sprite_width,
         sprite_height - yOffset, round(x - 56) + sprite_width,
         round(y - 64), -image_xscale, image_yscale, image_blend,
         image_alpha);
@@ -413,7 +413,7 @@ if (xscaleStorage &lt;= 0)
 else
 {
     image_xscale = 1;
-    draw_sprite_part_ext(sprite_index, image_index, 0, 0, sprite_width,
+    ndraw_sprite_part_ext(sprite_index, image_index, 0, 0, sprite_width,
         sprite_height - yOffset, round(x - 56), round(y - 64),
         image_xscale, image_yscale, image_blend, image_alpha);
 }

@@ -251,7 +251,7 @@ angle = 0;
 
 if (dir == "up")
 {
-    draw_sprite_part_ext(sprWaterPillar, timer / 4, 0, 0, 16, length,
+    ndraw_sprite_part_ext(sprWaterPillar, timer / 4, 0, 0, 16, length,
         round(x) + 8 - sprite_get_xoffset(sprWaterPillar),
         round(y) - length - sprite_get_yoffset(sprWaterPillar),
         image_xscale, image_yscale, image_blend, image_alpha);
@@ -262,7 +262,7 @@ if (dir == "down")
     Y = 16;
     xDir = -1;
     angle = 180;
-    draw_sprite_part_ext(sprWaterPillar, timer / 4, 0, 0, 16, length,
+    ndraw_sprite_part_ext(sprWaterPillar, timer / 4, 0, 0, 16, length,
         round(x) + 8 - sprite_get_xoffset(sprWaterPillar),
         round(y) + 16 + length, image_xscale, -image_yscale, image_blend,
         image_alpha);
@@ -273,7 +273,7 @@ if (dir == "left")
     Y = 0;
     xDir = -1;
     angle = 90;
-    draw_sprite_part_ext(sprWaterPillarH, timer / 4, 0, 0, length, 16,
+    ndraw_sprite_part_ext(sprWaterPillarH, timer / 4, 0, 0, length, 16,
         round(x) + 8 - length - sprite_get_xoffset(sprWaterPillar),
         round(y), image_xscale, image_yscale, image_blend, image_alpha);
 }
@@ -282,12 +282,12 @@ if (dir == "right")
     X = 16;
     Y = 0;
     angle = 270;
-    draw_sprite_part_ext(sprWaterPillarH, timer / 4, 0, 0, length, 16,
+    ndraw_sprite_part_ext(sprWaterPillarH, timer / 4, 0, 0, length, 16,
         round(x) + 16 + length, round(y), -image_xscale, image_yscale,
         image_blend, image_alpha);
 }
 
-draw_sprite_ext(sprWaterPump, timer / 4, round(x) + X, round(y) + Y,
+ndraw_sprite_ext(sprWaterPump, timer / 4, round(x) + X, round(y) + Y,
     image_xscale * xDir, image_yscale * yDir, angle, image_blend,
     image_alpha);
 </string>

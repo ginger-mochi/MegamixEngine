@@ -361,15 +361,15 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite_ext(sprite_index, 1 + clamp(jitterFrame, 0, 2 + mouthOpen), round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-draw_sprite_ext(sprite_index, 8 + clamp(rollerFrame, 0, 8), round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-draw_sprite_ext(sprite_index, 5 + clamp(wheelFrame, 0, 3), round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
-draw_sprite_ext(sprite_index, 4, round(x), round(y) - round(clamp(jitterFrame, 0, 2)), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+            <string>ndraw_sprite_ext(sprite_index, 1 + clamp(jitterFrame, 0, 2 + mouthOpen), round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+ndraw_sprite_ext(sprite_index, 8 + clamp(rollerFrame, 0, 8), round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+ndraw_sprite_ext(sprite_index, 5 + clamp(wheelFrame, 0, 3), round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+ndraw_sprite_ext(sprite_index, 4, round(x), round(y) - round(clamp(jitterFrame, 0, 2)), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 if (hasCutter)
-    draw_sprite_ext(sprite_index, 16 + cutterFrame mod 6, round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    ndraw_sprite_ext(sprite_index, 16 + cutterFrame mod 6, round(x), round(y) - (image_index - 2), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 if (yspeed &lt; 0)
 {
-    draw_sprite(sprMadGrinderJet, (attackTimer / 2) mod 2, round(x), round(y) + 32);
+    ndraw_sprite(sprMadGrinderJet, (attackTimer / 2) mod 2, round(x), round(y) + 32);
 }
 </string>
           </argument>
@@ -396,7 +396,7 @@ if (yspeed &lt; 0)
             <string>// handles stuff differently than the Puny Regular Enemies....
 if (introTimer &gt; 0 &amp;&amp; doesIntro)
 {
-    draw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
+    ndraw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
         y - max(introTimer - 10, 0) * image_yscale, image_xscale, image_yscale, 0, c_white, 1);
 }
 else

@@ -236,14 +236,14 @@ specialDamageValue("fire", 4);
         // regular grav
         if sign(image_yscale) == 1
         {
-            draw_sprite(sprite_index, -1,
+            ndraw_sprite(sprite_index, -1,
                 view_xview + view_wview - ((timer * 4 + i * 64) mod view_wview),
                 view_yview + ((timer * 4 + i * 128) mod view_hview));
         }
         // reverse grav
         else
         {
-            draw_sprite_ext(sprite_index, -1,
+            ndraw_sprite_ext(sprite_index, -1,
                 view_xview + view_wview - ((timer * 4 + i * 64) mod view_wview),
                 view_yview + view_hview - ((timer * 4 + i * 128) mod view_hview),
                 1, -1, image_angle, image_blend, image_alpha);

@@ -348,7 +348,7 @@ event_inherited();
             <string>event_inherited();
 if (flashTimer == floor(flashTimer / (60 * 7)) * (60 * 7) &amp;&amp; flashTimer &gt; 0)
 {
-    draw_set_color(c_white);
+    ndraw_set_color(c_white);
     draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
         view_yview + view_hview + 1, false);
 }

@@ -350,15 +350,15 @@ if (mode == 6)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_alpha(1);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
+            <string>ndraw_set_alpha(1);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_top);
 if room != rmNetOptions {
-    draw_set_color(c_black);
+    ndraw_set_color(c_black);
     draw_rectangle(view_xview[0],view_yview[0],view_xview[0] + view_wview[0],view_yview[0] + view_hview[0],false);
 }
 
-draw_set_color(c_white);
+ndraw_set_color(c_white);
 
 draw_x = 48 + view_xview[0];
 draw_y = 48 + view_yview[0];
@@ -369,25 +369,25 @@ if mode == 0 {
     for (var i=0;i&lt;opt_n;i+=1) {
         draw_text(draw_x,draw_y + 16*i, opts[i]);
         if sel_y == i
-            draw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*i)
+            ndraw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*i)
     }
 }
 
 if mode == 1 {
-    draw_set_halign(fa_left);
+    ndraw_set_halign(fa_left);
     draw_text(draw_x,draw_y,"TYPE CREDENTIALS:")
     draw_text(draw_x,draw_y+16,"NAME &gt; " + username_type)
     draw_text(draw_x,draw_y+32,"PASS &gt; " + string_repeat("*",string_length(password_type)))
     draw_text(draw_x,draw_y+48,"CONFIRM")
     draw_text(draw_x,draw_y+64,"CANCEL")
-    draw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*sel_y + 16)
+    ndraw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*sel_y + 16)
     
-    draw_set_halign(fa_center);
+    ndraw_set_halign(fa_center);
     draw_text(draw_mx,view_yview[0] + view_hview[0] - 80, checkstatus)
 }
 
 if mode == 5 || mode == 6 {
-    draw_set_halign(fa_left);
+    ndraw_set_halign(fa_left);
     if mode == 5
         draw_text(draw_x,draw_y,"SERVE KEYFWD SESSION")
     if mode == 6
@@ -396,7 +396,7 @@ if mode == 5 || mode == 6 {
     for (var i=0;i&lt;opt_n;i+=1) {
         draw_text(draw_x,draw_y+24 + 16*i,opts[i])
     }
-    draw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*sel_y + 24)
+    ndraw_sprite(sprOptionsCursor,0,draw_x - 12, draw_y + 16*sel_y + 24)
 }
 </string>
           </argument>

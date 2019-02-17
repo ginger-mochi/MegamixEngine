@@ -346,7 +346,7 @@ killed = true;
     exit;
 if (introTimer &gt; 0 &amp;&amp; doesIntro)
 {
-    draw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
+    ndraw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
         y - max(introTimer - 10, 0), image_xscale, image_yscale, 0, c_white, 1);
 }
 else

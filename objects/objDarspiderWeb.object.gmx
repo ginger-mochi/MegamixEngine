@@ -125,7 +125,7 @@ for (i = 0; i &lt; min(3, floor(dist / 16)); i++)
         si += 1;
     }
     
-    draw_sprite(sprDarspiderWeb, si, x, dy - (gravityDir * 3 + gravityDir * i * 16));
+    ndraw_sprite(sprDarspiderWeb, si, x, dy - (gravityDir * 3 + gravityDir * i * 16));
 }
 if (skipCount == 3)
 {

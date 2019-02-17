@@ -172,7 +172,7 @@ drew = 0;
 
 if (topblock &gt; 0)
 {
-    draw_sprite_part(sprite_index, image_index, 0, 0, sprite_width, topblock,
+    ndraw_sprite_part(sprite_index, image_index, 0, 0, sprite_width, topblock,
         x - sprite_xoffset, bbox_top);
     drew = 1;
     
@@ -196,13 +196,13 @@ if (topblock &gt; 0)
             }
             with(sparkblock)
             {
-            draw_sprite(sprMoleSpark, other.sparkindex, other.x, (bbox_top));
+            ndraw_sprite(sprMoleSpark, other.sparkindex, other.x, (bbox_top));
             }
     }
 }
 if (bottomBlock &gt; 0)
 {
-    draw_sprite_part(sprite_index, image_index, 0, sprite_height - bottomBlock,
+    ndraw_sprite_part(sprite_index, image_index, 0, sprite_height - bottomBlock,
         sprite_width, bottomBlock, x - sprite_xoffset,
         bbox_bottom - bottomBlock + 1);
     drew = 1;
@@ -227,7 +227,7 @@ if (bottomBlock &gt; 0)
        with(sparkblock)
             {
             
-        draw_sprite(sprMoleSpark, other.sparkindex, other.x, (bbox_bottom));
+        ndraw_sprite(sprMoleSpark, other.sparkindex, other.x, (bbox_bottom));
         }
     }
 }
@@ -236,11 +236,11 @@ if (!drew)
 {
     if (!touchblock)
     {
-        draw_sprite(sprite_index, image_index, x, y);
+        ndraw_sprite(sprite_index, image_index, x, y);
     }
     else if (centerTopBlock &gt; 0 || centerBottomBlock &gt; 0)
     {
-        draw_sprite_part(sprite_index, image_index, 0,
+        ndraw_sprite_part(sprite_index, image_index, 0,
             (bboxGetYCenter() - bbox_top) - centerTopBlock, sprite_width,
             centerBottomBlock + centerTopBlock - 1, x - sprite_xoffset,
             bboxGetYCenter() - centerTopBlock + 1);

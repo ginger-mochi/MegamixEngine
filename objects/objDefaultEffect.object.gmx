@@ -132,13 +132,13 @@ for (i = 0; i &lt; array_length_1d(sq); i += 1)
             xa = 1;
             ya = 0;
         }
-        draw_sprite_ext(sprDot, 0, view_xview + xs, view_yview + ys, 16, 16,
+        ndraw_sprite_ext(sprDot, 0, view_xview + xs, view_yview + ys, 16, 16,
             image_angle, global.nesPalette[12], image_alpha);
-        draw_sprite_ext(sprDot, 0, view_xview + xs + 1, view_yview + ys + 1,
+        ndraw_sprite_ext(sprDot, 0, view_xview + xs + 1, view_yview + ys + 1,
             14, 14, image_angle, background_colour, image_alpha);
         
-        // draw_sprite_ext(sprDot,0,view_xview+xs+(-2+(dir=-1)*19)*xa,view_yview+ys+(-2+(dir=-1)*19)*ya,max(ya*16,1),max(xa*16,1),image_angle,global.nesPalette[12],image_alpha);
-        // draw_sprite_ext(sprDot,0,view_xview+xs+(-5+(dir=-1)*25)*xa,view_yview+ys+(-5+(dir=-1)*25)*ya,max(ya*16,1),max(xa*16,1),image_angle,global.nesPalette[12],image_alpha);
+        // ndraw_sprite_ext(sprDot,0,view_xview+xs+(-2+(dir=-1)*19)*xa,view_yview+ys+(-2+(dir=-1)*19)*ya,max(ya*16,1),max(xa*16,1),image_angle,global.nesPalette[12],image_alpha);
+        // ndraw_sprite_ext(sprDot,0,view_xview+xs+(-5+(dir=-1)*25)*xa,view_yview+ys+(-5+(dir=-1)*25)*ya,max(ya*16,1),max(xa*16,1),image_angle,global.nesPalette[12],image_alpha);
     }
     
     dir *= -1;

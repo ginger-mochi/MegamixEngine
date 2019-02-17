@@ -179,7 +179,7 @@ buttonsToPress = 5;
             <kind>1</kind>
             <string>for (var i = 0; i &lt; image_yscale; i++)
 {
-    draw_sprite(sprite_index, image_index, x, y + (16 * i));
+    ndraw_sprite(sprite_index, image_index, x, y + (16 * i));
 }
 </string>
           </argument>

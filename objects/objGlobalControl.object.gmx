@@ -1248,7 +1248,7 @@ cleanMem('free');
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_halign(fa_center);
+            <string>ndraw_set_halign(fa_center);
 
 if (global.showControllerOverlay)
 {
@@ -1258,20 +1258,20 @@ if (global.showControllerOverlay)
 // Show FPS
 if (global.showFPS)
 {
-    draw_set_halign(fa_right);
-    draw_set_valign(fa_bottom);
+    ndraw_set_halign(fa_right);
+    ndraw_set_valign(fa_bottom);
     draw_text(view_xview + view_wview - (28 - ((global.showControllerOverlay == 0) * 28)) - ((global.showControllerOverlay == 1) * 4), view_yview + view_hview,
         string(fps));
 }
 
-draw_set_valign(fa_top);
-draw_set_halign(fa_center);
+ndraw_set_valign(fa_top);
+ndraw_set_halign(fa_center);
 
 // Save icon
 if (saveTimer &gt;= 0)
 {
     saveTimer -= 0.5;
-    draw_sprite(sprSavingIcon, saveFrame, view_xview + 2 + 7, view_yview + 224 - 16 + 5);
+    ndraw_sprite(sprSavingIcon, saveFrame, view_xview + 2 + 7, view_yview + 224 - 16 + 5);
     draw_text(view_xview + 16 + 32 + 4 + 2, view_yview + 224 - 10 - 4, "SAVING...");
     
     if (saveTimer mod 4 == 0)
@@ -1284,30 +1284,30 @@ if (saveTimer &gt;= 0)
 if (checkpointTimer &gt;= 0)
 {
     checkpointTimer -= 0.4;
-    draw_set_halign(fa_left);
+    ndraw_set_halign(fa_left);
     draw_text(view_xview[0]+48+(max(floor(18-checkpointTimer), 1)*8), view_yview[0]+8+(global.checkpointNotification-1)*100, string_copy("CHECKPOINT REACHED", max(floor(18-checkpointTimer), 1), min(floor(60-checkpointTimer), 18)));
-    draw_set_halign(fa_center);
+    ndraw_set_halign(fa_center);
 }
 
 // Screen iFrames
-draw_set_color(c_white);
-draw_set_alpha(1);
+ndraw_set_color(c_white);
+ndraw_set_alpha(1);
 if (!global.frozen)
 {
     if (global.flashTimer &gt; 0)
     {
         global.flashTimer -= 1;
-        draw_sprite_ext(sprDot, image_index, view_xview, view_yview, view_wview, view_hview, image_angle, image_blend, image_alpha);
+        ndraw_sprite_ext(sprDot, image_index, view_xview, view_yview, view_wview, view_hview, image_angle, image_blend, image_alpha);
     }
 }
 
-draw_set_color(c_white);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
+ndraw_set_color(c_white);
+ndraw_set_halign(fa_left);
+ndraw_set_valign(fa_top);
 
 if (fadeAlpha &gt; 0)
 {
-    draw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview, 0, c_black, fadeAlpha);
+    ndraw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview, 0, c_black, fadeAlpha);
 }
 
 depth = depthstart;
@@ -1343,15 +1343,15 @@ depth = depthstart;
     /// Draw HUD
     for (z = 0; z &lt; global.playerCount; z += 1)
     {
-        draw_sprite_ext(sprHealthbarBackground, 0, dx, dy, 1, 1, image_angle,
+        ndraw_sprite_ext(sprHealthbarBackground, 0, dx, dy, 1, 1, image_angle,
             c_black, image_alpha);
         
         // Respawn indicators
         if (global.respawnTimer[z] &gt;= 0)
         {
-            draw_set_color(c_white);
-            draw_set_halign(fa_left);
-            draw_set_valign(fa_middle);
+            ndraw_set_color(c_white);
+            ndraw_set_halign(fa_left);
+            ndraw_set_valign(fa_middle);
             
             if (global.respawnTimer[z] &gt; 0)
             {
@@ -1362,7 +1362,7 @@ depth = depthstart;
                 draw_text(dx, dy + 28, "R#E#A#D#Y");
             }
             
-            draw_set_valign(fa_top);
+            ndraw_set_valign(fa_top);
         }
         else
         {
@@ -1379,10 +1379,10 @@ depth = depthstart;
             
             for (i = 1; i &lt;= ceil(global.playerHealth[z]); i += 1)
             {
-                draw_sprite_ext(sprHealthbarPrimary, 0, dx + 1,
+                ndraw_sprite_ext(sprHealthbarPrimary, 0, dx + 1,
                     dy + (sprite_get_height(sprHealthbarBackground) - i * 2),
                     1, 1, 0, pcol, 1);
-                draw_sprite_ext(sprHealthbarSecondary, 0, dx + 1,
+                ndraw_sprite_ext(sprHealthbarSecondary, 0, dx + 1,
                     dy + (sprite_get_height(sprHealthbarBackground) - i * 2),
                     1, 1, 0, scol, 1);
             }
@@ -1409,24 +1409,24 @@ depth = depthstart;
             
             if (display)
             {
-                draw_sprite_ext(sprHealthbarBackground, 0, dx - 8, dy, 1, 1,
+                ndraw_sprite_ext(sprHealthbarBackground, 0, dx - 8, dy, 1, 1,
                     image_angle, global.outlineCol[z], image_alpha);
                 for (i = 1; i &lt;= c; i += 1)
                 {
-                    draw_sprite_ext(sprHealthbarPrimary, 0, dx - 8 + 1, dy
+                    ndraw_sprite_ext(sprHealthbarPrimary, 0, dx - 8 + 1, dy
                         + (sprite_get_height(sprHealthbarBackground) - i * 2),
                         1, 1, 0, global.primaryCol[z], 1);
-                    draw_sprite_ext(sprHealthbarSecondary, 0, dx - 8 + 1, dy
+                    ndraw_sprite_ext(sprHealthbarSecondary, 0, dx - 8 + 1, dy
                         + (sprite_get_height(sprHealthbarBackground) - i * 2),
                         1, 1, 0, global.secondaryCol[z], 1);
                 }
                 if (global.infiniteEnergy[global.weapon[z]])
                 {
-                    draw_sprite_ext(sprInfinityMarkVertical, 0, dx - 8, dy + 28, 1,
+                    ndraw_sprite_ext(sprInfinityMarkVertical, 0, dx - 8, dy + 28, 1,
                         1, 0, c_white, 1);
-                    draw_sprite_ext(sprInfinityMarkVerticalPrimary, 0, dx - 8,
+                    ndraw_sprite_ext(sprInfinityMarkVerticalPrimary, 0, dx - 8,
                         dy + 28, 1, 1, 0, global.primaryCol[z], 1);
-                    draw_sprite_ext(sprInfinityMarkVerticalSecondary, 0, dx - 8,
+                    ndraw_sprite_ext(sprInfinityMarkVerticalSecondary, 0, dx - 8,
                         dy + 28, 1, 1, 0, global.secondaryCol[z], 1);
                 }
             }
@@ -1444,7 +1444,7 @@ depth = depthstart;
             var dxx = dx + ((healthIndex - 1) * 8); // Multibosses
             
             // Initial black bg for healthbar
-            draw_sprite_ext(sprHealthbarBackground, 0, dxx, dy, 1, 1, 0, c_black, 1);
+            ndraw_sprite_ext(sprHealthbarBackground, 0, dxx, dy, 1, 1, 0, c_black, 1);
             
             // Choose color to draw
             var currentExtraHealthBar = 0;
@@ -1497,10 +1497,10 @@ depth = depthstart;
                 }
                 
                 // now actually draw the pellets themselves, using all the info we've gatehred.
-                draw_sprite_ext(sprHealthbarPrimary, 0, dxx + 1,
+                ndraw_sprite_ext(sprHealthbarPrimary, 0, dxx + 1,
                     dy + (sprite_get_height(sprHealthbarBackground)) - ((i - (currentExtraHealthBar * 28)) * 2),
                     1, 1, 0, myPrimaryColor, 1);
-                draw_sprite_ext(sprHealthbarSecondary, 0, dxx + 1,
+                ndraw_sprite_ext(sprHealthbarSecondary, 0, dxx + 1,
                     dy + (sprite_get_height(sprHealthbarBackground)) - ((i - (currentExtraHealthBar * 28)) * 2),
                     1, 1, 0, mySecondaryColor, 1);
             }
@@ -1517,7 +1517,7 @@ depth = depthstart;
     
     if (bossFade &gt; 0)
     {
-        draw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview, 0, c_black, bossFade);
+        ndraw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview, 0, c_black, bossFade);
     }
     
     // reset position
@@ -1527,13 +1527,13 @@ depth = depthstart;
     // Keys
     for (i = 0; i &lt; global.keyNumber; i += 1)
     {
-        draw_sprite_ext(sprKeyHud, 0, dx + 8, dy + (8 * i), 1, 1, 0, c_white, 1);
+        ndraw_sprite_ext(sprKeyHud, 0, dx + 8, dy + (8 * i), 1, 1, 0, c_white, 1);
     }
     
     // Key coins
     for (i = 0; i &lt; global.keyCoinTotal; i += 1)
     {
-        draw_sprite_ext(sprKeyCoinHUD, !(i &lt; global.keyCoinCollected),
+        ndraw_sprite_ext(sprKeyCoinHUD, !(i &lt; global.keyCoinCollected),
             view_xview + (8 * i), view_yview + view_hview - 8, 1, 1, 0, c_white, 1);
     }
 }

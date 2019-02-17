@@ -278,7 +278,7 @@ if(!place_meeting(x-combineDir*16,y,object_index))
             <string>var drawDir = sign(image_xscale);
 for(var i=0;i&lt;abs(image_xscale);++i)
 {
-    draw_sprite_ext(sprBubbleFloor, image_index, xstart+drawDir*i*32, ystart, drawDir, image_yscale, image_angle, image_blend, image_alpha);
+    ndraw_sprite_ext(sprBubbleFloor, image_index, xstart+drawDir*i*32, ystart, drawDir, image_yscale, image_angle, image_blend, image_alpha);
 }
 </string>
           </argument>

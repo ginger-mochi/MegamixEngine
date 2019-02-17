@@ -165,7 +165,7 @@ else if (dead)
 
 // This code both draws Searchy and controls when it plays the flip sound
 
-draw_sprite(sprSearchy, searchyImage, x, y);
+ndraw_sprite(sprSearchy, searchyImage, x, y);
 
 switch (phase)
 {
@@ -185,7 +185,7 @@ switch (phase)
             }
             lightTimer = 0;
         }
-        draw_sprite(sprSearchyLight, lightImage, x, y + 11);
+        ndraw_sprite(sprSearchyLight, lightImage, x, y + 11);
         animTimer += 1;
         if (animTimer &gt;= 6)
         {

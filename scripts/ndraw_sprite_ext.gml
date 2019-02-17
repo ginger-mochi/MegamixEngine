@@ -1,7 +1,7 @@
-///n/*LOCAL*/ draw_sprite_ext(sprite, subimg, x, y, xscale, yscale, rot, colour, alpha)
-///same as /*LOCAL*/ draw_sprite_ext but sends sprite to connected clients as well.
+///n/*LOCAL*/ ndraw_sprite_ext(sprite, subimg, x, y, xscale, yscale, rot, colour, alpha)
+///same as /*LOCAL*/ ndraw_sprite_ext but sends sprite to connected clients as well.
 
-/*LOCAL*/ draw_sprite_ext(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8);
+/*LOCAL*/ ndraw_sprite_ext(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8);
 
 with objNet {
   if srv_isServing {

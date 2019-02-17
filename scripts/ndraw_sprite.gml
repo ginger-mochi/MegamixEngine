@@ -1,6 +1,6 @@
-///n/*LOCAL*/ draw_sprite(sprite, subimg, x, y)
+///n/*LOCAL*/ ndraw_sprite(sprite, subimg, x, y)
 
-/*LOCAL*/ draw_sprite(argument0,argument1,argument2,argument3);
+/*LOCAL*/ ndraw_sprite(argument0,argument1,argument2,argument3);
 
 with objNet {
   if srv_isServing {

@@ -273,7 +273,7 @@ else
             }
             else
             {
-                draw_sprite_part_ext(sprSkullElevator, 0, 0, 0, 52,
+                ndraw_sprite_part_ext(sprSkullElevator, 0, 0, 0, 52,
                     sprite_get_height(sprSkullElevator) * min(skullHeight, 1),
                     round(getX) - sprite_get_xoffset(sprSkullElevator) * -image_xscale,
                     round(getY) - sprite_get_yoffset(sprSkullElevator) + (60 * (1 - min(skullHeight, 1))), // 96

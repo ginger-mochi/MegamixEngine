@@ -1,6 +1,6 @@
 /// drawSpriteCropped(sprite, image index, x, y, left, top, right, bottom, xscale, yscale, colour, alpha)
 // draws the given sprite as usual, but constrained to the given rectangle.
-// a more convenient interface to draw_sprite_ext
+// a more convenient interface to ndraw_sprite_ext
 
 var spr = argument0;
 var img = argument1;
@@ -65,4 +65,4 @@ else
 {
     exit;
 }
-draw_sprite_part_ext(spr, img, sprLeft, sprTop_, sprWidth, sprHeight, trueX, trueY, xscale, yscale, colour, alpha);
+ndraw_sprite_part_ext(spr, img, sprLeft, sprTop_, sprWidth, sprHeight, trueX, trueY, xscale, yscale, colour, alpha);

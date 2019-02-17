@@ -76,7 +76,7 @@
             <kind>1</kind>
             <string>if (instance_exists(parent))
 {
-    draw_sprite(sprite_index, 1, parent.x, parent.y);
+    ndraw_sprite(sprite_index, 1, parent.x, parent.y);
 }
 </string>
           </argument>

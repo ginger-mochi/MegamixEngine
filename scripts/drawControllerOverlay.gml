@@ -14,8 +14,8 @@ if (global.showControllerOverlay == 2)
 for (var j = 0; j < global.playerCount; j += 1)
 {
     draw_x -= (sprite_get_width(spr) - 28);
-    draw_sprite_ext(spr, 0, draw_x, draw_y, 1, 1, 0, c_white, 1 / 1.28);
-    draw_set_color(c_white);
+    ndraw_sprite_ext(spr, 0, draw_x, draw_y, 1, 1, 0, c_white, 1 / 1.28);
+    ndraw_set_color(c_white);
     
     // draw red dots
     for (i = 1; i <= 10; i += 1)
@@ -58,7 +58,7 @@ for (var j = 0; j < global.playerCount; j += 1)
         }
         if (active)
         {
-            draw_sprite_ext(spr, i, draw_x, draw_y, 1, 1, 0,
+            ndraw_sprite_ext(spr, i, draw_x, draw_y, 1, 1, 0,
                 global.nesPalette[18], 1 / 1.28);
         }
     }
@@ -67,5 +67,5 @@ for (var j = 0; j < global.playerCount; j += 1)
     draw_x -= 3;
 }
 
-draw_set_alpha(1);
-draw_set_color(c_white);
+ndraw_set_alpha(1);
+ndraw_set_color(c_white);

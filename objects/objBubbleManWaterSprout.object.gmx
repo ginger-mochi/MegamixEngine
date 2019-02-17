@@ -154,12 +154,12 @@ if (!instance_exists(parent))
 {
     if (i == image_yscale - 1)
     {
-        draw_sprite(sprBubbleManWaterPillarTop, img, x, (ceil(y / 16) * 16) - 8 + i * 16);
+        ndraw_sprite(sprBubbleManWaterPillarTop, img, x, (ceil(y / 16) * 16) - 8 + i * 16);
     }
     else
     {
-        draw_sprite(sprBubbleManWaterPillar, img, x, (ceil(y / 16) * 16) - 8 + i * 16);
-        draw_sprite(sprBubbleManWaterPillar, img, x, (ceil(y / 16) * 16) + i * 16);
+        ndraw_sprite(sprBubbleManWaterPillar, img, x, (ceil(y / 16) * 16) - 8 + i * 16);
+        ndraw_sprite(sprBubbleManWaterPillar, img, x, (ceil(y / 16) * 16) + i * 16);
     }
 }
 </string>
