@@ -23,9 +23,10 @@ draw_commands = [
 "draw_sprite_part",
 "draw_sprite_part_ext",
 "draw_text"
+"draw_text",
 ]
 
-re_draw = re.compile("(?<!/\*LOCAL\*/ )\b\(" + "|".join(draw_commands) + "\)")
+re_draw = re.compile("(?<!/\*LOCAL\*/ )(?<!n)(?<!_)(" + "|".join(draw_commands) + ")")
 
 def repl(match):
 	print(match.group(0))
@@ -36,7 +37,7 @@ def listdir(dir):
 	
 for filename in itertools.chain(listdir(scriptDir), listdir(objDir)):
 	if filename.endswith(".gmx") or filename.endswith(".gml"):
-		print(filename)
+		#print(filename)
 		contents = ""
 		with open(filename, "r", encoding="utf8") as file:
 			contents = file.read()
