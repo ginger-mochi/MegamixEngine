@@ -22,10 +22,19 @@ with objNet {
     //y
     buffer_write(gx_buff, buffer_s16, round(argument3 - view_yview[0]))
     
+    //xscale
     buffer_write(gx_buff, buffer_f32, argument4);
+    
+    //yscale
     buffer_write(gx_buff, buffer_f32, argument5);
+    
+    //rot
     buffer_write(gx_buff, buffer_f32, argument6);
+    
+    //color
     buffer_write(gx_buff, buffer_u32, argument7);
-    buffer_write(gx_buff, buffer_f32, argument8);
+    
+    //alpha
+    buffer_write(gx_buff, buffer_u8, round(argument8 * 255));
   }
 }

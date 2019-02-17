@@ -99,7 +99,7 @@ switch (mode)
             {
                 mode = 6;
                 sel_y = 0;
-                local_players = 1;
+                local_players = global.playerCount;
                 opt_n = 0;
                 objNet.cli_password = "";
                 portstr = string(objNet.srv_port);
@@ -132,20 +132,24 @@ if (mode == 5)
     {
         sel_y = (sel_y + 1 + opt_n) % opt_n;
     }
-    else if (global.keyPausePressed[0])
+    else if (global.keyPausePressed[0] || global.keyRightPressed[0])
     {
         if (sel_y &lt;= 2)
             y += 1;
         if (sel_y == 3)
         {
             objNet.srv_maxPlayers = objNet.srv_maxPlayers + 1;
-            if (objNet.srv_maxPlayers &gt; 6)
+            if (objNet.srv_maxPlayers &lt;= 1)
+            {
+                objNet.srv_maxPlayers = 2;
+            }
+            if (objNet.srv_maxPlayers &gt; global.maxPlayerCount * 2)
                 objNet.srv_maxPlayers = -1;
         }
         if (sel_y == 4)
         {
             objNet.srv_maxConnections = objNet.srv_maxConnections + 1;
-            if (objNet.srv_maxConnections &gt; 8)
+            if (objNet.srv_maxConnections &gt; 16)
                 objNet.srv_maxConnections = -1;
         }
         if (sel_y == 5)
@@ -230,7 +234,7 @@ if (mode == 6)
     opt_n = 6;
     local_players_s = string(local_players);
     if (local_players == 0)
-        local_player_s = "Observer";
+        local_player_s = "Observe";
     opts = makeArray("URL &gt; " + objNet.cli_host_url, "PORT &gt; " + portstr, "PWD &gt; " + string_copy("*", 1, string_length(objNet.cli_password)),
         "LOCAL PLAYERS: " + local_players_s, "START", "BACK");
     
@@ -249,7 +253,7 @@ if (mode == 6)
         if (sel_y == 3)
         {
             local_players += 1;
-            if (local_players &gt; 4)
+            if (local_players &gt; global.maxPlayerCount)
                 local_players = 0;
         }
         if (sel_y == 4)
@@ -258,6 +262,7 @@ if (mode == 6)
                 portstr = string(objNet.DEFAULT_PORT);
             objNet.srv_port = string_digits(portstr);
             portstr = string(objNet.srv_port);
+            global.playerCount = local_players;
             if (client_join() != 0)
             {
                 playSFX(sfxError);

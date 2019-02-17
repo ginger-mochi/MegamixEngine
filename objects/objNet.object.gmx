@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-8000</depth>
+  <depth>-80000000</depth>
   <persistent>-1</persistent>
   <parentName>prtAlwaysActive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -90,123 +90,12 @@ ping_timer = 0;
 ping_id = 0;
 ping_print_timer = 0;
 
-// example sprites
+// reference sprites
 eg_spr = sprRockman;
 eg_bg = bgBeta;
 
-console_log_n = 14;
-console_log_show = true;
-for (i=0;i&lt;console_log_n;i++) {
-    console_log[i] = ""
-    console_color[i] = c_white
-    console_time[i] = 0;
-}
-
 tile_clear_timer = 0;
 ncmd_tiles_timer = -1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (tile_clear_timer &lt; 300)
-{
-    tile_clear_timer ++;
-}
-
-/// send input
-if cli_status == 1 { 
-    for (j=0; j&lt;loc_player_count; j++) {
-        buffer_seek(buff, buffer_seek_start, 0);
-        buffer_write(buff, buffer_u8, PTYPE.controller)
-        buffer_write(buff, buffer_u16, loc_forwardControl_ids[j]);
-        i = loc_player_ids[j];
-        controller_data = 0;
-        controller_data += global.keyLeft[i]  &lt;&lt;0
-        controller_data += global.keyRight[i] &lt;&lt;1
-        controller_data += global.keyUp[i]    &lt;&lt;2
-        controller_data += global.keyDown[i]  &lt;&lt;3
-        controller_data += global.keyShoot[i] &lt;&lt;4
-        controller_data += global.keyJump[i]  &lt;&lt;5
-        controller_data += global.keySlide[i] &lt;&lt;6
-        controller_data += global.keyPause[i] &lt;&lt;7
-        controller_data += global.keyWeaponSwitchLeft[i]  &lt;&lt;8
-        controller_data += global.keyWeaponSwitchRight[i] &lt;&lt;9
-        controller_data += global.keyLeftPressed[i]  &lt;&lt;10
-        controller_data += global.keyRightPressed[i] &lt;&lt;11
-        controller_data += global.keyUpPressed[i]    &lt;&lt;12
-        controller_data += global.keyDownPressed[i]  &lt;&lt;13
-        controller_data += global.keyShootPressed[i] &lt;&lt;14
-        controller_data += global.keyJumpPressed[i]  &lt;&lt;15
-        controller_data += global.keySlidePressed[i] &lt;&lt;16
-        controller_data += global.keyPausePressed[i] &lt;&lt;17
-        controller_data += global.keyWeaponSwitchLeftPressed[i]  &lt;&lt;18
-        controller_data += global.keyWeaponSwitchRightPressed[i] &lt;&lt;19
-
-        buffer_write(buff, buffer_u32, controller_data);
-        network_send_udp(cli_socket, objNet.cli_host_url, objNet.cli_host_port, buff, buffer_tell(buff) );
-    }
-}
-
-if srv_isServing {
-    for (i = loc_player_count; i &lt; srv_p_input_n; i++) {
-        // held down:
-        global.keyLeft[i]  = (srv_p_input[i] &gt;&gt; 0) &amp; $1;
-        global.keyRight[i] = (srv_p_input[i] &gt;&gt; 1) &amp; $1;
-        global.keyUp[i]    = (srv_p_input[i] &gt;&gt; 2) &amp; $1;
-        global.keyDown[i]  = (srv_p_input[i] &gt;&gt; 3) &amp; $1;
-        global.keyShoot[i] = (srv_p_input[i] &gt;&gt; 4) &amp; $1;
-        global.keyJump[i]  = (srv_p_input[i] &gt;&gt; 5) &amp; $1;
-        global.keySlide[i] = (srv_p_input[i] &gt;&gt; 6) &amp; $1;
-        global.keyPause[i] = (srv_p_input[i] &gt;&gt; 7) &amp; $1;
-        global.keyWeaponSwitchLeft[i]  = (srv_p_input[i] &gt;&gt; 8) &amp; $1;
-        global.keyWeaponSwitchRight[i] = (srv_p_input[i] &gt;&gt; 9) &amp; $1;
-
-        // pressed
-        global.keyLeftPressed[i]  = (srv_p_input[i] &gt;&gt; 10) &amp; $1;
-        global.keyRightPressed[i] = (srv_p_input[i] &gt;&gt; 11) &amp; $1;
-        global.keyUpPressed[i]    = (srv_p_input[i] &gt;&gt; 12) &amp; $1;
-        global.keyDownPressed[i]  = (srv_p_input[i] &gt;&gt; 13) &amp; $1;
-        global.keyShootPressed[i] = (srv_p_input[i] &gt;&gt; 14) &amp; $1;
-        global.keyJumpPressed[i]  = (srv_p_input[i] &gt;&gt; 15) &amp; $1;
-        global.keySlidePressed[i] = (srv_p_input[i] &gt;&gt; 16) &amp; $1;
-        global.keyPausePressed[i] = (srv_p_input[i] &gt;&gt; 17) &amp; $1;
-        global.keyWeaponSwitchLeftPressed[i]  = (srv_p_input[i] &gt;&gt; 18) &amp; $1;
-        global.keyWeaponSwitchRightPressed[i] = (srv_p_input[i] &gt;&gt; 19) &amp; $1;
-        
-        // reset for future frames
-        srv_p_input[i] &amp;= $1FF;
-    }
-}
-
-if keyboard_check_pressed(vk_f9) {
-    console_log_show ^= true;
-    print("Toggled console")
-}
-
-for (var i=0;i&lt;console_log_n;i++) {
-  if console_time[i] &gt; 0
-    console_time[i] -= 1;
-  else
-    console_log[i] = ""
-}
 </string>
           </argument>
         </arguments>
@@ -403,6 +292,103 @@ if (type == network_type_data)
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// process input
+
+/// send input
+if cli_status == 1 { 
+    for (j=0; j&lt;loc_player_count; j++) {
+        buffer_seek(buff, buffer_seek_start, 0);
+        buffer_write(buff, buffer_u8, PTYPE.controller)
+        buffer_write(buff, buffer_u16, loc_forwardControl_ids[j]);
+        i = loc_player_ids[j];
+        controller_data = 0;
+        
+        //held
+        controller_data += global.keyLeft[i]  &lt;&lt;0
+        controller_data += global.keyRight[i] &lt;&lt;1
+        controller_data += global.keyUp[i]    &lt;&lt;2
+        controller_data += global.keyDown[i]  &lt;&lt;3
+        controller_data += global.keyShoot[i] &lt;&lt;4
+        controller_data += global.keyJump[i]  &lt;&lt;5
+        controller_data += global.keySlide[i] &lt;&lt;6
+        controller_data += global.keyPause[i] &lt;&lt;7
+        controller_data += global.keyWeaponSwitchLeft[i]  &lt;&lt;8
+        controller_data += global.keyWeaponSwitchRight[i] &lt;&lt;9
+        
+        // pressed
+        controller_data += global.keyLeftPressed[i]  &lt;&lt;10
+        controller_data += global.keyRightPressed[i] &lt;&lt;11
+        controller_data += global.keyUpPressed[i]    &lt;&lt;12
+        controller_data += global.keyDownPressed[i]  &lt;&lt;13
+        controller_data += global.keyShootPressed[i] &lt;&lt;14
+        controller_data += global.keyJumpPressed[i]  &lt;&lt;15
+        controller_data += global.keySlidePressed[i] &lt;&lt;16
+        controller_data += global.keyPausePressed[i] &lt;&lt;17
+        controller_data += global.keyWeaponSwitchLeftPressed[i]  &lt;&lt;18
+        controller_data += global.keyWeaponSwitchRightPressed[i] &lt;&lt;19
+
+        buffer_write(buff, buffer_u32, controller_data);
+        network_send_udp(cli_socket, objNet.cli_host_url, objNet.cli_host_port, buff, buffer_tell(buff) );
+    }
+}
+
+if srv_isServing {
+    for (i = loc_player_count; i &lt; srv_p_input_n; i++) {
+        // held down:
+        global.keyLeft[i]  = (srv_p_input[i] &gt;&gt; 0) &amp; $1;
+        global.keyRight[i] = (srv_p_input[i] &gt;&gt; 1) &amp; $1;
+        global.keyUp[i]    = (srv_p_input[i] &gt;&gt; 2) &amp; $1;
+        global.keyDown[i]  = (srv_p_input[i] &gt;&gt; 3) &amp; $1;
+        global.keyShoot[i] = (srv_p_input[i] &gt;&gt; 4) &amp; $1;
+        global.keyJump[i]  = (srv_p_input[i] &gt;&gt; 5) &amp; $1;
+        global.keySlide[i] = (srv_p_input[i] &gt;&gt; 6) &amp; $1;
+        global.keyPause[i] = (srv_p_input[i] &gt;&gt; 7) &amp; $1;
+        global.keyWeaponSwitchLeft[i]  = (srv_p_input[i] &gt;&gt; 8) &amp; $1;
+        global.keyWeaponSwitchRight[i] = (srv_p_input[i] &gt;&gt; 9) &amp; $1;
+
+        // pressed
+        global.keyLeftPressed[i]  = (srv_p_input[i] &gt;&gt; 10) &amp; $1;
+        global.keyRightPressed[i] = (srv_p_input[i] &gt;&gt; 11) &amp; $1;
+        global.keyUpPressed[i]    = (srv_p_input[i] &gt;&gt; 12) &amp; $1;
+        global.keyDownPressed[i]  = (srv_p_input[i] &gt;&gt; 13) &amp; $1;
+        global.keyShootPressed[i] = (srv_p_input[i] &gt;&gt; 14) &amp; $1;
+        global.keyJumpPressed[i]  = (srv_p_input[i] &gt;&gt; 15) &amp; $1;
+        global.keySlidePressed[i] = (srv_p_input[i] &gt;&gt; 16) &amp; $1;
+        global.keyPausePressed[i] = (srv_p_input[i] &gt;&gt; 17) &amp; $1;
+        global.keyWeaponSwitchLeftPressed[i]  = (srv_p_input[i] &gt;&gt; 18) &amp; $1;
+        global.keyWeaponSwitchRightPressed[i] = (srv_p_input[i] &gt;&gt; 19) &amp; $1;
+        
+        // reset pressed for future frames
+        srv_p_input[i] &amp;= $1FF;
+    }
+}
+
+if (tile_clear_timer &lt; 300)
+{
+    tile_clear_timer++;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
@@ -472,6 +458,7 @@ if srv_isServing {
 if cli_status == 1 {
     // draw gx buffer
     buffer_seek(gx_buff,buffer_seek_start,0);
+    global.netPrevOpcode = -1;
     while (cli_draw_gx_buff(gx_buff)) {};
     
     // ping:

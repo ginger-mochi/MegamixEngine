@@ -487,6 +487,12 @@ for (i = 0; i &lt; global.playerCount; i += 1)
         &amp;&amp; !keyWeaponSwitchRightHold;
 }
 
+// network controls.
+with (objNet)
+{
+    event_user(0);
+}
+
 // recorded controls dubbing:
 recordInputHandle();
 </string>
@@ -596,7 +602,7 @@ else if (setfrozen) // Stop Freeze
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Respawn players
+            <string>/// Respawn players (co-op)
 if (global.frozen)
 {
     exit;
@@ -1355,11 +1361,11 @@ depth = depthstart;
             
             if (global.respawnTimer[z] &gt; 0)
             {
-                draw_text(dx, dy + 28, ceil(global.respawnTimer[z] / 60));
+                ndraw_text(dx, dy + 28, ceil(global.respawnTimer[z] / 60));
             }
             else if (global.respawnAllowed)
             {
-                draw_text(dx, dy + 28, "R#E#A#D#Y");
+                ndraw_text(dx, dy + 28, "R#E#A#D#Y");
             }
             
             ndraw_set_valign(fa_top);

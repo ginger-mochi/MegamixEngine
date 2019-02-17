@@ -1,4 +1,4 @@
-/// cli_/*LOCAL*/ draw_gx_buff(gx_buff, [exclude])
+/// cli_draw_gx_buff(gx_buff, [exclude])
 /// gobbles one draw command from the graphics buffer and draws it
 
 var gx = argument[0];
@@ -36,7 +36,7 @@ switch opcode {
         var yscale = buffer_read(gx,buffer_f32);
         var rot    = buffer_read(gx,buffer_f32);
         var color  = buffer_read(gx,buffer_u32);
-        var alpha  = buffer_read(gx,buffer_f32);
+        var alpha  = buffer_read(gx,buffer_u8);
         if exclude break;
         if (spr == -1) break;
         /*LOCAL*/ draw_sprite_ext(
@@ -83,7 +83,7 @@ switch opcode {
         var xscale = buffer_read(gx,buffer_f32);
         var yscale = buffer_read(gx,buffer_f32);
         var color  = buffer_read(gx,buffer_u32);
-        var alpha  = buffer_read(gx,buffer_f32);
+        var alpha  = buffer_read(gx,buffer_u8) / 255;
         if (spr == -1) break;
         if exclude break;
         /*LOCAL*/ draw_sprite_part_ext(
@@ -208,6 +208,9 @@ switch opcode {
                        c4,
                        rec_bool);
         break
+    default:
+        print("Unknown command ID. (Previous Opcode was " + string(global.netPrevOpcode) + ").");
+        return false;
 }
 
 // more commands to process

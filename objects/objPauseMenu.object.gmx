@@ -746,7 +746,7 @@ if (phase != 0)
                 wname = string_insert(".", string_delete(wname, 2, dot - 1), 2);
             }
             
-            draw_text(18, yOff, wname);
+            ndraw_text(18, yOff, wname);
             ndraw_set_color(c_white);
         }
         else // draw the disabled stuff
