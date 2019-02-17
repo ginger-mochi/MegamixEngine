@@ -1,7 +1,7 @@
 ///n/*LOCAL*/ ndraw_sprite_part(sprite, subimg, left, top, width, height, x, y)
 ///same as /*LOCAL*/ ndraw_sprite_part but sends sprite to connected clients as well.
 
-/*LOCAL*/ ndraw_sprite_part(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7);
+/*LOCAL*/ draw_sprite_part(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7);
 
 with objNet {
   if srv_isServing {

@@ -1,7 +1,7 @@
 ///n/*LOCAL*/ ndraw_sprite_part_ext(sprite, subimg, left, top, width, height x, y, xscale, yscale, colour, alpha)
 ///same as /*LOCAL*/ ndraw_sprite_part_ext but sends sprite to connected clients as well.
 
-/*LOCAL*/ ndraw_sprite_part_ext(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10,argument11);
+/*LOCAL*/ draw_sprite_part_ext(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7,argument8,argument9,argument10,argument11);
 
 with objNet {
   if srv_isServing {
@@ -34,9 +34,16 @@ with objNet {
     //y
     buffer_write(gx_buff, buffer_s16, round(argument7 - view_yview[0]))
     
+    // xscale
     buffer_write(gx_buff, buffer_f32, argument8);
+    
+    // yscale
     buffer_write(gx_buff, buffer_f32, argument9);
+    
+    // color
     buffer_write(gx_buff, buffer_u32, argument10);
-    buffer_write(gx_buff, buffer_f32, argument11);
+    
+    // alpha
+    buffer_write(gx_buff, buffer_u8,  round(argument11 * 255));
   }
 }

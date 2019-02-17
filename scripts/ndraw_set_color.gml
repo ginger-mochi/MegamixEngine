@@ -1,7 +1,7 @@
 ///n/*LOCAL*/ ndraw_set_color(col)
 ///same as /*LOCAL*/ ndraw_set_color but sends sprite to connected clients as well.
 
-/*LOCAL*/ ndraw_set_color(argument0);
+/*LOCAL*/ draw_set_color(argument0);
 
 with objNet {
   if srv_isServing {

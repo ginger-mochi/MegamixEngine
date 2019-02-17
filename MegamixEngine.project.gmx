@@ -5155,11 +5155,12 @@
       <script>scripts\ndraw_set_alpha.gml</script>
       <script>scripts\ndraw_set_color.gml</script>
       <script>scripts\ndraw_set_valign.gml</script>
-      <script>scripts\ndraw_sprite.gml</script>
       <script>scripts\ndraw_set_halign.gml</script>
+      <script>scripts\ndraw_sprite.gml</script>
       <script>scripts\ndraw_sprite_ext.gml</script>
       <script>scripts\ndraw_sprite_part.gml</script>
       <script>scripts\ndraw_sprite_part_ext.gml</script>
+      <script>scripts\ndraw_sprite_general.gml</script>
       <script>scripts\ndraw_text.gml</script>
       <script>scripts\srv_flush_buffers.gml</script>
       <script>scripts\net_hash.gml</script>
@@ -5181,7 +5182,6 @@
       <script>scripts\server_start.gml</script>
       <script>scripts\server_broadcast_udp.gml</script>
     </scripts>
-    <script>scripts\pretty_time.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Level Objects">

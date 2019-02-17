@@ -1,7 +1,7 @@
 ///n/*LOCAL*/ ndraw_set_halign(align)
 ///same as /*LOCAL*/ ndraw_set_halign but sends sprite to connected clients as well.
 
-/*LOCAL*/ ndraw_set_halign(argument0);
+/*LOCAL*/ draw_set_halign(argument0);
 
 with objNet {
   if srv_isServing {
