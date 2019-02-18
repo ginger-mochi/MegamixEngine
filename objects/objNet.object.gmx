@@ -37,6 +37,7 @@ enum PTYPE {
     gfx,
     cmd,
     ping,
+    ping_result,
     skin
 }
 
@@ -276,7 +277,7 @@ if (type == network_type_data)
                     {
                         cli_ping_avg += cli_ping[i];
                     }
-                    cli_ping_avg /= 2 * max_ping_id;
+                    cli_ping_avg /= max_ping_id;
                 }
             }
             break;
@@ -453,6 +454,20 @@ if srv_isServing {
     }
 
     srv_flush_buffers();
+    
+    // list ping
+    if (ping_print_timer++ &gt;= 1000)
+    {
+        ping_print_timer = 0;
+        print("connections: " + string(srv_connection_count - 1));
+        for (var i = 1; i &lt; srv_connection_count; i++)
+        {
+            if (srv_client_authorized[i])
+            {
+                print("ping c" + string(i) + ": " + string(srv_client_ping[i]) + " ms", WL_SHOW, c_gray);
+            }
+        }
+    }
 }
 
 if cli_status == 1 {
@@ -478,7 +493,13 @@ if cli_status == 1 {
           pcol = make_color_rgb(256,20,20)
       if cli_ping_avg &gt; 300
           pcol = make_color_rgb(256,0,0)
-      print("Ping: " + string_format(cli_ping_avg,7,2) + " ms", pcol)
+      print("Ping: " + string_format(cli_ping_avg,7,2) + " ms", WL_SHOW, pcol)
+      
+      // tell server our calculated ping.
+      buffer_seek(buff, buffer_u8, 0);
+      buffer_write(buff, buffer_u8, PTYPE.ping_result);
+      buffer_write(buff, buffer_f32, cli_ping_avg);
+      network_send_udp(cli_socket, cli_host_url, cli_host_port, buff, buffer_tell(buff));
     }
     if ping_timer &gt;= 10 &amp;&amp;! cli_ping_waiting[ping_id] {
         ping_timer  = 0;

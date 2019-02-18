@@ -6,9 +6,9 @@ with objNet {
   if srv_isServing {
     // skip if outside view
     var xoffset = sprite_get_xoffset(argument0);
-    var yoffset = sprite_get_yoffset(argument1);
-    if (argument2 + xoffset > view_xview[0] + view_wview[0]) exit;
-    if (argument3 + yoffset > view_yview[0] + view_hview[0]) exit;
+    var yoffset = sprite_get_yoffset(argument0);
+    if (argument2 - xoffset > view_xview[0] + view_wview[0]) exit;
+    if (argument3 - yoffset > view_yview[0] + view_hview[0]) exit;
     
     var width = sprite_get_width(argument0);
     var height = sprite_get_height(argument0);

@@ -30,16 +30,21 @@ var tiles = tile_get_ids();
 print("Sending tiles...");
 
 var flush = 0;
+var prev_tdepth, prev_bgid, prev_tx, prev_ty, prev_left, prev_top, prev_tw, prev_th, prev_tdim;
+var permit_delta = false;
 for (var i = 0; i < array_length_1d(tiles); i++)
 {
     // monitor buffer and chunk if it's getting too large:
-    if (buffer_tell(tile_buff) > 400 * (tile_buff_chunk_n + 1))
+    if (buffer_tell(tile_buff) >= 400 * (tile_buff_chunk_n + 1))
     {
-        buffer_write(tile_buff, buffer_s32, -1);
+        buffer_write(tile_buff, buffer_u8, $ff);
         tile_buff_chunk[++tile_buff_chunk_n] = buffer_tell(tile_buff);
+        
+        // next tile command
         buffer_write(tile_buff, buffer_s8, 100);
         flush++;
         print("Chunk no. " + string(flush));
+        permit_delta = false;
     }
     
     var t = tiles[i];
@@ -83,31 +88,92 @@ for (var i = 0; i < array_length_1d(tiles); i++)
         basic = false;
     }
     
+    var bgid = enc_bg(tile_get_background(t))
+    
     if (basic)
     {
-        // background id
-        buffer_write(tile_buff, buffer_s16, enc_bg(tile_get_background(t)));
+        tdepth = round(tdepth);
+        var ttexpos =
+              (floor(tile_get_left(t) / 16) << 4)
+            | (floor(tile_get_top(t) / 16));
+        var tdim = 
+              (floor(tile_get_width(t) / 16) << 4)
+            | (floor(tile_get_height(t) / 16));
+            
+        var tx = round(tile_get_x(t) / 16);
+        var ty = round(tile_get_y(t) / 16);
         
-        // depth
+        // check if it's possible to send highly-compressed position-delta.
+        // (good for RLE tiles)
+        if (permit_delta)
+        {
+            if (tdim == prev_tdim
+                && tdepth == prev_tdepth
+                && bgid == prev_bgid)
+            {
+                // check if near x/y coordinate
+                if (inRange(tx - prev_tx, -8, 7))
+                {
+                    if inRange(ty - prev_ty, -8, 7)
+                    {
+                        var tposdelta = (((tx - prev_tx) + 8) << 4) | ((ty - prev_ty) + 8);
+                        
+                        // TODO: consider using RLE
+                        buffer_write(tile_buff, buffer_u8, $40);
+                        buffer_write(tile_buff, buffer_u8, ttexpos);
+                        buffer_write(tile_buff, buffer_u8, tposdelta);
+                        
+                        prev_tx = tx;
+                        prev_ty = ty;
+                        
+                        // 3 bytes
+                        continue;
+                    }
+                }
+                
+                // absolute position
+                buffer_write(tile_buff, buffer_u8, $41);
+                buffer_write(tile_buff, buffer_u8, ttexpos);
+                buffer_write(tile_buff, buffer_u16, tx);
+                buffer_write(tile_buff, buffer_u16, ty);
+                
+                prev_tx = tx;
+                prev_ty = ty;
+                // 6 bytes
+                continue;
+            }
+        }
+        permit_delta = true;
+        prev_tdepth = tdepth;
+        prev_tx = tx;
+        prev_ty = ty;
+        prev_bgid = bgid;
+        prev_tdim = tdim;
+    
+        // send highly-compressed delta-position
+        // background id
+        buffer_write(tile_buff, buffer_u8, (bgid & $7f00) >> 8);
+        buffer_write(tile_buff, buffer_u8, bgid & $00ff);
+        
+        // depth (todo: can be compressed)
         buffer_write(tile_buff, buffer_s32, round(tdepth));
         
         // dimensions
-        buffer_write(tile_buff, buffer_u8, floor(tile_get_left(t) / 16));
-        buffer_write(tile_buff, buffer_u8, floor(tile_get_top(t) / 16));
-        buffer_write(tile_buff, buffer_u8, floor(tile_get_width(t) / 16));
-        buffer_write(tile_buff, buffer_u8, floor(tile_get_height(t) / 16));
+        buffer_write(tile_buff, buffer_u8, ttexpos);
+        buffer_write(tile_buff, buffer_u8, tdim);
         
         // x,y
-        buffer_write(tile_buff, buffer_u16, round(tile_get_x(t) / 16));
-        buffer_write(tile_buff, buffer_u16, round(tile_get_y(t) / 16));
+        buffer_write(tile_buff, buffer_u16, tx);
+        buffer_write(tile_buff, buffer_u16, ty);
+        
+        // 12 bytes
     }
     else
-    {
+    {       
         // complicated tile
-        buffer_write(tile_buff, buffer_s16, -2);
-        
-        // background id
-        buffer_write(tile_buff, buffer_s16, enc_bg(tile_get_background(t)));
+        permit_delta = false;
+        buffer_write(tile_buff, buffer_u8, $fe);
+        buffer_write(tile_buff, buffer_u16, bgid);
         
         // depth
         buffer_write(tile_buff, buffer_f64, tdepth);
@@ -129,9 +195,11 @@ for (var i = 0; i < array_length_1d(tiles); i++)
         // color
         buffer_write(tile_buff, buffer_u32, tblend);
         buffer_write(tile_buff, buffer_u8, talpha);
+        
+        // 40 bytes.
     }
 }
 
-buffer_write(tile_buff, buffer_s16, -1);
+buffer_write(tile_buff, buffer_u8, $ff);
 tile_buff_chunk[++tile_buff_chunk_n] = buffer_tell(tile_buff);
 

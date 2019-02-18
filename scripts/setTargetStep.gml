@@ -23,11 +23,11 @@ var select = 0;
 switch (behaviourType)
 {
     case 0: // Generic 'smart' / non-obvious AI 
-        if (target) // If mega man is very far, and hasn't shot lately, retarget with very low probability
+        if (target != noone) // If mega man is very far, and hasn't shot lately, retarget with some probability
         {
-            if (!irandom(500) && hitTimer > 100)
+            if (!irandom(50) && hitTimer > 30)
             {
-                if (point_distance(x, y, target.x, target.y) > 80)
+                if (point_distance(x, y, target.x, target.y) > 60)
                 {
                     target = noone;
                     select = 1;

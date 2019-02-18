@@ -186,7 +186,7 @@ switch opcode {
                    view_yview[0] + text_y,
                    str);
         break;
-    case 15: // ndraw_rectangles
+    case 15: // draw_rectangles
         var rec_x1   = buffer_read(gx,buffer_s16);
         var rec_y1   = buffer_read(gx,buffer_s16);
         var rec_x2   = buffer_read(gx,buffer_s16);
@@ -208,6 +208,27 @@ switch opcode {
                        c4,
                        rec_bool);
         break
+    case 16: // draw_sprite_ext (compressed)
+        var spr    = dec_spr(buffer_read(gx,buffer_s16));
+        var subimage_scale = buffer_read(gx,buffer_u8);
+        var subimage = subimage_scale >> 2;
+        var xscale = (subimage_scale & $2) >> 1;
+        var yscale = (subimage_scale & $1);
+        var spr_x  = buffer_read(gx,buffer_u8);
+        var spr_y  = buffer_read(gx,buffer_u8) - 16;
+        if exclude break;
+        if (spr == -1) break;
+        /*LOCAL*/ draw_sprite_ext(
+                    spr,
+                    subimage,
+                    view_xview[0] + spr_x,
+                    view_yview[0] + spr_y,
+                    -2 * xscale + 1,
+                    -2 * yscale + 1,
+                    0,
+                    c_white,
+                    1);
+        break;
     default:
         print("Unknown command ID. (Previous Opcode was " + string(global.netPrevOpcode) + ").");
         return false;

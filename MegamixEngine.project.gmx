@@ -5165,6 +5165,7 @@
       <script>scripts\ndraw_text.gml</script>
       <script>scripts\srv_flush_buffers.gml</script>
       <script>scripts\net_hash.gml</script>
+      <script>scripts\buffer_size_remaining.gml</script>
       <script>scripts\buffer_has.gml</script>
       <script>scripts\cli_add_tiles.gml</script>
       <script>scripts\cli_clear_tiles_recent.gml</script>

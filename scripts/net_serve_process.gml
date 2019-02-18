@@ -15,6 +15,7 @@ if (type == network_type_data)
         srv_connection_ip_map[srv_connection_count] = async_load[? "ip"];
         srv_connection_port_map[srv_connection_count] = async_load[? "port"];
         srv_client_authorized[srv_connection_count] = false;
+        srv_client_ping[srv_connection_count] = 0;
         srv_connection_count += 1;
         buffer_seek(buff, buffer_seek_start, 0);
         
@@ -115,6 +116,11 @@ if (type == network_type_data)
                 exit;
             buffer_write(buff, buffer_u8, PTYPE.ping);
             buffer_write(buff, buffer_u8, buffer_read(in_buff, buffer_u8));
+            break;
+        case PTYPE.ping_result: // client telling us their ping
+            if (!buffer_has(in_buff, 4))
+                exit;
+            srv_client_ping[connection] = buffer_read(in_buff, buffer_f32);
             break;
         case PTYPE.skin: // client wants to change their skin 
             if (!buffer_has(in_buff, 2))
