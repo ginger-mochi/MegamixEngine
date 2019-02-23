@@ -166,7 +166,7 @@ switch (global.telTelWeather)
         ndraw_set_color(c_black);
         storealpha = draw_get_alpha();
         ndraw_set_alpha(darkenAlpha);
-        ndraw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
+        draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
             view_yview + view_hview + 1, false);
         ndraw_set_alpha(storealpha);
         
@@ -228,7 +228,7 @@ switch (global.telTelWeather)
         ndraw_set_color(c_white);
         storealpha = draw_get_alpha();
         ndraw_set_alpha(darkenAlpha);
-        ndraw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
+        draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
             view_yview + view_hview + 1, false);
         ndraw_set_alpha(storealpha);
         

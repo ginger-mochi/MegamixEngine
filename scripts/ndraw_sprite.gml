@@ -4,6 +4,7 @@
 
 with objNet {
   if srv_isServing {
+<<<<<<< HEAD
     // skip if outside view
     var xoffset = sprite_get_xoffset(argument0);
     var yoffset = sprite_get_yoffset(argument0);
@@ -14,6 +15,9 @@ with objNet {
     var height = sprite_get_height(argument0);
     if (argument2 + width  - xoffset < view_xview[0]) exit;
     if (argument3 + height - yoffset < view_yview[0]) exit;
+=======
+    //TODO: skip if bounds off-screen
+>>>>>>> parent of b5d88381... ndraw_text fixes
   
     //draw command
     buffer_write(gx_buff, buffer_s8, 1)

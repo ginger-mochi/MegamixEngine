@@ -398,11 +398,11 @@ if (showtext)
         ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
         ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
         
-        ndraw_rectangle(view_xview[0] + 38, ypos, view_xview[0] + view_wview[0], ypos + 62, false); // main text
+        draw_rectangle(view_xview[0] + 38, ypos, view_xview[0] + view_wview[0], ypos + 62, false); // main text
         
         if (phase == 3 &amp;&amp; !timer &amp;&amp; optionCount &gt; 0 &amp;&amp; ds_list_size(text) == 1)
         {
-            ndraw_rectangle(view_xview[0], ypos + 45 + 18, view_xview[0] + view_wview[0], ypos + 45 + 17 + 18 * optionCount, false); // dialogue options
+            draw_rectangle(view_xview[0], ypos + 45 + 18, view_xview[0] + view_wview[0], ypos + 45 + 17 + 18 * optionCount, false); // dialogue options
         }
         
         ndraw_set_color(c_white);

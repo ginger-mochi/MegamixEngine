@@ -1,5 +1,5 @@
-///ndraw_set_halign(align)
-///same as /*LOCAL*/ draw_set_halign but sends sprite to connected clients as well.
+///n/*LOCAL*/ ndraw_set_halign(align)
+///same as /*LOCAL*/ ndraw_set_halign but sends sprite to connected clients as well.
 
 /*LOCAL*/ draw_set_halign(argument0);
 

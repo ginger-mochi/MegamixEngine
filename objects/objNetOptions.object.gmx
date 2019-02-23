@@ -360,7 +360,7 @@ ndraw_set_halign(fa_left);
 ndraw_set_valign(fa_top);
 if room != rmNetOptions {
     ndraw_set_color(c_black);
-    ndraw_rectangle(view_xview[0],view_yview[0],view_xview[0] + view_wview[0],view_yview[0] + view_hview[0],false);
+    draw_rectangle(view_xview[0],view_yview[0],view_xview[0] + view_wview[0],view_yview[0] + view_hview[0],false);
 }
 
 ndraw_set_color(c_white);

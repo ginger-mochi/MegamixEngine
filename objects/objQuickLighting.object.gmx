@@ -180,14 +180,14 @@ if (lightingSemi)
     ndraw_set_alpha(lightingRetain);
     draw_set_blend_mode_ext(bm_dest_color, bm_src_alpha);
     ndraw_set_color(lightingColor);
-    ndraw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
+    draw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
     draw_set_blend_mode(bm_normal);
 }
 
 ndraw_set_color(c_black);
 ndraw_set_alpha(1 - roundedLightingLevel);
 {
-    ndraw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
+    draw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
 }
 
 ndraw_set_alpha(1);

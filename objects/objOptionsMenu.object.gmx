@@ -1199,7 +1199,7 @@ if (global.showColoredTextOverlays)
     ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
     ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
-    ndraw_rectangle(drawXPosition + 28, drawYPosition + 36, drawXPosition + view_wview[0] - 28, drawYPosition + view_hview[0] - 36, false);
+    draw_rectangle(drawXPosition + 28, drawYPosition + 36, drawXPosition + view_wview[0] - 28, drawYPosition + view_hview[0] - 36, false);
     
     ndraw_set_color(c_white);
     ndraw_set_alpha(1);

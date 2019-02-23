@@ -136,7 +136,7 @@ starspeed[2] = 0.25;
 storealpha = draw_get_alpha();
 ndraw_set_alpha(image_alpha);
 
-ndraw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
+draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
     view_yview + view_hview + 1, false);
 
 ndraw_set_alpha(storealpha);

@@ -141,7 +141,7 @@ if (init)
     surface_set_target(surf);
     draw_clear_alpha(c_black, 0);
     ndraw_set_color(c_red);
-    ndraw_rectangle(0, 0, 16, 28 + size * 8, false);
+    draw_rectangle(0, 0, 16, 28 + size * 8, false);
     mask = sprite_create_from_surface(surf, 0, 0, 16, 28 + size * 8, false, false, 8, 27 + size * 8);
     sprite_collision_mask(mask, false, 0, 0, 0, 0, 0, 1, 255);
     mask_index = mask;

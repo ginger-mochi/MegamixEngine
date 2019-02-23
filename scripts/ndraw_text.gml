@@ -1,5 +1,5 @@
-///ndraw_text(x,y,text)
-///same as draw_text but sends sprite to connected clients as well.
+///n/*LOCAL*/ draw_text(x,y,text)
+///same as /*LOCAL*/ draw_text but sends sprite to connected clients as well.
 
 /*LOCAL*/ draw_text(argument0,argument1,argument2)
 

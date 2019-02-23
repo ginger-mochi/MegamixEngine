@@ -1,5 +1,5 @@
 ///ndraw_sprite_part(sprite, subimg, left, top, width, height, x, y, xscale, yscale, rot, c1, c2, c3, c4, alpha)
-///same as ndraw_sprite_part but sends sprite to connected clients as well.
+///same as draw_sprite_part but sends sprite to connected clients as well.
 
 /*LOCAL*/ draw_sprite_general(argument0,argument1,argument2,argument3,argument4,argument5,argument6,argument7, argument8, argument9, argument10, argument11, argument12, argument13, argument14, argument15);
 
@@ -8,7 +8,7 @@ with objNet {
     //TODO: skip if bounds off-screen
   
     //opcode
-    buffer_write(gx_buff, buffer_s8, 13);
+    buffer_write(gx_buff, buffer_s8, 3);
     
     //sprite
     buffer_write(gx_buff, buffer_s16, enc_spr(floor(argument0)));
