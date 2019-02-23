@@ -155,14 +155,14 @@ if (!global.frozen &amp;&amp; !dead &amp;&amp; !global.timeStopped)
 
 for (z = 0; z &lt; 7; z += 1)
 {
-    ndraw_sprite(sprSandstormLeft, image_index + img + imgadd, xs + z * -dir * 16 - 8, view_yview + z * 32);
+    draw_sprite(sprSandstormLeft, image_index + img + imgadd, xs + z * -dir * 16 - 8, view_yview + z * 32);
     
     for (i = 0; i &lt; size; i += 1)
     {
-        ndraw_sprite(sprSandstorm, image_index + img + imgadd, xs + (i + z * -dir) * 16, view_yview + z * 32);
+        draw_sprite(sprSandstorm, image_index + img + imgadd, xs + (i + z * -dir) * 16, view_yview + z * 32);
     }
     
-    ndraw_sprite(sprSandstormRight, image_index + img + imgadd, xs + (z * -dir + size) * 16, view_yview + z * 32);
+    draw_sprite(sprSandstormRight, image_index + img + imgadd, xs + (z * -dir + size) * 16, view_yview + z * 32);
     
     if (imgadd == 0)
     {

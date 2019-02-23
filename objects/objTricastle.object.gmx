@@ -376,14 +376,14 @@ if (!instance_exists(rightTower))
             yo = 10000;
             break;
     }
-    ndraw_sprite(sprTricastleFlag, floor(flagImage), bbox_left + (abs(bbox_left - bbox_right) / 2), flagYO + bbox_top + yo);
+    draw_sprite(sprTricastleFlag, floor(flagImage), bbox_left + (abs(bbox_left - bbox_right) / 2), flagYO + bbox_top + yo);
 }
 drawSelf();
 if (phase == 0)
 {
     if (instance_exists(center))
     {
-        ndraw_sprite(sprTricastleDoor, floor(animFrame), x + 45, bbox_top + 69);
+        draw_sprite(sprTricastleDoor, floor(animFrame), x + 45, bbox_top + 69);
     }
 }
 </string>

@@ -184,16 +184,16 @@ if (!dead)
         var icon = global.weaponIcon[weaponID];
         
         // original sprite
-        ndraw_sprite_ext(icon, 0, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
+        draw_sprite_ext(icon, 0, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
         
         if (!lockWeapon)
         {
             // whitemasks
-            ndraw_sprite_ext(icon, 1, x, y, image_xscale, image_yscale, image_angle, global.weaponPrimaryColor[weaponID], 1);
-            ndraw_sprite_ext(icon, 2, x, y, image_xscale, image_yscale, image_angle, global.weaponSecondaryColor[weaponID], 1);
+            draw_sprite_ext(icon, 1, x, y, image_xscale, image_yscale, image_angle, global.weaponPrimaryColor[weaponID], 1);
+            draw_sprite_ext(icon, 2, x, y, image_xscale, image_yscale, image_angle, global.weaponSecondaryColor[weaponID], 1);
             
             // extra
-            ndraw_sprite_ext(icon, 3, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
+            draw_sprite_ext(icon, 3, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
         }
         
         // flash if it's a locker

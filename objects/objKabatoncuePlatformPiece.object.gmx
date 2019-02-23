@@ -171,7 +171,7 @@ if (other.penetrate &lt; 2 &amp;&amp; other.pierces &lt; 2 &amp;&amp; other.obje
             <kind>1</kind>
             <string>if (!dead)
 {
-    ndraw_sprite_part(sprite_index, -1, 0, 0, sprite_width,
+    draw_sprite_part(sprite_index, -1, 0, 0, sprite_width,
         round(sprite_height - offset), round(x - sprite_xoffset),
         round(y - sprite_yoffset));
 }

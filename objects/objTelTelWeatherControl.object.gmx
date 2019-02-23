@@ -163,12 +163,12 @@ switch (global.telTelWeather)
 {
     // Rain
     case 1:
-        ndraw_set_color(c_black);
+        draw_set_color(c_black);
         storealpha = draw_get_alpha();
-        ndraw_set_alpha(darkenAlpha);
+        draw_set_alpha(darkenAlpha);
         draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
             view_yview + view_hview + 1, false);
-        ndraw_set_alpha(storealpha);
+        draw_set_alpha(storealpha);
         
         // Sky darkens before rain
         if (animTimer mod 10 == 0)
@@ -197,7 +197,7 @@ switch (global.telTelWeather)
             {
                 if (!tr || (tr &amp;&amp; !place_meeting(i - dox, e - doy, objToadRain)))
                 {
-                    ndraw_sprite_ext(sprTelTelRain, weatherImg, i - dox, e - doy, 1, 1, 0, c_white, darkenAlpha * 3);
+                    draw_sprite_ext(sprTelTelRain, weatherImg, i - dox, e - doy, 1, 1, 0, c_white, darkenAlpha * 3);
                 }
             }
         }
@@ -219,18 +219,18 @@ switch (global.telTelWeather)
         {
             for (var e = view_yview - 16; e &lt;= view_yview + view_hview + 16; e += 16)
             {
-                ndraw_sprite_ext(sprTelTelSnow, weatherImg, i - dox, e - doy, 1, 1, 0, c_white, 1);
+                draw_sprite_ext(sprTelTelSnow, weatherImg, i - dox, e - doy, 1, 1, 0, c_white, 1);
             }
         }
         
         // Flash
         depth = 0;
-        ndraw_set_color(c_white);
+        draw_set_color(c_white);
         storealpha = draw_get_alpha();
-        ndraw_set_alpha(darkenAlpha);
+        draw_set_alpha(darkenAlpha);
         draw_rectangle(view_xview - 1, view_yview - 1, view_xview + view_wview + 1,
             view_yview + view_hview + 1, false);
-        ndraw_set_alpha(storealpha);
+        draw_set_alpha(storealpha);
         
         // Sky brightens before fading out
         if (animTimer mod 10 == 0)

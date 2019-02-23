@@ -326,7 +326,7 @@ for (i = -1; i &lt; ceil(view_wview[0] / bgW) + 1; i += 1)
                 draw_background_part(myBG, partX, partY, partW, partH, xDraw, yDraw);
                 break;
             case 2:
-                ndraw_sprite_part(myBG, img, partX, partY, partW, partH, xDraw, yDraw);
+                draw_sprite_part(myBG, img, partX, partY, partW, partH, xDraw, yDraw);
                 break;
             case 3:
                 draw_surface_part(myBG, partX, partY, partW, partH, xDraw, yDraw);

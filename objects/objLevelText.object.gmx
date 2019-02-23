@@ -78,9 +78,9 @@ y = ystart;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_set_color(c_white);
-ndraw_set_halign(align);
-ndraw_set_valign(fa_top);
+            <string>draw_set_color(c_white);
+draw_set_halign(align);
+draw_set_valign(fa_top);
 draw_text(x, y, text);
 
 // will do colored text overlays for this later, really not in the mood to figure out the code for the box dimensions right now  ~Entity

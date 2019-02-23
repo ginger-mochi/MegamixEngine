@@ -210,7 +210,7 @@ if (other.object_index != objRainFlush)
             <kind>1</kind>
             <string>if (!dead)
 {
-    ndraw_sprite_part(sprite_index, image_index, 0, 0, sprite_get_width(sprite_index), max(0, sprite_get_height(sprite_index) + (ystart - y)), x, y);
+    draw_sprite_part(sprite_index, image_index, 0, 0, sprite_get_width(sprite_index), max(0, sprite_get_height(sprite_index) + (ystart - y)), x, y);
     image_yscale = 1/spriteHeight;
     image_yscale *= max(0, sprite_get_height(sprite_index) + (ystart - y));
 }

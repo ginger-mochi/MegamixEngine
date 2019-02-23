@@ -149,25 +149,25 @@ if (!controlsLocked)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_set_color(c_white);
-ndraw_set_alpha(1);
-ndraw_set_halign(fa_left);
-ndraw_set_valign(fa_top);
+            <string>draw_set_color(c_white);
+draw_set_alpha(1);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
 for (var i = 0; i &lt; 4; i++)
 {
     var draw_y = 48 + i * 12;
     
     // draw cursor
     if (i == selection)
-        ndraw_sprite(sprOptionsCursor, 0, 24, draw_y);
+        draw_sprite(sprOptionsCursor, 0, 24, draw_y);
     
     // option text
     draw_text(48, draw_y, optionText[i]);
 }
 
-ndraw_set_alpha(0.3);
+draw_set_alpha(0.3);
 draw_text(0, 0, "New File#Make a better menu!#objNewFile :)");
-ndraw_set_alpha(1);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

@@ -428,11 +428,11 @@ alarm[0] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_sprite_ext(sprite_index, 1 + ceil(clamp(carFrame, 0, 2)), round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+            <string>draw_sprite_ext(sprite_index, 1 + ceil(clamp(carFrame, 0, 2)), round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 if (floor(carFrame) == 1)
-    ndraw_sprite_ext(sprite_index, 4 + joeFrame, round(x), round(y) + 1, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    draw_sprite_ext(sprite_index, 4 + joeFrame, round(x), round(y) + 1, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 else
-    ndraw_sprite_ext(sprite_index, 4 + joeFrame, round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+    draw_sprite_ext(sprite_index, 4 + joeFrame, round(x), round(y), image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 </string>
           </argument>
         </arguments>
@@ -458,7 +458,7 @@ else
             <string>// handles stuff differently than the Puny Regular Enemies....
 if (introTimer &gt; 0 &amp;&amp; doesIntro)
 {
-    ndraw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
+    draw_sprite_ext(introSprite, 2 - (min(2, min(introTimer, 15) / 5)), x,
         y - max(introTimer - 10, 0) * image_yscale, image_xscale, image_yscale, 0, c_white, 1);
 }
 else

@@ -392,7 +392,7 @@ if (direction mod 90 == 0)
     var i;
     for (i = 0; (i &lt;= point_distance(x, y, launchX, launchY) &amp;&amp; i &lt; tail0Length); i++)
     {
-        ndraw_sprite_ext(sprite_index, 2 + (spriteAlt == true), x + i * cos(degtorad(direction + 180)), y + i * sin(degtorad(direction)), 1, 1, direction, c_white, 1);
+        draw_sprite_ext(sprite_index, 2 + (spriteAlt == true), x + i * cos(degtorad(direction + 180)), y + i * sin(degtorad(direction)), 1, 1, direction, c_white, 1);
         spriteAlt = !spriteAlt;
     }
 }
@@ -413,7 +413,7 @@ else if (direction mod 45 == 0)
     var i;
     for (i = 0; (i * 1.4142 &lt;= point_distance(x, y, launchX, launchY) &amp;&amp; i &lt; tail45Length); i++)
     {
-        ndraw_sprite_ext(sprite_index, 6 + (spriteAlt == true), x - i * xFlip, y + i * yFlip, 1, 1, direction - 45, c_white, 1);
+        draw_sprite_ext(sprite_index, 6 + (spriteAlt == true), x - i * xFlip, y + i * yFlip, 1, 1, direction - 45, c_white, 1);
         spriteAlt = !spriteAlt;
     }
 }
@@ -450,7 +450,7 @@ else
                     break;
             }
             
-            ndraw_sprite_ext(sprite_index, 4 + (spriteAlt == false), drawX, drawY, 1, 1, (direction div 90) * 90, c_white, 1);
+            draw_sprite_ext(sprite_index, 4 + (spriteAlt == false), drawX, drawY, 1, 1, (direction div 90) * 90, c_white, 1);
             spriteAlt = !spriteAlt;
         }
     }
@@ -481,7 +481,7 @@ else
                     break;
             }
             
-            ndraw_sprite_ext(sprite_index, 4 + (spriteAlt == false), drawX, drawY, -1, 1, (direction div 90) * 90 - 90, c_white, 1);
+            draw_sprite_ext(sprite_index, 4 + (spriteAlt == false), drawX, drawY, -1, 1, (direction div 90) * 90 - 90, c_white, 1);
             spriteAlt = !spriteAlt;
         }
     }
@@ -490,7 +490,7 @@ else
 // draw main sprite
 if (image_index &lt; 2)
 {
-    ndraw_sprite(sprite_index, image_index, x, y);
+    draw_sprite(sprite_index, image_index, x, y);
 }
 
 // end tail direction fix

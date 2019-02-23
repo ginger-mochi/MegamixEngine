@@ -1,5 +1,5 @@
-///nndraw_set_alpha(col)
-///same as ndraw_set_alpha but sends sprite to connected clients as well.
+///ndraw_set_alpha(col)
+///same as draw_set_alpha but sends sprite to connected clients as well.
 
 /*LOCAL*/ draw_set_alpha(argument0);
 

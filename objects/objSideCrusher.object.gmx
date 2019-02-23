@@ -176,12 +176,12 @@ while (i &gt; view_xview - 16 + 16)
     
     if (image_xscale == -1)
     {
-        ndraw_sprite_part(sprSideCrusherChain, image_index, 0, 0, 16, 32,
+        draw_sprite_part(sprSideCrusherChain, image_index, 0, 0, 16, 32,
             i + s - 15, y - 16);
     }
     else
     {
-        ndraw_sprite_part(sprSideCrusherChain, image_index, 0, 0,
+        draw_sprite_part(sprSideCrusherChain, image_index, 0, 0,
             16 - abs(s), 32, i + s, y - 16);
     }
     i -= 16 * image_xscale;

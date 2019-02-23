@@ -346,7 +346,7 @@ event_inherited();
 
 if (time &gt; -1 &amp;&amp; shownumber)
 {
-    ndraw_sprite(sprCountBombNumbers, time, x + xx, y + yy);
+    draw_sprite(sprCountBombNumbers, time, x + xx, y + yy);
 }
 else if (!shownumber)
 {

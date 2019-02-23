@@ -322,7 +322,7 @@ event_inherited();
     
     for (var i = 0; i &lt; wireY; i++)
     {
-        ndraw_sprite(sprCombiloidWire, 0, x, y - (i * 8) * ySeRe);
+        draw_sprite(sprCombiloidWire, 0, x, y - (i * 8) * ySeRe);
     }
 }
 event_inherited();

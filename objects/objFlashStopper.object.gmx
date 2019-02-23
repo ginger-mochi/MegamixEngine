@@ -259,7 +259,7 @@ if (!global.frozen)
             <string>if (phase == 359 || phase == 358 || phase == 355 || phase == 354
     || phase == 351 || phase == 350)
 {
-    ndraw_sprite(sprFlashStopperScreen, 0, view_xview[0] + 128, view_yview[0] + 112);
+    draw_sprite(sprFlashStopperScreen, 0, view_xview[0] + 128, view_yview[0] + 112);
 }
 </string>
           </argument>

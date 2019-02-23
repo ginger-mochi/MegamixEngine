@@ -295,8 +295,8 @@ with (objMegaman)
           <argument>
             <kind>1</kind>
             <string>// bolt counter
-ndraw_sprite(sprBoltBig, 0, view_xview[0] + boltIconXOffset, view_yview[0] + boltIconYOffset);
-ndraw_set_valign(fa_top);
+draw_sprite(sprBoltBig, 0, view_xview[0] + boltIconXOffset, view_yview[0] + boltIconYOffset);
+draw_set_valign(fa_top);
 draw_text(view_xview[0] + boltCounterXOffset, view_yview[0] + boltCounterYOffset, zeroPad(displayBolts, 4));
 
 // shop info
@@ -309,14 +309,14 @@ for (i = 0; i &lt; menuWidth; i++)
             // item icon
             if (itemIcon[i, j] != noone)
             {
-                ndraw_sprite(itemIcon[i, j], 0, view_xview[0] + iconsXOffset + i * iconsXSpacing
+                draw_sprite(itemIcon[i, j], 0, view_xview[0] + iconsXOffset + i * iconsXSpacing
                     , view_yview[0] + iconsYOffset + j * iconsYSpacing);
             }
             
             // name and description
             if (i == cursorX &amp;&amp; j == cursorY)
             {
-                ndraw_set_halign(fa_left);
+                draw_set_halign(fa_left);
                 
                 if (itemName[i, j] != noone)
                 {
@@ -333,7 +333,7 @@ for (i = 0; i &lt; menuWidth; i++)
         if (itemUnavailable[i, j] == 0 &amp;&amp; itemPrice[i, j] != noone)
         {
             // price
-            ndraw_set_halign(fa_center);
+            draw_set_halign(fa_center);
             draw_text(view_xview[0] + iconsXOffset + i * iconsXSpacing - sprite_get_xoffset(itemIcon[i, j]) + sprite_get_width(itemIcon[i, j]) / 2
                 , view_yview[0] + iconsYOffset + j * iconsYSpacing - sprite_get_yoffset(itemIcon[i, j]) + sprite_get_height(itemIcon[i, j]) + 4, string(itemPrice[i, j]));
         }
@@ -341,7 +341,7 @@ for (i = 0; i &lt; menuWidth; i++)
         if (itemUnavailable[i, j] == 1)
         {
             // maxed out
-            ndraw_set_halign(fa_center);
+            draw_set_halign(fa_center);
             draw_text(view_xview[0] + iconsXOffset + i * iconsXSpacing - sprite_get_xoffset(itemIcon[i, j]) + sprite_get_width(itemIcon[i, j]) / 2
                 , view_yview[0] + iconsYOffset + j * iconsYSpacing - sprite_get_yoffset(itemIcon[i, j]) + sprite_get_height(itemIcon[i, j]) + 4, "MAX");
         }
@@ -349,14 +349,14 @@ for (i = 0; i &lt; menuWidth; i++)
 }
 
 // menu cursor
-ndraw_sprite(sprShopCursor, cursorImgIndex div 1, view_xview[0] + iconsXOffset + cursorX * iconsXSpacing, view_yview[0] + iconsYOffset + cursorY * iconsYSpacing + 1);
+draw_sprite(sprShopCursor, cursorImgIndex div 1, view_xview[0] + iconsXOffset + cursorX * iconsXSpacing, view_yview[0] + iconsYOffset + cursorY * iconsYSpacing + 1);
 cursorImgIndex += cursorImgSpd;
 if (cursorImgIndex &gt;= sprite_get_number(sprShopCursor))
 {
     cursorImgIndex = 0;
 }
 
-ndraw_set_halign(fa_left);
+draw_set_halign(fa_left);
 
 // players
 for (var i = 0; i &lt; global.playerCount; i++)
@@ -365,7 +365,7 @@ for (var i = 0; i &lt; global.playerCount; i++)
 }
 
 // exit notification
-ndraw_sprite(sprButtonPrompts, 5, 144, 96);
+draw_sprite(sprButtonPrompts, 5, 144, 96);
 draw_text(154, 96, ":EXIT");
 
 </string>

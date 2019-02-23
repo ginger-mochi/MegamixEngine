@@ -198,7 +198,7 @@ if (tileN &lt;= 0)
             draw_background_part(tiles[i], tileLeft[i], tileTop[i], tileWidth[i], tileHeight[i], floor(x) + tileOffsetX[i], floor(y) + tileOffsetY[i]);
         }
         draw_set_blend_mode(bm_normal);
-        ndraw_set_alpha(1);
+        draw_set_alpha(1);
     }
 }
 </string>

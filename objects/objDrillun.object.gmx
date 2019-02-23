@@ -155,7 +155,7 @@ if (!ground)
 }
 else
 {
-    ndraw_sprite_part(sprite_index, image_index, 0, 0, sprite_width,
+    draw_sprite_part(sprite_index, image_index, 0, 0, sprite_width,
         sprite_height - 2, x - sprite_xoffset, y - sprite_yoffset);
 }
 

@@ -173,7 +173,7 @@ else if (dead)
 }
 else
 {
-    ndraw_sprite_part(sprite_index, image_index, 0, 0, sprite_width,
+    draw_sprite_part(sprite_index, image_index, 0, 0, sprite_width,
         sprite_height - 2, x - sprite_xoffset, y - sprite_yoffset);
 }
 
@@ -200,7 +200,7 @@ while (i &gt; view_yview - 16)
             endit = 1;
         }
     }
-    ndraw_sprite_part(sprCrusherChain, image_index, 0, s, 32, 16 - s, x - 16,
+    draw_sprite_part(sprCrusherChain, image_index, 0, s, 32, 16 - s, x - 16,
         i + s);
     i -= 16;
     if (endit)

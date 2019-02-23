@@ -267,7 +267,7 @@ if (instance_exists(myPlatform))
     for (var i = 0; i &lt;= floor(myPlatform.image_xscale); i++)
     {
         var draw_x = platEndX + (i * image_xscale) * 16;
-        ndraw_sprite_ext(sprHornetRollPlatform, i == 0, draw_x, y, image_xscale, 1, 0, c_white, 1);
+        draw_sprite_ext(sprHornetRollPlatform, i == 0, draw_x, y, image_xscale, 1, 0, c_white, 1);
     }
 }
 

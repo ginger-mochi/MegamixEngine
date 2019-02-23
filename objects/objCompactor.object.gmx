@@ -199,7 +199,7 @@ else if (dead)
             <kind>1</kind>
             <string>drawSelf();
 
-ndraw_sprite(sprCompactorTop, 0, x, ceil(bbox_bottom - 14));
+draw_sprite(sprCompactorTop, 0, x, ceil(bbox_bottom - 14));
 </string>
           </argument>
         </arguments>

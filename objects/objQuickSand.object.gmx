@@ -175,7 +175,7 @@ else
 {
     for (j = stretchY - 1; j &gt;= 0; j -= 1)
     {
-        ndraw_sprite(sprite_index, -1,
+        draw_sprite(sprite_index, -1,
             round(x) + sprite_get_width(sprite_index) * i,
             round(y) + j * 16);
     }

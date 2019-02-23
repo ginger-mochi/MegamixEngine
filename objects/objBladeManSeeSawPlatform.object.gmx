@@ -226,9 +226,9 @@ if (y - yMain &gt; 0)
 var xDiff = 9 * xPosition;
 var yDiff = (y + 5 + yShift - yMain - 2 - 3 * (y - yMain - yMax) / (yMax + yMin)) / 3;
 
-ndraw_sprite(sprBladeManSeeSawTether, 0, x, y + 5);
-ndraw_sprite(sprBladeManSeeSawTether, 0, x - xDiff, y + 5 + yShift - yDiff);
-ndraw_sprite(sprBladeManSeeSawTether, 0, x - 2 * xDiff, y + 5 + yShift - 2 * yDiff);
+draw_sprite(sprBladeManSeeSawTether, 0, x, y + 5);
+draw_sprite(sprBladeManSeeSawTether, 0, x - xDiff, y + 5 + yShift - yDiff);
+draw_sprite(sprBladeManSeeSawTether, 0, x - 2 * xDiff, y + 5 + yShift - 2 * yDiff);
 
 event_inherited();
 </string>

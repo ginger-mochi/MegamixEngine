@@ -383,7 +383,7 @@ if (drawspath)
     {
         if (linem[i])
         {
-            ndraw_sprite(sprWilyCastlePath, linem[i] - 1, linex[i], liney[i]);
+            draw_sprite(sprWilyCastlePath, linem[i] - 1, linex[i], liney[i]);
         }
     }
     

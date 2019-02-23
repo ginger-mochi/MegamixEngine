@@ -171,26 +171,26 @@ if (entityCanStep())
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_set_alpha(1);
+            <string>draw_set_alpha(1);
 if (lightingLevel == 1 &amp;&amp; !lightingSemi)
     exit;
 
 if (lightingSemi)
 {
-    ndraw_set_alpha(lightingRetain);
+    draw_set_alpha(lightingRetain);
     draw_set_blend_mode_ext(bm_dest_color, bm_src_alpha);
-    ndraw_set_color(lightingColor);
+    draw_set_color(lightingColor);
     draw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
     draw_set_blend_mode(bm_normal);
 }
 
-ndraw_set_color(c_black);
-ndraw_set_alpha(1 - roundedLightingLevel);
+draw_set_color(c_black);
+draw_set_alpha(1 - roundedLightingLevel);
 {
     draw_rectangle(global.sectionLeft, global.sectionTop, global.sectionRight, global.sectionBottom, false);
 }
 
-ndraw_set_alpha(1);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>

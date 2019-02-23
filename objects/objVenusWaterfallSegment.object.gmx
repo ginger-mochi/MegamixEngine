@@ -207,7 +207,7 @@ if (instance_exists(objSectionSwitcher))
 
 for (var i = 0; i &lt; image_yscale; i++)
 {
-    ndraw_sprite(sprite_index, image_index, round(x), round(y + i * 8));
+    draw_sprite(sprite_index, image_index, round(x), round(y + i * 8));
 }
 </string>
           </argument>

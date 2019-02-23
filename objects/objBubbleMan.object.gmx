@@ -456,7 +456,7 @@ with (objBubbleManLead)
     {
         if (sprite_index != idleSprite)
         {
-            //ndraw_sprite_ext(sprWaterPillar,image_index,x-4*image_xscale,y+64,1,-1,0,c_white,1);
+            //draw_sprite_ext(sprWaterPillar,image_index,x-4*image_xscale,y+64,1,-1,0,c_white,1);
             drawSelf();
         }
     }

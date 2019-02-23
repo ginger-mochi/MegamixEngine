@@ -406,12 +406,12 @@ if (displayMessage)
 }
 if (runTests)
 {
-    ndraw_set_halign(fa_right);
+    draw_set_halign(fa_right);
     draw_text(view_wview[0] + view_xview[0], view_yview[0], "UNIT TEST#" + global.unitSuiteName + "#@" + global.unitTestCase);
 }
 if (displayResults)
 {
-    ndraw_set_halign(fa_left);
+    draw_set_halign(fa_left);
     draw_y = -scroll;
     draw_x = 16 - scrollX;
     draw_indent = 0;
@@ -423,19 +423,19 @@ if (displayResults)
     switch (global.unitTestGlobalErrorSummaryResult)
     {
         case 0:
-            ndraw_set_color(c_green);
+            draw_set_color(c_green);
             draw_text(draw_x, draw_y, "All Tests Passed!");
             draw_y += 16;
             break;
         case 1:
-            ndraw_set_color(c_yellow);
+            draw_set_color(c_yellow);
             draw_text(draw_x, draw_y, "Tests passed with warnings");
             draw_y += 16;
             draw_text(draw_x, draw_y, "Please investigate and report cause.");
             draw_y += 16;
             break;
         case 2:
-            ndraw_set_color(c_red);
+            draw_set_color(c_red);
             draw_text(draw_x, draw_y, "Tests failed");
             draw_y += 16;
             draw_text(draw_x, draw_y, "Do not push to master until");
@@ -448,7 +448,7 @@ if (displayResults)
             draw_y += 16;
             break;
         case 3:
-            ndraw_set_color(c_purple);
+            draw_set_color(c_purple);
             draw_text(draw_x, draw_y, "CRITICAL ERROR!");
             draw_y += 16;
             draw_text(draw_x, draw_y, "Unit tests could not finish due to a critical");
@@ -479,7 +479,7 @@ if (displayResults)
         var cases = suiteResult.unitTestCaseResults;
         
         // draw suite name
-        ndraw_set_color(c_white);
+        draw_set_color(c_white);
         draw_text(draw_x, draw_y, suiteResult.suiteName);
         draw_y += draw_spacing;
         
@@ -489,16 +489,16 @@ if (displayResults)
             var result = ds_list_find_value(cases, j);
             
             // draw case name
-            ndraw_set_color(c_green);
+            draw_set_color(c_green);
             if (ds_list_size(result.warnings) &gt; 0)
-                ndraw_set_color(c_yellow);
+                draw_set_color(c_yellow);
             if (ds_list_size(result.errors) &gt; 0)
-                ndraw_set_color(c_red);
+                draw_set_color(c_red);
             draw_text(draw_x + draw_indent, draw_y, result.caseName);
             draw_y += draw_spacing;
             
             // draw warnings
-            ndraw_set_color(c_yellow);
+            draw_set_color(c_yellow);
             for (var k = 0; k &lt; ds_list_size(result.warnings); k++)
             {
                 var drawString = "- " + ds_list_find_value(result.warnings, k)
@@ -508,7 +508,7 @@ if (displayResults)
             }
             
             // draw errors
-            ndraw_set_color(c_red);
+            draw_set_color(c_red);
             for (var k = 0; k &lt; ds_list_size(result.errors); k++)
             {
                 var drawString = "- " + ds_list_find_value(result.errors, k)
@@ -522,7 +522,7 @@ if (displayResults)
     // fatal marker
     if (global.unitTestGlobalErrorSummaryResult == 3)
     {
-        ndraw_set_color(c_purple);
+        draw_set_color(c_purple);
         draw_text(draw_x + draw_indent, draw_y, "The above error is fatal.");
         draw_y += 16;
     }

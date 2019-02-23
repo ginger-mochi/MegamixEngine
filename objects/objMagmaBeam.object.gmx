@@ -337,13 +337,13 @@ for (var i = 0; i &lt; abs(image_yscale); i++)
         d3d_set_fog(true, make_color_rgb(0, 120, 255), 0, 0);
     }
     
-    ndraw_sprite_ext(sprite_index, subimg, drawX, drawY, sign(image_xscale), sign(image_yscale), image_angle, c_white, 1);
+    draw_sprite_ext(sprite_index, subimg, drawX, drawY, sign(image_xscale), sign(image_yscale), image_angle, c_white, 1);
     
     if (df)
     {
         d3d_set_fog(false, 0, 0, 0);
         draw_set_blend_mode(bm_add);
-        ndraw_sprite_ext(sprite_index, subimg, drawX, drawY, sign(image_xscale), sign(image_yscale), image_angle, c_white, 1);
+        draw_sprite_ext(sprite_index, subimg, drawX, drawY, sign(image_xscale), sign(image_yscale), image_angle, c_white, 1);
         draw_set_blend_mode(bm_normal);
     }
 }

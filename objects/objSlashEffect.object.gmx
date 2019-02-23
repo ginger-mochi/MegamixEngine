@@ -112,7 +112,7 @@ else
         top = sprite_height - ys;
         yh = ys;
     }
-    ndraw_sprite_part_ext(sprite_index, image_index, 0, top, sprite_width, ys,
+    draw_sprite_part_ext(sprite_index, image_index, 0, top, sprite_width, ys,
         x - sprite_xoffset * imgx, y - sprite_yoffset * imgy + yh, imgx, imgy,
         image_blend, image_alpha);
     

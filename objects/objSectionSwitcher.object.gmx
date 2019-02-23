@@ -496,7 +496,7 @@ instance_destroy();
 
 if (alpha &gt; 0)
 {
-    ndraw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview,
+    draw_sprite_ext(sprDot, 0, view_xview, view_yview, view_wview, view_hview,
         0, c_black, alpha);
 }
 </string>

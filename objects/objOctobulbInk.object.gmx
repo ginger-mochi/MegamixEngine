@@ -139,7 +139,7 @@ if (!global.frozen)
 {
     for (var i = 0; i &lt; 4; i++)
     {
-        ndraw_sprite(sprOctobulbInk, img, x + xs[i], y + ys[i]);
+        draw_sprite(sprOctobulbInk, img, x + xs[i], y + ys[i]);
     }
 }
 </string>

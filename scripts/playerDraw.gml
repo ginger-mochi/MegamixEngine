@@ -37,15 +37,15 @@ if (showReady)
     {
         readyText = "READY";
         
-        ndraw_set_halign(fa_center);
-        ndraw_set_valign(fa_middle);
-        ndraw_set_color(c_white);
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        draw_set_color(c_white);
         
         ndraw_text(view_xview + view_wview / 2, view_yview + view_hview / 2,
             readyText);
         
-        ndraw_set_halign(fa_left);
-        ndraw_set_valign(fa_top);
+        draw_set_halign(fa_left);
+        draw_set_valign(fa_top);
     }
     if (readyTimer >= 72 && !audio_is_playing(sfxWhistle))
     {
@@ -76,7 +76,7 @@ else
     {
         if (isHit && (hitTimer mod 8) <= 3) // Hitspark
         {
-            ndraw_sprite_ext(sprHitspark, 0, spriteGetXCenter(),
+            draw_sprite_ext(sprHitspark, 0, spriteGetXCenter(),
                 spriteGetYCenter(), image_xscale, image_yscale, 0, c_white,
                 1);
         }
@@ -101,7 +101,7 @@ else
         
         for (i = 0; i <= 3; i += 1)
         {
-            ndraw_sprite_ext(global.weaponIcon[global.weapon[playerID]],
+            draw_sprite_ext(global.weaponIcon[global.weapon[playerID]],
                 i, round(x) - 8 + iconx,
                 round(y) - 30 * image_yscale, 1, image_yscale, 0,
                 col[i], image_alpha);

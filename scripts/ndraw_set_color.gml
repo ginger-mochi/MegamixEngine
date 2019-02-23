@@ -1,5 +1,5 @@
-///n/*LOCAL*/ ndraw_set_color(col)
-///same as /*LOCAL*/ ndraw_set_color but sends sprite to connected clients as well.
+///n/*LOCAL*/ draw_set_color(col)
+///same as /*LOCAL*/ draw_set_color but sends sprite to connected clients as well.
 
 /*LOCAL*/ draw_set_color(argument0);
 

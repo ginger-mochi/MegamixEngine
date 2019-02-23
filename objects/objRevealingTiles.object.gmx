@@ -247,8 +247,8 @@ surface_reset_target();
 // mask (reveals tiles)
 surface_set_target(sectionSurfaceMask);
 draw_clear_alpha(c_white, 0);
-ndraw_set_color(c_white);
-ndraw_set_alpha(1);
+draw_set_color(c_white);
+draw_set_alpha(1);
 draw_set_circle_precision(64);
 for (var i = 0; i &lt; revealersN; i++)
 {

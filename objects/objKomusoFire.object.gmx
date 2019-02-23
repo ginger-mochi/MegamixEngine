@@ -176,11 +176,11 @@ if (!instance_exists(objKomusoMan))
 {
     if (i == 0 || i == image_yscale - 1)
     {
-        ndraw_sprite(sprKomusoFireTop, img, x, y + i * 16);
+        draw_sprite(sprKomusoFireTop, img, x, y + i * 16);
     }
     else
     {
-        ndraw_sprite(sprKomusoFireMid, img, x, (y + 8) + i * 16);
+        draw_sprite(sprKomusoFireMid, img, x, (y + 8) + i * 16);
     }
 }
 </string>

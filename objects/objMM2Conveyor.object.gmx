@@ -188,7 +188,7 @@ for (i = 0; i &lt; image_xscale; i += 1)
     {
         imgadd = 2*animFrames + animFrames*(dir&lt;0);
     }
-    ndraw_sprite(sprite_index, img + imgadd, x + i * 16, y);
+    draw_sprite(sprite_index, img + imgadd, x + i * 16, y);
 }
 </string>
           </argument>

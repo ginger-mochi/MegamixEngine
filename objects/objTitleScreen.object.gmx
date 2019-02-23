@@ -142,10 +142,10 @@ freshSaveFile();
           <argument>
             <kind>1</kind>
             <string>var oldCol = draw_get_color();
-ndraw_set_color(c_white);
+draw_set_color(c_white);
 
-ndraw_set_valign(fa_top);
-ndraw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
 
 if (drawtext)
 {
@@ -153,21 +153,21 @@ if (drawtext)
 }
 if (canProceed)
 {
-    ndraw_sprite(sprOptionsCursor, 0, 96 - 12, 160 + option * 16);
+    draw_sprite(sprOptionsCursor, 0, 96 - 12, 160 + option * 16);
 }
 
-ndraw_set_color(oldCol);
+draw_set_color(oldCol);
 
 // colored text overlay
 if (global.showColoredTextOverlays)
 {
-    ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
-    ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
+    draw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
+    draw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
     draw_rectangle(96 - 12 - 4, 160 - 4, 176 + 2, 160 + 23 + 3, false);
     
-    ndraw_set_color(c_white);
-    ndraw_set_alpha(1);
+    draw_set_color(c_white);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

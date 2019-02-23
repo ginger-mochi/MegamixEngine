@@ -245,21 +245,21 @@ else
           <argument>
             <kind>1</kind>
             <string>// drawSelf();
-ndraw_set_color(c_white);
-ndraw_set_halign(fa_center);
-ndraw_set_valign(fa_middle);
+draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
 if (!lock)
 {
     if (light != -1 &amp;&amp; !floor(lightt mod 2))
     {
-        ndraw_sprite(lightSprite, light, x + lightx, y + lighty);
+        draw_sprite(lightSprite, light, x + lightx, y + lighty);
     }
 }
 
 if (pressUp &amp;&amp; drawarrow)
 {
-    ndraw_sprite(sprPressUp, (image_yscale == -1), x, y - 22 * image_yscale);
+    draw_sprite(sprPressUp, (image_yscale == -1), x, y - 22 * image_yscale);
     drawarrow = 0;
 }
 </string>

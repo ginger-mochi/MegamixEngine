@@ -1,4 +1,4 @@
-///n/*LOCAL*/ ndraw_sprite(sprite, subimg, x, y)
+///n/*LOCAL*/ draw_sprite(sprite, subimg, x, y)
 
 /*LOCAL*/ draw_sprite(argument0,argument1,argument2,argument3);
 

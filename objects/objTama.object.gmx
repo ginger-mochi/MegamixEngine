@@ -180,7 +180,7 @@ else
     }
     
     draw_self();
-    ndraw_sprite_ext(sprite_index, 5 + tailIndex, round(x), round(y),
+    draw_sprite_ext(sprite_index, 5 + tailIndex, round(x), round(y),
         image_xscale, image_yscale, image_angle, image_blend, image_alpha);
     
     if (iFrames == 1 || iFrames == 3)

@@ -63,7 +63,7 @@ reflectable = 0;
             <kind>1</kind>
             <string>for (i = 0; i &lt; image_xscale; i += 1)
 {
-    ndraw_sprite(sprite_index, image_index, x, y + i * 16);
+    draw_sprite(sprite_index, image_index, x, y + i * 16);
 }
 </string>
           </argument>

@@ -177,19 +177,19 @@ else if (dead)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_sprite_part_ext(sprite_index, 0, 0, 0, 52,
+            <string>draw_sprite_part_ext(sprite_index, 0, 0, 0, 52,
     sprite_height * global.flag[myFlag],
     round(x) - sprite_xoffset, round(y) - sprite_yoffset - (3 * global.flag[myFlag] &lt;= .93), image_xscale, image_yscale, image_blend, image_alpha);
 
 // Draw the shaft rising upwards
 if (y &lt; ystart)
 {
-    ndraw_sprite_part(sprSkullElevatorShaft, 0, 0, 0, 48, (ystart - y) mod 16, x - 28, ystart - ((ystart - y) mod 16));
+    draw_sprite_part(sprSkullElevatorShaft, 0, 0, 0, 48, (ystart - y) mod 16, x - 28, ystart - ((ystart - y) mod 16));
     
     if ((ystart - y) &gt;= 16)
     {
         for (i = 0; i &lt; floor((ystart - y) / 16); i++)
-            ndraw_sprite(sprSkullElevatorShaft, 0, x - 4, y + i * 16);
+            draw_sprite(sprSkullElevatorShaft, 0, x - 4, y + i * 16);
     }
 }
 </string>

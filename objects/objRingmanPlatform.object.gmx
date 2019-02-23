@@ -138,17 +138,17 @@ else
     // body
     for (i = -negOffset; i &lt; floor(abs(image_xscale)) - negOffset; i++)
     {
-        ndraw_sprite(platformSprite, floor(imgIndex), floor(x + (i * 16) * sign(image_xscale)), floor(y));
+        draw_sprite(platformSprite, floor(imgIndex), floor(x + (i * 16) * sign(image_xscale)), floor(y));
     }
     
     // tail
     var tileOffset = abs(image_xscale mod 1);
-    ndraw_sprite_part(platformSprite, floor(imgIndex), floor((16 * (1 - tileOffset)) * abs(negOffset)), 0, floor(16 * tileOffset), 16, floor(x + floor(image_xscale) * 16 - (16 - tileOffset * 16) * negOffset), floor(y));
+    draw_sprite_part(platformSprite, floor(imgIndex), floor((16 * (1 - tileOffset)) * abs(negOffset)), 0, floor(16 * tileOffset), 16, floor(x + floor(image_xscale) * 16 - (16 - tileOffset * 16) * negOffset), floor(y));
     
     // sparkle tail for rainbow roa- bridge
     if (platformSprite == sprRingManPlatformRainbow &amp;&amp; image_xscale != startLen)
     {
-        ndraw_sprite_ext(sprRingManPlatformTrail, floor(imgIndex), floor(x + image_xscale * 16), floor(y), sign(image_xscale), image_yscale, image_angle, image_blend, image_alpha);
+        draw_sprite_ext(sprRingManPlatformTrail, floor(imgIndex), floor(x + image_xscale * 16), floor(y), sign(image_xscale), image_yscale, image_angle, image_blend, image_alpha);
     }
 }
 </string>

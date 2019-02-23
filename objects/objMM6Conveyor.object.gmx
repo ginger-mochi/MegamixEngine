@@ -132,11 +132,11 @@ for (i = 0; i &lt; image_xscale; i += 1)
 {
     if (dir == 1)
     {
-        ndraw_sprite(sprite_index, img, round(x) + i * 16, round(y));
+        draw_sprite(sprite_index, img, round(x) + i * 16, round(y));
     }
     else
     {
-        ndraw_sprite(sprite_index, image_number - img mod image_number,
+        draw_sprite(sprite_index, image_number - img mod image_number,
             round(x) + i * 16, round(y));
     }
 }

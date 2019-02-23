@@ -278,7 +278,7 @@ if (spawned)
             <string>var i = 0;
 while (i &lt; image_xscale)
 {
-    ndraw_sprite_ext(sprite_index, image_index, x + (i * 16), y + 16 * (_gravDir == -1), 1, _gravDir, 0, c_white, 1);
+    draw_sprite_ext(sprite_index, image_index, x + (i * 16), y + 16 * (_gravDir == -1), 1, _gravDir, 0, c_white, 1);
     i += 1;
 }
 </string>

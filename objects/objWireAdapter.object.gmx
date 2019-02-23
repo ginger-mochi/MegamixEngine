@@ -493,7 +493,7 @@ for (i = 0; i &lt;= wirelength; i += 1)
             wireimg = 0;
         }
     }
-    ndraw_sprite_ext(sprWireAdapterWire, wireimg, x,
+    draw_sprite_ext(sprWireAdapterWire, wireimg, x,
         y + i * 4 * gravDir, 1, gravDir, image_angle,
         image_blend, image_alpha);
 }

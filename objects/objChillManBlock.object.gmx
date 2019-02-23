@@ -451,10 +451,10 @@ if (drawItem &amp;&amp; itemDrop &amp;&amp; !dead)
     
     // the actual sprite drawing happens here
     d3d_set_fog(true, make_color_rgb(0, 120, 255), 0, 0);
-    ndraw_sprite_part_ext(sprite, subimage, itemDrawLeft, itemDrawTop, itemDrawBoxWidth, itemDrawBoxHeight, drawX, drawY, xscale, yscale, color, alpha);
+    draw_sprite_part_ext(sprite, subimage, itemDrawLeft, itemDrawTop, itemDrawBoxWidth, itemDrawBoxHeight, drawX, drawY, xscale, yscale, color, alpha);
     d3d_set_fog(false, 0, 0, 0);
     draw_set_blend_mode(bm_add);
-    ndraw_sprite_part_ext(sprite, subimage, itemDrawLeft, itemDrawTop, itemDrawBoxWidth, itemDrawBoxHeight, drawX, drawY, xscale, yscale, color, alpha);
+    draw_sprite_part_ext(sprite, subimage, itemDrawLeft, itemDrawTop, itemDrawBoxWidth, itemDrawBoxHeight, drawX, drawY, xscale, yscale, color, alpha);
     draw_set_blend_mode(bm_normal);
 }
 
@@ -464,7 +464,7 @@ if (superArmFlashTimer mod (2 * superArmFlashInterval) &gt;= superArmFlashInterv
     draw_set_blend_mode(bm_add);
     drawSelf();
     draw_set_blend_mode(bm_normal);
-    ndraw_set_alpha(1);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

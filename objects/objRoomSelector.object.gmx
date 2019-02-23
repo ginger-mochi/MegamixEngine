@@ -367,9 +367,9 @@ if (!selected)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_set_color(c_white);
-ndraw_set_halign(fa_center);
-ndraw_set_valign(fa_top);
+            <string>draw_set_color(c_white);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
 
 draw_text(128, round(8 + (sin(timer / 12) * 1)), "STAGE SELECT");
 
@@ -379,17 +379,17 @@ if (timer mod 44 &lt; 40)
     col = make_color_rgb(128, 128, 128);
 }
 
-ndraw_sprite_ext(sprStageSelectLight, image_index, 128,
+draw_sprite_ext(sprStageSelectLight, image_index, 128,
     44 + (option - 1 - shift) * 16, 1, 1, image_angle, col, image_alpha);
 
 if (shift &gt; 0)
 {
-    ndraw_sprite_ext(sprStageSelectArrow, image_index, 128, 48 - 13, 1, 1,
+    draw_sprite_ext(sprStageSelectArrow, image_index, 128, 48 - 13, 1, 1,
         image_angle, image_blend, image_alpha);
 }
 if (endx + shift &lt; ds_list_size(roomlist))
 {
-    ndraw_sprite_ext(sprStageSelectArrow, image_index, 128, 48 + 5 + endx * 16,
+    draw_sprite_ext(sprStageSelectArrow, image_index, 128, 48 + 5 + endx * 16,
         1, -1, image_angle, image_blend, image_alpha);
 }
 
@@ -403,10 +403,10 @@ for (i = 0; i &lt; endx; i += 1)
     if (stringStartsWith(text, "@"))
     {
         text = stringSubstring(text, 2);
-        ndraw_set_color(c_yellow);
+        draw_set_color(c_yellow);
     }
     else
-        ndraw_set_color(c_white);
+        draw_set_color(c_white);
     if (stringStartsWith(text, "#"))
     {
         // difficulty
@@ -443,14 +443,14 @@ for (i = 0; i &lt; endx; i += 1)
 // colored text overlays
 if (global.showColoredTextOverlays)
 {
-    ndraw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
-    ndraw_set_alpha(global.coloredTextOverlaysOpacity / 255);
+    draw_set_color(make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue));
+    draw_set_alpha(global.coloredTextOverlaysOpacity / 255);
     
     draw_rectangle(view_xview[0] + 73, view_yview[0] + 1, view_xview[0] + 182, view_yview[0] + 22, false); // title
     draw_rectangle(view_xview[0] + 44, view_yview[0] + 28, view_xview[0] + view_wview[0] - 45, view_yview[0] + view_hview[0] - 29, false); // content
     
-    ndraw_set_color(c_white);
-    ndraw_set_alpha(1);
+    draw_set_color(c_white);
+    draw_set_alpha(1);
 }
 </string>
           </argument>

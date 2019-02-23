@@ -24,8 +24,8 @@ if (global.inkSurface[0])
     surface_reset_target();
     surface_set_target(global.inkSurface[0]);
     draw_clear_alpha(c_black, 0);
-    ndraw_set_alpha(1);
-    ndraw_set_color(c_white);
+    draw_set_alpha(1);
+    draw_set_color(c_white);
     draw_set_blend_mode(bm_normal);
     d3d_set_fog(true, c_white, 0, 0);
     drawCostume(global.playerSprite[pid], sheetX, sheetY, 24, 20, 1, 1,
@@ -36,10 +36,10 @@ if (global.inkSurface[0])
         c_white, c_black, c_black, c_black, 0, 0, 0, 0);
     
     // saturate RGB values greater the 0xfc, set all others to 0.
-    ndraw_set_alpha(0);
+    draw_set_alpha(0);
     draw_set_blend_mode(bm_add);
-    ndraw_set_color(c_white);
-    ndraw_set_alpha(1);
+    draw_set_color(c_white);
+    draw_set_alpha(1);
     for (var i = 0; i <= 10; i++)
     {
         v = !v;
@@ -49,19 +49,19 @@ if (global.inkSurface[0])
     }
     
     surface_reset_target();
-    ndraw_set_alpha(1);
+    draw_set_alpha(1);
     surface_set_target(global.inkSurface[0]);
     d3d_set_fog(true, c_white, 0, 0);
     drawCostume(global.playerSprite[pid], sheetX, sheetY, 24, 20, 1, 1,
         c_white, c_white, c_white, c_white);
     d3d_set_fog(false, 0, 0, 0);
     draw_set_blend_mode(bm_subtract);
-    ndraw_set_alpha(0);
+    draw_set_alpha(0);
     draw_surface(global.inkSurface[1], 0, 0);
     surface_reset_target();
     draw_set_blend_mode(bm_normal);
     draw_surface_ext(global.inkSurface[0], _x - 24 * _xscale, _y - 20 * _yscale, _xscale, _yscale, 0, c_white, 1);
-    ndraw_set_alpha(1);
+    draw_set_alpha(1);
     drawCostume(global.playerSprite[pid], sheetX, sheetY, _x, _y, _xscale, _yscale,
         c_white, c_black, c_black, global.nesPalette[39], 0, 0, 0, 1);
 }

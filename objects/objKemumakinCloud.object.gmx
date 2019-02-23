@@ -128,8 +128,8 @@ depth -= 0.001;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ndraw_sprite(sprKemumakinCloud1, image_index, x, y);
-ndraw_sprite_ext(sprKemumakinCloud2, image_index, x, y, 1, 1, 0,
+            <string>draw_sprite(sprKemumakinCloud1, image_index, x, y);
+draw_sprite_ext(sprKemumakinCloud2, image_index, x, y, 1, 1, 0,
     global.nesPalette[col], 1);
 </string>
           </argument>
