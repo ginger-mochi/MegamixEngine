@@ -1361,11 +1361,11 @@ depth = depthstart;
             
             if (global.respawnTimer[z] &gt; 0)
             {
-                ndraw_text(dx, dy + 28, ceil(global.respawnTimer[z] / 60));
+                draw_text(dx, dy + 28, ceil(global.respawnTimer[z] / 60));
             }
             else if (global.respawnAllowed)
             {
-                ndraw_text(dx, dy + 28, "R#E#A#D#Y");
+                draw_text(dx, dy + 28, "R#E#A#D#Y");
             }
             
             draw_set_valign(fa_top);

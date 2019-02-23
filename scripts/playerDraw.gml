@@ -41,7 +41,7 @@ if (showReady)
         draw_set_valign(fa_middle);
         draw_set_color(c_white);
         
-        ndraw_text(view_xview + view_wview / 2, view_yview + view_hview / 2,
+        draw_text(view_xview + view_wview / 2, view_yview + view_hview / 2,
             readyText);
         
         draw_set_halign(fa_left);

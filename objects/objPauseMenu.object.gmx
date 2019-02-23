@@ -647,9 +647,9 @@ y = view_yview + (view_hview[0] - 224) / 2;
 // Menu
 if (phase != 0)
 {
-    ndraw_set_halign(fa_left);
-    ndraw_set_valign(fa_top);
-    ndraw_set_color(c_white);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_color(c_white);
     draw_clear(c_black);
     
     var col;
@@ -674,13 +674,13 @@ if (phase != 0)
     // these actually go 'under' the pause menu, so they go before drawSelf.
     
     // Options
-    ndraw_sprite_ext(sprGotoOptions, (option == weaponVisibleN + 4), x + optionsPositionX, y + optionsPositionY, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprGotoOptions, (option == weaponVisibleN + 4), x + optionsPositionX, y + optionsPositionY, 1, 1, 0, c_white, 1);
     
     // Checkpoint
-    ndraw_sprite_ext(sprGotoCheckpoint, (option == weaponVisibleN + 5) + retryConfirm * 2, x + checkPositionX, y + checkPositionY, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprGotoCheckpoint, (option == weaponVisibleN + 5) + retryConfirm * 2, x + checkPositionX, y + checkPositionY, 1, 1, 0, c_white, 1);
     
     // Exit
-    ndraw_sprite_ext(sprExit, (option == weaponVisibleN + 6) + exitConfirm * 2, x + exitPositionX, y + exitPositionY, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprExit, (option == weaponVisibleN + 6) + exitConfirm * 2, x + exitPositionX, y + exitPositionY, 1, 1, 0, c_white, 1);
     
     // NOW draw itself
     drawSelf();
@@ -693,36 +693,36 @@ if (phase != 0)
     surface_set_target(surface);
     draw_clear_alpha(c_white, 0);
     
-    ndraw_set_halign(fa_left);
+    draw_set_halign(fa_left);
     for (i = max(0, floor(offsetTimer)); i &lt;= min(ceil(offsetTimer) + visibleWeapons, weaponVisibleN - 1); i++)
     {
         var w = global.weaponHotbar[weaponVisible[i]];
         var cl = (option == i);
         
         // Icon
-        ndraw_sprite_ext(global.weaponIcon[w], 0, 0, yOff, 1, 1, 0, col[!cl, 2], 1);
-        ndraw_sprite_ext(global.weaponIcon[w], 1, 0, yOff, 1, 1, 0, col[0, cl], 1);
-        ndraw_sprite_ext(global.weaponIcon[w], 2, 0, yOff, 1, 1, 0, col[1, cl], 1);
-        ndraw_sprite_ext(global.weaponIcon[w], 3, 0, yOff, 1, 1, 0, col[1, 2], cl);
+        draw_sprite_ext(global.weaponIcon[w], 0, 0, yOff, 1, 1, 0, col[!cl, 2], 1);
+        draw_sprite_ext(global.weaponIcon[w], 1, 0, yOff, 1, 1, 0, col[0, cl], 1);
+        draw_sprite_ext(global.weaponIcon[w], 2, 0, yOff, 1, 1, 0, col[1, cl], 1);
+        draw_sprite_ext(global.weaponIcon[w], 3, 0, yOff, 1, 1, 0, col[1, 2], cl);
         
         if (!global.weaponLocked[w])
         {
             // Drawing ammo bars
             ammo = ceil(global.playerHealth[playerID] * (i == 0) + global.ammo[playerID, w] * (i != 0));
             
-            ndraw_sprite_ext(sprPauseMenuBarPrimary, ammo, 18, yOff + 8, 1, 1, 0, col[0, cl * (1 + (i == 0))], 1);
-            ndraw_sprite_ext(sprPauseMenuBarSecondary, ammo, 18, yOff + 8, 1, 1, 0, col[1, cl * (1 + (i == 0))], 1);
+            draw_sprite_ext(sprPauseMenuBarPrimary, ammo, 18, yOff + 8, 1, 1, 0, col[0, cl * (1 + (i == 0))], 1);
+            draw_sprite_ext(sprPauseMenuBarSecondary, ammo, 18, yOff + 8, 1, 1, 0, col[1, cl * (1 + (i == 0))], 1);
             
             // Draw infinite energy mark over relevant bars
             if (global.infiniteEnergy[w])
             {
-                ndraw_sprite_ext(sprInfinityMark, 0, 18 + 28, yOff + 8, 1, 1, 0, c_white, 1);
-                ndraw_sprite_ext(sprInfinityMark, 1, 18 + 28, yOff + 8, 1, 1, 0, col[0, cl], 1);
-                ndraw_sprite_ext(sprInfinityMark, 2, 18 + 28, yOff + 8, 1, 1, 0, col[1, cl], 1);
+                draw_sprite_ext(sprInfinityMark, 0, 18 + 28, yOff + 8, 1, 1, 0, c_white, 1);
+                draw_sprite_ext(sprInfinityMark, 1, 18 + 28, yOff + 8, 1, 1, 0, col[0, cl], 1);
+                draw_sprite_ext(sprInfinityMark, 2, 18 + 28, yOff + 8, 1, 1, 0, col[1, cl], 1);
             }
             
             // Name
-            ndraw_set_color(col[!cl, (cl * 2) - (cl * !(hotBarArrangeMode mod 8 &lt; 4))]);
+            draw_set_color(col[!cl, (cl * 2) - (cl * !(hotBarArrangeMode mod 8 &lt; 4))]);
             
             wname = global.weaponName[w];
             if (wname == "MEGA BUSTER")
@@ -746,12 +746,12 @@ if (phase != 0)
                 wname = string_insert(".", string_delete(wname, 2, dot - 1), 2);
             }
             
-            ndraw_text(18, yOff, wname);
-            ndraw_set_color(c_white);
+            draw_text(18, yOff, wname);
+            draw_set_color(c_white);
         }
         else // draw the disabled stuff
         {
-            ndraw_sprite_ext(sprPauseMenuWeaponDisabled, 0, 18, yOff, 1, 1, 0, c_white, 1);
+            draw_sprite_ext(sprPauseMenuWeaponDisabled, 0, 18, yOff, 1, 1, 0, c_white, 1);
         }
         
         yOff += wSep;
@@ -763,12 +763,12 @@ if (phase != 0)
     
     arrowTimer++;
     
-    ndraw_set_halign(fa_center);
+    draw_set_halign(fa_center);
     
     // draw arrows
     if (weaponOffset &gt; 0)
     {
-        ndraw_sprite_ext(sprArrow, 2, x + 74, y + 8, 1, 1, 0, c_white, arrowTimer mod 40 &lt; 20); // Up
+        draw_sprite_ext(sprArrow, 2, x + 74, y + 8, 1, 1, 0, c_white, arrowTimer mod 40 &lt; 20); // Up
     }
     else
     {
@@ -777,7 +777,7 @@ if (phase != 0)
     
     if (weaponOffset &lt; weaponVisibleN - visibleWeapons - 1)
     {
-        ndraw_sprite_ext(sprArrow, 3, x + 74, y + 215, 1, 1, 0, c_white, arrowTimer mod 40 &lt; 20); // Down
+        draw_sprite_ext(sprArrow, 3, x + 74, y + 215, 1, 1, 0, c_white, arrowTimer mod 40 &lt; 20); // Down
     }
     else
     {
@@ -794,41 +794,41 @@ if (phase != 0)
     }
     
     // health
-    ndraw_sprite_ext(sprPauseMenuBarPrimary, global.playerHealth[playerID], x + 144, y + 81, 1, 1, 0, col[0, 2], 1);
-    ndraw_sprite_ext(sprPauseMenuBarSecondary, global.playerHealth[playerID], x + 144, y + 81, 1, 1, 0, col[1, 2], 1);
+    draw_sprite_ext(sprPauseMenuBarPrimary, global.playerHealth[playerID], x + 144, y + 81, 1, 1, 0, col[0, 2], 1);
+    draw_sprite_ext(sprPauseMenuBarSecondary, global.playerHealth[playerID], x + 144, y + 81, 1, 1, 0, col[1, 2], 1);
     
     // E-Tank
-    ndraw_sprite_ext(sprETank, 2, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 1], 1);
-    ndraw_sprite_ext(sprETank, 4, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 1], 1);
+    draw_sprite_ext(sprETank, 2, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 1], 1);
+    draw_sprite_ext(sprETank, 4, x + etankPositionX, y + etankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 1], 1);
     
     draw_text(x + etankPositionX + 8, y + etankPositionY + 18, zeroPad(global.eTanks, 2));
     
     // W-Tank
-    ndraw_sprite_ext(sprWTank, 2, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 2], 1);
-    ndraw_sprite_ext(sprWTank, 4, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 2], 1);
+    draw_sprite_ext(sprWTank, 2, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 2], 1);
+    draw_sprite_ext(sprWTank, 4, x + wtankPositionX, y + wtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 2], 1);
     
     draw_text(x + wtankPositionX + 8, y + wtankPositionY + 18, zeroPad(global.wTanks, 2));
     
     // M-Tank
-    ndraw_sprite_ext(sprMTank, 2, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 3], 1);
-    ndraw_sprite_ext(sprMTank, 4, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 3], 1);
+    draw_sprite_ext(sprMTank, 2, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[0, option == weaponVisibleN + 3], 1);
+    draw_sprite_ext(sprMTank, 4, x + mtankPositionX, y + mtankPositionY, 1, 1, 0, col[1, option == weaponVisibleN + 3], 1);
     
     draw_text(x + mtankPositionX + 8, y + mtankPositionY + 18, zeroPad(global.mTanks, 2));
     
     // Bolts
-    ndraw_sprite_ext(sprBoltBig, 0, x + 210, y + 54, 1, 1, 0, c_white, 1);
-    ndraw_sprite_ext(sprBoltBig, 1, x + 210, y + 54, 1, 1, 0, col[0, 1], 1);
-    ndraw_sprite_ext(sprBoltBig, 2, x + 210, y + 54, 1, 1, 0, col[1, 1], 1);
+    draw_sprite_ext(sprBoltBig, 0, x + 210, y + 54, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprBoltBig, 1, x + 210, y + 54, 1, 1, 0, col[0, 1], 1);
+    draw_sprite_ext(sprBoltBig, 2, x + 210, y + 54, 1, 1, 0, col[1, 1], 1);
     
     draw_text(x + 210 + 8, y + 54 + 18, zeroPad(global.bolts, 4));
     
     // Energy Elements
-    ndraw_sprite_ext(sprEnergyElement, 0, x + 148, y + 92, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprEnergyElement, 0, x + 148, y + 92, 1, 1, 0, c_white, 1);
     
     draw_text(x + 148 + 8, y + 92 + 18, zeroPad(global.energyElements, 3));
     
     // Side Collectible
-    ndraw_sprite_ext(sprKey, 0, x + 178, y + 92, 1, 1, 0, c_white, 1);
+    draw_sprite_ext(sprKey, 0, x + 178, y + 92, 1, 1, 0, c_white, 1);
     
     draw_text(x + 178 + 8, y + 92 + 18, zeroPad(0, 3));
 
@@ -852,13 +852,13 @@ if (phase != 0)
     // energy saver
     if (global.energySaver)
     {
-        ndraw_sprite(sprEnergySaver, 0, x + 180, y + 160);
+        draw_sprite(sprEnergySaver, 0, x + 180, y + 160);
     }
     
     // colored text overlays
     if (global.showColoredTextOverlays)
     {
-        ndraw_sprite_ext(sprDot, 0, view_xview[0] + 16, view_yview[0], view_wview[0] - 32, view_hview[0], 0,
+        draw_sprite_ext(sprDot, 0, view_xview[0] + 16, view_yview[0], view_wview[0] - 32, view_hview[0], 0,
             make_color_rgb(global.coloredTextOverlaysRed, global.coloredTextOverlaysGreen, global.coloredTextOverlaysBlue),
             global.coloredTextOverlaysOpacity / 255);
     }
