@@ -7,7 +7,7 @@ import sys
 
 srevarname = "[a-zA-Z_][a-zA-Z0-9_]*"
 
-reFindVars = regex.compile(r"\s*(" + srevarname + "\.)?(" + srevarname + ")(\[.*\])? *=(?!=)")
+reFindVars = regex.compile(r"\s*(" + srevarname + "\.)?(" + srevarname + ")(\[.*\])? *=(?!=)(?P<assignment>[^;]*)")
 reFindLocals = regex.compile(r"\s*var (\s*(" + srevarname + ")\s*(=[^,;]+\s*)?,?)+")
 reParent = regex.compile(r"<parentName>([^<]*)</parentName>")
 reObjectFileParse = regex.compile(r"(.*)\.object\.gmx")
@@ -40,6 +40,7 @@ class ObjectParseResult:
 		self.instanceVariablesAll = []
 		# this and any ancestor's definite instance variable.
 		self.instanceVariablesDefiniteAll = []
+		self.instanceVariableType = {}
 		
 def walkObjects(directory, verbose=False, ignore=None):
 	# yields ObjectParseResults for all objects in the given directory.
@@ -54,7 +55,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 		ignore |= builtin
 		
 	dir = sys.argv[-1]
-	needs_processing = list(map(lambda p : os.path.join(dir, p), os.listdir(dir)))
+	needs_processing = list(map(lambda p : os.path.join(dir, p).replace(os.path.sep, '/'), os.listdir(dir)))
 	processed = []
 	process_count = len(needs_processing)
 
@@ -78,7 +79,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 				parent = parentMatch.group(1)
 				if parent != "" and parent != "&lt;undefined&gt;":
 					# put objFile back on list and process parent instead
-					parentFile = os.path.join(os.path.dirname(objFile), parent + ".object.gmx")
+					parentFile = os.path.join(os.path.dirname(objFile), parent + ".object.gmx").replace(os.path.sep, '/')
 					if parentFile not in processed:
 						needs_processing.append(objFile)
 						if parentFile in needs_processing:
@@ -108,6 +109,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 			vars = set()
 			locals = set()
 			definite = set()
+			swizzledType = dict()
 			
 			for match in reFindVars.finditer(fcontents):
 				varName = match.group(2)
@@ -132,7 +134,36 @@ def walkObjects(directory, verbose=False, ignore=None):
 					if len(withsTreeLocation) == 0:
 						if varOther:
 							continue
-							
+					
+					# try to determine swizzle type
+					assignment = match.group('assignment').strip()
+					if assignment.endswith('.id') or assignment == 'id':
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_create'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_find'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_nearest'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_place'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_position'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('instance_copy'):
+						swizzledType[varName] = 'id'
+					elif assignment.startswith('ds_map_create'):
+						swizzledType[varName] = 'map'
+					elif assignment.startswith('ds_list_create'):
+						swizzledType[varName] = 'list'
+					elif assignment.startswith('ds_grid_create'):
+						swizzledType[varName] = 'grid'
+					elif assignment.startswith('ds_stack_create'):
+						swizzledType[varName] = 'stack'
+					elif assignment.startswith('ds_queue_create'):
+						swizzledType[varName] = 'queue'
+					elif assignment.startswith('ds_priority_create'):
+						swizzledType[varName] = 'priority'
+					
 					# possibly an instance variable.
 					vars.add(varName)
 					if match.span()[0] < createEnd:
@@ -152,6 +183,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 				
 			definite &= vars
 			questionable = vars - definite
+			swizzledType = {var: swizzledType[var] for var in vars & set(swizzledType.keys())}
 
 			if verbose and len(questionable) > 0:
 				print(objFile)
@@ -160,10 +192,18 @@ def walkObjects(directory, verbose=False, ignore=None):
 					if verbose:
 						print("> inherits from ({})".format(parent))
 				for var in vars:
+					symbol = "*"
+					if var in swizzledType.keys():
+						symbol = swizzledType[var]
 					if var not in questionable:
-						print("*       {}".format(var))
+						print("{:<8}{}".format(symbol, var))
 				for var in questionable:
-					print("?       {}".format(var))
+					symbol = ""
+					if var in swizzledType.keys():
+						symbol = swizzledType[var]
+					if var not in questionable:
+						print("{:<8}{}".format(symbol, var))
+					print("{:<8}{}".format(symbol + "?", var))
 				for local in locals:
 					print("(local) {}".format(local))
 				print()
@@ -175,7 +215,9 @@ def walkObjects(directory, verbose=False, ignore=None):
 			result.instanceVariables = vars
 			result.instanceVariablesQuestionable = questionable
 			result.instanceVariablesDefinite = vars - questionable
+			result.instanceVariableType = swizzledType
 			if parentFile is not None:
+				result.instanceVariableType = {**result.parentResult.instanceVariableType, **swizzledType}
 				result.instanceVariablesInherited   = objvars[parentFile]
 				result.instanceVariablesAll         = vars                             | result.parentResult.instanceVariablesAll
 				result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite | result.parentResult.instanceVariablesDefiniteAll
