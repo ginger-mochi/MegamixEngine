@@ -47,13 +47,31 @@ global.quadHeight = 240;
 global.quadMarginTop = 8;
 global.quadMarginBottom = 8;
 
-// index of each asset (+1):
+// index of last of each asset (+1):
 global.lastBackground = bgNESPalette;
 while (background_exists(global.lastBackground++))
+    { }
+global.lastSprite = sprSolid;
+while (sprite_exists(global.lastSprite++))
     { }
 global.lastObject = objGlobalControl;
 while (object_exists(global.lastObject++))
     { }
+
+// index of first of each asset
+global.firstBackground = bgNESPalette;
+while (background_exists(global.firstBackground--))
+    { }
+global.firstBackground++;
+global.firstSprite = sprSolid;
+while (sprite_exists(global.firstSprite--))
+    { }
+global.firstSprite++;
+global.firstObject = objSolid;
+while (object_exists(global.firstObject--))
+    { }
+global.firstObject++;
+
 
 // Variables
 global.coop = false;

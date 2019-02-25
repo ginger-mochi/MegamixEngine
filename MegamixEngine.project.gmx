@@ -4990,6 +4990,7 @@
         <script>scripts\arrayShuffle.gml</script>
         <script>scripts\arrayAppendUnique.gml</script>
         <script>scripts\quickSortBy.gml</script>
+        <script>scripts\array2dMaxLength.gml</script>
         <script>scripts\argMin.gml</script>
       </scripts>
       <scripts name="Strings">
@@ -5182,6 +5183,13 @@
       <script>scripts\server_send_udp.gml</script>
       <script>scripts\server_start.gml</script>
       <script>scripts\server_broadcast_udp.gml</script>
+    </scripts>
+    <scripts name="Serialization">
+      <script>scripts\stateCodecInit.gml</script>
+      <script>scripts\stateCodecFull.gml</script>
+      <script>scripts\stateEncodePrimitive.gml</script>
+      <script>scripts\stateDecodePrimitive.gml</script>
+      <script>scripts\stateCodecInstance.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
@@ -6904,7 +6912,7 @@
       <room>rooms\lvlTestHallBoss</room>
     </rooms>
   </rooms>
-  <constants number="36">
+  <constants number="37">
     <constant name="PL_LOCK_MAX">14</constant>
     <constant name="PL_LOCK_AERIAL">13</constant>
     <constant name="PL_LOCK_GROUND">12</constant>
@@ -6925,6 +6933,7 @@
     <constant name="DIFF_NORMAL">1</constant>
     <constant name="DIFF_HARD">2</constant>
     <constant name="EV_COMBINE">3</constant>
+    <constant name="EV_CODEC">5</constant>
     <constant name="EV_BOSS_CUTSCENE">6</constant>
     <constant name="EV_REFLECTED">7</constant>
     <constant name="EV_ATTACK">8</constant>
