@@ -17,7 +17,7 @@ else if (object_exists(_id))
 }
 else
 {
-    var uid = ds_map_find(global.stateCodecIDToUnswizzled, _id);
+    var uid = ds_map_find_value(global.stateCodecIDToUnswizzled, _id);
     assert(!is_undefined(uid), "no mapping for id!");
     encode = uid + global.lastObject;
 }

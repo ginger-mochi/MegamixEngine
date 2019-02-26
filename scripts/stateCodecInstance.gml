@@ -14,7 +14,7 @@ if (global.stateCodecEncode)
     var bitString = complexMotionEncoding | (!!visible << 1) | (!!persistent << 2) | ((image_xscale == 1) << 3)
         | ((image_yscale == 1) << 4) | (complexImageEncoding << 5)
         | (hasSprite << 6) | (hasMask << 7);
-    buffer_read(global.stateCodecBuffer, buffer_u8, bitString);
+    buffer_write(global.stateCodecBuffer, buffer_u8, bitString);
 }
 else
 {

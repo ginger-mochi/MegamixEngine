@@ -13,7 +13,7 @@ else if (object_exists(uid))
 }
 else
 {
-    var uid = ds_map_find(global.stateCodecUnswizzledToID, uid);
+    var uid = ds_map_find_value(global.stateCodecUnswizzledToID, uid);
     assert(!is_undefined(uid), "no mapping for unswizzled id!");
     return uid;
 }

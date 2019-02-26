@@ -47,8 +47,8 @@ else if is_array(val)
 {
     // if array is small:
     var height = array_height_2d(val)
-    var maxLength2d = array2dMaxLength();
-    if (maxLength2d == 1))
+    var maxLength2d = array2dMaxLength(val);
+    if (maxLength2d == 1)
     {
         if (height <= $ff)
         {
@@ -62,7 +62,7 @@ else if is_array(val)
         }
         for (var i = 0; i < height; i++)
         {
-            stateCodecPrimitive(val[i, j]);
+            stateCodecPrimitiveEncode(val[i]);
         }
     }
     else
@@ -76,7 +76,7 @@ else if is_array(val)
         buffer_write(global.stateCodecBuffer, buffer_u16, height);
         for (var i = 0; i < height; i++)
         {
-            var length = array_length_2d(var, i)
+            var length = array_length_2d(val, i)
             if (header == 9)
             {
                 buffer_write(global.stateCodecBuffer, buffer_u8, length);
@@ -87,7 +87,7 @@ else if is_array(val)
             }
             for (var j = 0; j < length; j++)
             {
-                stateCodecPrimitive(val[i, j]);
+                stateCodecPrimitiveDecode(val[i, j]);
             }
         }
     }

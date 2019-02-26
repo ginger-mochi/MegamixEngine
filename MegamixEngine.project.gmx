@@ -6882,6 +6882,7 @@
     <objects name="Netplay">
       <object>objects\objNet</object>
       <object>objects\objNetOptions</object>
+      <object>objects\objSaveStateControl</object>
     </objects>
   </objects>
   <rooms name="rooms">

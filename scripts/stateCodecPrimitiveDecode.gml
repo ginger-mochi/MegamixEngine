@@ -51,7 +51,7 @@ switch (header)
             retv[height - 1] = 0;
             for (var i = 0; i < height; i++)
             {
-                retv[i] = stateCodecPrimitive(0);
+                retv[i] = stateCodecPrimitiveDecode();
             }
             return retv;
         }
@@ -76,7 +76,7 @@ switch (header)
                 retv[i, length - 1] = 0;
                 for (var j = 0; j < length; j++)
                 {
-                    retv[i, j] = stateCodecPrimitive(0);
+                    retv[i, j] = stateCodecPrimitiveDecode();
                 }
             }
             return retv;

@@ -23,7 +23,7 @@ if (global.stateCodecEncode)
             // assign new unswizzled ID
             while (true)
             {
-                if (is_undefined(ds_map_find_value(global.stateCodecUnswizzledToID, new_id)))
+                if (is_undefined(ds_map_find_value(global.stateCodecUnswizzledToID, unswizzled_id)))
                 {
                     ds_map_replace(global.stateCodecUnswizzledToID, unswizzled_id, id);
                     ds_map_replace(global.stateCodecIDToUnswizzled, id, unswizzled_id);
