@@ -1,4 +1,4 @@
-/// stateEncodePrimitive(value)
+/// stateCodecPrimitiveEncode(value)
 /// encodes a primitive value (real, string, etc.).
 /// note that the type information is serialized, which can be suboptimal.
 /// however, due to compression efforts, variables which are

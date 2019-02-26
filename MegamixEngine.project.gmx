@@ -5187,9 +5187,13 @@
     <scripts name="Serialization">
       <script>scripts\stateCodecInit.gml</script>
       <script>scripts\stateCodecFull.gml</script>
-      <script>scripts\stateEncodePrimitive.gml</script>
-      <script>scripts\stateDecodePrimitive.gml</script>
       <script>scripts\stateCodecInstance.gml</script>
+      <script>scripts\stateCodecPrimitiveEncode.gml</script>
+      <script>scripts\stateCodecPrimitiveDecode.gml</script>
+      <script>scripts\stateCodecIDEncode.gml</script>
+      <script>scripts\stateCodecIDDecode.gml</script>
+      <script>scripts\stateCodecDSEncode.gml</script>
+      <script>scripts\stateCodecDSDecode.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
