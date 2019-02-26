@@ -5,15 +5,15 @@ import sys
 from processVariables import walkObjects
 
 if len(sys.argv) <= 1:
-	print("usage: ./addSerialization.py object-directory")
-	sys.exit()
-	
+    print("usage: ./addSerialization.py object-directory")
+    sys.exit()
+    
 eventMarker = "<event eventtype=\"{}\" enumb=\"{}\">"
-reEventMarker = eventMarker.format("([a-z]+)", "([a-z]+)")
-reNoScriptTag = regex.compile(r"/[/\*][/\*\s]*@autogenerate", regex.IGNORECASE)
+reEventMarker = regex.compile(eventMarker.format("([0-9]+)", "([0-9]+)"))
+reAutoGenerateTag = regex.compile(r"/[/\*][/\*\s]*@autogenerate", regex.IGNORECASE)
 
 newEvent = \
-"""    <event eventtype="7" enumb="15">
+"""{}<event eventtype="7" enumb="15">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -34,20 +34,22 @@ newEvent = \
           </argument>
         </arguments>
       </action>
-    </event>"""
+    </event>
+"""
 
-for result in walkObjects("../objects"):
+for result in walkObjects("../objects", True):
     fcontents = ""
-    with open(result.path, "r") as file:
+    with open(result.path, "r", encoding="utf8") as file:
         fcontents = file.read()
     
-    ev5Index = fcontents.search(eventMarker.format("7", "15"))
+    ev5Index = fcontents.find(eventMarker.format("7", "15"))
     ev5Span = ()
+    addEventsTag = "    "
     if ev5Index == -1:
         # insert after previous event
         prevIndex = -1
         while True:
-            match = reEventMarker.find(prevIndex + 1)
+            match = reEventMarker.search(fcontents, prevIndex + 1)
             if match is None:
                 break
             index = match.span()[0]
@@ -58,21 +60,27 @@ for result in walkObjects("../objects"):
             prevIndex = index
         # find suitable insertion for end of previous event:
         if prevIndex == -1:
-            ev5Index = fcontents.search("<events>") + len("<events>\n")
-            assert(ev5Index > 10)
+            # no events prior to insertion point.
+            ev5Index = fcontents.find("<events>") + len("<events>\n")
+            if ev5Index == -1:
+                # no events at all!
+                ev5Index = fcontents.find("<events/>")
+                assert(ev5Index != -1)
+                addEventsTag="  <events>\n    "
             ev5Span = (ev5Index, ev5Index)
         else:
-            ev5Index = fcontents.search("</event>", prevIndex) + len("</event>\n")
-            assert(ev5Index > 10)
+            # an insertion point was found.
+            ev5Index = fcontents.find("</event>", prevIndex) + len("</event>\n")
             ev5Span = (ev5Index, ev5Index)
     else:
         # replace existing user-event 5
-        ev5EndIndex = fcontents.search("</event>", ev5Index)
+        ev5EndIndex = fcontents.find("</event>", ev5Index)
         if ev5EndIndex == -1:
             # broken
             continue
         else:
             ev5Span = (ev5Index, ev5EndIndex + len("</event>"))
+            addEventsTag = ""
             if reAutoGenerateTag.search(fcontents, ev5Index, ev5EndIndex) is None:
                 # file marked as non-autogenerable
                 continue
@@ -90,32 +98,38 @@ for result in walkObjects("../objects"):
 // @autogenerate
 
 """
+    hasSerialization = False
+    hasVars = False
     if result.parentResult is None:
-        code += "// This object has no parent, so it is responsible\n// for encoding basic instance properties."
+        code += "// This object has no parent, so it is responsible\n// for encoding basic instance properties.\n"
         code += "stateCodecInstance();\n\n"
+        hasSerialization = True
     else:
         code += "event_inherited();\n\n"
-    code += "if (global.stateCodecEncode)\n{{{}\n}}\nelse\n{{{}\n}}"
     codeEncode = "\n"
     codeDecode = "\n"
     indent = "    "
-    for var in result.instanceVariablesDefinite():
-        if var in result.swizzledType.keys():
-            swizzledType = result.swizzledType[var]
+    for var in result.instanceVariablesDefinite:
+        hasSerialization = True
+        hasVars = True
+        if var in result.instanceVariableType.keys():
+            swizzledType = result.instanceVariableType[var]
             if swizzledType == 'id':
                 codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
                 codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
             else:
                 # encoding/decoding data structures will require a lot of sneakiness.
-                codeEncode += "{}stateCodecDSEncode({}, ds_{});\n".format(indent, var, swizzledType)
-                codeDecode += "{}{} = stateCodecDSEncode({}, ds_{});\n".format(indent, var, swizzledType)
+                codeEncode += "{}stateCodecDSEncode({}, ds_type_{});\n".format(indent, var, swizzledType)
+                codeDecode += "{}{} = stateCodecDSDecode(ds_type_{});\n".format(indent, var, swizzledType)
         else:
             codeEncode += "{}stateCodecPrimitiveEncode({});\n".format(indent, var)
             codeDecode += "{}{} = stateCodecPrimitiveDecode();\n".format(indent, var)
             
 
-    code = code.format(codeEncode, codeDecode)
-    fcontents = fcontents[:ev5Span[0]] + newEvent.format(code) + fcontents[ev5Span[1]:]
-    print(result.path)
-    print(code)
-    print("----------")
+    if hasSerialization:
+        if hasVars:
+            code += "if (global.stateCodecEncode)\n{{{}}}\nelse\n{{{}}}\n"
+        code = code.format(codeEncode, codeDecode)
+        fcontents = fcontents[:ev5Span[0]] + newEvent.format(addEventsTag, code) + fcontents[ev5Span[1]:]
+        with open(result.path, "w", encoding="utf8") as file:
+            file.write(fcontents)

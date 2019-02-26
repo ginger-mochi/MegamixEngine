@@ -40,6 +40,7 @@ class ObjectParseResult:
 		self.instanceVariablesAll = []
 		# this and any ancestor's definite instance variable.
 		self.instanceVariablesDefiniteAll = []
+		# maps vars which have a known type to their type ('id', 'map', etc.)
 		self.instanceVariableType = {}
 		
 def walkObjects(directory, verbose=False, ignore=None):
@@ -81,7 +82,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 					# put objFile back on list and process parent instead
 					parentFile = os.path.join(os.path.dirname(objFile), parent + ".object.gmx").replace(os.path.sep, '/')
 					if parentFile not in processed:
-						needs_processing.append(objFile)
+						needs_processing.insert(0, objFile)
 						if parentFile in needs_processing:
 							needs_processing.remove(parentFile)
 						needs_processing.insert(0, parentFile)
@@ -185,12 +186,11 @@ def walkObjects(directory, verbose=False, ignore=None):
 			questionable = vars - definite
 			swizzledType = {var: swizzledType[var] for var in vars & set(swizzledType.keys())}
 
-			if verbose and len(questionable) > 0:
+			if verbose:
 				print(objFile)
 				print("\"with\" statements:", withSpans)
 				if parentFile is not None:
-					if verbose:
-						print("> inherits from ({})".format(parent))
+					print("> inherits from ({})".format(parent))
 				for var in vars:
 					symbol = "*"
 					if var in swizzledType.keys():
@@ -207,9 +207,9 @@ def walkObjects(directory, verbose=False, ignore=None):
 				for local in locals:
 					print("(local) {}".format(local))
 				print()
-				instanceVarCounts.append(len(vars))
-				questionableVarCounts.append(len(questionable))
-				localVarCounts.append(len(locals))
+			instanceVarCounts.append(len(vars))
+			questionableVarCounts.append(len(questionable))
+			localVarCounts.append(len(locals))
 			
 			result.localVariables = locals
 			result.instanceVariables = vars
