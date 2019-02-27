@@ -49,6 +49,7 @@ if (global.stateCodecEncode)
         // codec event
         // note: adding unswizzled id might not be necessary here...
         var unswizzled_id = ds_map_find_value(global.stateCodecIDToUnswizzled, id);
+        assert(!is_undefined(unswizzled_id));
         buffer_write(global.stateCodecBuffer, buffer_u16, unswizzled_id);
         event_user(EV_CODEC);
     }
@@ -86,10 +87,13 @@ else
         
         // create a new host if none exists
         // to avoid running create event, create a dummy instance and then change it.
-        host_id = instance_create(0, 0, objStruct);
-        with (host_id)
+        if (host_id == noone)
         {
-            instance_change(_object_index, false);
+            host_id = instance_create(0, 0, objStruct);
+            with (host_id)
+            {
+                instance_change(_object_index, false);
+            }
         }
         
         // map to instance.
@@ -105,14 +109,17 @@ else
         for (var i = instanceCount; true; i++)
         {
             var instance = instance_find(_object_index, i);
-            with (instance)
+            if (i >= instance_number(_object_index))
             {
-                instance_destroy();
-                continue;
+                break;
             }
             
-            // break if no instance.
-            break;
+            with (instance)
+            {
+                print("deleted excess " + object_get_name(object_index));
+                instance_destroy();
+            }
+            continue;
         }
     }
     
@@ -126,7 +133,7 @@ else
         }
         else
         {
-            var _id = ds_map_find_value(global.stateCodecUnswizzledToID, new_id);
+            var _id = ds_map_find_value(global.stateCodecUnswizzledToID, unswizzled_id);
             assert(!is_undefined(_id), "undefined swizzled id");
             with (_id)
             {

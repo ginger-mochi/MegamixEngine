@@ -8,7 +8,53 @@
 var val = argument0;
 
 // determine type.
-if is_real(val)
+if (is_bool(val))
+{
+    if (val == false)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 0);
+    }
+    else if (val == true)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 1);
+    }
+    else
+    {
+        assert(false, "bool neither false nor true")
+    }
+}
+else if (is_int32(val) || is_int64(val))
+{
+    if (val == 0)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 0);
+    }
+    else if (val == 1)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 1);
+    }
+    else if (val >= 0 && val <= $ff)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 3);
+        buffer_write(global.stateCodecBuffer, buffer_u8, val);
+    }
+    else if (val < $8000 && -val <= $8000)
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 4);
+        buffer_write(global.stateCodecBuffer, buffer_s16, val);
+    }
+    else if (is_int32(val))
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 11);
+        buffer_write(global.stateCodecBuffer, buffer_s32, val);
+    }
+    else
+    {
+        buffer_write(global.stateCodecBuffer, buffer_u8, 12);
+        buffer_write(global.stateCodecBuffer, buffer_u64, val);
+    }
+}
+else if (is_real(val))
 {
     if (val == 0)
     {
@@ -48,19 +94,21 @@ else if is_array(val)
     // if array is small:
     var height = array_height_2d(val)
     var maxLength2d = array2dMaxLength(val);
-    if (maxLength2d == 1)
+    if (height == 1)
     {
-        if (height <= $ff)
+        var length = array_length_1d(val);
+        if (length <= $ff)
         {
             buffer_write(global.stateCodecBuffer, buffer_u8, 7);
-            buffer_write(global.stateCodecBuffer, buffer_u8, height);
+            buffer_write(global.stateCodecBuffer, buffer_u8, length);
         }
         else
         {
+            assert(length <= $ffff);
             buffer_write(global.stateCodecBuffer, buffer_u8, 8);
-            buffer_write(global.stateCodecBuffer, buffer_u16, height);
+            buffer_write(global.stateCodecBuffer, buffer_u16, length);
         }
-        for (var i = 0; i < height; i++)
+        for (var i = 0; i < length; i++)
         {
             stateCodecPrimitiveEncode(val[i]);
         }
@@ -91,4 +139,12 @@ else if is_array(val)
             }
         }
     }
+}
+else if (is_undefined(val))
+{
+    buffer_write(global.stateCodecBuffer, buffer_u8, 13);
+}
+else
+{
+    assert(false, "Unsupported encoding type for " + string(val));
 }

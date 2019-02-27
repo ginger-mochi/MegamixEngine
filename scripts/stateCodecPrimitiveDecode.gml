@@ -5,6 +5,7 @@
 /// usually integers in the range [-1, 255] are actually encoded more efficiently.
 
 var header = buffer_read(global.stateCodecBuffer, buffer_u8);
+
 switch (header)
 {
     case 0:
@@ -21,6 +22,12 @@ switch (header)
         return buffer_read(global.stateCodecBuffer, buffer_f32);
     case 6:
         return buffer_read(global.stateCodecBuffer, buffer_string);
+    case 11:
+        return buffer_read(global.stateCodecBuffer, buffer_s32);
+    case 12:
+        return buffer_read(global.stateCodecBuffer, buffer_u64);
+    case 13:
+        return undefined;
     default: {
         // arrays
         var height;
@@ -58,7 +65,6 @@ switch (header)
         else
         {
             // 2d array 
-            
             // initialize array
             retv[height - 1, 0] = 0;
             for (var i = 0; i < height; i++)
@@ -72,6 +78,7 @@ switch (header)
                 {
                     length = buffer_read(global.stateCodecBuffer, buffer_u8);
                 }
+                
                 // initialize row
                 retv[i, length - 1] = 0;
                 for (var j = 0; j < length; j++)
