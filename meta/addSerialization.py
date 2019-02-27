@@ -112,7 +112,7 @@ for result in walkObjects("../objects", True):
     for var in result.instanceVariablesDefinite:
         hasSerialization = True
         hasVars = True
-        if var in result.instanceVariableType.keys():
+        if var in sorted(list(result.instanceVariableType.keys())):
             swizzledType = result.instanceVariableType[var]
             if swizzledType == 'id':
                 codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)

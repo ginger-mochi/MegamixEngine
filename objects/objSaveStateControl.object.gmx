@@ -58,7 +58,7 @@ global.stateCodecBuffer = buffer_create(8000, buffer_grow, 1);
     var dataLength = buffer_tell(global.stateCodecBuffer);
     print(string(dataLength) + " bytes saved.")
 }
-else if (keyboard_check_pressed(ord('J')))
+else if (keyboard_check_pressed(ord('L')))
 {
     buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
     print("LOADING STATE")
