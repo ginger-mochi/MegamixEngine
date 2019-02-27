@@ -23,5 +23,9 @@ else
 }
 
 // consider using buffer_f32 instead if number of instances + objects exceeds $fffb
-buffer_write(global.stateCodecBuffer, buffer_u16, encode);
+if (!is_undefined(global.stateCodecBuffer))
+{
+    buffer_write(global.stateCodecBuffer, buffer_u16, encode);
+}
+return encode
 

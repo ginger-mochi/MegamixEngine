@@ -37,7 +37,7 @@ newEvent = \
     </event>
 """
 
-for result in walkObjects("../objects", True):
+for result in walkObjects(sys.argv[-1], True):
     fcontents = ""
     with open(result.path, "r", encoding="utf8") as file:
         fcontents = file.read()
@@ -109,14 +109,18 @@ for result in walkObjects("../objects", True):
     codeEncode = "\n"
     codeDecode = "\n"
     indent = "    "
-    for var in result.instanceVariablesDefinite:
+    for var in sorted(list(result.instanceVariablesDefinite)):
         hasSerialization = True
         hasVars = True
-        if var in sorted(list(result.instanceVariableType.keys())):
+        if var in result.instanceVariableType.keys():
             swizzledType = result.instanceVariableType[var]
             if swizzledType == 'id':
-                codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
-                codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
+                if var in result.instanceVariableIsArray:
+                    codeEncode += "{}stateCodecIDArrayEncode({});\n".format(indent, var)
+                    codeDecode += "{}{} = stateCodecIDArrayDecode();\n".format(indent, var)
+                else:
+                    codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
+                    codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
             else:
                 # encoding/decoding data structures will require a lot of sneakiness.
                 codeEncode += "{}stateCodecDSEncode({}, ds_type_{});\n".format(indent, var, swizzledType)

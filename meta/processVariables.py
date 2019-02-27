@@ -7,8 +7,8 @@ import sys
 
 srevarname = "[a-zA-Z_][a-zA-Z0-9_]*"
 
-reFindVars = regex.compile(r"\s*(" + srevarname + "\.)?(" + srevarname + ")(\[.*\])? *=(?!=)(?P<assignment>[^;]*)")
-reFindLocals = regex.compile(r"\s*var (\s*(" + srevarname + ")\s*(=[^,;]+\s*)?,?)+")
+reFindVars = regex.compile(r"\s*(" + srevarname + "\.)?(" + srevarname + ")(\[(?P<accessor>.*)\])?\s*=(?!=)(?P<assignment>[^;\n]*)")
+reFindLocals = regex.compile(r"\s*var (\s*(" + srevarname + ")\s*(=[^,;\n]+\s*)?,?)+")
 reParent = regex.compile(r"<parentName>([^<]*)</parentName>")
 reObjectFileParse = regex.compile(r"(.*)\.object\.gmx")
 
@@ -47,16 +47,16 @@ def walkObjects(directory, verbose=False, ignore=None):
 	# yields ObjectParseResults for all objects in the given directory.
 	# verbose: print to stdout
 	# ignore: variables names to ignore (built-in variables are always ignored)
-	if len(sys.argv) <= 1:
-		print("usage: " + sys.argv[0] + " object-directory")
 
 	if ignore is None:
 		ignore = builtin
 	else:
 		ignore |= builtin
 		
-	dir = sys.argv[-1]
-	needs_processing = list(map(lambda p : os.path.join(dir, p).replace(os.path.sep, '/'), os.listdir(dir)))
+	dir = directory
+	needs_processing = [dir]
+	if not dir.endswith(".object.gmx"):
+		needs_processing = list(map(lambda p : os.path.join(dir, p).replace(os.path.sep, '/'), os.listdir(dir)))
 	processed = []
 	process_count = len(needs_processing)
 
@@ -111,6 +111,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 			locals = set()
 			definite = set()
 			swizzledType = dict()
+			isArray = set()
 			
 			for match in reFindVars.finditer(fcontents):
 				varName = match.group(2)
@@ -164,6 +165,10 @@ def walkObjects(directory, verbose=False, ignore=None):
 						swizzledType[varName] = 'queue'
 					elif assignment.startswith('ds_priority_create'):
 						swizzledType[varName] = 'priority'
+					if len(match.captures("accessor")) > 0:
+						accessor = match.group("accessor")
+						if (not accessor.startswith("?") and not accessor.startswith("|") and not accessor.startswith("#") and not accessor.startswith("@")):
+							isArray.add(varName)
 					
 					# possibly an instance variable.
 					vars.add(varName)
@@ -185,6 +190,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 			definite &= vars
 			questionable = vars - definite
 			swizzledType = {var: swizzledType[var] for var in vars & set(swizzledType.keys())}
+			isArray = isArray & vars
 
 			if verbose:
 				print(objFile)
@@ -195,6 +201,8 @@ def walkObjects(directory, verbose=False, ignore=None):
 					symbol = "*"
 					if var in swizzledType.keys():
 						symbol = swizzledType[var]
+					if var in isArray:
+						symbol += "[]"
 					if var not in questionable:
 						print("{:<8}{}".format(symbol, var))
 				for var in questionable:
@@ -216,8 +224,10 @@ def walkObjects(directory, verbose=False, ignore=None):
 			result.instanceVariablesQuestionable = questionable
 			result.instanceVariablesDefinite = vars - questionable
 			result.instanceVariableType = swizzledType
+			result.instanceVariableIsArray = isArray
 			if parentFile is not None:
 				result.instanceVariableType = {**result.parentResult.instanceVariableType, **swizzledType}
+				result.instanceVariableIsArray |= result.parentResult.instanceVariableIsArray
 				result.instanceVariablesInherited   = objvars[parentFile]
 				result.instanceVariablesAll         = vars                             | result.parentResult.instanceVariablesAll
 				result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite | result.parentResult.instanceVariablesDefiniteAll

@@ -1,7 +1,15 @@
-/// stateCodecIDDecode()
+/// stateCodecIDDecode([uid])
 /// returns an id from an encoded unswizzled id
 
-var uid = buffer_read(global.stateCodecBuffer, buffer_u16);
+var uid;
+if (argument_count == 0)
+{
+    uid = buffer_read(global.stateCodecBuffer, buffer_u16);
+}
+else
+{
+    uid = argument[0];
+}
 
 if (uid >= $fffc)
 {

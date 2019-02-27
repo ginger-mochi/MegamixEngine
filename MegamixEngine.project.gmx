@@ -5192,6 +5192,8 @@
       <script>scripts\stateCodecPrimitiveDecode.gml</script>
       <script>scripts\stateCodecIDEncode.gml</script>
       <script>scripts\stateCodecIDDecode.gml</script>
+      <script>scripts\stateCodecIDArrayEncode.gml</script>
+      <script>scripts\stateCodecIDArrayDecode.gml</script>
       <script>scripts\stateCodecDSEncode.gml</script>
       <script>scripts\stateCodecDSDecode.gml</script>
     </scripts>
