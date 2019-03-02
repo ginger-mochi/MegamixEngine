@@ -191,14 +191,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(splitWithSpawn);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     splitWithSpawn = stateCodecPrimitiveDecode();
 }
 </string>

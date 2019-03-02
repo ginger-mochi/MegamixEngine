@@ -529,31 +529,31 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(ID);
-    stateCodecPrimitiveEncode(mySpeed);
     stateCodecPrimitiveEncode(delete);
-    stateCodecPrimitiveEncode(range);
+    stateCodecPrimitiveEncode(dirdir);
     stateCodecPrimitiveEncode(dirphase);
+    stateCodecPrimitiveEncode(endInitTimer);
     stateCodecPrimitiveEncode(followPlayer);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(num);
+    stateCodecPrimitiveEncode(range);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(num);
-    stateCodecPrimitiveEncode(endInitTimer);
-    stateCodecPrimitiveEncode(dirdir);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
     ID = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
     delete = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
+    dirdir = stateCodecPrimitiveDecode();
     dirphase = stateCodecPrimitiveDecode();
+    endInitTimer = stateCodecPrimitiveDecode();
     followPlayer = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    num = stateCodecPrimitiveDecode();
+    range = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
     xs = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
-    endInitTimer = stateCodecPrimitiveDecode();
-    dirdir = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }
 </string>

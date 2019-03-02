@@ -314,29 +314,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(superArmFlashOwner);
     stateCodecPrimitiveEncode(decrementedCount);
-    stateCodecPrimitiveEncode(superArmSquirmTimer);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(superArmDeathOnDrop);
+    stateCodecPrimitiveEncode(superArmFlashInterval);
+    stateCodecPrimitiveEncode(superArmFlashOwner);
+    stateCodecPrimitiveEncode(superArmFlashTimer);
+    stateCodecPrimitiveEncode(superArmHoldOwner);
+    stateCodecPrimitiveEncode(superArmSquirmTimer);
+    stateCodecPrimitiveEncode(superArmThrown);
 }
 else
 {
-    superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    superArmFlashOwner = stateCodecPrimitiveDecode();
     decrementedCount = stateCodecPrimitiveDecode();
-    superArmSquirmTimer = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    superArmDeathOnDrop = stateCodecPrimitiveDecode();
+    superArmFlashInterval = stateCodecPrimitiveDecode();
+    superArmFlashOwner = stateCodecPrimitiveDecode();
+    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmHoldOwner = stateCodecPrimitiveDecode();
+    superArmSquirmTimer = stateCodecPrimitiveDecode();
+    superArmThrown = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -338,39 +338,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sourceX);
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(drainDelay);
-    stateCodecPrimitiveEncode(postRotate);
     stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(count);
-    stateCodecPrimitiveEncode(moveY);
-    stateCodecPrimitiveEncode(velocity);
     stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(count);
     stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(original);
+    stateCodecPrimitiveEncode(drainDelay);
     stateCodecPrimitiveEncode(isMaster);
+    stateCodecPrimitiveEncode(moveY);
+    stateCodecPrimitiveEncode(orgID);
+    stateCodecPrimitiveEncode(original);
+    stateCodecPrimitiveEncode(postRotate);
+    stateCodecPrimitiveEncode(sourceX);
     stateCodecPrimitiveEncode(sourceY);
     stateCodecPrimitiveEncode(total);
-    stateCodecPrimitiveEncode(orgID);
+    stateCodecPrimitiveEncode(velocity);
 }
 else
 {
-    sourceX = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
-    drainDelay = stateCodecPrimitiveDecode();
-    postRotate = stateCodecPrimitiveDecode();
     cAngle = stateCodecPrimitiveDecode();
-    count = stateCodecPrimitiveDecode();
-    moveY = stateCodecPrimitiveDecode();
-    velocity = stateCodecPrimitiveDecode();
     cDistance = stateCodecPrimitiveDecode();
+    count = stateCodecPrimitiveDecode();
     distance = stateCodecPrimitiveDecode();
-    original = stateCodecPrimitiveDecode();
+    drainDelay = stateCodecPrimitiveDecode();
     isMaster = stateCodecPrimitiveDecode();
+    moveY = stateCodecPrimitiveDecode();
+    orgID = stateCodecPrimitiveDecode();
+    original = stateCodecPrimitiveDecode();
+    postRotate = stateCodecPrimitiveDecode();
+    sourceX = stateCodecPrimitiveDecode();
     sourceY = stateCodecPrimitiveDecode();
     total = stateCodecPrimitiveDecode();
-    orgID = stateCodecPrimitiveDecode();
+    velocity = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

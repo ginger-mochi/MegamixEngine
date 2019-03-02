@@ -94,17 +94,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(disappearTime);
     stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(disappearTime);
     stateCodecPrimitiveEncode(myItem);
+    stateCodecPrimitiveEncode(script);
 }
 else
 {
-    disappearTime = stateCodecPrimitiveDecode();
     code = stateCodecPrimitiveDecode();
-    script = stateCodecPrimitiveDecode();
+    disappearTime = stateCodecPrimitiveDecode();
     myItem = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

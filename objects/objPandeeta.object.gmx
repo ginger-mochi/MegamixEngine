@@ -146,14 +146,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shootWait);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shootWait);
 }
 else
 {
     phase = stateCodecPrimitiveDecode();
-    shootWait = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    shootWait = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

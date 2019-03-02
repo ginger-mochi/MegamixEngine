@@ -862,49 +862,49 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cursorImgSpd);
-    stateCodecPrimitiveEncode(current);
     stateCodecPrimitiveEncode(arrowBlinkTimer);
-    stateCodecPrimitiveEncode(optionOffset);
-    stateCodecPrimitiveEncode(key);
     stateCodecPrimitiveEncode(buffer);
-    stateCodecPrimitiveEncode(keyID);
-    stateCodecPrimitiveEncode(showArrow);
-    stateCodecPrimitiveEncode(pID);
-    stateCodecPrimitiveEncode(newControls);
-    stateCodecPrimitiveEncode(visibleOptions);
-    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
-    stateCodecPrimitiveEncode(cursorImgIndex);
-    stateCodecPrimitiveEncode(optionText);
-    stateCodecPrimitiveEncode(selected);
-    stateCodecPrimitiveEncode(verticalQuickScrollTimer);
+    stateCodecPrimitiveEncode(current);
     stateCodecPrimitiveEncode(currentKeys);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(cursorImgIndex);
+    stateCodecPrimitiveEncode(cursorImgSpd);
+    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
+    stateCodecPrimitiveEncode(key);
+    stateCodecPrimitiveEncode(keyID);
+    stateCodecPrimitiveEncode(newControls);
     stateCodecPrimitiveEncode(option);
+    stateCodecPrimitiveEncode(optionOffset);
+    stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(pID);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(press);
+    stateCodecPrimitiveEncode(selected);
+    stateCodecPrimitiveEncode(showArrow);
+    stateCodecPrimitiveEncode(verticalQuickScrollTimer);
+    stateCodecPrimitiveEncode(visibleOptions);
 }
 else
 {
-    cursorImgSpd = stateCodecPrimitiveDecode();
-    current = stateCodecPrimitiveDecode();
     arrowBlinkTimer = stateCodecPrimitiveDecode();
-    optionOffset = stateCodecPrimitiveDecode();
-    key = stateCodecPrimitiveDecode();
     buffer = stateCodecPrimitiveDecode();
-    keyID = stateCodecPrimitiveDecode();
-    showArrow = stateCodecPrimitiveDecode();
-    pID = stateCodecPrimitiveDecode();
-    newControls = stateCodecPrimitiveDecode();
-    visibleOptions = stateCodecPrimitiveDecode();
-    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
-    cursorImgIndex = stateCodecPrimitiveDecode();
-    optionText = stateCodecPrimitiveDecode();
-    selected = stateCodecPrimitiveDecode();
-    verticalQuickScrollTimer = stateCodecPrimitiveDecode();
+    current = stateCodecPrimitiveDecode();
     currentKeys = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    cursorImgIndex = stateCodecPrimitiveDecode();
+    cursorImgSpd = stateCodecPrimitiveDecode();
+    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
+    key = stateCodecPrimitiveDecode();
+    keyID = stateCodecPrimitiveDecode();
+    newControls = stateCodecPrimitiveDecode();
     option = stateCodecPrimitiveDecode();
+    optionOffset = stateCodecPrimitiveDecode();
+    optionText = stateCodecPrimitiveDecode();
+    pID = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     press = stateCodecPrimitiveDecode();
+    selected = stateCodecPrimitiveDecode();
+    showArrow = stateCodecPrimitiveDecode();
+    verticalQuickScrollTimer = stateCodecPrimitiveDecode();
+    visibleOptions = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

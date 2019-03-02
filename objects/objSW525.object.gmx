@@ -233,26 +233,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(trackRange);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(gravityDir);
-    stateCodecPrimitiveEncode(explodeWaitExtra);
     stateCodecPrimitiveEncode(explodeWait);
-    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(explodeWaitExtra);
+    stateCodecPrimitiveEncode(gravityDir);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(trackRange);
 }
 else
 {
     explodeTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    trackRange = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    gravityDir = stateCodecPrimitiveDecode();
-    explodeWaitExtra = stateCodecPrimitiveDecode();
     explodeWait = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    explodeWaitExtra = stateCodecPrimitiveDecode();
+    gravityDir = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
+    trackRange = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

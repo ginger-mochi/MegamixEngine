@@ -93,10 +93,12 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(align);
+    stateCodecPrimitiveEncode(text);
 }
 else
 {
     align = stateCodecPrimitiveDecode();
+    text = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -159,17 +159,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(deactivationDistance);
     stateCodecPrimitiveEncode(defaultSpeed);
-    stateCodecPrimitiveEncode(viewPlayer);
     stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(viewPlayer);
 }
 else
 {
+    active = stateCodecPrimitiveDecode();
     deactivationDistance = stateCodecPrimitiveDecode();
     defaultSpeed = stateCodecPrimitiveDecode();
-    viewPlayer = stateCodecPrimitiveDecode();
     maxSpeed = stateCodecPrimitiveDecode();
+    viewPlayer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

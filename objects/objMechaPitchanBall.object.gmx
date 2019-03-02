@@ -148,22 +148,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(k);
+    stateCodecPrimitiveEncode(a);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(h);
-    stateCodecPrimitiveEncode(ix);
     stateCodecPrimitiveEncode(homing);
-    stateCodecPrimitiveEncode(a);
+    stateCodecPrimitiveEncode(ix);
+    stateCodecPrimitiveEncode(k);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    k = stateCodecPrimitiveDecode();
+    a = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     h = stateCodecPrimitiveDecode();
-    ix = stateCodecPrimitiveDecode();
     homing = stateCodecPrimitiveDecode();
-    a = stateCodecPrimitiveDecode();
+    ix = stateCodecPrimitiveDecode();
+    k = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

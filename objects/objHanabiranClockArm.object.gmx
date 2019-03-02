@@ -172,30 +172,30 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(length);
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(hasSpawned);
-    stateCodecPrimitiveEncode(pieceGap);
-    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(active);
+    stateCodecPrimitiveEncode(addAngle);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
     stateCodecPrimitiveEncode(destroyTimer);
+    stateCodecPrimitiveEncode(hasSpawned);
+    stateCodecPrimitiveEncode(length);
+    stateCodecPrimitiveEncode(pieceGap);
     stateCodecPrimitiveEncode(triggerDestroy);
 }
 else
 {
-    length = stateCodecPrimitiveDecode();
-    addAngle = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    hasSpawned = stateCodecPrimitiveDecode();
-    pieceGap = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
+    addAngle = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
     destroyTimer = stateCodecPrimitiveDecode();
+    hasSpawned = stateCodecPrimitiveDecode();
+    length = stateCodecPrimitiveDecode();
+    pieceGap = stateCodecPrimitiveDecode();
     triggerDestroy = stateCodecPrimitiveDecode();
 }
 </string>

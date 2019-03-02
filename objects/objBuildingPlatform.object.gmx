@@ -183,17 +183,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecIDArrayEncode(block);
     stateCodecPrimitiveEncode(i);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(wait);
-    stateCodecIDEncode(block);
 }
 else
 {
+    block = stateCodecIDArrayDecode();
     i = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
-    block = stateCodecIDDecode();
 }
 </string>
           </argument>

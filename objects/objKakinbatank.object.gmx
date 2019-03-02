@@ -427,33 +427,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(detectsShot);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(maxDist);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(prevX);
     stateCodecPrimitiveEncode(shielded);
-    stateCodecPrimitiveEncode(maxDist);
-    stateCodecPrimitiveEncode(xscaleStart);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(detectsShot);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(speed1);
     stateCodecPrimitiveEncode(speed2);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xscaleStart);
 }
 else
 {
+    animFrame = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    detectsShot = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    maxDist = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     prevX = stateCodecPrimitiveDecode();
     shielded = stateCodecPrimitiveDecode();
-    maxDist = stateCodecPrimitiveDecode();
-    xscaleStart = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    detectsShot = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     speed1 = stateCodecPrimitiveDecode();
     speed2 = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    xscaleStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

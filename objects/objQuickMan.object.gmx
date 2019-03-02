@@ -472,37 +472,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpHeightFor);
-    stateCodecPrimitiveEncode(run_speed);
-    stateCodecPrimitiveEncode(jump_count);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(jump_x_offset);
-    stateCodecPrimitiveEncode(xDistanceTravelled);
-    stateCodecPrimitiveEncode(pref_xspeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(bugActive);
     stateCodecPrimitiveEncode(aiBug);
-    stateCodecPrimitiveEncode(run_time);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(bugActive);
     stateCodecPrimitiveEncode(has_fired);
+    stateCodecPrimitiveEncode(jumpHeightFor);
+    stateCodecPrimitiveEncode(jump_count);
+    stateCodecPrimitiveEncode(jump_x_offset);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(pref_xspeed);
+    stateCodecPrimitiveEncode(run_speed);
+    stateCodecPrimitiveEncode(run_time);
+    stateCodecPrimitiveEncode(xDistanceTravelled);
 }
 else
 {
-    jumpHeightFor = stateCodecPrimitiveDecode();
-    run_speed = stateCodecPrimitiveDecode();
-    jump_count = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    jump_x_offset = stateCodecPrimitiveDecode();
-    xDistanceTravelled = stateCodecPrimitiveDecode();
-    pref_xspeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    bugActive = stateCodecPrimitiveDecode();
     aiBug = stateCodecPrimitiveDecode();
-    run_time = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    bugActive = stateCodecPrimitiveDecode();
     has_fired = stateCodecPrimitiveDecode();
+    jumpHeightFor = stateCodecPrimitiveDecode();
+    jump_count = stateCodecPrimitiveDecode();
+    jump_x_offset = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    pref_xspeed = stateCodecPrimitiveDecode();
+    run_speed = stateCodecPrimitiveDecode();
+    run_time = stateCodecPrimitiveDecode();
+    xDistanceTravelled = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

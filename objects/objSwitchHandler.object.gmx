@@ -212,23 +212,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(flagOffLength);
-    stateCodecPrimitiveEncode(binary);
-    stateCodecPrimitiveEncode(stayActive);
     stateCodecPrimitiveEncode(active);
+    stateCodecPrimitiveEncode(binary);
+    stateCodecPrimitiveEncode(flagOffLength);
     stateCodecPrimitiveEncode(flagOnLength);
-    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(inverse);
+    stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(stayActive);
 }
 else
 {
-    flagOffLength = stateCodecPrimitiveDecode();
-    binary = stateCodecPrimitiveDecode();
-    stayActive = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
+    binary = stateCodecPrimitiveDecode();
+    flagOffLength = stateCodecPrimitiveDecode();
     flagOnLength = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
     inverse = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
+    stayActive = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

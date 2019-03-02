@@ -242,25 +242,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(capture);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(capture);
     stateCodecPrimitiveEncode(lifeTime);
     stateCodecPrimitiveEncode(ox);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
-    capture = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    capture = stateCodecPrimitiveDecode();
     lifeTime = stateCodecPrimitiveDecode();
     ox = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

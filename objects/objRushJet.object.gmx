@@ -312,24 +312,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(canJet);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(rushJetLock);
-    stateCodecPrimitiveEncode(decreaseAmmoTimer);
     stateCodecPrimitiveEncode(climbSlope);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(decreaseAmmoTimer);
     stateCodecPrimitiveEncode(decreaseAmmoTimerMax);
     stateCodecPrimitiveEncode(maxSpd);
+    stateCodecPrimitiveEncode(rushJetLock);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     canJet = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    rushJetLock = stateCodecPrimitiveDecode();
-    decreaseAmmoTimer = stateCodecPrimitiveDecode();
     climbSlope = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    decreaseAmmoTimer = stateCodecPrimitiveDecode();
     decreaseAmmoTimerMax = stateCodecPrimitiveDecode();
     maxSpd = stateCodecPrimitiveDecode();
+    rushJetLock = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

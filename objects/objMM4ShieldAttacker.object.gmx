@@ -188,27 +188,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(turnSprite);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveSprite);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(turnSpeed);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imgSpeed);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(moveSprite);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(turnSpeed);
+    stateCodecPrimitiveEncode(turnSprite);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    turnSprite = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveSprite = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    turnSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    moveSprite = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    turnSpeed = stateCodecPrimitiveDecode();
+    turnSprite = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

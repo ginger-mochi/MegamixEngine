@@ -148,23 +148,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(smallBubbleTimer);
     stateCodecPrimitiveEncode(bubbleCount);
-    stateCodecPrimitiveEncode(bubblesPerInterval);
-    stateCodecPrimitiveEncode(totalTimer);
-    stateCodecPrimitiveEncode(isSmall);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(bubbleInterval);
+    stateCodecPrimitiveEncode(bubblesPerInterval);
+    stateCodecPrimitiveEncode(isSmall);
+    stateCodecPrimitiveEncode(smallBubbleTimer);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(totalTimer);
 }
 else
 {
-    smallBubbleTimer = stateCodecPrimitiveDecode();
     bubbleCount = stateCodecPrimitiveDecode();
-    bubblesPerInterval = stateCodecPrimitiveDecode();
-    totalTimer = stateCodecPrimitiveDecode();
-    isSmall = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     bubbleInterval = stateCodecPrimitiveDecode();
+    bubblesPerInterval = stateCodecPrimitiveDecode();
+    isSmall = stateCodecPrimitiveDecode();
+    smallBubbleTimer = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    totalTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

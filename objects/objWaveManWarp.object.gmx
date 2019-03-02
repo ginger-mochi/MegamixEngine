@@ -258,14 +258,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(xspeed);
     stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    xspeed = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
+    xspeed = stateCodecPrimitiveDecode();
     yspeed = stateCodecPrimitiveDecode();
 }
 </string>

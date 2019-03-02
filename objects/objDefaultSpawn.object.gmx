@@ -77,10 +77,12 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(respawnAnimation);
     stateCodecPrimitiveEncode(showDuringReady);
 }
 else
 {
+    respawnAnimation = stateCodecPrimitiveDecode();
     showDuringReady = stateCodecPrimitiveDecode();
 }
 </string>

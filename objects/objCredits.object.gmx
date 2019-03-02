@@ -309,14 +309,16 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(creditsPosition);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(creditsText);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     creditsPosition = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     creditsText = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

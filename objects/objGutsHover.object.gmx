@@ -195,22 +195,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(freeMove);
-    stateCodecPrimitiveEncode(myYSpeed);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(activateTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(freeMove);
     stateCodecPrimitiveEncode(myXSpeed);
+    stateCodecPrimitiveEncode(myYSpeed);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(rotorTimer);
 }
 else
 {
-    freeMove = stateCodecPrimitiveDecode();
-    myYSpeed = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     activateTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    freeMove = stateCodecPrimitiveDecode();
     myXSpeed = stateCodecPrimitiveDecode();
+    myYSpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     rotorTimer = stateCodecPrimitiveDecode();
 }
 </string>

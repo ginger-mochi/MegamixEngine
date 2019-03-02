@@ -237,22 +237,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(cAngle);
     stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecIDEncode(star);
+    stateCodecPrimitiveEncode(cAngle);
     stateCodecPrimitiveEncode(cDistance);
+    stateCodecIDArrayEncode(star);
+    stateCodecPrimitiveEncode(xOffset);
 }
 else
 {
     addAngle = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    star = stateCodecIDDecode();
+    cAngle = stateCodecPrimitiveDecode();
     cDistance = stateCodecPrimitiveDecode();
+    star = stateCodecIDArrayDecode();
+    xOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

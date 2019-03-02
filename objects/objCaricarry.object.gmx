@@ -299,31 +299,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(globalDir);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(acc);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(prevHealth);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(turnTimerStart);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(beginMoveTimer);
-    stateCodecPrimitiveEncode(turnTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(beginMoveTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(globalDir);
+    stateCodecPrimitiveEncode(prevHealth);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(turnTimer);
+    stateCodecPrimitiveEncode(turnTimerStart);
 }
 else
 {
-    globalDir = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     acc = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    prevHealth = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    turnTimerStart = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    beginMoveTimer = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    beginMoveTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    globalDir = stateCodecPrimitiveDecode();
+    prevHealth = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    turnTimer = stateCodecPrimitiveDecode();
+    turnTimerStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

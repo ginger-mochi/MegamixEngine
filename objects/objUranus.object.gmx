@@ -508,33 +508,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecIDEncode(myBlock);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(setX);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecIDEncode(myBlock);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setX);
+    stateCodecPrimitiveEncode(shakeTimer);
+    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    shakeTimer = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
-    myBlock = stateCodecIDDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    myBlock = stateCodecIDDecode();
+    phase = stateCodecPrimitiveDecode();
+    setX = stateCodecPrimitiveDecode();
+    shakeTimer = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

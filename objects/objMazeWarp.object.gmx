@@ -177,19 +177,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(camY);
     stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(tileCheckStart);
     stateCodecPrimitiveEncode(tileDistanceCheck);
     stateCodecPrimitiveEncode(tileSurface);
-    stateCodecPrimitiveEncode(camY);
-    stateCodecPrimitiveEncode(tileCheckStart);
 }
 else
 {
+    camY = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
+    tileCheckStart = stateCodecPrimitiveDecode();
     tileDistanceCheck = stateCodecPrimitiveDecode();
     tileSurface = stateCodecPrimitiveDecode();
-    camY = stateCodecPrimitiveDecode();
-    tileCheckStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

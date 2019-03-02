@@ -264,22 +264,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(myDir);
     stateCodecPrimitiveEncode(shootAmount);
-    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(shootTotal);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
     jumpCount = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
     myDir = stateCodecPrimitiveDecode();
     shootAmount = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
     shootTotal = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

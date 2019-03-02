@@ -169,20 +169,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(flip);
     stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    contactStart = stateCodecPrimitiveDecode();
     flip = stateCodecPrimitiveDecode();
     imgOffset = stateCodecPrimitiveDecode();
-    contactStart = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

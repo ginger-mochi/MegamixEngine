@@ -161,14 +161,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jetTimer);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(jetTimer);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    jetTimer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    jetTimer = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
 }
 </string>

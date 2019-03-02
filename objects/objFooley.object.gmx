@@ -257,18 +257,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(statusObject);
     stateCodecPrimitiveEncode(drawTimer);
     stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecIDEncode(statusObject);
     stateCodecPrimitiveEncode(timeSlow);
 }
 else
 {
-    statusObject = stateCodecIDDecode();
     drawTimer = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    statusObject = stateCodecIDDecode();
     timeSlow = stateCodecPrimitiveDecode();
 }
 </string>

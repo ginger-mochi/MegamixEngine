@@ -101,15 +101,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(xscale);
     stateCodecPrimitiveEncode(yscale);
-    stateCodecPrimitiveEncode(dir);
 }
 else
 {
+    dir = stateCodecPrimitiveDecode();
     xscale = stateCodecPrimitiveDecode();
     yscale = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

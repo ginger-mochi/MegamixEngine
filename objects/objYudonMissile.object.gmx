@@ -262,37 +262,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(storeID);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(missileID);
     stateCodecPrimitiveEncode(chaseTimer);
-    stateCodecPrimitiveEncode(startWaitTimer);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(turnSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(rotateChange);
+    stateCodecPrimitiveEncode(cooldownMax);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(missileID);
+    stateCodecPrimitiveEncode(moveDir);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(rotateChange);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(startWait);
+    stateCodecPrimitiveEncode(startWaitTimer);
+    stateCodecPrimitiveEncode(storeID);
+    stateCodecPrimitiveEncode(turnSpeed);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    storeID = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    missileID = stateCodecPrimitiveDecode();
     chaseTimer = stateCodecPrimitiveDecode();
-    startWaitTimer = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    turnSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    rotateChange = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    missileID = stateCodecPrimitiveDecode();
+    moveDir = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    rotateChange = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    startWait = stateCodecPrimitiveDecode();
+    startWaitTimer = stateCodecPrimitiveDecode();
+    storeID = stateCodecPrimitiveDecode();
+    turnSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

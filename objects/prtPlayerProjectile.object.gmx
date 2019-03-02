@@ -174,17 +174,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(playerID);
-    stateCodecPrimitiveEncode(costumeID);
     stateCodecPrimitiveEncode(bulletLimitCost);
+    stateCodecPrimitiveEncode(costumeID);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(playerID);
 }
 else
 {
-    playerID = stateCodecPrimitiveDecode();
-    costumeID = stateCodecPrimitiveDecode();
     bulletLimitCost = stateCodecPrimitiveDecode();
+    costumeID = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    playerID = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

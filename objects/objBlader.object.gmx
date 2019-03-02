@@ -199,17 +199,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(targetY);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     targetY = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }

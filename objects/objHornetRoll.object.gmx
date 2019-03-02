@@ -271,33 +271,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timeRestRetract);
-    stateCodecPrimitiveEncode(speedRetractEnd);
-    stateCodecPrimitiveEncode(speedRestore);
-    stateCodecPrimitiveEncode(restX);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(speedExtendEnd);
-    stateCodecIDEncode(myPlatform);
     stateCodecPrimitiveEncode(extendX);
+    stateCodecIDEncode(myPlatform);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timeRestExtend);
-    stateCodecPrimitiveEncode(speedRetractBegin);
+    stateCodecPrimitiveEncode(restX);
     stateCodecPrimitiveEncode(speedExtendBegin);
+    stateCodecPrimitiveEncode(speedExtendEnd);
+    stateCodecPrimitiveEncode(speedRestore);
+    stateCodecPrimitiveEncode(speedRetractBegin);
+    stateCodecPrimitiveEncode(speedRetractEnd);
+    stateCodecPrimitiveEncode(timeRestExtend);
+    stateCodecPrimitiveEncode(timeRestRetract);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timeRestRetract = stateCodecPrimitiveDecode();
-    speedRetractEnd = stateCodecPrimitiveDecode();
-    speedRestore = stateCodecPrimitiveDecode();
-    restX = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    speedExtendEnd = stateCodecPrimitiveDecode();
-    myPlatform = stateCodecIDDecode();
     extendX = stateCodecPrimitiveDecode();
+    myPlatform = stateCodecIDDecode();
     phase = stateCodecPrimitiveDecode();
-    timeRestExtend = stateCodecPrimitiveDecode();
-    speedRetractBegin = stateCodecPrimitiveDecode();
+    restX = stateCodecPrimitiveDecode();
     speedExtendBegin = stateCodecPrimitiveDecode();
+    speedExtendEnd = stateCodecPrimitiveDecode();
+    speedRestore = stateCodecPrimitiveDecode();
+    speedRetractBegin = stateCodecPrimitiveDecode();
+    speedRetractEnd = stateCodecPrimitiveDecode();
+    timeRestExtend = stateCodecPrimitiveDecode();
+    timeRestRetract = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

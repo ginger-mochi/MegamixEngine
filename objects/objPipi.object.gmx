@@ -158,17 +158,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(hasEgg);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(init);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     hasEgg = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

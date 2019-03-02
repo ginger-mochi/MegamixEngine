@@ -212,17 +212,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(travelSpeed);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(dropped);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(travelSpeed);
 }
 else
 {
-    travelSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     dropped = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    travelSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

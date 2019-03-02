@@ -209,18 +209,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(phaseTimer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(phaseTimer);
     stateCodecPrimitiveEncode(yDir);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
     yDir = stateCodecPrimitiveDecode();
 }
 </string>

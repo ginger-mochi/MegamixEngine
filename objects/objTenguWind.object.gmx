@@ -225,24 +225,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(windAccel);
-    stateCodecPrimitiveEncode(startWindAccel);
-    stateCodecPrimitiveEncode(windSpeed);
-    stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(maxWindSpeed);
     stateCodecPrimitiveEncode(leafTimer);
+    stateCodecPrimitiveEncode(maxWindSpeed);
+    stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(startWindAccel);
     stateCodecPrimitiveEncode(startWindSpeed);
+    stateCodecPrimitiveEncode(windAccel);
+    stateCodecPrimitiveEncode(windSpeed);
 }
 else
 {
     activated = stateCodecPrimitiveDecode();
-    windAccel = stateCodecPrimitiveDecode();
-    startWindAccel = stateCodecPrimitiveDecode();
-    windSpeed = stateCodecPrimitiveDecode();
-    objectDrop = stateCodecPrimitiveDecode();
-    maxWindSpeed = stateCodecPrimitiveDecode();
     leafTimer = stateCodecPrimitiveDecode();
+    maxWindSpeed = stateCodecPrimitiveDecode();
+    objectDrop = stateCodecPrimitiveDecode();
+    startWindAccel = stateCodecPrimitiveDecode();
     startWindSpeed = stateCodecPrimitiveDecode();
+    windAccel = stateCodecPrimitiveDecode();
+    windSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -62,6 +62,14 @@ image_sped = 0;
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(image_sped);
+}
+else
+{
+    image_sped = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

@@ -167,14 +167,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(parentID);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
     attackTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     parentID = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

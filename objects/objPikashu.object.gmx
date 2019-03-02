@@ -207,16 +207,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(canMove);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
     canMove = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -223,29 +223,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sL);
-    stateCodecPrimitiveEncode(unlockBounds);
-    stateCodecPrimitiveEncode(sR);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waitFrames);
-    stateCodecPrimitiveEncode(sB);
     stateCodecPrimitiveEncode(counter);
-    stateCodecPrimitiveEncode(sT);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(mySpeed);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(sB);
+    stateCodecPrimitiveEncode(sL);
+    stateCodecPrimitiveEncode(sR);
+    stateCodecPrimitiveEncode(sT);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(unlockBounds);
+    stateCodecPrimitiveEncode(waitFrames);
 }
 else
 {
-    sL = stateCodecPrimitiveDecode();
-    unlockBounds = stateCodecPrimitiveDecode();
-    sR = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    waitFrames = stateCodecPrimitiveDecode();
-    sB = stateCodecPrimitiveDecode();
     counter = stateCodecPrimitiveDecode();
-    sT = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    sB = stateCodecPrimitiveDecode();
+    sL = stateCodecPrimitiveDecode();
+    sR = stateCodecPrimitiveDecode();
+    sT = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    unlockBounds = stateCodecPrimitiveDecode();
+    waitFrames = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

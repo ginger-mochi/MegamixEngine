@@ -5,8 +5,7 @@
 /// global.stateCodecEncode - if true, write; if false, read
 
 // serialize game state information
-
-// serialize globals
+stateCodecGlobals();
 
 // serialize all instances
 
@@ -117,6 +116,9 @@ else
             with (instance)
             {
                 print("deleted excess " + object_get_name(object_index));
+                
+                // change to struct to avoid performing destroy event.
+                instance_change(objStruct, false);
                 instance_destroy();
             }
             continue;

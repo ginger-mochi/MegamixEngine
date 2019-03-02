@@ -106,15 +106,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(respawnAnimation);
     stateCodecPrimitiveEncode(showDuringReady);
-    stateCodecPrimitiveEncode(yy);
     stateCodecPrimitiveEncode(xx);
+    stateCodecPrimitiveEncode(yy);
 }
 else
 {
     respawnAnimation = stateCodecPrimitiveDecode();
     showDuringReady = stateCodecPrimitiveDecode();
-    yy = stateCodecPrimitiveDecode();
     xx = stateCodecPrimitiveDecode();
+    yy = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

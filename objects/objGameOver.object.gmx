@@ -136,13 +136,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(selection);
+    stateCodecPrimitiveEncode(controlsLocked);
     stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(selection);
 }
 else
 {
-    selection = stateCodecPrimitiveDecode();
+    controlsLocked = stateCodecPrimitiveDecode();
     optionText = stateCodecPrimitiveDecode();
+    selection = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

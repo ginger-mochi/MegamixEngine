@@ -198,21 +198,23 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fileDifficulty);
-    stateCodecPrimitiveEncode(selection);
+    stateCodecPrimitiveEncode(controlsLocked);
     stateCodecPrimitiveEncode(energyElements);
-    stateCodecPrimitiveEncode(fileName);
     stateCodecPrimitiveEncode(fileCount);
+    stateCodecPrimitiveEncode(fileDifficulty);
+    stateCodecPrimitiveEncode(fileName);
     stateCodecPrimitiveEncode(gameTimer);
+    stateCodecPrimitiveEncode(selection);
 }
 else
 {
-    fileDifficulty = stateCodecPrimitiveDecode();
-    selection = stateCodecPrimitiveDecode();
+    controlsLocked = stateCodecPrimitiveDecode();
     energyElements = stateCodecPrimitiveDecode();
-    fileName = stateCodecPrimitiveDecode();
     fileCount = stateCodecPrimitiveDecode();
+    fileDifficulty = stateCodecPrimitiveDecode();
+    fileName = stateCodecPrimitiveDecode();
     gameTimer = stateCodecPrimitiveDecode();
+    selection = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

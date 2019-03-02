@@ -155,13 +155,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(canBounce);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    parent = stateCodecPrimitiveDecode();
     canBounce = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

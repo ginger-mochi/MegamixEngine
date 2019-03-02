@@ -224,19 +224,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mountID);
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(canStep);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(mountID);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    mountID = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
     canStep = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    mountID = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }

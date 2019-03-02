@@ -153,15 +153,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(interval);
     stateCodecPrimitiveEncode(play);
+    stateCodecPrimitiveEncode(sfx);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
     interval = stateCodecPrimitiveDecode();
     play = stateCodecPrimitiveDecode();
+    sfx = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

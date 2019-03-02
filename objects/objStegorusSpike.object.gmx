@@ -202,23 +202,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timescale);
-    stateCodecPrimitiveEncode(ysp);
+    stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timescale);
     stateCodecPrimitiveEncode(xsp);
+    stateCodecPrimitiveEncode(ysp);
 }
 else
 {
-    timescale = stateCodecPrimitiveDecode();
-    ysp = stateCodecPrimitiveDecode();
+    animFrame = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    timescale = stateCodecPrimitiveDecode();
     xsp = stateCodecPrimitiveDecode();
+    ysp = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

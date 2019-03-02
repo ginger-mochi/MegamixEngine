@@ -308,27 +308,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(extraChoice);
-    stateCodecPrimitiveEncode(tailTimer);
-    stateCodecPrimitiveEncode(chaseTimer);
-    stateCodecPrimitiveEncode(imgOffset);
     stateCodecPrimitiveEncode(aimSpeed);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(targetY);
-    stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(chaseTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(extraChoice);
+    stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(tailTimer);
+    stateCodecPrimitiveEncode(targetX);
+    stateCodecPrimitiveEncode(targetY);
 }
 else
 {
-    extraChoice = stateCodecPrimitiveDecode();
-    tailTimer = stateCodecPrimitiveDecode();
-    chaseTimer = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
     aimSpeed = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    targetY = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    chaseTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    extraChoice = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
+    tailTimer = stateCodecPrimitiveDecode();
+    targetX = stateCodecPrimitiveDecode();
+    targetY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

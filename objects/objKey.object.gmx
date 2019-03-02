@@ -189,16 +189,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(sinx);
-    stateCodecPrimitiveEncode(isHoming);
     stateCodecPrimitiveEncode(homingTimer);
+    stateCodecPrimitiveEncode(isHoming);
+    stateCodecPrimitiveEncode(sinx);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
-    sinx = stateCodecPrimitiveDecode();
-    isHoming = stateCodecPrimitiveDecode();
     homingTimer = stateCodecPrimitiveDecode();
+    isHoming = stateCodecPrimitiveDecode();
+    sinx = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

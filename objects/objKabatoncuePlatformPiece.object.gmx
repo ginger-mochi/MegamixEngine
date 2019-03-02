@@ -181,15 +181,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(offset);
     stateCodecIDEncode(parent);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
     offset = stateCodecPrimitiveDecode();
     parent = stateCodecIDDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

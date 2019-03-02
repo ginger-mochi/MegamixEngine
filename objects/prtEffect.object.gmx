@@ -96,17 +96,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(noFlicker);
-    stateCodecPrimitiveEncode(frozen);
     stateCodecPrimitiveEncode(despawn);
+    stateCodecPrimitiveEncode(frozen);
     stateCodecPrimitiveEncode(grav);
+    stateCodecPrimitiveEncode(noFlicker);
 }
 else
 {
-    noFlicker = stateCodecPrimitiveDecode();
-    frozen = stateCodecPrimitiveDecode();
     despawn = stateCodecPrimitiveDecode();
+    frozen = stateCodecPrimitiveDecode();
     grav = stateCodecPrimitiveDecode();
+    noFlicker = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

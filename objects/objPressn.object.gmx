@@ -193,19 +193,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(saveXSpeed);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(airDrag);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(saveXSpeed);
     stateCodecPrimitiveEncode(targetX);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
-    saveXSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     airDrag = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    saveXSpeed = stateCodecPrimitiveDecode();
     targetX = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

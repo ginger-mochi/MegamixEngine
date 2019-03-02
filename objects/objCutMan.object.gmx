@@ -425,39 +425,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cutter);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(hasKnockback);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(getLastXspeed);
     stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(spriteRun);
-    stateCodecPrimitiveEncode(spriteStand);
-    stateCodecPrimitiveEncode(spriteJump);
+    stateCodecPrimitiveEncode(cutter);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(getLastXspeed);
+    stateCodecPrimitiveEncode(hasKnockback);
     stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
     stateCodecPrimitiveEncode(knockbackTimer);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(spriteJump);
+    stateCodecPrimitiveEncode(spriteRun);
+    stateCodecPrimitiveEncode(spriteStand);
 }
 else
 {
-    cutter = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    hasKnockback = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    getLastXspeed = stateCodecPrimitiveDecode();
     canInitShoot = stateCodecPrimitiveDecode();
-    spriteRun = stateCodecPrimitiveDecode();
-    spriteStand = stateCodecPrimitiveDecode();
-    spriteJump = stateCodecPrimitiveDecode();
+    cutter = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    getLastXspeed = stateCodecPrimitiveDecode();
+    hasKnockback = stateCodecPrimitiveDecode();
     jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
     knockbackTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    spriteJump = stateCodecPrimitiveDecode();
+    spriteRun = stateCodecPrimitiveDecode();
+    spriteStand = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

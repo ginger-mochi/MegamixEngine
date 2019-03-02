@@ -137,19 +137,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(timerInitial);
+    stateCodecPrimitiveEncode(timerMax);
     stateCodecPrimitiveEncode(timerShoot);
     stateCodecPrimitiveEncode(timerWarning);
-    stateCodecPrimitiveEncode(timerMax);
-    stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    timer = stateCodecPrimitiveDecode();
     timerInitial = stateCodecPrimitiveDecode();
+    timerMax = stateCodecPrimitiveDecode();
     timerShoot = stateCodecPrimitiveDecode();
     timerWarning = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

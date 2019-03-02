@@ -210,27 +210,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(distance);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(offset);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(startDirection);
     stateCodecPrimitiveEncode(startDistance);
     stateCodecPrimitiveEncode(wait);
     stateCodecPrimitiveEncode(waitMemory);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startDirection);
-    stateCodecPrimitiveEncode(offset);
 }
 else
 {
+    dir = stateCodecPrimitiveDecode();
+    distance = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    offset = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    startDirection = stateCodecPrimitiveDecode();
     startDistance = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
     waitMemory = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    distance = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    startDirection = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

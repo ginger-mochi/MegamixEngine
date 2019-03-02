@@ -245,28 +245,28 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animIter);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(rotationTimer);
-    stateCodecPrimitiveEncode(jumpTypes);
     stateCodecPrimitiveEncode(animTable);
-    stateCodecPrimitiveEncode(jumpDistance);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(msk);
-    stateCodecPrimitiveEncode(jumpHeight);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(jumpDistance);
+    stateCodecPrimitiveEncode(jumpHeight);
+    stateCodecPrimitiveEncode(jumpTypes);
+    stateCodecPrimitiveEncode(msk);
+    stateCodecPrimitiveEncode(rotationTimer);
 }
 else
 {
     animIter = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    rotationTimer = stateCodecPrimitiveDecode();
-    jumpTypes = stateCodecPrimitiveDecode();
     animTable = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    msk = stateCodecPrimitiveDecode();
-    jumpHeight = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    jumpDistance = stateCodecPrimitiveDecode();
+    jumpHeight = stateCodecPrimitiveDecode();
+    jumpTypes = stateCodecPrimitiveDecode();
+    msk = stateCodecPrimitiveDecode();
+    rotationTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

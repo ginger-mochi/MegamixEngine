@@ -276,23 +276,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(shardsCreated);
-    stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(storeXScale);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(bullet);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shardsCreated);
+    stateCodecPrimitiveEncode(storeXScale);
+    stateCodecPrimitiveEncode(variant);
 }
 else
 {
-    attackTimerMax = stateCodecPrimitiveDecode();
-    shardsCreated = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    storeXScale = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
     bullet = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shardsCreated = stateCodecPrimitiveDecode();
+    storeXScale = stateCodecPrimitiveDecode();
+    variant = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

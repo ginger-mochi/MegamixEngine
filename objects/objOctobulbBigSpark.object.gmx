@@ -103,14 +103,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(path_speed);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(path_speed);
 }
 else
 {
     imgSpeed = stateCodecPrimitiveDecode();
-    path_speed = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    path_speed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

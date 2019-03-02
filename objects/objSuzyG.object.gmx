@@ -178,25 +178,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myGrav);
-    stateCodecPrimitiveEncode(flipOverTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(gravityFlip);
-    stateCodecPrimitiveEncode(hasFired);
     stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(cooldownTimerMax);
+    stateCodecPrimitiveEncode(flipOverTimer);
+    stateCodecPrimitiveEncode(gravityFlip);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(myGrav);
+    stateCodecPrimitiveEncode(shooting);
 }
 else
 {
-    myGrav = stateCodecPrimitiveDecode();
-    flipOverTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    gravityFlip = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
     cooldownTimerMax = stateCodecPrimitiveDecode();
+    flipOverTimer = stateCodecPrimitiveDecode();
+    gravityFlip = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    myGrav = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

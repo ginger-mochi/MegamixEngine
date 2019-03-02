@@ -130,15 +130,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(alarmDie);
     stateCodecPrimitiveEncode(alarmHitSolid);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(alarmDie);
 }
 else
 {
+    alarmDie = stateCodecPrimitiveDecode();
     alarmHitSolid = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
-    alarmDie = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

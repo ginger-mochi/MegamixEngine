@@ -208,21 +208,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(period);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(period);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phaseTimer);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    period = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    period = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     phaseTimer = stateCodecPrimitiveDecode();
     radius = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

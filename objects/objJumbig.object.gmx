@@ -154,15 +154,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(dummyTimer);
     stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(actionTimer);
 }
 else
 {
+    actionTimer = stateCodecPrimitiveDecode();
     dummyTimer = stateCodecPrimitiveDecode();
     xs = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

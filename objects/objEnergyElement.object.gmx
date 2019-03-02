@@ -209,28 +209,28 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(alreadyCollected);
-    stateCodecPrimitiveEncode(sparkletimer);
+    stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(energyElementLock);
     stateCodecPrimitiveEncode(jumped);
+    stateCodecPrimitiveEncode(name);
     stateCodecPrimitiveEncode(primarycol);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(script);
     stateCodecPrimitiveEncode(secondarycol);
-    stateCodecPrimitiveEncode(name);
-    stateCodecPrimitiveEncode(energyElementLock);
-    stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(sparkletimer);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     alreadyCollected = stateCodecPrimitiveDecode();
-    sparkletimer = stateCodecPrimitiveDecode();
+    code = stateCodecPrimitiveDecode();
+    energyElementLock = stateCodecPrimitiveDecode();
     jumped = stateCodecPrimitiveDecode();
+    name = stateCodecPrimitiveDecode();
     primarycol = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     script = stateCodecPrimitiveDecode();
     secondarycol = stateCodecPrimitiveDecode();
-    name = stateCodecPrimitiveDecode();
-    energyElementLock = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
+    sparkletimer = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

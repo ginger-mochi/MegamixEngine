@@ -402,31 +402,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(stunLock);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecIDArrayEncode(child);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(resetGrav);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(strMMX);
+    stateCodecPrimitiveEncode(stunLock);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    child = stateCodecIDDecode();
-    xOff = stateCodecPrimitiveDecode();
-    stunLock = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
     bossTriggered = stateCodecPrimitiveDecode();
+    child = stateCodecIDArrayDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     resetGrav = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
+    strMMX = stateCodecPrimitiveDecode();
+    stunLock = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

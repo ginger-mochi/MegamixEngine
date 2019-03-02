@@ -216,27 +216,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(explodeOnContact);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(dieOnHit);
     stateCodecPrimitiveEncode(alarmDie);
-    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(dieOnHit);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(explodeOnContact);
     stateCodecPrimitiveEncode(explosionSFX);
     stateCodecPrimitiveEncode(imageSpeed);
-    stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    explodeOnContact = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    dieOnHit = stateCodecPrimitiveDecode();
     alarmDie = stateCodecPrimitiveDecode();
-    script = stateCodecPrimitiveDecode();
+    code = stateCodecPrimitiveDecode();
+    dieOnHit = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    explodeOnContact = stateCodecPrimitiveDecode();
     explosionSFX = stateCodecPrimitiveDecode();
     imageSpeed = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

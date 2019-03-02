@@ -146,15 +146,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(ignoreCollision);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(ignoreCollision);
 }
 else
 {
+    ignoreCollision = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    ignoreCollision = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

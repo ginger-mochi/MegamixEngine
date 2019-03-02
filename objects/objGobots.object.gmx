@@ -182,31 +182,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(propellerTimer);
-    stateCodecPrimitiveEncode(flameImg);
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(resetY);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(propellerStatus);
-    stateCodecPrimitiveEncode(resetAngle);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(imgOffset);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(flameImg);
+    stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(propellerStatus);
+    stateCodecPrimitiveEncode(propellerTimer);
+    stateCodecPrimitiveEncode(resetAngle);
+    stateCodecPrimitiveEncode(resetY);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    propellerTimer = stateCodecPrimitiveDecode();
-    flameImg = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    resetY = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    propellerStatus = stateCodecPrimitiveDecode();
-    resetAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
+    flameImg = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
+    propellerStatus = stateCodecPrimitiveDecode();
+    propellerTimer = stateCodecPrimitiveDecode();
+    resetAngle = stateCodecPrimitiveDecode();
+    resetY = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

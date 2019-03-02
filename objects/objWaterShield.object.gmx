@@ -335,26 +335,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(spawnOffset);
     stateCodecPrimitiveEncode(count);
-    stateCodecPrimitiveEncode(velocity);
-    stateCodecPrimitiveEncode(spawnAfter);
     stateCodecPrimitiveEncode(distance);
     stateCodecPrimitiveEncode(isMaster);
     stateCodecPrimitiveEncode(rotationSpeed);
+    stateCodecPrimitiveEncode(spawnAfter);
+    stateCodecPrimitiveEncode(spawnOffset);
     stateCodecPrimitiveEncode(total);
+    stateCodecPrimitiveEncode(velocity);
 }
 else
 {
     angle = stateCodecPrimitiveDecode();
-    spawnOffset = stateCodecPrimitiveDecode();
     count = stateCodecPrimitiveDecode();
-    velocity = stateCodecPrimitiveDecode();
-    spawnAfter = stateCodecPrimitiveDecode();
     distance = stateCodecPrimitiveDecode();
     isMaster = stateCodecPrimitiveDecode();
     rotationSpeed = stateCodecPrimitiveDecode();
+    spawnAfter = stateCodecPrimitiveDecode();
+    spawnOffset = stateCodecPrimitiveDecode();
     total = stateCodecPrimitiveDecode();
+    velocity = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

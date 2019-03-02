@@ -464,21 +464,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(deTimer);
-    stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(targetX);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
     deTimer = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
     hasTriggeredFall = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     phaseTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    targetX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

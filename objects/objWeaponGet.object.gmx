@@ -184,37 +184,39 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(selection);
-    stateCodecPrimitiveEncode(spinSpeed);
-    stateCodecPrimitiveEncode(reward);
-    stateCodecPrimitiveEncode(spinFrame);
-    stateCodecPrimitiveEncode(flashTimer);
-    stateCodecPrimitiveEncode(fadeInTimer);
-    stateCodecPrimitiveEncode(rewardText);
+    stateCodecPrimitiveEncode(controlsLocked);
     stateCodecPrimitiveEncode(currentReward);
-    stateCodecPrimitiveEncode(textTimer);
-    stateCodecPrimitiveEncode(rewardN);
-    stateCodecPrimitiveEncode(rewardTimer);
-    stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(fadeInTimer);
     stateCodecPrimitiveEncode(finalFadeOut);
+    stateCodecPrimitiveEncode(flashTimer);
+    stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(reward);
+    stateCodecPrimitiveEncode(rewardN);
+    stateCodecPrimitiveEncode(rewardText);
+    stateCodecPrimitiveEncode(rewardTimer);
+    stateCodecPrimitiveEncode(selection);
+    stateCodecPrimitiveEncode(spinFrame);
+    stateCodecPrimitiveEncode(spinSpeed);
     stateCodecPrimitiveEncode(textTick);
+    stateCodecPrimitiveEncode(textTimer);
 }
 else
 {
-    selection = stateCodecPrimitiveDecode();
-    spinSpeed = stateCodecPrimitiveDecode();
-    reward = stateCodecPrimitiveDecode();
-    spinFrame = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
-    fadeInTimer = stateCodecPrimitiveDecode();
-    rewardText = stateCodecPrimitiveDecode();
+    controlsLocked = stateCodecPrimitiveDecode();
     currentReward = stateCodecPrimitiveDecode();
-    textTimer = stateCodecPrimitiveDecode();
-    rewardN = stateCodecPrimitiveDecode();
-    rewardTimer = stateCodecPrimitiveDecode();
-    optionText = stateCodecPrimitiveDecode();
+    fadeInTimer = stateCodecPrimitiveDecode();
     finalFadeOut = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
+    optionText = stateCodecPrimitiveDecode();
+    reward = stateCodecPrimitiveDecode();
+    rewardN = stateCodecPrimitiveDecode();
+    rewardText = stateCodecPrimitiveDecode();
+    rewardTimer = stateCodecPrimitiveDecode();
+    selection = stateCodecPrimitiveDecode();
+    spinFrame = stateCodecPrimitiveDecode();
+    spinSpeed = stateCodecPrimitiveDecode();
     textTick = stateCodecPrimitiveDecode();
+    textTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

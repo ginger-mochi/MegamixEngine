@@ -257,25 +257,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yy);
-    stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(action);
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(imgdelay);
     stateCodecPrimitiveEncode(origin);
     stateCodecPrimitiveEncode(spawndelay);
     stateCodecPrimitiveEncode(trainlength);
-    stateCodecPrimitiveEncode(imgdelay);
+    stateCodecPrimitiveEncode(xx);
+    stateCodecPrimitiveEncode(yy);
 }
 else
 {
-    yy = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
+    imgdelay = stateCodecPrimitiveDecode();
     origin = stateCodecPrimitiveDecode();
     spawndelay = stateCodecPrimitiveDecode();
     trainlength = stateCodecPrimitiveDecode();
-    imgdelay = stateCodecPrimitiveDecode();
+    xx = stateCodecPrimitiveDecode();
+    yy = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -107,15 +107,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(targetY);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
     targetX = stateCodecPrimitiveDecode();
     targetY = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

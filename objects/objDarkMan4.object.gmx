@@ -411,29 +411,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(targetPID);
     stateCodecPrimitiveEncode(_costume);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
     stateCodecIDEncode(barrier1);
     stateCodecIDEncode(barrier2);
+    stateCodecPrimitiveEncode(hasCostume);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(shots);
+    stateCodecPrimitiveEncode(targX);
+    stateCodecPrimitiveEncode(targetPID);
 }
 else
 {
-    targX = stateCodecPrimitiveDecode();
-    targetPID = stateCodecPrimitiveDecode();
     _costume = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     barrier1 = stateCodecIDDecode();
     barrier2 = stateCodecIDDecode();
+    hasCostume = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
     shots = stateCodecPrimitiveDecode();
+    targX = stateCodecPrimitiveDecode();
+    targetPID = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -300,21 +300,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(tauntCount);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(jumpSpeed);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(tauntCount);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    tauntCount = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    jumpSpeed = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    tauntCount = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

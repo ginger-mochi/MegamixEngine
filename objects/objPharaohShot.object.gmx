@@ -339,14 +339,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(extraDamage);
     stateCodecPrimitiveEncode(charging);
+    stateCodecPrimitiveEncode(extraDamage);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    extraDamage = stateCodecPrimitiveDecode();
     charging = stateCodecPrimitiveDecode();
+    extraDamage = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

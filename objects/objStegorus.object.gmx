@@ -405,25 +405,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(rightLimit);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(turn);
-    stateCodecPrimitiveEncode(timescale);
-    stateCodecPrimitiveEncode(shotCount);
+    stateCodecPrimitiveEncode(leftLimit);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(rightLimit);
+    stateCodecPrimitiveEncode(shotCount);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timescale);
+    stateCodecPrimitiveEncode(turn);
 }
 else
 {
-    leftLimit = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    turn = stateCodecPrimitiveDecode();
-    timescale = stateCodecPrimitiveDecode();
-    shotCount = stateCodecPrimitiveDecode();
+    leftLimit = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    rightLimit = stateCodecPrimitiveDecode();
+    shotCount = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    timescale = stateCodecPrimitiveDecode();
+    turn = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

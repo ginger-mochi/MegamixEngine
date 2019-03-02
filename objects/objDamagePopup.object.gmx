@@ -126,19 +126,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yspeed);
-    stateCodecPrimitiveEncode(str);
     stateCodecPrimitiveEncode(damage);
-    stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(str);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    yspeed = stateCodecPrimitiveDecode();
-    str = stateCodecPrimitiveDecode();
     damage = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
+    str = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    xspeed = stateCodecPrimitiveDecode();
+    yspeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

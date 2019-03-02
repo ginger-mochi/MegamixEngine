@@ -271,19 +271,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shoot);
-    stateCodecPrimitiveEncode(repeatAmount);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(repeatIsHigh);
     stateCodecPrimitiveEncode(doThing);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(repeatAmount);
+    stateCodecPrimitiveEncode(repeatIsHigh);
+    stateCodecPrimitiveEncode(shoot);
 }
 else
 {
-    shoot = stateCodecPrimitiveDecode();
-    repeatAmount = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    repeatIsHigh = stateCodecPrimitiveDecode();
     doThing = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    repeatAmount = stateCodecPrimitiveDecode();
+    repeatIsHigh = stateCodecPrimitiveDecode();
+    shoot = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -168,27 +168,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(centerTopBlock);
-    stateCodecPrimitiveEncode(centerBottomBlock);
-    stateCodecPrimitiveEncode(touchblock);
-    stateCodecPrimitiveEncode(topblock);
-    stateCodecPrimitiveEncode(ysc);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(bottomBlock);
     stateCodecPrimitiveEncode(cantDraw);
+    stateCodecPrimitiveEncode(centerBottomBlock);
+    stateCodecPrimitiveEncode(centerTopBlock);
     stateCodecPrimitiveEncode(sparkindex);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(topblock);
+    stateCodecPrimitiveEncode(touchblock);
+    stateCodecPrimitiveEncode(ysc);
 }
 else
 {
-    centerTopBlock = stateCodecPrimitiveDecode();
-    centerBottomBlock = stateCodecPrimitiveDecode();
-    touchblock = stateCodecPrimitiveDecode();
-    topblock = stateCodecPrimitiveDecode();
-    ysc = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     bottomBlock = stateCodecPrimitiveDecode();
     cantDraw = stateCodecPrimitiveDecode();
+    centerBottomBlock = stateCodecPrimitiveDecode();
+    centerTopBlock = stateCodecPrimitiveDecode();
     sparkindex = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    topblock = stateCodecPrimitiveDecode();
+    touchblock = stateCodecPrimitiveDecode();
+    ysc = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -136,17 +136,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(prevDead);
     stateCodecPrimitiveEncode(canCreateMinoan);
-    stateCodecIDEncode(minoanID);
     stateCodecPrimitiveEncode(dir);
+    stateCodecIDEncode(minoanID);
+    stateCodecPrimitiveEncode(prevDead);
 }
 else
 {
-    prevDead = stateCodecPrimitiveDecode();
     canCreateMinoan = stateCodecPrimitiveDecode();
-    minoanID = stateCodecIDDecode();
     dir = stateCodecPrimitiveDecode();
+    minoanID = stateCodecIDDecode();
+    prevDead = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

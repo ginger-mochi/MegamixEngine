@@ -435,31 +435,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(child);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(suckSpeed);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(suckTimer);
-    stateCodecPrimitiveEncode(skewerPhase);
-    stateCodecPrimitiveEncode(nextPhase);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(child);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(nextPhase);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(skewerPhase);
+    stateCodecPrimitiveEncode(suckSpeed);
+    stateCodecPrimitiveEncode(suckTimer);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    child = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
-    suckSpeed = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    suckTimer = stateCodecPrimitiveDecode();
-    skewerPhase = stateCodecPrimitiveDecode();
-    nextPhase = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
     bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    child = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    nextPhase = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    skewerPhase = stateCodecPrimitiveDecode();
+    suckSpeed = stateCodecPrimitiveDecode();
+    suckTimer = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

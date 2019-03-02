@@ -223,21 +223,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(repeatAmount);
     stateCodecPrimitiveEncode(repeatIsHigh);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     repeatAmount = stateCodecPrimitiveDecode();
     repeatIsHigh = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

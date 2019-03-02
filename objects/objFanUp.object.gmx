@@ -304,15 +304,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(velocity);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(playSound);
+    stateCodecPrimitiveEncode(velocity);
 }
 else
 {
-    velocity = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     playSound = stateCodecPrimitiveDecode();
+    velocity = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

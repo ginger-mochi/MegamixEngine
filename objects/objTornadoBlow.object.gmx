@@ -346,14 +346,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(hasDoneGrav);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(location);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     hasDoneGrav = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     location = stateCodecPrimitiveDecode();
 }
 </string>

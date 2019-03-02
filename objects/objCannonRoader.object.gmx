@@ -206,16 +206,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(charge);
     stateCodecPrimitiveEncode(chargeSpeed);
     stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(charge);
     stateCodecPrimitiveEncode(moveTimer);
 }
 else
 {
+    charge = stateCodecPrimitiveDecode();
     chargeSpeed = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
-    charge = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
 }
 </string>

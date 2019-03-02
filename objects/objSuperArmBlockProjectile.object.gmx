@@ -169,17 +169,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(noShatter);
-    stateCodecPrimitiveEncode(host);
     stateCodecPrimitiveEncode(cachedXSpeed);
     stateCodecPrimitiveEncode(cachedYSpeed);
+    stateCodecPrimitiveEncode(host);
+    stateCodecPrimitiveEncode(noShatter);
 }
 else
 {
-    noShatter = stateCodecPrimitiveDecode();
-    host = stateCodecPrimitiveDecode();
     cachedXSpeed = stateCodecPrimitiveDecode();
     cachedYSpeed = stateCodecPrimitiveDecode();
+    host = stateCodecPrimitiveDecode();
+    noShatter = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

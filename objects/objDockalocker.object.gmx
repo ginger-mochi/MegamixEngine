@@ -308,31 +308,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spriteBack);
+    stateCodecPrimitiveEncode(active);
+    stateCodecIDEncode(back);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(doSFX);
+    stateCodecPrimitiveEncode(neverDespawn);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(sprite);
+    stateCodecPrimitiveEncode(spriteBack);
+    stateCodecPrimitiveEncode(startup);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(wait);
-    stateCodecIDEncode(back);
-    stateCodecPrimitiveEncode(neverDespawn);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(startup);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
 }
 else
 {
-    spriteBack = stateCodecPrimitiveDecode();
+    active = stateCodecPrimitiveDecode();
+    back = stateCodecIDDecode();
+    col = stateCodecPrimitiveDecode();
     doSFX = stateCodecPrimitiveDecode();
+    neverDespawn = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     sprite = stateCodecPrimitiveDecode();
+    spriteBack = stateCodecPrimitiveDecode();
+    startup = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
-    back = stateCodecIDDecode();
-    neverDespawn = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
-    startup = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

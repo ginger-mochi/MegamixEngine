@@ -223,21 +223,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(rideFrame);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(frogFrame);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(attack);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(frogAnimTimer);
+    stateCodecPrimitiveEncode(frogFrame);
+    stateCodecPrimitiveEncode(rideFrame);
+    stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    rideFrame = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    frogFrame = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     attack = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     frogAnimTimer = stateCodecPrimitiveDecode();
+    frogFrame = stateCodecPrimitiveDecode();
+    rideFrame = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

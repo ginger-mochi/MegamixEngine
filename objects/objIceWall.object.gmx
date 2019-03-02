@@ -363,18 +363,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(pushed);
     stateCodecPrimitiveEncode(forming);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(isFree);
+    stateCodecPrimitiveEncode(pushed);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
-    pushed = stateCodecPrimitiveDecode();
     forming = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     isFree = stateCodecPrimitiveDecode();
+    pushed = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

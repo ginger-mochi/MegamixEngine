@@ -222,23 +222,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(onFloor);
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(imageTimerMax);
+    stateCodecPrimitiveEncode(onFloor);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    onFloor = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    imageTimerMax = stateCodecPrimitiveDecode();
+    onFloor = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

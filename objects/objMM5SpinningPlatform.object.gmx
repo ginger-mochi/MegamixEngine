@@ -224,25 +224,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(length);
+    stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
     stateCodecPrimitiveEncode(alarmTimer);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(length);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(wait);
     stateCodecPrimitiveEncode(waitMemory);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(X);
 }
 else
 {
-    length = stateCodecPrimitiveDecode();
+    X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
     alarmTimer = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    length = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
     waitMemory = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    X = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

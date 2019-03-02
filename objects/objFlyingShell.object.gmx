@@ -177,15 +177,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(bullets);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(bullets);
 }
 else
 {
+    bullets = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    bullets = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

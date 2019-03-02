@@ -179,17 +179,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(dropDown);
     stateCodecPrimitiveEncode(popDelay);
     stateCodecPrimitiveEncode(popDelayStart);
-    stateCodecPrimitiveEncode(contactStart);
 }
 else
 {
+    contactStart = stateCodecPrimitiveDecode();
     dropDown = stateCodecPrimitiveDecode();
     popDelay = stateCodecPrimitiveDecode();
     popDelayStart = stateCodecPrimitiveDecode();
-    contactStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -110,13 +110,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(alarmTime);
+    stateCodecPrimitiveEncode(dir);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
     alarmTime = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

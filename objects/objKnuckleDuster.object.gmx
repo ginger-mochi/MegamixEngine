@@ -369,53 +369,53 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(storeSprite);
-    stateCodecPrimitiveEncode(grabbedObject);
-    stateCodecPrimitiveEncode(chaseMegaman);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(storeXOffset);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(reactTrigger);
     stateCodecPrimitiveEncode(acceptableTarget);
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(chaseMegaman);
+    stateCodecPrimitiveEncode(findMegaman);
+    stateCodecPrimitiveEncode(grabbedObject);
+    stateCodecPrimitiveEncode(lastLocationX);
     stateCodecPrimitiveEncode(lastLocationY);
+    stateCodecPrimitiveEncode(nearInst);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(reactTrigger);
+    stateCodecPrimitiveEncode(restoreObjects);
+    stateCodecPrimitiveEncode(setY);
+    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(storeImageIndex);
+    stateCodecPrimitiveEncode(storeSprite);
+    stateCodecPrimitiveEncode(storeXOffset);
     stateCodecPrimitiveEncode(storeXScale);
     stateCodecPrimitiveEncode(storeYOffset);
-    stateCodecPrimitiveEncode(setY);
-    stateCodecPrimitiveEncode(restoreObjects);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(findMegaman);
     stateCodecPrimitiveEncode(storeYScale);
-    stateCodecPrimitiveEncode(lastLocationX);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(nearInst);
-    stateCodecPrimitiveEncode(storeImageIndex);
 }
 else
 {
-    storeSprite = stateCodecPrimitiveDecode();
-    grabbedObject = stateCodecPrimitiveDecode();
-    chaseMegaman = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    storeXOffset = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    reactTrigger = stateCodecPrimitiveDecode();
     acceptableTarget = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
+    chaseMegaman = stateCodecPrimitiveDecode();
+    findMegaman = stateCodecPrimitiveDecode();
+    grabbedObject = stateCodecPrimitiveDecode();
+    lastLocationX = stateCodecPrimitiveDecode();
     lastLocationY = stateCodecPrimitiveDecode();
+    nearInst = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    reactTrigger = stateCodecPrimitiveDecode();
+    restoreObjects = stateCodecPrimitiveDecode();
+    setY = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    storeImageIndex = stateCodecPrimitiveDecode();
+    storeSprite = stateCodecPrimitiveDecode();
+    storeXOffset = stateCodecPrimitiveDecode();
     storeXScale = stateCodecPrimitiveDecode();
     storeYOffset = stateCodecPrimitiveDecode();
-    setY = stateCodecPrimitiveDecode();
-    restoreObjects = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    findMegaman = stateCodecPrimitiveDecode();
     storeYScale = stateCodecPrimitiveDecode();
-    lastLocationX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    nearInst = stateCodecPrimitiveDecode();
-    storeImageIndex = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -288,21 +288,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(siloIndex);
-    stateCodecIDEncode(missile3);
     stateCodecPrimitiveEncode(hatchIndex);
     stateCodecIDEncode(missile1);
     stateCodecIDEncode(missile2);
+    stateCodecIDEncode(missile3);
     stateCodecPrimitiveEncode(missileInterval);
+    stateCodecPrimitiveEncode(siloIndex);
 }
 else
 {
-    siloIndex = stateCodecPrimitiveDecode();
-    missile3 = stateCodecIDDecode();
     hatchIndex = stateCodecPrimitiveDecode();
     missile1 = stateCodecIDDecode();
     missile2 = stateCodecIDDecode();
+    missile3 = stateCodecIDDecode();
     missileInterval = stateCodecPrimitiveDecode();
+    siloIndex = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

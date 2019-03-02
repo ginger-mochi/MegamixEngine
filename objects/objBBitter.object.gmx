@@ -215,23 +215,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownImageMax);
-    stateCodecPrimitiveEncode(popUporDown);
-    stateCodecPrimitiveEncode(cooldownImageTimer);
     stateCodecPrimitiveEncode(activated);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(cooldownImageMax);
+    stateCodecPrimitiveEncode(cooldownImageTimer);
     stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(popUporDown);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    cooldownImageMax = stateCodecPrimitiveDecode();
-    popUporDown = stateCodecPrimitiveDecode();
-    cooldownImageTimer = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    cooldownImageMax = stateCodecPrimitiveDecode();
+    cooldownImageTimer = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
+    popUporDown = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

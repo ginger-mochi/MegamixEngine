@@ -305,31 +305,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(testSuiteSet);
+    stateCodecPrimitiveEncode(displayMessage);
     stateCodecPrimitiveEncode(displayResults);
-    stateCodecPrimitiveEncode(testingBegin);
-    stateCodecPrimitiveEncode(testSuiteCurrent);
-    stateCodecPrimitiveEncode(scroll);
-    stateCodecPrimitiveEncode(writeToFile);
+    stateCodecPrimitiveEncode(fullTestSuiteSet);
     stateCodecPrimitiveEncode(message);
     stateCodecPrimitiveEncode(runTests);
-    stateCodecPrimitiveEncode(suiteBegin);
-    stateCodecPrimitiveEncode(fullTestSuiteSet);
+    stateCodecPrimitiveEncode(scroll);
     stateCodecPrimitiveEncode(scrollX);
+    stateCodecPrimitiveEncode(suiteBegin);
+    stateCodecPrimitiveEncode(testResultsFile);
+    stateCodecPrimitiveEncode(testSuiteCurrent);
+    stateCodecPrimitiveEncode(testSuiteN);
+    stateCodecPrimitiveEncode(testSuiteSet);
+    stateCodecPrimitiveEncode(testingBegin);
+    stateCodecDSEncode(unitTestFullResults, ds_type_list);
+    stateCodecPrimitiveEncode(writeToFile);
 }
 else
 {
-    testSuiteSet = stateCodecPrimitiveDecode();
+    displayMessage = stateCodecPrimitiveDecode();
     displayResults = stateCodecPrimitiveDecode();
-    testingBegin = stateCodecPrimitiveDecode();
-    testSuiteCurrent = stateCodecPrimitiveDecode();
-    scroll = stateCodecPrimitiveDecode();
-    writeToFile = stateCodecPrimitiveDecode();
+    fullTestSuiteSet = stateCodecPrimitiveDecode();
     message = stateCodecPrimitiveDecode();
     runTests = stateCodecPrimitiveDecode();
-    suiteBegin = stateCodecPrimitiveDecode();
-    fullTestSuiteSet = stateCodecPrimitiveDecode();
+    scroll = stateCodecPrimitiveDecode();
     scrollX = stateCodecPrimitiveDecode();
+    suiteBegin = stateCodecPrimitiveDecode();
+    testResultsFile = stateCodecPrimitiveDecode();
+    testSuiteCurrent = stateCodecPrimitiveDecode();
+    testSuiteN = stateCodecPrimitiveDecode();
+    testSuiteSet = stateCodecPrimitiveDecode();
+    testingBegin = stateCodecPrimitiveDecode();
+    unitTestFullResults = stateCodecDSDecode(ds_type_list);
+    writeToFile = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

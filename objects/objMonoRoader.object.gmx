@@ -251,23 +251,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(inShell);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(shellTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(inShell);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(shellTimer);
+    stateCodecPrimitiveEncode(waitTimer);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
-    inShell = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    shellTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    inShell = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    shellTimer = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

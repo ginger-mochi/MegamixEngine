@@ -189,31 +189,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(direct);
-    stateCodecPrimitiveEncode(moveDistX);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(homeX);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(homeY);
     stateCodecPrimitiveEncode(delayTurn);
+    stateCodecPrimitiveEncode(direct);
+    stateCodecPrimitiveEncode(homeX);
+    stateCodecPrimitiveEncode(homeY);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveDelay);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(moveDistX);
     stateCodecPrimitiveEncode(moveDistY);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(startDir);
 }
 else
 {
-    moveDelay = stateCodecPrimitiveDecode();
-    direct = stateCodecPrimitiveDecode();
-    moveDistX = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    homeX = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    homeY = stateCodecPrimitiveDecode();
     delayTurn = stateCodecPrimitiveDecode();
+    direct = stateCodecPrimitiveDecode();
+    homeX = stateCodecPrimitiveDecode();
+    homeY = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    moveDelay = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    moveDistX = stateCodecPrimitiveDecode();
     moveDistY = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

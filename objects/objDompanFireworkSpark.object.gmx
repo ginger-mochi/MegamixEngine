@@ -140,13 +140,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(didit);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(didit);
 }
 else
 {
-    didit = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    didit = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

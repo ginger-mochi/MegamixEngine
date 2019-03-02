@@ -306,29 +306,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(birdInstanceStore);
     stateCodecPrimitiveEncode(drawFlame);
     stateCodecPrimitiveEncode(flameIndex);
-    stateCodecPrimitiveEncode(release);
-    stateCodecPrimitiveEncode(launchY);
-    stateCodecPrimitiveEncode(soundPlay);
-    stateCodecPrimitiveEncode(birdInstanceStore);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(flameTimer);
+    stateCodecPrimitiveEncode(launchY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(release);
+    stateCodecPrimitiveEncode(soundPlay);
     stateCodecPrimitiveEncode(targetLeft);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    birdInstanceStore = stateCodecPrimitiveDecode();
     drawFlame = stateCodecPrimitiveDecode();
     flameIndex = stateCodecPrimitiveDecode();
-    release = stateCodecPrimitiveDecode();
-    launchY = stateCodecPrimitiveDecode();
-    soundPlay = stateCodecPrimitiveDecode();
-    birdInstanceStore = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     flameTimer = stateCodecPrimitiveDecode();
+    launchY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    release = stateCodecPrimitiveDecode();
+    soundPlay = stateCodecPrimitiveDecode();
     targetLeft = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

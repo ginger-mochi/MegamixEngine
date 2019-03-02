@@ -123,23 +123,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimerMax2);
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(attackTimerMax2);
+    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(lastLocationX);
     stateCodecPrimitiveEncode(lastLocationY);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    attackTimerMax2 = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    attackTimerMax2 = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
     lastLocationX = stateCodecPrimitiveDecode();
     lastLocationY = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

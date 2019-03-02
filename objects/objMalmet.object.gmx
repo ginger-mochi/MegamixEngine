@@ -210,25 +210,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(targX);
     stateCodecPrimitiveEncode(accel);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(shootDelay);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(targY);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(shootDelay);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(targX);
+    stateCodecPrimitiveEncode(targY);
 }
 else
 {
-    targX = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    shootDelay = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    targY = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    shootDelay = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    targX = stateCodecPrimitiveDecode();
+    targY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

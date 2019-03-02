@@ -105,15 +105,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(alarmTurn);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(ysp);
-    stateCodecPrimitiveEncode(alarmTurn);
 }
 else
 {
+    alarmTurn = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     ysp = stateCodecPrimitiveDecode();
-    alarmTurn = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -164,23 +164,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ysc);
     stateCodecPrimitiveEncode(bottomBlock);
     stateCodecPrimitiveEncode(cantDraw);
-    stateCodecPrimitiveEncode(centerTopBlock);
     stateCodecPrimitiveEncode(centerBottomBlock);
-    stateCodecPrimitiveEncode(touchblock);
+    stateCodecPrimitiveEncode(centerTopBlock);
     stateCodecPrimitiveEncode(topblock);
+    stateCodecPrimitiveEncode(touchblock);
+    stateCodecPrimitiveEncode(ysc);
 }
 else
 {
-    ysc = stateCodecPrimitiveDecode();
     bottomBlock = stateCodecPrimitiveDecode();
     cantDraw = stateCodecPrimitiveDecode();
-    centerTopBlock = stateCodecPrimitiveDecode();
     centerBottomBlock = stateCodecPrimitiveDecode();
-    touchblock = stateCodecPrimitiveDecode();
+    centerTopBlock = stateCodecPrimitiveDecode();
     topblock = stateCodecPrimitiveDecode();
+    touchblock = stateCodecPrimitiveDecode();
+    ysc = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

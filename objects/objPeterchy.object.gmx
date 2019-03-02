@@ -143,17 +143,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(turnTimer);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(turnTimer);
 }
 else
 {
-    turnTimer = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    turnTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

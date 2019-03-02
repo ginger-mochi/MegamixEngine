@@ -61,7 +61,6 @@ image_speed = 0;
 // This object has no parent, so it is responsible
 // for encoding basic instance properties.
 stateCodecInstance();
-
 </string>
           </argument>
         </arguments>

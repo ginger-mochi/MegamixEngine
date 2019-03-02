@@ -128,22 +128,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shakeHorizontal);
-    stateCodecPrimitiveEncode(onlyShiftTiles);
     stateCodecPrimitiveEncode(cachedShakeH);
     stateCodecPrimitiveEncode(cachedShakeV);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(onlyShiftTiles);
+    stateCodecPrimitiveEncode(shakeHorizontal);
     stateCodecPrimitiveEncode(shakeTime);
+    stateCodecPrimitiveEncode(shakeVertical);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    shakeHorizontal = stateCodecPrimitiveDecode();
-    onlyShiftTiles = stateCodecPrimitiveDecode();
     cachedShakeH = stateCodecPrimitiveDecode();
     cachedShakeV = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    onlyShiftTiles = stateCodecPrimitiveDecode();
+    shakeHorizontal = stateCodecPrimitiveDecode();
     shakeTime = stateCodecPrimitiveDecode();
+    shakeVertical = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

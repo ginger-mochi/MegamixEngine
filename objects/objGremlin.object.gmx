@@ -153,19 +153,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmGenerate);
     stateCodecPrimitiveEncode(alarmAnimation);
+    stateCodecPrimitiveEncode(alarmGenerate);
+    stateCodecPrimitiveEncode(alarmRise);
     stateCodecPrimitiveEncode(generated);
     stateCodecPrimitiveEncode(gremlinDir);
-    stateCodecPrimitiveEncode(alarmRise);
 }
 else
 {
-    alarmGenerate = stateCodecPrimitiveDecode();
     alarmAnimation = stateCodecPrimitiveDecode();
+    alarmGenerate = stateCodecPrimitiveDecode();
+    alarmRise = stateCodecPrimitiveDecode();
     generated = stateCodecPrimitiveDecode();
     gremlinDir = stateCodecPrimitiveDecode();
-    alarmRise = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

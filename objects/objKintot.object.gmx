@@ -243,17 +243,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(sinCounter);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(blinkTimer);
     stateCodecPrimitiveEncode(outtaWaterTimer);
+    stateCodecPrimitiveEncode(sinCounter);
 }
 else
 {
-    blinkTimer = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    blinkTimer = stateCodecPrimitiveDecode();
     outtaWaterTimer = stateCodecPrimitiveDecode();
+    sinCounter = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

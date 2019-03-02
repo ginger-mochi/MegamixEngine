@@ -163,23 +163,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(targetX);
-    stateCodecPrimitiveEncode(passedTarget);
-    stateCodecPrimitiveEncode(minusX);
     stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(timerMax);
+    stateCodecPrimitiveEncode(minusX);
+    stateCodecPrimitiveEncode(passedTarget);
+    stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(targetY);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timerMax);
 }
 else
 {
-    targetX = stateCodecPrimitiveDecode();
-    passedTarget = stateCodecPrimitiveDecode();
-    minusX = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
+    minusX = stateCodecPrimitiveDecode();
+    passedTarget = stateCodecPrimitiveDecode();
+    targetX = stateCodecPrimitiveDecode();
     targetY = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    timerMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

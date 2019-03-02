@@ -121,15 +121,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ymem);
     stateCodecPrimitiveEncode(mySpeed);
     stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(ymem);
 }
 else
 {
-    ymem = stateCodecPrimitiveDecode();
     mySpeed = stateCodecPrimitiveDecode();
     type = stateCodecPrimitiveDecode();
+    ymem = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

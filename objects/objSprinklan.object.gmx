@@ -309,39 +309,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(frameOffset);
-    stateCodecPrimitiveEncode(xdir);
-    stateCodecPrimitiveEncode(fastSpeed);
-    stateCodecPrimitiveEncode(stopped);
-    stateCodecPrimitiveEncode(shootMax);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(stopTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(slowSpeed);
     stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(fastSpeed);
+    stateCodecPrimitiveEncode(frameOffset);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(shootCount);
+    stateCodecPrimitiveEncode(shootMax);
+    stateCodecPrimitiveEncode(slowSpeed);
+    stateCodecPrimitiveEncode(stopTimer);
+    stateCodecPrimitiveEncode(stopped);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xdir);
 }
 else
 {
-    shootCount = stateCodecPrimitiveDecode();
-    frameOffset = stateCodecPrimitiveDecode();
-    xdir = stateCodecPrimitiveDecode();
-    fastSpeed = stateCodecPrimitiveDecode();
-    stopped = stateCodecPrimitiveDecode();
-    shootMax = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    stopTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    slowSpeed = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    animFrame = stateCodecPrimitiveDecode();
+    animSpeed = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    fastSpeed = stateCodecPrimitiveDecode();
+    frameOffset = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    shootCount = stateCodecPrimitiveDecode();
+    shootMax = stateCodecPrimitiveDecode();
+    slowSpeed = stateCodecPrimitiveDecode();
+    stopTimer = stateCodecPrimitiveDecode();
+    stopped = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    xdir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -130,17 +130,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myTopSpeed);
     stateCodecPrimitiveEncode(alarmSpawn);
-    stateCodecPrimitiveEncode(waitTime);
+    stateCodecPrimitiveEncode(myTopSpeed);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(waitTime);
 }
 else
 {
-    myTopSpeed = stateCodecPrimitiveDecode();
     alarmSpawn = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
+    myTopSpeed = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    waitTime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

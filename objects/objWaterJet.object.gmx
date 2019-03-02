@@ -232,28 +232,28 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(length);
-    stateCodecIDEncode(plat);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(startTimer);
     stateCodecPrimitiveEncode(activeTimer);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(length);
+    stateCodecPrimitiveEncode(mode);
+    stateCodecIDEncode(plat);
+    stateCodecPrimitiveEncode(startTimer);
     stateCodecIDEncode(that);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
-    length = stateCodecPrimitiveDecode();
-    plat = stateCodecIDDecode();
-    mode = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    startTimer = stateCodecPrimitiveDecode();
     activeTimer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    length = stateCodecPrimitiveDecode();
+    mode = stateCodecPrimitiveDecode();
+    plat = stateCodecIDDecode();
+    startTimer = stateCodecPrimitiveDecode();
     that = stateCodecIDDecode();
+    timer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }
 </string>

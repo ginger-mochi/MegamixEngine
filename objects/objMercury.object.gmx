@@ -524,25 +524,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(blobMove);
     stateCodecPrimitiveEncode(blobTimer);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecIDArrayEncode(child);
     stateCodecPrimitiveEncode(delay);
-    stateCodecIDEncode(child);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(blobMove);
-    stateCodecPrimitiveEncode(attackTimer);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
+    blobMove = stateCodecPrimitiveDecode();
     blobTimer = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
+    child = stateCodecIDArrayDecode();
     delay = stateCodecPrimitiveDecode();
-    child = stateCodecIDDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    blobMove = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

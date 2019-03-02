@@ -189,27 +189,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(moveDistance);
+    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(storeSpd);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(storeYScale);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownTimer);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
     moveDistance = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
     storeSpd = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     storeYScale = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

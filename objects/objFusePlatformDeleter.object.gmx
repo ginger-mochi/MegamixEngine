@@ -199,15 +199,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(dir);
-    stateCodecIDEncode(alarmTimeMax);
     stateCodecPrimitiveEncode(alarmTime);
+    stateCodecIDEncode(alarmTimeMax);
+    stateCodecIDEncode(dir);
 }
 else
 {
-    dir = stateCodecIDDecode();
-    alarmTimeMax = stateCodecIDDecode();
     alarmTime = stateCodecPrimitiveDecode();
+    alarmTimeMax = stateCodecIDDecode();
+    dir = stateCodecIDDecode();
 }
 </string>
           </argument>

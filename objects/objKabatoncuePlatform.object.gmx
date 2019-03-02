@@ -195,16 +195,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(bossID);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(enemyObject);
     stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
     bossID = stateCodecIDDecode();
-    spd = stateCodecPrimitiveDecode();
     enemyObject = stateCodecPrimitiveDecode();
     height = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

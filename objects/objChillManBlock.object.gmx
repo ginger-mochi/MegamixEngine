@@ -426,55 +426,55 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(subimage);
-    stateCodecPrimitiveEncode(xscale);
-    stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(breakTimer);
-    stateCodecPrimitiveEncode(itemDrawOffsetX);
-    stateCodecPrimitiveEncode(itemSpawnOffsetY);
     stateCodecPrimitiveEncode(alpha);
-    stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(breakTimer);
     stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(itemDrawOffsetY);
-    stateCodecPrimitiveEncode(drawItem);
-    stateCodecPrimitiveEncode(itemSpawnOffsetX);
-    stateCodecPrimitiveEncode(sprite);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(script);
     stateCodecPrimitiveEncode(color);
+    stateCodecPrimitiveEncode(drawItem);
+    stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(itemDrawOffsetX);
+    stateCodecPrimitiveEncode(itemDrawOffsetY);
+    stateCodecPrimitiveEncode(itemSpawnOffsetX);
+    stateCodecPrimitiveEncode(itemSpawnOffsetY);
+    stateCodecPrimitiveEncode(script);
     stateCodecPrimitiveEncode(spawnAlpha);
-    stateCodecPrimitiveEncode(yscale);
+    stateCodecPrimitiveEncode(sprite);
+    stateCodecPrimitiveEncode(subimage);
+    stateCodecPrimitiveEncode(superArmDeathOnDrop);
+    stateCodecPrimitiveEncode(superArmFlashInterval);
+    stateCodecPrimitiveEncode(superArmFlashOwner);
     stateCodecPrimitiveEncode(superArmFlashTimer);
+    stateCodecPrimitiveEncode(superArmHoldOwner);
+    stateCodecPrimitiveEncode(superArmThrown);
+    stateCodecPrimitiveEncode(width);
+    stateCodecPrimitiveEncode(xscale);
+    stateCodecPrimitiveEncode(yscale);
 }
 else
 {
-    superArmHoldOwner = stateCodecPrimitiveDecode();
-    subimage = stateCodecPrimitiveDecode();
-    xscale = stateCodecPrimitiveDecode();
-    width = stateCodecPrimitiveDecode();
-    breakTimer = stateCodecPrimitiveDecode();
-    itemDrawOffsetX = stateCodecPrimitiveDecode();
-    itemSpawnOffsetY = stateCodecPrimitiveDecode();
     alpha = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
+    breakTimer = stateCodecPrimitiveDecode();
     code = stateCodecPrimitiveDecode();
-    itemDrawOffsetY = stateCodecPrimitiveDecode();
-    drawItem = stateCodecPrimitiveDecode();
-    itemSpawnOffsetX = stateCodecPrimitiveDecode();
-    sprite = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    superArmFlashOwner = stateCodecPrimitiveDecode();
-    script = stateCodecPrimitiveDecode();
     color = stateCodecPrimitiveDecode();
+    drawItem = stateCodecPrimitiveDecode();
+    height = stateCodecPrimitiveDecode();
+    itemDrawOffsetX = stateCodecPrimitiveDecode();
+    itemDrawOffsetY = stateCodecPrimitiveDecode();
+    itemSpawnOffsetX = stateCodecPrimitiveDecode();
+    itemSpawnOffsetY = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
     spawnAlpha = stateCodecPrimitiveDecode();
-    yscale = stateCodecPrimitiveDecode();
+    sprite = stateCodecPrimitiveDecode();
+    subimage = stateCodecPrimitiveDecode();
+    superArmDeathOnDrop = stateCodecPrimitiveDecode();
+    superArmFlashInterval = stateCodecPrimitiveDecode();
+    superArmFlashOwner = stateCodecPrimitiveDecode();
     superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmHoldOwner = stateCodecPrimitiveDecode();
+    superArmThrown = stateCodecPrimitiveDecode();
+    width = stateCodecPrimitiveDecode();
+    xscale = stateCodecPrimitiveDecode();
+    yscale = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

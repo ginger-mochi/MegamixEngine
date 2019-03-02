@@ -161,18 +161,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(activeTime);
+    stateCodecPrimitiveEncode(coolDownTime);
     stateCodecPrimitiveEncode(platformSpeed);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(waitTime);
-    stateCodecPrimitiveEncode(coolDownTime);
 }
 else
 {
     activeTime = stateCodecPrimitiveDecode();
+    coolDownTime = stateCodecPrimitiveDecode();
     platformSpeed = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     waitTime = stateCodecPrimitiveDecode();
-    coolDownTime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

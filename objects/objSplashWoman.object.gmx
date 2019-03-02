@@ -565,51 +565,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(redetectWall);
-    stateCodecPrimitiveEncode(fishSpawnX);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(detectAnimation);
-    stateCodecPrimitiveEncode(fishCreated);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(canInitShoot);
     stateCodecPrimitiveEncode(addAngleY);
-    stateCodecPrimitiveEncode(fishDirection);
-    stateCodecPrimitiveEncode(fishToggle);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(cAngleY);
     stateCodecPrimitiveEncode(cDistanceY);
+    stateCodecPrimitiveEncode(canInitShoot);
+    stateCodecPrimitiveEncode(detectAnimation);
+    stateCodecPrimitiveEncode(detectRoof);
+    stateCodecPrimitiveEncode(distanceYToFish);
+    stateCodecPrimitiveEncode(fishCreated);
+    stateCodecPrimitiveEncode(fishDirection);
+    stateCodecPrimitiveEncode(fishSpawnX);
+    stateCodecPrimitiveEncode(fishToggle);
     stateCodecPrimitiveEncode(fishYDistance);
     stateCodecPrimitiveEncode(hitWall);
-    stateCodecPrimitiveEncode(detectRoof);
-    stateCodecPrimitiveEncode(starty);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(redetectWall);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(distanceYToFish);
-    stateCodecPrimitiveEncode(cAngleY);
+    stateCodecPrimitiveEncode(starty);
 }
 else
 {
-    redetectWall = stateCodecPrimitiveDecode();
-    fishSpawnX = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    detectAnimation = stateCodecPrimitiveDecode();
-    fishCreated = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
     addAngleY = stateCodecPrimitiveDecode();
-    fishDirection = stateCodecPrimitiveDecode();
-    fishToggle = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
+    cAngleY = stateCodecPrimitiveDecode();
     cDistanceY = stateCodecPrimitiveDecode();
+    canInitShoot = stateCodecPrimitiveDecode();
+    detectAnimation = stateCodecPrimitiveDecode();
+    detectRoof = stateCodecPrimitiveDecode();
+    distanceYToFish = stateCodecPrimitiveDecode();
+    fishCreated = stateCodecPrimitiveDecode();
+    fishDirection = stateCodecPrimitiveDecode();
+    fishSpawnX = stateCodecPrimitiveDecode();
+    fishToggle = stateCodecPrimitiveDecode();
     fishYDistance = stateCodecPrimitiveDecode();
     hitWall = stateCodecPrimitiveDecode();
-    detectRoof = stateCodecPrimitiveDecode();
-    starty = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    redetectWall = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    distanceYToFish = stateCodecPrimitiveDecode();
-    cAngleY = stateCodecPrimitiveDecode();
+    starty = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -231,25 +231,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(myDir);
-    stateCodecPrimitiveEncode(waitTime);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(maxFall);
     stateCodecPrimitiveEncode(maxRise);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(myDir);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(waitTime);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
-    myDir = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     maxFall = stateCodecPrimitiveDecode();
     maxRise = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    myDir = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    waitTime = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

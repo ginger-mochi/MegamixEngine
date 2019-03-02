@@ -178,16 +178,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(imgSpeed);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(imgSpeed);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imgOffset = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -371,27 +371,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(shield);
-    stateCodecPrimitiveEncode(phaseShieldTimer);
+    stateCodecPrimitiveEncode(_im);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(leafTimer);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseShieldTimer);
     stateCodecPrimitiveEncode(phaseShieldTimerStart);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(_im);
+    stateCodecIDEncode(shield);
 }
 else
 {
-    shield = stateCodecIDDecode();
-    phaseShieldTimer = stateCodecPrimitiveDecode();
+    _im = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
     leafTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    phaseShieldTimer = stateCodecPrimitiveDecode();
     phaseShieldTimerStart = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    _im = stateCodecPrimitiveDecode();
+    shield = stateCodecIDDecode();
 }
 </string>
           </argument>

@@ -96,19 +96,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(inWater);
-    stateCodecPrimitiveEncode(yspeed);
-    stateCodecPrimitiveEncode(stopOnFlash);
     stateCodecPrimitiveEncode(ground);
+    stateCodecPrimitiveEncode(inWater);
+    stateCodecPrimitiveEncode(stopOnFlash);
     stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    inWater = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
-    stopOnFlash = stateCodecPrimitiveDecode();
     ground = stateCodecPrimitiveDecode();
+    inWater = stateCodecPrimitiveDecode();
+    stopOnFlash = stateCodecPrimitiveDecode();
     xspeed = stateCodecPrimitiveDecode();
+    yspeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

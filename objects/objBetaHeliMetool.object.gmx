@@ -315,27 +315,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(hmdir);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(mdir);
+    stateCodecPrimitiveEncode(oldPhase);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(oldPhase);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(hmdir);
-    stateCodecPrimitiveEncode(imgSpd);
 }
 else
 {
+    actionTimer = stateCodecPrimitiveDecode();
+    hmdir = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
     mdir = stateCodecPrimitiveDecode();
+    oldPhase = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
-    oldPhase = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    hmdir = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

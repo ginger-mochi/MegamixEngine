@@ -232,19 +232,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(bullet);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(bullet);
 }
 else
 {
+    bullet = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    bullet = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

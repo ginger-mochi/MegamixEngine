@@ -205,28 +205,28 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(boost);
-    stateCodecPrimitiveEncode(cooldown);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(boostSpd);
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldown);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(normalSpd);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(calibrated);
 }
 else
 {
     boost = stateCodecPrimitiveDecode();
-    cooldown = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     boostSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    calibrated = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    cooldown = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     normalSpd = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

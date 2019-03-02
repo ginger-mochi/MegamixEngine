@@ -261,17 +261,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(fric);
     stateCodecPrimitiveEncode(angle);
+    stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecPrimitiveEncode(fric);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    blinkTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    fric = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
+    blinkTimer = stateCodecPrimitiveDecode();
+    fric = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

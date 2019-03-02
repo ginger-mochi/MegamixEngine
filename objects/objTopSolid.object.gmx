@@ -61,6 +61,14 @@ isSolid = true;
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(isSolid);
+}
+else
+{
+    isSolid = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

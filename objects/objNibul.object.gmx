@@ -334,33 +334,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(toxin);
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(drawTimer);
-    stateCodecPrimitiveEncode(toxinTimer);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(drawTimer);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(targY);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(targX);
+    stateCodecPrimitiveEncode(targY);
+    stateCodecPrimitiveEncode(toxin);
+    stateCodecPrimitiveEncode(toxinTimer);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    toxin = stateCodecPrimitiveDecode();
-    targX = stateCodecPrimitiveDecode();
-    drawTimer = stateCodecPrimitiveDecode();
-    toxinTimer = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    drawTimer = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    targY = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    targX = stateCodecPrimitiveDecode();
+    targY = stateCodecPrimitiveDecode();
+    toxin = stateCodecPrimitiveDecode();
+    toxinTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

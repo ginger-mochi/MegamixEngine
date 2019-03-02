@@ -211,34 +211,35 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(ID);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(totalTimer);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(getX);
     stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(startup);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(totalTimer);
 }
 else
 {
     ID = stateCodecIDDecode();
-    spd = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    totalTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    getX = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    getX = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
     startup = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    totalTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
+
 
 
     <event eventtype="8" enumb="0">

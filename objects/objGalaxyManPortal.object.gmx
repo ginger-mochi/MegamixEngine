@@ -216,25 +216,25 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(viewY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(viewX);
     stateCodecPrimitiveEncode(overwriteAnimation);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(X);
     stateCodecIDEncode(player);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(viewX);
+    stateCodecPrimitiveEncode(viewY);
 }
 else
 {
+    X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
-    viewY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    viewX = stateCodecPrimitiveDecode();
     overwriteAnimation = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    X = stateCodecPrimitiveDecode();
     player = stateCodecIDDecode();
+    timer = stateCodecPrimitiveDecode();
+    viewX = stateCodecPrimitiveDecode();
+    viewY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -478,39 +478,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(size);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(middleSprite);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(mask);
-    stateCodecPrimitiveEncode(shootCooldown);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(animFrameHead);
-    stateCodecPrimitiveEncode(headSprite);
-    stateCodecPrimitiveEncode(sz);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(shotIndex);
-    stateCodecPrimitiveEncode(animFrameMiddle);
     stateCodecPrimitiveEncode(animFrameBase);
+    stateCodecPrimitiveEncode(animFrameHead);
+    stateCodecPrimitiveEncode(animFrameMiddle);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(headSprite);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(mask);
+    stateCodecPrimitiveEncode(middleSprite);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shootCooldown);
+    stateCodecPrimitiveEncode(shotIndex);
+    stateCodecPrimitiveEncode(size);
+    stateCodecPrimitiveEncode(sz);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    size = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    middleSprite = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    mask = stateCodecPrimitiveDecode();
-    shootCooldown = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    animFrameHead = stateCodecPrimitiveDecode();
-    headSprite = stateCodecPrimitiveDecode();
-    sz = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    shotIndex = stateCodecPrimitiveDecode();
-    animFrameMiddle = stateCodecPrimitiveDecode();
     animFrameBase = stateCodecPrimitiveDecode();
+    animFrameHead = stateCodecPrimitiveDecode();
+    animFrameMiddle = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    headSprite = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    mask = stateCodecPrimitiveDecode();
+    middleSprite = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shootCooldown = stateCodecPrimitiveDecode();
+    shotIndex = stateCodecPrimitiveDecode();
+    size = stateCodecPrimitiveDecode();
+    sz = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

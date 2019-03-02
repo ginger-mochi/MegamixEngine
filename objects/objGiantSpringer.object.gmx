@@ -156,15 +156,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(springTimer);
     stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(loadTimer);
+    stateCodecPrimitiveEncode(springTimer);
 }
 else
 {
-    springTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
     loadTimer = stateCodecPrimitiveDecode();
+    springTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

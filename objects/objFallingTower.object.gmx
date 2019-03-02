@@ -455,37 +455,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sectionTop);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(sectionBottom);
+    stateCodecPrimitiveEncode(additionalTile);
     stateCodecPrimitiveEncode(blockObject);
+    stateCodecPrimitiveEncode(fall);
+    stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(myTile);
+    stateCodecPrimitiveEncode(sectionBottom);
+    stateCodecPrimitiveEncode(sectionTop);
+    stateCodecPrimitiveEncode(setCamera);
+    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(additionalTile);
-    stateCodecPrimitiveEncode(fall);
     stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(setCamera);
-    stateCodecPrimitiveEncode(myTile);
-    stateCodecPrimitiveEncode(getY);
 }
 else
 {
-    sectionTop = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    sectionBottom = stateCodecPrimitiveDecode();
+    additionalTile = stateCodecPrimitiveDecode();
     blockObject = stateCodecPrimitiveDecode();
+    fall = stateCodecPrimitiveDecode();
+    getY = stateCodecPrimitiveDecode();
+    height = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    myTile = stateCodecPrimitiveDecode();
+    sectionBottom = stateCodecPrimitiveDecode();
+    sectionTop = stateCodecPrimitiveDecode();
+    setCamera = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     width = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    additionalTile = stateCodecPrimitiveDecode();
-    fall = stateCodecPrimitiveDecode();
     xOffset = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    setCamera = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
-    getY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

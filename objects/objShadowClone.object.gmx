@@ -207,25 +207,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fade_in_time);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(targetPID);
-    stateCodecPrimitiveEncode(spriteX);
-    stateCodecPrimitiveEncode(triggered);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spriteY);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(fade_in_time);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(spriteX);
+    stateCodecPrimitiveEncode(spriteY);
+    stateCodecPrimitiveEncode(targetPID);
+    stateCodecPrimitiveEncode(triggered);
 }
 else
 {
-    fade_in_time = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    targetPID = stateCodecPrimitiveDecode();
-    spriteX = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spriteY = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    fade_in_time = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    spriteX = stateCodecPrimitiveDecode();
+    spriteY = stateCodecPrimitiveDecode();
+    targetPID = stateCodecPrimitiveDecode();
+    triggered = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

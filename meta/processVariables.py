@@ -153,6 +153,8 @@ def walkObjects(directory, verbose=False, ignore=None):
 						swizzledType[varName] = 'id'
 					elif assignment.startswith('instance_copy'):
 						swizzledType[varName] = 'id'
+					elif assignment.startswith('surface_create'):
+						swizzledType[varName] = 'surface'
 					elif assignment.startswith('ds_map_create'):
 						swizzledType[varName] = 'map'
 					elif assignment.startswith('ds_list_create'):

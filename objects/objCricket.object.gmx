@@ -247,27 +247,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startHops);
-    stateCodecPrimitiveEncode(hops);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(hops);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(offset);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(offset);
+    stateCodecPrimitiveEncode(startHops);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    startHops = stateCodecPrimitiveDecode();
-    hops = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    hops = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    offset = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
+    startHops = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

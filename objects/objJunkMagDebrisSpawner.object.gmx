@@ -129,15 +129,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(hasSwitch);
+    stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
     hasSwitch = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

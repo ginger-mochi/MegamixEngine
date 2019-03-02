@@ -266,24 +266,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(headUp);
-    stateCodecPrimitiveEncode(cSpeed);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(boomCounter);
+    stateCodecPrimitiveEncode(cSpeed);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(headUp);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(turnTimer);
 }
 else
 {
-    headUp = stateCodecPrimitiveDecode();
-    cSpeed = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
     boomCounter = stateCodecPrimitiveDecode();
+    cSpeed = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    headUp = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
     turnTimer = stateCodecPrimitiveDecode();
 }
 </string>

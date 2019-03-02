@@ -330,33 +330,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boost);
-    stateCodecPrimitiveEncode(cooldown);
     stateCodecPrimitiveEncode(alarmStop);
-    stateCodecPrimitiveEncode(stopped);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecPrimitiveEncode(boost);
     stateCodecPrimitiveEncode(boostSpd);
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(cooldown);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(normalSpd);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(stopped);
 }
 else
 {
-    boost = stateCodecPrimitiveDecode();
-    cooldown = stateCodecPrimitiveDecode();
     alarmStop = stateCodecPrimitiveDecode();
-    stopped = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     blinkTimer = stateCodecPrimitiveDecode();
+    boost = stateCodecPrimitiveDecode();
     boostSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    cooldown = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     normalSpd = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    stopped = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

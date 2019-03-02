@@ -152,19 +152,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canCollide);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(angle);
+    stateCodecPrimitiveEncode(canCollide);
     stateCodecPrimitiveEncode(deathTimer);
     stateCodecPrimitiveEncode(i);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    canCollide = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
+    canCollide = stateCodecPrimitiveDecode();
     deathTimer = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

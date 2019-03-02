@@ -230,18 +230,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(airControlSpeed);
+    stateCodecPrimitiveEncode(tugDefer);
     stateCodecPrimitiveEncode(tugDist);
     stateCodecPrimitiveEncode(tugLock);
-    stateCodecPrimitiveEncode(tugDefer);
-    stateCodecPrimitiveEncode(airControlSpeed);
     stateCodecPrimitiveEncode(tugSpeed);
 }
 else
 {
+    airControlSpeed = stateCodecPrimitiveDecode();
+    tugDefer = stateCodecPrimitiveDecode();
     tugDist = stateCodecPrimitiveDecode();
     tugLock = stateCodecPrimitiveDecode();
-    tugDefer = stateCodecPrimitiveDecode();
-    airControlSpeed = stateCodecPrimitiveDecode();
     tugSpeed = stateCodecPrimitiveDecode();
 }
 </string>

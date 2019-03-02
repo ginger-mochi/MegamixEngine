@@ -174,17 +174,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(restore_tile_n);
     stateCodecPrimitiveEncode(inst_restore_n);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(restore_tile_n);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
-    restore_tile_n = stateCodecPrimitiveDecode();
     inst_restore_n = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    restore_tile_n = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

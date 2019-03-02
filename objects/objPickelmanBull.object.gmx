@@ -185,16 +185,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shake);
     stateCodecPrimitiveEncode(alarmMove);
+    stateCodecPrimitiveEncode(shake);
     stateCodecPrimitiveEncode(shakeDir);
     stateCodecPrimitiveEncode(shaketimer);
     stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    shake = stateCodecPrimitiveDecode();
     alarmMove = stateCodecPrimitiveDecode();
+    shake = stateCodecPrimitiveDecode();
     shakeDir = stateCodecPrimitiveDecode();
     shaketimer = stateCodecPrimitiveDecode();
     xs = stateCodecPrimitiveDecode();

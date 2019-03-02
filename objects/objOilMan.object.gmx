@@ -565,45 +565,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpToWall);
-    stateCodecPrimitiveEncode(storeSpeed);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(oilSlider);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackRandomiser);
-    stateCodecPrimitiveEncode(onWall);
-    stateCodecPrimitiveEncode(findWall);
-    stateCodecPrimitiveEncode(oldAttack);
     stateCodecPrimitiveEncode(animStore);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(attackRandomiser);
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(delayUse);
+    stateCodecPrimitiveEncode(findWall);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpToWall);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(oilSlider);
+    stateCodecPrimitiveEncode(oldAttack);
+    stateCodecPrimitiveEncode(onWall);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(storeSpeed);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    jumpToWall = stateCodecPrimitiveDecode();
-    storeSpeed = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
-    oilSlider = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackRandomiser = stateCodecPrimitiveDecode();
-    onWall = stateCodecPrimitiveDecode();
-    findWall = stateCodecPrimitiveDecode();
-    oldAttack = stateCodecPrimitiveDecode();
     animStore = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
+    attackRandomiser = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
     bossTriggered = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    delayUse = stateCodecPrimitiveDecode();
+    findWall = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpToWall = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    oilSlider = stateCodecPrimitiveDecode();
+    oldAttack = stateCodecPrimitiveDecode();
+    onWall = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
+    storeSpeed = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

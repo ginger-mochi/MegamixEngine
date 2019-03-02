@@ -164,29 +164,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(curX);
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(cAngle);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(cDistance);
     stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(curX);
     stateCodecPrimitiveEncode(curY);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    curX = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
+    curX = stateCodecPrimitiveDecode();
     curY = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -222,23 +222,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(alarmRise);
+    stateCodecPrimitiveEncode(freezeTimer);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(preImgSpeed);
+    stateCodecPrimitiveEncode(rise);
     stateCodecPrimitiveEncode(spriteHeight);
     stateCodecPrimitiveEncode(spriteWidth);
-    stateCodecPrimitiveEncode(alarmRise);
-    stateCodecPrimitiveEncode(rise);
-    stateCodecPrimitiveEncode(freezeTimer);
 }
 else
 {
+    alarmRise = stateCodecPrimitiveDecode();
+    freezeTimer = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     preImgSpeed = stateCodecPrimitiveDecode();
+    rise = stateCodecPrimitiveDecode();
     spriteHeight = stateCodecPrimitiveDecode();
     spriteWidth = stateCodecPrimitiveDecode();
-    alarmRise = stateCodecPrimitiveDecode();
-    rise = stateCodecPrimitiveDecode();
-    freezeTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

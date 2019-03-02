@@ -321,37 +321,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startTime);
-    stateCodecPrimitiveEncode(stunTimer);
-    stateCodecPrimitiveEncode(isCharging);
-    stateCodecPrimitiveEncode(deccel);
-    stateCodecPrimitiveEncode(maxDist);
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(stunTime);
-    stateCodecPrimitiveEncode(chargeSpeed);
-    stateCodecPrimitiveEncode(startXscale);
     stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(retreatSpeed);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(canTurn);
+    stateCodecPrimitiveEncode(chargeSpeed);
+    stateCodecPrimitiveEncode(deccel);
+    stateCodecPrimitiveEncode(isCharging);
+    stateCodecPrimitiveEncode(maxDist);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(retreatSpeed);
+    stateCodecPrimitiveEncode(startTime);
+    stateCodecPrimitiveEncode(startXscale);
+    stateCodecPrimitiveEncode(stunTime);
+    stateCodecPrimitiveEncode(stunTimer);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    startTime = stateCodecPrimitiveDecode();
-    stunTimer = stateCodecPrimitiveDecode();
-    isCharging = stateCodecPrimitiveDecode();
-    deccel = stateCodecPrimitiveDecode();
-    maxDist = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    stunTime = stateCodecPrimitiveDecode();
-    chargeSpeed = stateCodecPrimitiveDecode();
-    startXscale = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
-    retreatSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    canTurn = stateCodecPrimitiveDecode();
+    chargeSpeed = stateCodecPrimitiveDecode();
+    deccel = stateCodecPrimitiveDecode();
+    isCharging = stateCodecPrimitiveDecode();
+    maxDist = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    retreatSpeed = stateCodecPrimitiveDecode();
+    startTime = stateCodecPrimitiveDecode();
+    startXscale = stateCodecPrimitiveDecode();
+    stunTime = stateCodecPrimitiveDecode();
+    stunTimer = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -218,18 +218,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(magnetState);
-    stateCodecPrimitiveEncode(myMagnet);
     stateCodecPrimitiveEncode(hasSwitch);
     stateCodecPrimitiveEncode(magnetDir);
+    stateCodecPrimitiveEncode(magnetState);
+    stateCodecPrimitiveEncode(myMagnet);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    magnetState = stateCodecPrimitiveDecode();
-    myMagnet = stateCodecPrimitiveDecode();
     hasSwitch = stateCodecPrimitiveDecode();
     magnetDir = stateCodecPrimitiveDecode();
+    magnetState = stateCodecPrimitiveDecode();
+    myMagnet = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

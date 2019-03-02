@@ -305,28 +305,30 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(hasAttacked);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(ballSpeed);
     stateCodecIDEncode(ball);
+    stateCodecPrimitiveEncode(ballSpeed);
     stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(hasAttacked);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
     animBack = stateCodecPrimitiveDecode();
-    hasAttacked = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    ballSpeed = stateCodecPrimitiveDecode();
     ball = stateCodecIDDecode();
+    ballSpeed = stateCodecPrimitiveDecode();
     bounces = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    hasAttacked = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

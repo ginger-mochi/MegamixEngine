@@ -232,19 +232,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startFiring);
-    stateCodecIDEncode(cannon);
-    stateCodecPrimitiveEncode(eyeIndex);
     stateCodecPrimitiveEncode(blinkMultiple);
     stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecIDEncode(cannon);
+    stateCodecPrimitiveEncode(eyeIndex);
+    stateCodecPrimitiveEncode(startFiring);
 }
 else
 {
-    startFiring = stateCodecPrimitiveDecode();
-    cannon = stateCodecIDDecode();
-    eyeIndex = stateCodecPrimitiveDecode();
     blinkMultiple = stateCodecPrimitiveDecode();
     blinkTimer = stateCodecPrimitiveDecode();
+    cannon = stateCodecIDDecode();
+    eyeIndex = stateCodecPrimitiveDecode();
+    startFiring = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

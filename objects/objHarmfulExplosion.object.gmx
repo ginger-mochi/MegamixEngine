@@ -156,19 +156,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(damageEnemies);
     stateCodecPrimitiveEncode(damagePlayer);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     damageEnemies = stateCodecPrimitiveDecode();
     damagePlayer = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -234,23 +234,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(preGround);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(preGround);
+    stateCodecPrimitiveEncode(waitTimer);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
-    preGround = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    preGround = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

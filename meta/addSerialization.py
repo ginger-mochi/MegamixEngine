@@ -121,6 +121,9 @@ for result in walkObjects(sys.argv[-1], True):
                 else:
                     codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
                     codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
+			else if swizzledType == 'surface':
+				codeEncode += "{}stateCodecSurfaceEncode({});\n".format(indent, var)
+				codeDecode += "{}{} = stateCodecSurfaceDecode();\n".format(indent, var)
             else:
                 # encoding/decoding data structures will require a lot of sneakiness.
                 codeEncode += "{}stateCodecDSEncode({}, ds_type_{});\n".format(indent, var, swizzledType)

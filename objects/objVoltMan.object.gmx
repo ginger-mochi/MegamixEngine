@@ -380,27 +380,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myGrav);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(jumpsMade);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(jumpsMax);
-    stateCodecPrimitiveEncode(redetectRoof);
+    stateCodecPrimitiveEncode(myGrav);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(redetectRoof);
 }
 else
 {
-    myGrav = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
     jumpsMade = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     jumpsMax = stateCodecPrimitiveDecode();
-    redetectRoof = stateCodecPrimitiveDecode();
+    myGrav = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    redetectRoof = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

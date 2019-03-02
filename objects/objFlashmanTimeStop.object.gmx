@@ -132,10 +132,12 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animationTimer);
     stateCodecPrimitiveEncode(timeStopLock);
 }
 else
 {
+    animationTimer = stateCodecPrimitiveDecode();
     timeStopLock = stateCodecPrimitiveDecode();
 }
 </string>

@@ -175,15 +175,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(wait);
     stateCodecPrimitiveEncode(waitStart);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
     waitStart = stateCodecPrimitiveDecode();
 }

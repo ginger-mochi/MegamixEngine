@@ -343,35 +343,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yy);
-    stateCodecPrimitiveEncode(xx);
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(boomSound);
+    stateCodecPrimitiveEncode(ex);
+    stateCodecPrimitiveEncode(ey);
+    stateCodecPrimitiveEncode(flash);
+    stateCodecPrimitiveEncode(pressed);
     stateCodecPrimitiveEncode(shownumber);
     stateCodecPrimitiveEncode(time);
-    stateCodecPrimitiveEncode(boomSound);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(flash);
-    stateCodecPrimitiveEncode(ey);
-    stateCodecPrimitiveEncode(ys);
-    stateCodecPrimitiveEncode(ex);
     stateCodecPrimitiveEncode(timerstart);
-    stateCodecPrimitiveEncode(pressed);
+    stateCodecPrimitiveEncode(xs);
+    stateCodecPrimitiveEncode(xx);
+    stateCodecPrimitiveEncode(ys);
+    stateCodecPrimitiveEncode(yy);
 }
 else
 {
-    yy = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
+    boomSound = stateCodecPrimitiveDecode();
+    ex = stateCodecPrimitiveDecode();
+    ey = stateCodecPrimitiveDecode();
+    flash = stateCodecPrimitiveDecode();
+    pressed = stateCodecPrimitiveDecode();
     shownumber = stateCodecPrimitiveDecode();
     time = stateCodecPrimitiveDecode();
-    boomSound = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    flash = stateCodecPrimitiveDecode();
-    ey = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
-    ex = stateCodecPrimitiveDecode();
     timerstart = stateCodecPrimitiveDecode();
-    pressed = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
+    xx = stateCodecPrimitiveDecode();
+    ys = stateCodecPrimitiveDecode();
+    yy = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

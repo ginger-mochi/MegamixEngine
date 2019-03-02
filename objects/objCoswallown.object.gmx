@@ -122,17 +122,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpeed);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(imgSpeed);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    imgSpeed = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     imgOffset = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

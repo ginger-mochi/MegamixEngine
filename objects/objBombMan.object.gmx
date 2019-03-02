@@ -385,43 +385,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackRandomiser);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(bombX);
+    stateCodecPrimitiveEncode(bombY);
+    stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(delayUse);
+    stateCodecPrimitiveEncode(hasBomb);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setX);
+    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(storeSpeed);
     stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(hasBomb);
-    stateCodecPrimitiveEncode(attackRandomiser);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(setX);
-    stateCodecPrimitiveEncode(bombY);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(hasFired);
 }
 else
 {
+    attackRandomiser = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
     bombX = stateCodecPrimitiveDecode();
+    bombY = stateCodecPrimitiveDecode();
+    bossTriggered = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    delayUse = stateCodecPrimitiveDecode();
+    hasBomb = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    setX = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
     storeSpeed = stateCodecPrimitiveDecode();
     xOff = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    hasBomb = stateCodecPrimitiveDecode();
-    attackRandomiser = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
-    bombY = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

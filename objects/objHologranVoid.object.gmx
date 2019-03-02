@@ -144,17 +144,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(starbg);
-    stateCodecPrimitiveEncode(starspeed);
     stateCodecPrimitiveEncode(fadephase);
+    stateCodecPrimitiveEncode(starbg);
     stateCodecPrimitiveEncode(starshift);
+    stateCodecPrimitiveEncode(starspeed);
 }
 else
 {
-    starbg = stateCodecPrimitiveDecode();
-    starspeed = stateCodecPrimitiveDecode();
     fadephase = stateCodecPrimitiveDecode();
+    starbg = stateCodecPrimitiveDecode();
     starshift = stateCodecPrimitiveDecode();
+    starspeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

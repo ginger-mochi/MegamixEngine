@@ -140,23 +140,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(subEvent);
-    stateCodecPrimitiveEncode(triggered);
-    stateCodecPrimitiveEncode(step);
-    stateCodecPrimitiveEncode(caller);
     stateCodecPrimitiveEncode(argCount);
+    stateCodecPrimitiveEncode(caller);
+    stateCodecPrimitiveEncode(event);
+    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(step);
+    stateCodecPrimitiveEncode(subEvent);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(triggered);
 }
 else
 {
-    script = stateCodecPrimitiveDecode();
-    subEvent = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
-    step = stateCodecPrimitiveDecode();
-    caller = stateCodecPrimitiveDecode();
     argCount = stateCodecPrimitiveDecode();
+    caller = stateCodecPrimitiveDecode();
+    event = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
+    step = stateCodecPrimitiveDecode();
+    subEvent = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    triggered = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -249,23 +249,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(flameTimer);
+    stateCodecPrimitiveEncode(imgOffset);
     stateCodecPrimitiveEncode(jumpCooldown);
     stateCodecPrimitiveEncode(wheelTimer);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(wheelVal);
-    stateCodecPrimitiveEncode(flameTimer);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    flameTimer = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
     jumpCooldown = stateCodecPrimitiveDecode();
     wheelTimer = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     wheelVal = stateCodecPrimitiveDecode();
-    flameTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

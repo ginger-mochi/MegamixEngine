@@ -291,33 +291,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(myDir);
-    stateCodecPrimitiveEncode(shootCountMax);
-    stateCodecPrimitiveEncode(jumpCountMax);
-    stateCodecPrimitiveEncode(yspeedJump);
-    stateCodecPrimitiveEncode(waitCount);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(jumpCountMax);
+    stateCodecPrimitiveEncode(myDir);
+    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(resetDir);
     stateCodecPrimitiveEncode(shootAmount);
+    stateCodecPrimitiveEncode(shootCount);
+    stateCodecPrimitiveEncode(shootCountMax);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(waitCount);
+    stateCodecPrimitiveEncode(yspeedJump);
 }
 else
 {
-    shootCount = stateCodecPrimitiveDecode();
-    myDir = stateCodecPrimitiveDecode();
-    shootCountMax = stateCodecPrimitiveDecode();
-    jumpCountMax = stateCodecPrimitiveDecode();
-    yspeedJump = stateCodecPrimitiveDecode();
-    waitCount = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
     jumpCount = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    jumpCountMax = stateCodecPrimitiveDecode();
+    myDir = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
     resetDir = stateCodecPrimitiveDecode();
     shootAmount = stateCodecPrimitiveDecode();
+    shootCount = stateCodecPrimitiveDecode();
+    shootCountMax = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    waitCount = stateCodecPrimitiveDecode();
+    yspeedJump = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

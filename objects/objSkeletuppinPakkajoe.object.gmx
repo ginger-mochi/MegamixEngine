@@ -255,16 +255,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(scalespeed);
     stateCodecPrimitiveEncode(scalegrav);
+    stateCodecPrimitiveEncode(scalespeed);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    scalespeed = stateCodecPrimitiveDecode();
     scalegrav = stateCodecPrimitiveDecode();
+    scalespeed = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

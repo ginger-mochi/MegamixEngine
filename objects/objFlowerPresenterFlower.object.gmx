@@ -251,29 +251,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(turnTimes);
-    stateCodecPrimitiveEncode(totalChange);
-    stateCodecPrimitiveEncode(jetTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(jetTimer);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(rotateChange);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(totalChange);
+    stateCodecPrimitiveEncode(turnTimes);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    turnTimes = stateCodecPrimitiveDecode();
-    totalChange = stateCodecPrimitiveDecode();
-    jetTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    jetTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     rotateChange = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    totalChange = stateCodecPrimitiveDecode();
+    turnTimes = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

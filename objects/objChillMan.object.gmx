@@ -679,49 +679,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(frostTimer);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(oldPhase);
     stateCodecPrimitiveEncode(d);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(walkX);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(shotsToFire);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(spreadAttack);
-    stateCodecPrimitiveEncode(slide);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(frostTimer);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(imageNoMin);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(imageTimerMax);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(oldPhase);
     stateCodecPrimitiveEncode(pauseGravity);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(randomiser);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(shotsToFire);
+    stateCodecPrimitiveEncode(slide);
+    stateCodecPrimitiveEncode(spreadAttack);
+    stateCodecPrimitiveEncode(walkX);
 }
 else
 {
-    frostTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    oldPhase = stateCodecPrimitiveDecode();
     d = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    shotsToFire = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    spreadAttack = stateCodecPrimitiveDecode();
-    slide = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    frostTimer = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    imageNoMin = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    imageTimerMax = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    oldPhase = stateCodecPrimitiveDecode();
     pauseGravity = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    randomiser = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
+    shotsToFire = stateCodecPrimitiveDecode();
+    slide = stateCodecPrimitiveDecode();
+    spreadAttack = stateCodecPrimitiveDecode();
+    walkX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

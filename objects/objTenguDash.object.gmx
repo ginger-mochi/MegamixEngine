@@ -245,16 +245,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(flashOffset);
+    stateCodecPrimitiveEncode(flashTimer);
 }
 else
 {
     animFrame = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
     flashOffset = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -361,35 +361,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(introProp);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(xOff);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(setX);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(strMMY);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(delayUse);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(introProp);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setX);
+    stateCodecPrimitiveEncode(strMMX);
+    stateCodecPrimitiveEncode(strMMY);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    introProp = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    strMMY = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
     bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    delayUse = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    introProp = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    setX = stateCodecPrimitiveDecode();
+    strMMX = stateCodecPrimitiveDecode();
+    strMMY = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

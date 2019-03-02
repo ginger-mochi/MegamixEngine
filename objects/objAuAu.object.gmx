@@ -192,21 +192,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(projectile);
     stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecIDEncode(projectile);
 }
 else
 {
-    projectile = stateCodecIDDecode();
     cooldownMax = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    projectile = stateCodecIDDecode();
 }
 </string>
           </argument>

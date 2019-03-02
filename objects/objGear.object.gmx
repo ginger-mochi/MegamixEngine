@@ -147,13 +147,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmPop);
     stateCodecPrimitiveEncode(activated);
+    stateCodecPrimitiveEncode(alarmPop);
 }
 else
 {
-    alarmPop = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
+    alarmPop = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

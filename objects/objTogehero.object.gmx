@@ -174,19 +174,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

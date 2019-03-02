@@ -120,17 +120,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(bullet);
+    stateCodecPrimitiveEncode(interval);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(interval);
-    stateCodecPrimitiveEncode(bullet);
 }
 else
 {
+    bullet = stateCodecPrimitiveDecode();
+    interval = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     variation = stateCodecPrimitiveDecode();
-    interval = stateCodecPrimitiveDecode();
-    bullet = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

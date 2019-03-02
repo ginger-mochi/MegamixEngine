@@ -248,23 +248,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(moveDelay);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(imageOffset);
 }
 else
 {
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
     moveDelay = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

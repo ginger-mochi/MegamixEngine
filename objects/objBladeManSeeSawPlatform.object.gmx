@@ -229,43 +229,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xspeedMain);
-    stateCodecPrimitiveEncode(mySpeedMax);
-    stateCodecPrimitiveEncode(yspeedPlatform);
-    stateCodecPrimitiveEncode(xspeedPlatform);
-    stateCodecPrimitiveEncode(xPosition);
-    stateCodecPrimitiveEncode(yMax);
-    stateCodecPrimitiveEncode(xMain);
-    stateCodecPrimitiveEncode(radiusSquare);
-    stateCodecPrimitiveEncode(yMin);
-    stateCodecPrimitiveEncode(centerShift);
-    stateCodecPrimitiveEncode(yMain);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(accel);
+    stateCodecPrimitiveEncode(canStep);
+    stateCodecPrimitiveEncode(centerShift);
+    stateCodecPrimitiveEncode(mySpeedMax);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radiusSquare);
+    stateCodecPrimitiveEncode(xMain);
+    stateCodecPrimitiveEncode(xPosition);
+    stateCodecPrimitiveEncode(xspeedMain);
+    stateCodecPrimitiveEncode(xspeedPlatform);
+    stateCodecPrimitiveEncode(yMain);
+    stateCodecPrimitiveEncode(yMax);
+    stateCodecPrimitiveEncode(yMin);
     stateCodecPrimitiveEncode(yPosition);
     stateCodecPrimitiveEncode(yspeedMain);
-    stateCodecPrimitiveEncode(canStep);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(yspeedPlatform);
 }
 else
 {
-    xspeedMain = stateCodecPrimitiveDecode();
-    mySpeedMax = stateCodecPrimitiveDecode();
-    yspeedPlatform = stateCodecPrimitiveDecode();
-    xspeedPlatform = stateCodecPrimitiveDecode();
-    xPosition = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
-    xMain = stateCodecPrimitiveDecode();
-    radiusSquare = stateCodecPrimitiveDecode();
-    yMin = stateCodecPrimitiveDecode();
-    centerShift = stateCodecPrimitiveDecode();
-    yMain = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
+    canStep = stateCodecPrimitiveDecode();
+    centerShift = stateCodecPrimitiveDecode();
+    mySpeedMax = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radiusSquare = stateCodecPrimitiveDecode();
+    xMain = stateCodecPrimitiveDecode();
+    xPosition = stateCodecPrimitiveDecode();
+    xspeedMain = stateCodecPrimitiveDecode();
+    xspeedPlatform = stateCodecPrimitiveDecode();
+    yMain = stateCodecPrimitiveDecode();
+    yMax = stateCodecPrimitiveDecode();
+    yMin = stateCodecPrimitiveDecode();
     yPosition = stateCodecPrimitiveDecode();
     yspeedMain = stateCodecPrimitiveDecode();
-    canStep = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    yspeedPlatform = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

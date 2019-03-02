@@ -220,17 +220,17 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bounceForce);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(spriteFrame);
     stateCodecPrimitiveEncode(spriteTimer);
     stateCodecDSEncode(yspeed_map, ds_type_map);
-    stateCodecPrimitiveEncode(spriteFrame);
 }
 else
 {
     bounceForce = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    spriteFrame = stateCodecPrimitiveDecode();
     spriteTimer = stateCodecPrimitiveDecode();
     yspeed_map = stateCodecDSDecode(ds_type_map);
-    spriteFrame = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

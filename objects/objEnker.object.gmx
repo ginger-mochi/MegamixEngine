@@ -541,18 +541,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(absorbSFXTimer);
     stateCodecPrimitiveEncode(charge);
     stateCodecPrimitiveEncode(dstX);
-    stateCodecPrimitiveEncode(absorbSFXTimer);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phaseTimer);
     stateCodecPrimitiveEncode(runSpeed);
 }
 else
 {
+    absorbSFXTimer = stateCodecPrimitiveDecode();
     charge = stateCodecPrimitiveDecode();
     dstX = stateCodecPrimitiveDecode();
-    absorbSFXTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     phaseTimer = stateCodecPrimitiveDecode();
     runSpeed = stateCodecPrimitiveDecode();

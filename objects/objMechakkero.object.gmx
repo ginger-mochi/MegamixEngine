@@ -151,17 +151,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(jumpTimer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(jumpTimer);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

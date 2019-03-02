@@ -262,21 +262,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waterY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(sinCounter);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(waterY);
 }
 else
 {
-    waterY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    waterY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

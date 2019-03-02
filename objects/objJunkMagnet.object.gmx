@@ -383,23 +383,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(magnetPlayerTarget);
     stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(hasSwitch);
     stateCodecPrimitiveEncode(freeFalling);
+    stateCodecPrimitiveEncode(hasSwitch);
     stateCodecPrimitiveEncode(magnetJunkTarget);
+    stateCodecPrimitiveEncode(magnetPlayerTarget);
     stateCodecPrimitiveEncode(magnetizing);
+    stateCodecPrimitiveEncode(myFlag);
 }
 else
 {
-    magnetPlayerTarget = stateCodecPrimitiveDecode();
     distance = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    hasSwitch = stateCodecPrimitiveDecode();
     freeFalling = stateCodecPrimitiveDecode();
+    hasSwitch = stateCodecPrimitiveDecode();
     magnetJunkTarget = stateCodecPrimitiveDecode();
+    magnetPlayerTarget = stateCodecPrimitiveDecode();
     magnetizing = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

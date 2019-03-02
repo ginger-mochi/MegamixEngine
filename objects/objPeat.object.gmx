@@ -311,18 +311,18 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(breakY);
     stateCodecPrimitiveEncode(ded);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
     breakY = stateCodecPrimitiveDecode();
     ded = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

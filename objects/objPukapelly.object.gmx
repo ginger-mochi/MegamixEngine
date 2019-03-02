@@ -234,34 +234,34 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(yCont);
-    stateCodecPrimitiveEncode(cY);
-    stateCodecPrimitiveEncode(xCont);
     stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(yLock);
     stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(lockMovement);
-    stateCodecPrimitiveEncode(toggle);
-    stateCodecPrimitiveEncode(xLock);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cY);
     stateCodecPrimitiveEncode(chgPhases);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(lockMovement);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(toggle);
+    stateCodecPrimitiveEncode(xCont);
+    stateCodecPrimitiveEncode(xLock);
+    stateCodecPrimitiveEncode(yCont);
+    stateCodecPrimitiveEncode(yLock);
 }
 else
 {
     addAngle = stateCodecPrimitiveDecode();
-    yCont = stateCodecPrimitiveDecode();
-    cY = stateCodecPrimitiveDecode();
-    xCont = stateCodecPrimitiveDecode();
     cAngle = stateCodecPrimitiveDecode();
-    yLock = stateCodecPrimitiveDecode();
     cDistance = stateCodecPrimitiveDecode();
-    lockMovement = stateCodecPrimitiveDecode();
-    toggle = stateCodecPrimitiveDecode();
-    xLock = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    cY = stateCodecPrimitiveDecode();
     chgPhases = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    lockMovement = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    toggle = stateCodecPrimitiveDecode();
+    xCont = stateCodecPrimitiveDecode();
+    xLock = stateCodecPrimitiveDecode();
+    yCont = stateCodecPrimitiveDecode();
+    yLock = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

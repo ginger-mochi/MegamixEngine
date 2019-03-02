@@ -201,21 +201,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(totalChange);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(rotateChange);
+    stateCodecPrimitiveEncode(startWait);
+    stateCodecPrimitiveEncode(totalChange);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
-    totalChange = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
     rotateChange = stateCodecPrimitiveDecode();
+    startWait = stateCodecPrimitiveDecode();
+    totalChange = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -256,25 +256,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootCount);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(phaseRepeatCount);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(prevPhase);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseRepeatCount);
+    stateCodecPrimitiveEncode(prevPhase);
+    stateCodecPrimitiveEncode(shootCount);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    shootCount = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    phaseRepeatCount = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    prevPhase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    phaseRepeatCount = stateCodecPrimitiveDecode();
+    prevPhase = stateCodecPrimitiveDecode();
+    shootCount = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

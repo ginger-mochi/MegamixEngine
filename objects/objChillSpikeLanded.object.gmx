@@ -256,15 +256,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(firstFrame);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     firstFrame = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

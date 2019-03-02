@@ -388,35 +388,36 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(distance);
     stateCodecPrimitiveEncode(additionalTile);
-    stateCodecDSEncode(objects, ds_type_list);
-    stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(myTile);
+    stateCodecPrimitiveEncode(distance);
     stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(myTile);
+    stateCodecDSEncode(objects, ds_type_list);
+    stateCodecPrimitiveEncode(width);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    width = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    distance = stateCodecPrimitiveDecode();
     additionalTile = stateCodecPrimitiveDecode();
-    objects = stateCodecDSDecode(ds_type_list);
-    yOffset = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
+    distance = stateCodecPrimitiveDecode();
     getY = stateCodecPrimitiveDecode();
+    height = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    myTile = stateCodecPrimitiveDecode();
+    objects = stateCodecDSDecode(ds_type_list);
+    width = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
+
 
 
   </events>

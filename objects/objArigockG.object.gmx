@@ -195,35 +195,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shoot_time);
-    stateCodecPrimitiveEncode(volley_n);
-    stateCodecPrimitiveEncode(obj);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(at);
-    stateCodecPrimitiveEncode(low_shot_yspeed);
-    stateCodecPrimitiveEncode(init_time);
-    stateCodecPrimitiveEncode(wait_time);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(high_shot_yspeed);
+    stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(init_time);
+    stateCodecPrimitiveEncode(low_shot_yspeed);
+    stateCodecPrimitiveEncode(obj);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shoot_time);
     stateCodecPrimitiveEncode(shot_xspeed);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(volley_n);
+    stateCodecPrimitiveEncode(wait_time);
 }
 else
 {
-    shoot_time = stateCodecPrimitiveDecode();
-    volley_n = stateCodecPrimitiveDecode();
-    obj = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     at = stateCodecPrimitiveDecode();
-    low_shot_yspeed = stateCodecPrimitiveDecode();
-    init_time = stateCodecPrimitiveDecode();
-    wait_time = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     high_shot_yspeed = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
+    init_time = stateCodecPrimitiveDecode();
+    low_shot_yspeed = stateCodecPrimitiveDecode();
+    obj = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shoot_time = stateCodecPrimitiveDecode();
     shot_xspeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    volley_n = stateCodecPrimitiveDecode();
+    wait_time = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

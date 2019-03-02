@@ -227,29 +227,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(blinkWait);
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(yCutoff);
     stateCodecPrimitiveEncode(blink);
+    stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecPrimitiveEncode(blinkWait);
     stateCodecPrimitiveEncode(checkRange);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(coolDown);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(metallTimer);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(yCutoff);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    blinkWait = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    yCutoff = stateCodecPrimitiveDecode();
     blink = stateCodecPrimitiveDecode();
+    blinkTimer = stateCodecPrimitiveDecode();
+    blinkWait = stateCodecPrimitiveDecode();
     checkRange = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     coolDown = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     metallTimer = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    yCutoff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

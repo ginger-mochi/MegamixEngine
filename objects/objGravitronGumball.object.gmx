@@ -161,13 +161,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(reflectable);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(reflectable);
 }
 else
 {
-    reflectable = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    reflectable = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

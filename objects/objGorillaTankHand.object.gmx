@@ -221,23 +221,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(getX);
-    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(attack);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(getY);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(attack);
-    stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    getX = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    attack = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    getX = stateCodecPrimitiveDecode();
+    getY = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
-    attack = stateCodecPrimitiveDecode();
-    getY = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

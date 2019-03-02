@@ -164,17 +164,19 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(selectedCharacter);
-    stateCodecPrimitiveEncode(player);
-    stateCodecPrimitiveEncode(selection);
     stateCodecPrimitiveEncode(character);
+    stateCodecPrimitiveEncode(controlsLocked);
+    stateCodecPrimitiveEncode(player);
+    stateCodecPrimitiveEncode(selectedCharacter);
+    stateCodecPrimitiveEncode(selection);
 }
 else
 {
-    selectedCharacter = stateCodecPrimitiveDecode();
-    player = stateCodecPrimitiveDecode();
-    selection = stateCodecPrimitiveDecode();
     character = stateCodecPrimitiveDecode();
+    controlsLocked = stateCodecPrimitiveDecode();
+    player = stateCodecPrimitiveDecode();
+    selectedCharacter = stateCodecPrimitiveDecode();
+    selection = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

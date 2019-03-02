@@ -154,13 +154,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(canCollide);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    parent = stateCodecPrimitiveDecode();
     canCollide = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

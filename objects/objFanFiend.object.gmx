@@ -133,15 +133,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(blowSpeed);
     stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
     blowSpeed = stateCodecPrimitiveDecode();
     img = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -116,20 +116,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blockCollision);
-    stateCodecPrimitiveEncode(sfcx);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(sfcy);
+    stateCodecPrimitiveEncode(blockCollision);
     stateCodecIDEncode(sfc);
+    stateCodecPrimitiveEncode(sfcx);
+    stateCodecPrimitiveEncode(sfcy);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    blockCollision = stateCodecPrimitiveDecode();
-    sfcx = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    sfcy = stateCodecPrimitiveDecode();
+    blockCollision = stateCodecPrimitiveDecode();
     sfc = stateCodecIDDecode();
+    sfcx = stateCodecPrimitiveDecode();
+    sfcy = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

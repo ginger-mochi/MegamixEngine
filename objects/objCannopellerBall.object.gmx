@@ -120,13 +120,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(dropTimer);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
     dropTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

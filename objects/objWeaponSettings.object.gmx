@@ -113,14 +113,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(levelStartScript);
     stateCodecPrimitiveEncode(levelEndScript);
+    stateCodecPrimitiveEncode(levelStartScript);
     stateCodecPrimitiveEncode(onlyUnlockOnLevelEnd);
 }
 else
 {
-    levelStartScript = stateCodecPrimitiveDecode();
     levelEndScript = stateCodecPrimitiveDecode();
+    levelStartScript = stateCodecPrimitiveDecode();
     onlyUnlockOnLevelEnd = stateCodecPrimitiveDecode();
 }
 </string>

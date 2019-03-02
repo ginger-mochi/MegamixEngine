@@ -261,21 +261,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(fastSpeed);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(slowSpeed);
     stateCodecPrimitiveEncode(xDir);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(calibrated);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
+    calibrated = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
     fastSpeed = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     slowSpeed = stateCodecPrimitiveDecode();
     xDir = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

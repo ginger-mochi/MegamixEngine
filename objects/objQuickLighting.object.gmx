@@ -183,25 +183,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(lightingSemi);
-    stateCodecPrimitiveEncode(roundedLightingLevel);
+    stateCodecPrimitiveEncode(lightSource);
+    stateCodecPrimitiveEncode(lightingColor);
     stateCodecPrimitiveEncode(lightingLevel);
     stateCodecPrimitiveEncode(lightingRetain);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(lightSource);
+    stateCodecPrimitiveEncode(lightingSemi);
     stateCodecPrimitiveEncode(lightingSwitchSpeed);
-    stateCodecPrimitiveEncode(lightingColor);
+    stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(roundedLightingLevel);
 }
 else
 {
-    lightingSemi = stateCodecPrimitiveDecode();
-    roundedLightingLevel = stateCodecPrimitiveDecode();
+    lightSource = stateCodecPrimitiveDecode();
+    lightingColor = stateCodecPrimitiveDecode();
     lightingLevel = stateCodecPrimitiveDecode();
     lightingRetain = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    lightSource = stateCodecPrimitiveDecode();
+    lightingSemi = stateCodecPrimitiveDecode();
     lightingSwitchSpeed = stateCodecPrimitiveDecode();
-    lightingColor = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
+    roundedLightingLevel = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

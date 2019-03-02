@@ -324,27 +324,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_velY);
-    stateCodecPrimitiveEncode(_groundDir);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(_velX);
-    stateCodecPrimitiveEncode(_prevCollision);
     stateCodecPrimitiveEncode(_dir);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(_groundDir);
+    stateCodecPrimitiveEncode(_prevCollision);
+    stateCodecPrimitiveEncode(_velX);
+    stateCodecPrimitiveEncode(_velY);
     stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    _velY = stateCodecPrimitiveDecode();
-    _groundDir = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    _velX = stateCodecPrimitiveDecode();
-    _prevCollision = stateCodecPrimitiveDecode();
     _dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    _groundDir = stateCodecPrimitiveDecode();
+    _prevCollision = stateCodecPrimitiveDecode();
+    _velX = stateCodecPrimitiveDecode();
+    _velY = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

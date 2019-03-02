@@ -192,23 +192,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(popDelay);
     stateCodecPrimitiveEncode(alarmDrop);
-    stateCodecPrimitiveEncode(randomOffset);
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(dummyLogic);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(popDelay);
+    stateCodecPrimitiveEncode(randomOffset);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    popDelay = stateCodecPrimitiveDecode();
     alarmDrop = stateCodecPrimitiveDecode();
-    randomOffset = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     dummyLogic = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    popDelay = stateCodecPrimitiveDecode();
+    randomOffset = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -133,16 +133,16 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(delay);
     stateCodecIDEncode(myBoulder);
-    stateCodecPrimitiveEncode(particleDrop);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(particleDrop);
 }
 else
 {
     actionTimer = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
     myBoulder = stateCodecIDDecode();
-    particleDrop = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    particleDrop = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

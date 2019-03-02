@@ -163,22 +163,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(endTimer);
     stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(length);
-    stateCodecIDEncode(bodySolid);
-    stateCodecPrimitiveEncode(shootCounter);
     stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecIDEncode(bodySolid);
+    stateCodecPrimitiveEncode(endTimer);
+    stateCodecPrimitiveEncode(length);
+    stateCodecPrimitiveEncode(shootCounter);
     stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    endTimer = stateCodecPrimitiveDecode();
     blink = stateCodecPrimitiveDecode();
-    length = stateCodecPrimitiveDecode();
-    bodySolid = stateCodecIDDecode();
-    shootCounter = stateCodecPrimitiveDecode();
     blinkTimer = stateCodecPrimitiveDecode();
+    bodySolid = stateCodecIDDecode();
+    endTimer = stateCodecPrimitiveDecode();
+    length = stateCodecPrimitiveDecode();
+    shootCounter = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
 }
 </string>

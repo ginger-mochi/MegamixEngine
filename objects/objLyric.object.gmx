@@ -121,17 +121,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(lastLocationY);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(lastLocationX);
+    stateCodecPrimitiveEncode(lastLocationY);
 }
 else
 {
-    lastLocationY = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
     lastLocationX = stateCodecPrimitiveDecode();
+    lastLocationY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

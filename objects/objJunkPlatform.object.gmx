@@ -190,17 +190,17 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(goingDown);
-    stateCodecPrimitiveEncode(spineKiller);
-    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(hasSwitch);
+    stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(spineKiller);
     stateCodecPrimitiveEncode(spinesToKill);
 }
 else
 {
     goingDown = stateCodecPrimitiveDecode();
-    spineKiller = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
     hasSwitch = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
+    spineKiller = stateCodecPrimitiveDecode();
     spinesToKill = stateCodecPrimitiveDecode();
 }
 </string>

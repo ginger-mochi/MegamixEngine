@@ -201,19 +201,19 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(back);
     stateCodecPrimitiveEncode(cloudTimer);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(directionSpd);
     stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
     back = stateCodecPrimitiveDecode();
     cloudTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     directionSpd = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

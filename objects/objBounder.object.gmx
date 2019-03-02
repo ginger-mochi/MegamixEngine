@@ -263,31 +263,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(direct);
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(startY);
-    stateCodecPrimitiveEncode(falling);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(direct);
+    stateCodecPrimitiveEncode(falling);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(shootAngle);
+    stateCodecPrimitiveEncode(startY);
 }
 else
 {
-    direct = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    startY = stateCodecPrimitiveDecode();
-    falling = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    direct = stateCodecPrimitiveDecode();
+    falling = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
     shootAngle = stateCodecPrimitiveDecode();
+    startY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

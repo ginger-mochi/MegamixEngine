@@ -218,35 +218,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(tileID);
     stateCodecPrimitiveEncode(_sl);
-    stateCodecPrimitiveEncode(tl);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(tT);
-    stateCodecPrimitiveEncode(xshift);
-    stateCodecPrimitiveEncode(stepInit);
-    stateCodecPrimitiveEncode(tw);
-    stateCodecPrimitiveEncode(tile);
-    stateCodecPrimitiveEncode(th);
     stateCodecPrimitiveEncode(drawInit);
+    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(sr);
+    stateCodecPrimitiveEncode(stepInit);
+    stateCodecPrimitiveEncode(tT);
     stateCodecPrimitiveEncode(tb);
+    stateCodecPrimitiveEncode(th);
+    stateCodecPrimitiveEncode(tile);
+    stateCodecPrimitiveEncode(tileID);
+    stateCodecPrimitiveEncode(tl);
+    stateCodecPrimitiveEncode(tw);
+    stateCodecPrimitiveEncode(xshift);
 }
 else
 {
-    tileID = stateCodecPrimitiveDecode();
     _sl = stateCodecPrimitiveDecode();
-    tl = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    tT = stateCodecPrimitiveDecode();
-    xshift = stateCodecPrimitiveDecode();
-    stepInit = stateCodecPrimitiveDecode();
-    tw = stateCodecPrimitiveDecode();
-    tile = stateCodecPrimitiveDecode();
-    th = stateCodecPrimitiveDecode();
     drawInit = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
     sr = stateCodecPrimitiveDecode();
+    stepInit = stateCodecPrimitiveDecode();
+    tT = stateCodecPrimitiveDecode();
     tb = stateCodecPrimitiveDecode();
+    th = stateCodecPrimitiveDecode();
+    tile = stateCodecPrimitiveDecode();
+    tileID = stateCodecPrimitiveDecode();
+    tl = stateCodecPrimitiveDecode();
+    tw = stateCodecPrimitiveDecode();
+    xshift = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

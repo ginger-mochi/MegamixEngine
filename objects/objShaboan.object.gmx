@@ -327,19 +327,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(blinkCount);
     stateCodecPrimitiveEncode(canBlink);
+    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(blinkCount);
-    stateCodecPrimitiveEncode(imgSpd);
 }
 else
 {
+    blinkCount = stateCodecPrimitiveDecode();
     canBlink = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    blinkCount = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

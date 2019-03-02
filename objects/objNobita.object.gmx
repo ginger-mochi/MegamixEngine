@@ -186,16 +186,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(directionStore);
-    stateCodecPrimitiveEncode(moveDist);
     stateCodecPrimitiveEncode(flag0);
+    stateCodecPrimitiveEncode(moveDist);
     stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(upOrDown);
 }
 else
 {
     directionStore = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
     flag0 = stateCodecPrimitiveDecode();
+    moveDist = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
     upOrDown = stateCodecPrimitiveDecode();
 }

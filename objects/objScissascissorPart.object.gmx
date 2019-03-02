@@ -217,16 +217,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(splitWithSpawn);
 }
 else
 {
+    actionTimer = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
     splitWithSpawn = stateCodecPrimitiveDecode();
 }
 </string>

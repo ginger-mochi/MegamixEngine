@@ -202,25 +202,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jitter);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(jitterTime);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(kamapotSpeed);
     stateCodecPrimitiveEncode(delayDisplay);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(jitter);
+    stateCodecPrimitiveEncode(jitterTime);
+    stateCodecPrimitiveEncode(kamapotSpeed);
+    stateCodecPrimitiveEncode(moveTimer);
 }
 else
 {
-    jitter = stateCodecPrimitiveDecode();
     child = stateCodecIDDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    jitterTime = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    kamapotSpeed = stateCodecPrimitiveDecode();
     delayDisplay = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    jitter = stateCodecPrimitiveDecode();
+    jitterTime = stateCodecPrimitiveDecode();
+    kamapotSpeed = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

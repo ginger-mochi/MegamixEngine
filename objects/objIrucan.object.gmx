@@ -195,13 +195,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(started);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(started);
 }
 else
 {
-    started = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    started = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

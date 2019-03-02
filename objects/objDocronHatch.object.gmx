@@ -136,15 +136,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(limit);
     stateCodecPrimitiveEncode(action);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(limit);
 }
 else
 {
-    limit = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    limit = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

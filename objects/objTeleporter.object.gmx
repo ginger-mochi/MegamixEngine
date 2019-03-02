@@ -256,53 +256,53 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(light);
+    stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(lightt);
     stateCodecPrimitiveEncode(drawarrow);
-    stateCodecPrimitiveEncode(lighty);
-    stateCodecPrimitiveEncode(pressUp);
-    stateCodecPrimitiveEncode(lightsp);
     stateCodecPrimitiveEncode(enemyLock);
-    stateCodecPrimitiveEncode(lightSprite);
     stateCodecPrimitiveEncode(externalRoomFilename);
-    stateCodecPrimitiveEncode(playerMet);
-    stateCodecPrimitiveEncode(keylock);
     stateCodecPrimitiveEncode(isDoor);
+    stateCodecPrimitiveEncode(isExternal);
+    stateCodecPrimitiveEncode(keylock);
+    stateCodecPrimitiveEncode(light);
+    stateCodecPrimitiveEncode(lightSprite);
+    stateCodecPrimitiveEncode(lightsp);
+    stateCodecPrimitiveEncode(lightt);
+    stateCodecPrimitiveEncode(lightx);
+    stateCodecPrimitiveEncode(lighty);
+    stateCodecPrimitiveEncode(lock);
+    stateCodecPrimitiveEncode(myRoom);
+    stateCodecPrimitiveEncode(newStage);
+    stateCodecPrimitiveEncode(permalock);
+    stateCodecPrimitiveEncode(playerMet);
+    stateCodecPrimitiveEncode(pressUp);
     stateCodecPrimitiveEncode(returnToHub);
     stateCodecPrimitiveEncode(teleportOnce);
-    stateCodecPrimitiveEncode(newStage);
-    stateCodecPrimitiveEncode(isExternal);
-    stateCodecPrimitiveEncode(permalock);
-    stateCodecPrimitiveEncode(lightx);
-    stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(X);
-    stateCodecPrimitiveEncode(lock);
 }
 else
 {
-    light = stateCodecPrimitiveDecode();
+    X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
-    lightt = stateCodecPrimitiveDecode();
     drawarrow = stateCodecPrimitiveDecode();
-    lighty = stateCodecPrimitiveDecode();
-    pressUp = stateCodecPrimitiveDecode();
-    lightsp = stateCodecPrimitiveDecode();
     enemyLock = stateCodecPrimitiveDecode();
-    lightSprite = stateCodecPrimitiveDecode();
     externalRoomFilename = stateCodecPrimitiveDecode();
-    playerMet = stateCodecPrimitiveDecode();
-    keylock = stateCodecPrimitiveDecode();
     isDoor = stateCodecPrimitiveDecode();
+    isExternal = stateCodecPrimitiveDecode();
+    keylock = stateCodecPrimitiveDecode();
+    light = stateCodecPrimitiveDecode();
+    lightSprite = stateCodecPrimitiveDecode();
+    lightsp = stateCodecPrimitiveDecode();
+    lightt = stateCodecPrimitiveDecode();
+    lightx = stateCodecPrimitiveDecode();
+    lighty = stateCodecPrimitiveDecode();
+    lock = stateCodecPrimitiveDecode();
+    myRoom = stateCodecPrimitiveDecode();
+    newStage = stateCodecPrimitiveDecode();
+    permalock = stateCodecPrimitiveDecode();
+    playerMet = stateCodecPrimitiveDecode();
+    pressUp = stateCodecPrimitiveDecode();
     returnToHub = stateCodecPrimitiveDecode();
     teleportOnce = stateCodecPrimitiveDecode();
-    newStage = stateCodecPrimitiveDecode();
-    isExternal = stateCodecPrimitiveDecode();
-    permalock = stateCodecPrimitiveDecode();
-    lightx = stateCodecPrimitiveDecode();
-    myRoom = stateCodecPrimitiveDecode();
-    X = stateCodecPrimitiveDecode();
-    lock = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

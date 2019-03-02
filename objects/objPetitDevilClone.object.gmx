@@ -175,20 +175,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(absSpeed);
     stateCodecPrimitiveEncode(canStep);
     stateCodecPrimitiveEncode(floatTimer);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(absSpeed);
     stateCodecPrimitiveEncode(refY);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
+    absSpeed = stateCodecPrimitiveDecode();
     canStep = stateCodecPrimitiveDecode();
     floatTimer = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
-    absSpeed = stateCodecPrimitiveDecode();
     refY = stateCodecPrimitiveDecode();
 }
 </string>

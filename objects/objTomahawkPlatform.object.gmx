@@ -188,27 +188,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yo);
-    stateCodecPrimitiveEncode(touchedStopper);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timeri);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(drawDir);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timeri);
+    stateCodecPrimitiveEncode(touchedStopper);
+    stateCodecPrimitiveEncode(yo);
 }
 else
 {
-    yo = stateCodecPrimitiveDecode();
-    touchedStopper = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     drawDir = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    timeri = stateCodecPrimitiveDecode();
+    touchedStopper = stateCodecPrimitiveDecode();
+    yo = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

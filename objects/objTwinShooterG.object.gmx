@@ -293,29 +293,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(setSide);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(yMax);
+    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(bullet);
     stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(pattern);
-    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setSide);
+    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(storeXScale);
+    stateCodecPrimitiveEncode(yMax);
 }
 else
 {
-    setSide = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
     bullet = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
     pattern = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    setSide = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
     storeXScale = stateCodecPrimitiveDecode();
+    yMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

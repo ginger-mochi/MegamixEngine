@@ -649,41 +649,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(middlePlatform);
-    stateCodecPrimitiveEncode(xCross);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(canLean);
-    stateCodecPrimitiveEncode(chooseJumpY);
-    stateCodecPrimitiveEncode(sunLevel);
-    stateCodecPrimitiveEncode(jumpDist);
-    stateCodecPrimitiveEncode(ceiling);
     stateCodecPrimitiveEncode(canPraise);
-    stateCodecPrimitiveEncode(realXSpeed);
+    stateCodecPrimitiveEncode(ceiling);
     stateCodecPrimitiveEncode(chooseJumpX);
-    stateCodecPrimitiveEncode(rainSuns);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(chooseJumpY);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpDist);
+    stateCodecPrimitiveEncode(middlePlatform);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(rainSuns);
+    stateCodecPrimitiveEncode(realXSpeed);
     stateCodecPrimitiveEncode(shots);
+    stateCodecPrimitiveEncode(sunLevel);
+    stateCodecPrimitiveEncode(xCross);
 }
 else
 {
-    middlePlatform = stateCodecPrimitiveDecode();
-    xCross = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     canLean = stateCodecPrimitiveDecode();
-    chooseJumpY = stateCodecPrimitiveDecode();
-    sunLevel = stateCodecPrimitiveDecode();
-    jumpDist = stateCodecPrimitiveDecode();
-    ceiling = stateCodecPrimitiveDecode();
     canPraise = stateCodecPrimitiveDecode();
-    realXSpeed = stateCodecPrimitiveDecode();
+    ceiling = stateCodecPrimitiveDecode();
     chooseJumpX = stateCodecPrimitiveDecode();
-    rainSuns = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    chooseJumpY = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpDist = stateCodecPrimitiveDecode();
+    middlePlatform = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    rainSuns = stateCodecPrimitiveDecode();
+    realXSpeed = stateCodecPrimitiveDecode();
     shots = stateCodecPrimitiveDecode();
+    sunLevel = stateCodecPrimitiveDecode();
+    xCross = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

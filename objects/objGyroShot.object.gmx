@@ -136,15 +136,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(hasFired);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

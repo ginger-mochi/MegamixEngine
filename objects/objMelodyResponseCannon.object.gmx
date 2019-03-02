@@ -230,17 +230,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(buttonsToPress);
     stateCodecPrimitiveEncode(allButtons);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(buttonsToPress);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    buttonsToPress = stateCodecPrimitiveDecode();
     allButtons = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    buttonsToPress = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

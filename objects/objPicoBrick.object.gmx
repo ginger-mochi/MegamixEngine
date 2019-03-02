@@ -270,55 +270,55 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(useEndStageBehavior);
-    stateCodecPrimitiveEncode(hpmax);
-    stateCodecPrimitiveEncode(musicTrackNumber);
+    stateCodecPrimitiveEncode(elementCode);
+    stateCodecPrimitiveEncode(elementName);
+    stateCodecPrimitiveEncode(elementScript);
     stateCodecPrimitiveEncode(hp);
-    stateCodecPrimitiveEncode(settingTransplant);
-    stateCodecPrimitiveEncode(sectionTop);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(sectionLeft);
-    stateCodecPrimitiveEncode(musicLoopSecondsEnd);
-    stateCodecPrimitiveEncode(musicLoopSecondsStart);
+    stateCodecPrimitiveEncode(hpmax);
+    stateCodecPrimitiveEncode(lockTransitions);
     stateCodecPrimitiveEncode(moveSpeed);
     stateCodecPrimitiveEncode(music);
-    stateCodecPrimitiveEncode(elementScript);
-    stateCodecPrimitiveEncode(sectionBottom);
-    stateCodecPrimitiveEncode(elementName);
-    stateCodecPrimitiveEncode(musicVolume);
     stateCodecPrimitiveEncode(musicLoop);
-    stateCodecPrimitiveEncode(priority);
-    stateCodecPrimitiveEncode(elementCode);
-    stateCodecPrimitiveEncode(lockTransitions);
-    stateCodecPrimitiveEncode(sectionRight);
+    stateCodecPrimitiveEncode(musicLoopSecondsEnd);
+    stateCodecPrimitiveEncode(musicLoopSecondsStart);
+    stateCodecPrimitiveEncode(musicTrackNumber);
     stateCodecPrimitiveEncode(musicType);
+    stateCodecPrimitiveEncode(musicVolume);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(priority);
+    stateCodecPrimitiveEncode(sectionBottom);
+    stateCodecPrimitiveEncode(sectionLeft);
+    stateCodecPrimitiveEncode(sectionRight);
+    stateCodecPrimitiveEncode(sectionTop);
+    stateCodecPrimitiveEncode(settingTransplant);
+    stateCodecPrimitiveEncode(useEndStageBehavior);
 }
 else
 {
-    useEndStageBehavior = stateCodecPrimitiveDecode();
-    hpmax = stateCodecPrimitiveDecode();
-    musicTrackNumber = stateCodecPrimitiveDecode();
+    elementCode = stateCodecPrimitiveDecode();
+    elementName = stateCodecPrimitiveDecode();
+    elementScript = stateCodecPrimitiveDecode();
     hp = stateCodecPrimitiveDecode();
-    settingTransplant = stateCodecPrimitiveDecode();
-    sectionTop = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    sectionLeft = stateCodecPrimitiveDecode();
-    musicLoopSecondsEnd = stateCodecPrimitiveDecode();
-    musicLoopSecondsStart = stateCodecPrimitiveDecode();
+    hpmax = stateCodecPrimitiveDecode();
+    lockTransitions = stateCodecPrimitiveDecode();
     moveSpeed = stateCodecPrimitiveDecode();
     music = stateCodecPrimitiveDecode();
-    elementScript = stateCodecPrimitiveDecode();
-    sectionBottom = stateCodecPrimitiveDecode();
-    elementName = stateCodecPrimitiveDecode();
-    musicVolume = stateCodecPrimitiveDecode();
     musicLoop = stateCodecPrimitiveDecode();
-    priority = stateCodecPrimitiveDecode();
-    elementCode = stateCodecPrimitiveDecode();
-    lockTransitions = stateCodecPrimitiveDecode();
-    sectionRight = stateCodecPrimitiveDecode();
+    musicLoopSecondsEnd = stateCodecPrimitiveDecode();
+    musicLoopSecondsStart = stateCodecPrimitiveDecode();
+    musicTrackNumber = stateCodecPrimitiveDecode();
     musicType = stateCodecPrimitiveDecode();
+    musicVolume = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    priority = stateCodecPrimitiveDecode();
+    sectionBottom = stateCodecPrimitiveDecode();
+    sectionLeft = stateCodecPrimitiveDecode();
+    sectionRight = stateCodecPrimitiveDecode();
+    sectionTop = stateCodecPrimitiveDecode();
+    settingTransplant = stateCodecPrimitiveDecode();
+    useEndStageBehavior = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

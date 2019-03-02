@@ -321,29 +321,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shieldDamageCount);
-    stateCodecPrimitiveEncode(hasShield);
-    stateCodecPrimitiveEncode(shieldDPS);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(isBouncy);
     stateCodecPrimitiveEncode(color);
-    stateCodecPrimitiveEncode(shotCount);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(dpsTimer);
+    stateCodecPrimitiveEncode(hasShield);
+    stateCodecPrimitiveEncode(isBouncy);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shieldDPS);
+    stateCodecPrimitiveEncode(shieldDamageCount);
+    stateCodecPrimitiveEncode(shotCount);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    shieldDamageCount = stateCodecPrimitiveDecode();
-    hasShield = stateCodecPrimitiveDecode();
-    shieldDPS = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    isBouncy = stateCodecPrimitiveDecode();
     color = stateCodecPrimitiveDecode();
-    shotCount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     dpsTimer = stateCodecPrimitiveDecode();
+    hasShield = stateCodecPrimitiveDecode();
+    isBouncy = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shieldDPS = stateCodecPrimitiveDecode();
+    shieldDamageCount = stateCodecPrimitiveDecode();
+    shotCount = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

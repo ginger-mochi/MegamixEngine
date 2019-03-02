@@ -127,21 +127,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmHitSolid);
-    stateCodecPrimitiveEncode(spawner);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(sprite);
     stateCodecPrimitiveEncode(alarmDie);
+    stateCodecPrimitiveEncode(alarmHitSolid);
     stateCodecPrimitiveEncode(num);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(spawner);
+    stateCodecPrimitiveEncode(sprite);
 }
 else
 {
-    alarmHitSolid = stateCodecPrimitiveDecode();
-    spawner = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    sprite = stateCodecPrimitiveDecode();
     alarmDie = stateCodecPrimitiveDecode();
+    alarmHitSolid = stateCodecPrimitiveDecode();
     num = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    spawner = stateCodecPrimitiveDecode();
+    sprite = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

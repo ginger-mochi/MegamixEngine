@@ -419,39 +419,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpToWall);
-    stateCodecIDEncode(sd);
-    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackRandomiser);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(findWall);
     stateCodecPrimitiveEncode(form);
-    stateCodecPrimitiveEncode(oldAttack);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(initialAttack);
+    stateCodecPrimitiveEncode(jumpToWall);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(oldAttack);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecIDEncode(sd);
+    stateCodecPrimitiveEncode(shotsFired);
 }
 else
 {
-    jumpToWall = stateCodecPrimitiveDecode();
-    sd = stateCodecIDDecode();
-    attackTimer = stateCodecPrimitiveDecode();
     attackRandomiser = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    bossTriggered = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
     findWall = stateCodecPrimitiveDecode();
     form = stateCodecPrimitiveDecode();
-    oldAttack = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
     initialAttack = stateCodecPrimitiveDecode();
+    jumpToWall = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    oldAttack = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    sd = stateCodecIDDecode();
+    shotsFired = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

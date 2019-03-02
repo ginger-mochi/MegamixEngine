@@ -364,39 +364,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cFrame);
-    stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(shotType);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(spriteOffset);
-    stateCodecPrimitiveEncode(oldPhase);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(randomMissiles);
-    stateCodecPrimitiveEncode(missile1);
-    stateCodecPrimitiveEncode(curYOffset);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(missile2);
-    stateCodecPrimitiveEncode(yOffsetMax);
-    stateCodecPrimitiveEncode(delayTimerMax);
     stateCodecPrimitiveEncode(bottomPart);
+    stateCodecPrimitiveEncode(cFrame);
+    stateCodecPrimitiveEncode(curYOffset);
+    stateCodecPrimitiveEncode(delayTimer);
+    stateCodecPrimitiveEncode(delayTimerMax);
+    stateCodecPrimitiveEncode(missile1);
+    stateCodecPrimitiveEncode(missile2);
+    stateCodecPrimitiveEncode(oldPhase);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(randomMissiles);
+    stateCodecPrimitiveEncode(shotType);
+    stateCodecPrimitiveEncode(spriteOffset);
+    stateCodecPrimitiveEncode(yOffsetMax);
 }
 else
 {
-    cFrame = stateCodecPrimitiveDecode();
-    delayTimer = stateCodecPrimitiveDecode();
-    shotType = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    spriteOffset = stateCodecPrimitiveDecode();
-    oldPhase = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    randomMissiles = stateCodecPrimitiveDecode();
-    missile1 = stateCodecPrimitiveDecode();
-    curYOffset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    missile2 = stateCodecPrimitiveDecode();
-    yOffsetMax = stateCodecPrimitiveDecode();
-    delayTimerMax = stateCodecPrimitiveDecode();
     bottomPart = stateCodecPrimitiveDecode();
+    cFrame = stateCodecPrimitiveDecode();
+    curYOffset = stateCodecPrimitiveDecode();
+    delayTimer = stateCodecPrimitiveDecode();
+    delayTimerMax = stateCodecPrimitiveDecode();
+    missile1 = stateCodecPrimitiveDecode();
+    missile2 = stateCodecPrimitiveDecode();
+    oldPhase = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    randomMissiles = stateCodecPrimitiveDecode();
+    shotType = stateCodecPrimitiveDecode();
+    spriteOffset = stateCodecPrimitiveDecode();
+    yOffsetMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

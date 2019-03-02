@@ -150,15 +150,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     animFrame = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

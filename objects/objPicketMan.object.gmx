@@ -251,21 +251,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootAmountMax);
+    stateCodecPrimitiveEncode(bullet);
+    stateCodecPrimitiveEncode(jumpDistance);
     stateCodecPrimitiveEncode(jumpsIn);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(jumpDistance);
+    stateCodecPrimitiveEncode(shootAmountMax);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(bullet);
 }
 else
 {
-    shootAmountMax = stateCodecPrimitiveDecode();
+    bullet = stateCodecPrimitiveDecode();
+    jumpDistance = stateCodecPrimitiveDecode();
     jumpsIn = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
+    shootAmountMax = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    bullet = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

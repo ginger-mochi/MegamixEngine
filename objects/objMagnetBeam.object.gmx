@@ -216,18 +216,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(growing);
-    stateCodecPrimitiveEncode(extendSpeed);
     stateCodecPrimitiveEncode(deathTimer);
+    stateCodecPrimitiveEncode(extendSpeed);
     stateCodecPrimitiveEncode(extended);
+    stateCodecPrimitiveEncode(growing);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    growing = stateCodecPrimitiveDecode();
-    extendSpeed = stateCodecPrimitiveDecode();
     deathTimer = stateCodecPrimitiveDecode();
+    extendSpeed = stateCodecPrimitiveDecode();
     extended = stateCodecPrimitiveDecode();
+    growing = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

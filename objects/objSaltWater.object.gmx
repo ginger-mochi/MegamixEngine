@@ -328,13 +328,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgs);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
     imgs = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

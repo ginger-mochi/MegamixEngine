@@ -206,16 +206,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(setMega);
-    stateCodecPrimitiveEncode(pop);
     stateCodecPrimitiveEncode(capture);
+    stateCodecPrimitiveEncode(pop);
+    stateCodecPrimitiveEncode(setMega);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
-    setMega = stateCodecPrimitiveDecode();
-    pop = stateCodecPrimitiveDecode();
     capture = stateCodecPrimitiveDecode();
+    pop = stateCodecPrimitiveDecode();
+    setMega = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

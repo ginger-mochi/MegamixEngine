@@ -177,19 +177,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(myLock);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(damage);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(myLock);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    parent = stateCodecPrimitiveDecode();
-    myLock = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     damage = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    myLock = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

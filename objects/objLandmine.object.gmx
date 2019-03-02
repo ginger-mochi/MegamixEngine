@@ -159,19 +159,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

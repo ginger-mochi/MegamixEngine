@@ -153,21 +153,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(decendSpeed);
-    stateCodecPrimitiveEncode(subY);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(acc);
+    stateCodecPrimitiveEncode(decendSpeed);
+    stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(subY);
     stateCodecPrimitiveEncode(subYspeed);
     stateCodecPrimitiveEncode(test);
 }
 else
 {
-    maxSpeed = stateCodecPrimitiveDecode();
-    decendSpeed = stateCodecPrimitiveDecode();
-    subY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     acc = stateCodecPrimitiveDecode();
+    decendSpeed = stateCodecPrimitiveDecode();
+    maxSpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    subY = stateCodecPrimitiveDecode();
     subYspeed = stateCodecPrimitiveDecode();
     test = stateCodecPrimitiveDecode();
 }

@@ -243,29 +243,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(doubleJump);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(xJump);
     stateCodecPrimitiveEncode(animStorage);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(yJump);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(doubleJump);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(xJump);
+    stateCodecPrimitiveEncode(yJump);
 }
 else
 {
-    doubleJump = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    xJump = stateCodecPrimitiveDecode();
     animStorage = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    yJump = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    doubleJump = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    xJump = stateCodecPrimitiveDecode();
+    yJump = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

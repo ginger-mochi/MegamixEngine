@@ -200,17 +200,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(turn);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(turn);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    xs = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
-    turn = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    turn = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

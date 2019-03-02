@@ -399,43 +399,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xscaleStart);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(aimDist);
+    stateCodecPrimitiveEncode(angle);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(greenSprite);
-    stateCodecPrimitiveEncode(old);
+    stateCodecPrimitiveEncode(blueSprite);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(gravDir);
-    stateCodecPrimitiveEncode(tx);
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(yellowSprite);
-    stateCodecPrimitiveEncode(aimDist);
+    stateCodecPrimitiveEncode(greenSprite);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(newAngle);
-    stateCodecPrimitiveEncode(ty);
+    stateCodecPrimitiveEncode(old);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(blueSprite);
     stateCodecPrimitiveEncode(redSprite);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(tx);
+    stateCodecPrimitiveEncode(ty);
+    stateCodecPrimitiveEncode(xscaleStart);
+    stateCodecPrimitiveEncode(yellowSprite);
 }
 else
 {
-    xscaleStart = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    aimDist = stateCodecPrimitiveDecode();
+    angle = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    greenSprite = stateCodecPrimitiveDecode();
-    old = stateCodecPrimitiveDecode();
+    blueSprite = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     gravDir = stateCodecPrimitiveDecode();
-    tx = stateCodecPrimitiveDecode();
-    angle = stateCodecPrimitiveDecode();
-    yellowSprite = stateCodecPrimitiveDecode();
-    aimDist = stateCodecPrimitiveDecode();
+    greenSprite = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     newAngle = stateCodecPrimitiveDecode();
-    ty = stateCodecPrimitiveDecode();
+    old = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    blueSprite = stateCodecPrimitiveDecode();
     redSprite = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    tx = stateCodecPrimitiveDecode();
+    ty = stateCodecPrimitiveDecode();
+    xscaleStart = stateCodecPrimitiveDecode();
+    yellowSprite = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

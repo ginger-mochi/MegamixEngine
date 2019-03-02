@@ -651,43 +651,46 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(optionTableImageIndexInStock);
-    stateCodecPrimitiveEncode(optionTableVariable);
-    stateCodecPrimitiveEncode(priceTable);
-    stateCodecPrimitiveEncode(optionTableImageBought);
-    stateCodecPrimitiveEncode(cursorImageTimer);
-    stateCodecPrimitiveEncode(optionTableDescription);
-    stateCodecPrimitiveEncode(optionTableImageIndexBought);
-    stateCodecPrimitiveEncode(myBolts);
-    stateCodecPrimitiveEncode(optionTableX);
-    stateCodecPrimitiveEncode(optionTableName);
-    stateCodecPrimitiveEncode(optionTableImageInStock);
-    stateCodecPrimitiveEncode(optionTableY);
     stateCodecPrimitiveEncode(cursorImageIndex);
+    stateCodecPrimitiveEncode(cursorImageTimer);
+    stateCodecPrimitiveEncode(inShop);
+    stateCodecPrimitiveEncode(myBolts);
+    stateCodecPrimitiveEncode(option);
+    stateCodecPrimitiveEncode(optionTableDescription);
+    stateCodecPrimitiveEncode(optionTableImageBought);
+    stateCodecPrimitiveEncode(optionTableImageInStock);
+    stateCodecPrimitiveEncode(optionTableImageIndexBought);
+    stateCodecPrimitiveEncode(optionTableImageIndexInStock);
+    stateCodecPrimitiveEncode(optionTableName);
+    stateCodecPrimitiveEncode(optionTableVariable);
+    stateCodecPrimitiveEncode(optionTableX);
+    stateCodecPrimitiveEncode(optionTableY);
+    stateCodecPrimitiveEncode(priceTable);
 }
 else
 {
-    option = stateCodecPrimitiveDecode();
-    optionTableImageIndexInStock = stateCodecPrimitiveDecode();
-    optionTableVariable = stateCodecPrimitiveDecode();
-    priceTable = stateCodecPrimitiveDecode();
-    optionTableImageBought = stateCodecPrimitiveDecode();
-    cursorImageTimer = stateCodecPrimitiveDecode();
-    optionTableDescription = stateCodecPrimitiveDecode();
-    optionTableImageIndexBought = stateCodecPrimitiveDecode();
-    myBolts = stateCodecPrimitiveDecode();
-    optionTableX = stateCodecPrimitiveDecode();
-    optionTableName = stateCodecPrimitiveDecode();
-    optionTableImageInStock = stateCodecPrimitiveDecode();
-    optionTableY = stateCodecPrimitiveDecode();
     cursorImageIndex = stateCodecPrimitiveDecode();
+    cursorImageTimer = stateCodecPrimitiveDecode();
+    inShop = stateCodecPrimitiveDecode();
+    myBolts = stateCodecPrimitiveDecode();
+    option = stateCodecPrimitiveDecode();
+    optionTableDescription = stateCodecPrimitiveDecode();
+    optionTableImageBought = stateCodecPrimitiveDecode();
+    optionTableImageInStock = stateCodecPrimitiveDecode();
+    optionTableImageIndexBought = stateCodecPrimitiveDecode();
+    optionTableImageIndexInStock = stateCodecPrimitiveDecode();
+    optionTableName = stateCodecPrimitiveDecode();
+    optionTableVariable = stateCodecPrimitiveDecode();
+    optionTableX = stateCodecPrimitiveDecode();
+    optionTableY = stateCodecPrimitiveDecode();
+    priceTable = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
+
 
 
     <event eventtype="8" enumb="0">

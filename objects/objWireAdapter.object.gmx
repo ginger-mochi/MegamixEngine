@@ -467,20 +467,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(resetSpriteChange);
+    stateCodecPrimitiveEncode(sfxloop);
     stateCodecPrimitiveEncode(wireLock);
     stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(resetSpriteChange);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(sfxloop);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
+    phase = stateCodecPrimitiveDecode();
+    resetSpriteChange = stateCodecPrimitiveDecode();
+    sfxloop = stateCodecPrimitiveDecode();
     wireLock = stateCodecPrimitiveDecode();
     xx = stateCodecPrimitiveDecode();
-    resetSpriteChange = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    sfxloop = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }
 </string>

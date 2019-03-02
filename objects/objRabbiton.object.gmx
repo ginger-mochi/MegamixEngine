@@ -390,31 +390,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(chasing);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(back);
     stateCodecPrimitiveEncode(animPauseTimer);
-    stateCodecPrimitiveEncode(ySpd);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(back);
+    stateCodecPrimitiveEncode(chasing);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(range);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xSpd);
+    stateCodecPrimitiveEncode(ySpd);
 }
 else
 {
-    range = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    chasing = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    back = stateCodecPrimitiveDecode();
     animPauseTimer = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    back = stateCodecPrimitiveDecode();
+    chasing = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    range = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    xSpd = stateCodecPrimitiveDecode();
+    ySpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

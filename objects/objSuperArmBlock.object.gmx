@@ -133,39 +133,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(tileN);
-    stateCodecPrimitiveEncode(tileTop);
-    stateCodecPrimitiveEncode(tiles);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(superArmFlashOwner);
     stateCodecPrimitiveEncode(layer);
-    stateCodecPrimitiveEncode(tileHeight);
-    stateCodecPrimitiveEncode(tileWidth);
-    stateCodecPrimitiveEncode(tileOffsetY);
-    stateCodecPrimitiveEncode(tileLeft);
+    stateCodecPrimitiveEncode(superArmDeathOnDrop);
+    stateCodecPrimitiveEncode(superArmFlashInterval);
+    stateCodecPrimitiveEncode(superArmFlashOwner);
     stateCodecPrimitiveEncode(superArmFlashTimer);
+    stateCodecPrimitiveEncode(superArmHoldOwner);
+    stateCodecPrimitiveEncode(superArmThrown);
+    stateCodecPrimitiveEncode(tileHeight);
+    stateCodecPrimitiveEncode(tileLeft);
+    stateCodecPrimitiveEncode(tileN);
     stateCodecPrimitiveEncode(tileOffsetX);
+    stateCodecPrimitiveEncode(tileOffsetY);
+    stateCodecPrimitiveEncode(tileTop);
+    stateCodecPrimitiveEncode(tileWidth);
+    stateCodecPrimitiveEncode(tiles);
 }
 else
 {
-    superArmHoldOwner = stateCodecPrimitiveDecode();
-    tileN = stateCodecPrimitiveDecode();
-    tileTop = stateCodecPrimitiveDecode();
-    tiles = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    superArmFlashOwner = stateCodecPrimitiveDecode();
     layer = stateCodecPrimitiveDecode();
-    tileHeight = stateCodecPrimitiveDecode();
-    tileWidth = stateCodecPrimitiveDecode();
-    tileOffsetY = stateCodecPrimitiveDecode();
-    tileLeft = stateCodecPrimitiveDecode();
+    superArmDeathOnDrop = stateCodecPrimitiveDecode();
+    superArmFlashInterval = stateCodecPrimitiveDecode();
+    superArmFlashOwner = stateCodecPrimitiveDecode();
     superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmHoldOwner = stateCodecPrimitiveDecode();
+    superArmThrown = stateCodecPrimitiveDecode();
+    tileHeight = stateCodecPrimitiveDecode();
+    tileLeft = stateCodecPrimitiveDecode();
+    tileN = stateCodecPrimitiveDecode();
     tileOffsetX = stateCodecPrimitiveDecode();
+    tileOffsetY = stateCodecPrimitiveDecode();
+    tileTop = stateCodecPrimitiveDecode();
+    tileWidth = stateCodecPrimitiveDecode();
+    tiles = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

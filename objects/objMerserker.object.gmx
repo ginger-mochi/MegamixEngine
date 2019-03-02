@@ -205,31 +205,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveDistance);
-    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(fallSpeed);
     stateCodecPrimitiveEncode(isFalling);
-    stateCodecPrimitiveEncode(moveDeceleration);
+    stateCodecPrimitiveEncode(jumpDistance);
+    stateCodecPrimitiveEncode(jumpSpeed);
     stateCodecPrimitiveEncode(leftLimit);
+    stateCodecPrimitiveEncode(moveDeceleration);
+    stateCodecPrimitiveEncode(moveDistance);
+    stateCodecPrimitiveEncode(moveSpeed);
     stateCodecPrimitiveEncode(rightLimit);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(jumpDistance);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    moveDistance = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     fallSpeed = stateCodecPrimitiveDecode();
     isFalling = stateCodecPrimitiveDecode();
-    moveDeceleration = stateCodecPrimitiveDecode();
+    jumpDistance = stateCodecPrimitiveDecode();
+    jumpSpeed = stateCodecPrimitiveDecode();
     leftLimit = stateCodecPrimitiveDecode();
+    moveDeceleration = stateCodecPrimitiveDecode();
+    moveDistance = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
     rightLimit = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

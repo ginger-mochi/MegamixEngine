@@ -416,37 +416,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fallTime);
-    stateCodecPrimitiveEncode(bombX);
-    stateCodecPrimitiveEncode(starterBombX);
-    stateCodecPrimitiveEncode(smallJumps);
-    stateCodecPrimitiveEncode(smallJumpHeight);
-    stateCodecPrimitiveEncode(starterBombY);
-    stateCodecPrimitiveEncode(starterBomb);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(jumpCounter);
-    stateCodecPrimitiveEncode(bombToThrow);
-    stateCodecPrimitiveEncode(bombY);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(bossTriggered);
     stateCodecPrimitiveEncode(bigJumpHeight);
+    stateCodecPrimitiveEncode(bombToThrow);
+    stateCodecPrimitiveEncode(bombX);
+    stateCodecPrimitiveEncode(bombY);
+    stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecPrimitiveEncode(fallTime);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpCounter);
+    stateCodecPrimitiveEncode(smallJumpHeight);
+    stateCodecPrimitiveEncode(smallJumps);
+    stateCodecPrimitiveEncode(starterBomb);
+    stateCodecPrimitiveEncode(starterBombX);
+    stateCodecPrimitiveEncode(starterBombY);
 }
 else
 {
-    fallTime = stateCodecPrimitiveDecode();
-    bombX = stateCodecPrimitiveDecode();
-    starterBombX = stateCodecPrimitiveDecode();
-    smallJumps = stateCodecPrimitiveDecode();
-    smallJumpHeight = stateCodecPrimitiveDecode();
-    starterBombY = stateCodecPrimitiveDecode();
-    starterBomb = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    jumpCounter = stateCodecPrimitiveDecode();
-    bombToThrow = stateCodecPrimitiveDecode();
-    bombY = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
     bigJumpHeight = stateCodecPrimitiveDecode();
+    bombToThrow = stateCodecPrimitiveDecode();
+    bombX = stateCodecPrimitiveDecode();
+    bombY = stateCodecPrimitiveDecode();
+    bossTriggered = stateCodecPrimitiveDecode();
+    fallTime = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpCounter = stateCodecPrimitiveDecode();
+    smallJumpHeight = stateCodecPrimitiveDecode();
+    smallJumps = stateCodecPrimitiveDecode();
+    starterBomb = stateCodecPrimitiveDecode();
+    starterBombX = stateCodecPrimitiveDecode();
+    starterBombY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

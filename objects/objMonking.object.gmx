@@ -233,21 +233,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasPopped);
-    stateCodecPrimitiveEncode(onBlock);
-    stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(hangCountdown);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(hangCountdown);
+    stateCodecPrimitiveEncode(hasPopped);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(onBlock);
 }
 else
 {
-    hasPopped = stateCodecPrimitiveDecode();
-    onBlock = stateCodecPrimitiveDecode();
-    contactStart = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    hangCountdown = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    contactStart = stateCodecPrimitiveDecode();
+    hangCountdown = stateCodecPrimitiveDecode();
+    hasPopped = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    onBlock = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

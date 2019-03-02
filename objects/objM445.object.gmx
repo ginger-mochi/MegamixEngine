@@ -170,21 +170,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(popDelay);
     stateCodecPrimitiveEncode(popDelayStart);
-    stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(sineWave);
     stateCodecPrimitiveEncode(sinCounter);
+    stateCodecPrimitiveEncode(sineWave);
+    stateCodecPrimitiveEncode(startDir);
 }
 else
 {
+    contactStart = stateCodecPrimitiveDecode();
     popDelay = stateCodecPrimitiveDecode();
     popDelayStart = stateCodecPrimitiveDecode();
-    contactStart = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    sineWave = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
+    sineWave = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -189,29 +189,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(respawnAnimation);
+    stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
+    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(exitTimer);
     stateCodecPrimitiveEncode(exitType);
     stateCodecIDEncode(mask);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(travel);
     stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(X);
+    stateCodecPrimitiveEncode(respawnAnimation);
+    stateCodecPrimitiveEncode(travel);
 }
 else
 {
-    respawnAnimation = stateCodecPrimitiveDecode();
+    X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
+    active = stateCodecPrimitiveDecode();
     exitTimer = stateCodecPrimitiveDecode();
     exitType = stateCodecPrimitiveDecode();
     mask = stateCodecIDDecode();
-    active = stateCodecPrimitiveDecode();
-    travel = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
     myRoom = stateCodecPrimitiveDecode();
-    X = stateCodecPrimitiveDecode();
+    respawnAnimation = stateCodecPrimitiveDecode();
+    travel = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

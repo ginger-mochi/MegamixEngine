@@ -396,14 +396,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(futureGrav);
-    stateCodecPrimitiveEncode(maxSpeed);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(maxSpeed);
 }
 else
 {
     futureGrav = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    maxSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

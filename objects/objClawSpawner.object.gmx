@@ -180,14 +180,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(crab);
+    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(shoottimer);
 }
 else
 {
-    obj = stateCodecPrimitiveDecode();
     crab = stateCodecPrimitiveDecode();
+    obj = stateCodecPrimitiveDecode();
     shoottimer = stateCodecPrimitiveDecode();
 }
 </string>

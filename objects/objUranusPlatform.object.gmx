@@ -288,22 +288,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(_gravDir);
-    stateCodecPrimitiveEncode(segmentRange);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(segmentLimit);
-    stateCodecPrimitiveEncode(style);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(segmentCount);
+    stateCodecPrimitiveEncode(segmentLimit);
+    stateCodecPrimitiveEncode(segmentRange);
+    stateCodecPrimitiveEncode(style);
 }
 else
 {
     _gravDir = stateCodecPrimitiveDecode();
-    segmentRange = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    segmentLimit = stateCodecPrimitiveDecode();
-    style = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    animSpeed = stateCodecPrimitiveDecode();
     segmentCount = stateCodecPrimitiveDecode();
+    segmentLimit = stateCodecPrimitiveDecode();
+    segmentRange = stateCodecPrimitiveDecode();
+    style = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -89,37 +89,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(teleportLock);
-    stateCodecPrimitiveEncode(pid);
-    stateCodecPrimitiveEncode(newStage);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(warpOutSFX);
-    stateCodecPrimitiveEncode(isExternal);
+    stateCodecPrimitiveEncode(cid);
     stateCodecPrimitiveEncode(drawMe);
     stateCodecPrimitiveEncode(externalRoomFilename);
+    stateCodecPrimitiveEncode(isExternal);
     stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(cid);
-    stateCodecPrimitiveEncode(type);
-    stateCodecPrimitiveEncode(X);
+    stateCodecPrimitiveEncode(newStage);
+    stateCodecPrimitiveEncode(pid);
     stateCodecPrimitiveEncode(returnToHub);
+    stateCodecPrimitiveEncode(teleportLock);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(warpOutSFX);
 }
 else
 {
+    X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
-    teleportLock = stateCodecPrimitiveDecode();
-    pid = stateCodecPrimitiveDecode();
-    newStage = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    warpOutSFX = stateCodecPrimitiveDecode();
-    isExternal = stateCodecPrimitiveDecode();
+    cid = stateCodecPrimitiveDecode();
     drawMe = stateCodecPrimitiveDecode();
     externalRoomFilename = stateCodecPrimitiveDecode();
+    isExternal = stateCodecPrimitiveDecode();
     myRoom = stateCodecPrimitiveDecode();
-    cid = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
-    X = stateCodecPrimitiveDecode();
+    newStage = stateCodecPrimitiveDecode();
+    pid = stateCodecPrimitiveDecode();
     returnToHub = stateCodecPrimitiveDecode();
+    teleportLock = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    type = stateCodecPrimitiveDecode();
+    warpOutSFX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

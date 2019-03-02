@@ -481,35 +481,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecIDEncode(clone);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(getAngle);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(horVer);
+    stateCodecPrimitiveEncode(onOrOff);
     stateCodecPrimitiveEncode(partnerItemDrop);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(storeY);
-    stateCodecIDEncode(clone);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(horVer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(onOrOff);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(poseImgSpeed);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
+    clone = stateCodecIDDecode();
+    delay = stateCodecPrimitiveDecode();
     getAngle = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    horVer = stateCodecPrimitiveDecode();
+    onOrOff = stateCodecPrimitiveDecode();
     partnerItemDrop = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
     storeY = stateCodecPrimitiveDecode();
-    clone = stateCodecIDDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    horVer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    onOrOff = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

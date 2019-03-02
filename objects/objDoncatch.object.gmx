@@ -203,23 +203,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(dist);
+    stateCodecPrimitiveEncode(imagePhaseDir);
     stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(imageTimerEndpoint);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(imagePhaseDir);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
     dist = stateCodecPrimitiveDecode();
+    imagePhaseDir = stateCodecPrimitiveDecode();
     imageTimer = stateCodecPrimitiveDecode();
     imageTimerEndpoint = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    imagePhaseDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

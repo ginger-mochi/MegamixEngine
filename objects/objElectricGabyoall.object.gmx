@@ -410,33 +410,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecDSEncode(electricityList, ds_type_list);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(blinks);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecIDEncode(partner);
-    stateCodecPrimitiveEncode(shootWait);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shootWaitTimer);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
+    stateCodecDSEncode(electricityList, ds_type_list);
     stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(init);
+    stateCodecIDEncode(partner);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shootWait);
+    stateCodecPrimitiveEncode(shootWaitTimer);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    electricityList = stateCodecDSDecode(ds_type_list);
-    spd = stateCodecPrimitiveDecode();
     blinks = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    partner = stateCodecIDDecode();
-    shootWait = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shootWaitTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    electricityList = stateCodecDSDecode(ds_type_list);
     height = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    partner = stateCodecIDDecode();
+    phase = stateCodecPrimitiveDecode();
+    shootWait = stateCodecPrimitiveDecode();
+    shootWaitTimer = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

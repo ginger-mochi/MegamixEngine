@@ -164,17 +164,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(rightBound);
-    stateCodecPrimitiveEncode(noSpeedException);
     stateCodecPrimitiveEncode(megaman);
+    stateCodecPrimitiveEncode(noSpeedException);
     stateCodecPrimitiveEncode(oil);
+    stateCodecPrimitiveEncode(rightBound);
 }
 else
 {
-    rightBound = stateCodecPrimitiveDecode();
-    noSpeedException = stateCodecPrimitiveDecode();
     megaman = stateCodecPrimitiveDecode();
+    noSpeedException = stateCodecPrimitiveDecode();
     oil = stateCodecPrimitiveDecode();
+    rightBound = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -265,25 +265,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(landingWaitTimer);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(runSpd);
-    stateCodecPrimitiveEncode(runCycleBack);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(jumpSpd);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(jumpSpd);
     stateCodecPrimitiveEncode(landingWait);
+    stateCodecPrimitiveEncode(landingWaitTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(runCycleBack);
+    stateCodecPrimitiveEncode(runSpd);
 }
 else
 {
-    landingWaitTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    runSpd = stateCodecPrimitiveDecode();
-    runCycleBack = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    jumpSpd = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    jumpSpd = stateCodecPrimitiveDecode();
     landingWait = stateCodecPrimitiveDecode();
+    landingWaitTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    runCycleBack = stateCodecPrimitiveDecode();
+    runSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

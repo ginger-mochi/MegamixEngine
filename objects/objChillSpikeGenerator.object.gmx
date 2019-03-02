@@ -185,14 +185,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(spike);
     stateCodecPrimitiveEncode(i);
+    stateCodecPrimitiveEncode(spike);
 }
 else
 {
     cooldownTimer = stateCodecPrimitiveDecode();
-    spike = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
+    spike = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

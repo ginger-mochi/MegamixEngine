@@ -114,13 +114,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spot);
     stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(spot);
 }
 else
 {
-    spot = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
+    spot = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

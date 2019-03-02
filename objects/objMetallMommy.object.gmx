@@ -313,25 +313,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownImageTimer);
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(preventFiring);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(cooldownImageMax);
-    stateCodecPrimitiveEncode(preventFiringMax);
+    stateCodecPrimitiveEncode(cooldownImageTimer);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(preventFiring);
+    stateCodecPrimitiveEncode(preventFiringMax);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    cooldownImageTimer = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
-    preventFiring = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
     cooldownImageMax = stateCodecPrimitiveDecode();
-    preventFiringMax = stateCodecPrimitiveDecode();
+    cooldownImageTimer = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    preventFiring = stateCodecPrimitiveDecode();
+    preventFiringMax = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

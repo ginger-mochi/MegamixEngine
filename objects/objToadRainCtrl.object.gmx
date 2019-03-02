@@ -245,21 +245,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(bg);
     stateCodecPrimitiveEncode(blowSpeed);
-    stateCodecPrimitiveEncode(imgalarm);
     stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(imgalarm);
     stateCodecPrimitiveEncode(moving);
     stateCodecPrimitiveEncode(mylayer);
-    stateCodecPrimitiveEncode(bg);
 }
 else
 {
+    bg = stateCodecPrimitiveDecode();
     blowSpeed = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
     img = stateCodecPrimitiveDecode();
+    imgalarm = stateCodecPrimitiveDecode();
     moving = stateCodecPrimitiveDecode();
     mylayer = stateCodecPrimitiveDecode();
-    bg = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

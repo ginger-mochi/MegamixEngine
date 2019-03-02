@@ -281,55 +281,55 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(itext);
-    stateCodecPrimitiveEncode(mugshotSpeed);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(optionPos);
-    stateCodecPrimitiveEncode(optionCount);
-    stateCodecPrimitiveEncode(name);
-    stateCodecPrimitiveEncode(offset);
-    stateCodecPrimitiveEncode(dialogueLock);
     stateCodecPrimitiveEncode(_im);
     stateCodecPrimitiveEncode(boxOffset);
+    stateCodecPrimitiveEncode(dialogueLock);
+    stateCodecPrimitiveEncode(itext);
     stateCodecPrimitiveEncode(mugshotIndex);
-    stateCodecPrimitiveEncode(showtext);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(mugshotIndexStart);
-    stateCodecPrimitiveEncode(textLength);
-    stateCodecPrimitiveEncode(pos);
-    stateCodecDSEncode(text, ds_type_list);
-    stateCodecPrimitiveEncode(optionText);
     stateCodecPrimitiveEncode(mugshotIndexEnd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(origin);
-    stateCodecPrimitiveEncode(o_event);
+    stateCodecPrimitiveEncode(mugshotIndexStart);
+    stateCodecPrimitiveEncode(mugshotSpeed);
+    stateCodecPrimitiveEncode(name);
     stateCodecPrimitiveEncode(nameCol);
+    stateCodecPrimitiveEncode(o_event);
+    stateCodecPrimitiveEncode(offset);
+    stateCodecPrimitiveEncode(optionCount);
+    stateCodecPrimitiveEncode(optionPos);
+    stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(origin);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pos);
+    stateCodecPrimitiveEncode(showtext);
+    stateCodecDSEncode(text, ds_type_list);
+    stateCodecPrimitiveEncode(textLength);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    itext = stateCodecPrimitiveDecode();
-    mugshotSpeed = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    optionPos = stateCodecPrimitiveDecode();
-    optionCount = stateCodecPrimitiveDecode();
-    name = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
-    dialogueLock = stateCodecPrimitiveDecode();
     _im = stateCodecPrimitiveDecode();
     boxOffset = stateCodecPrimitiveDecode();
+    dialogueLock = stateCodecPrimitiveDecode();
+    itext = stateCodecPrimitiveDecode();
     mugshotIndex = stateCodecPrimitiveDecode();
-    showtext = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    mugshotIndexStart = stateCodecPrimitiveDecode();
-    textLength = stateCodecPrimitiveDecode();
-    pos = stateCodecPrimitiveDecode();
-    text = stateCodecDSDecode(ds_type_list);
-    optionText = stateCodecPrimitiveDecode();
     mugshotIndexEnd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    origin = stateCodecPrimitiveDecode();
-    o_event = stateCodecPrimitiveDecode();
+    mugshotIndexStart = stateCodecPrimitiveDecode();
+    mugshotSpeed = stateCodecPrimitiveDecode();
+    name = stateCodecPrimitiveDecode();
     nameCol = stateCodecPrimitiveDecode();
+    o_event = stateCodecPrimitiveDecode();
+    offset = stateCodecPrimitiveDecode();
+    optionCount = stateCodecPrimitiveDecode();
+    optionPos = stateCodecPrimitiveDecode();
+    optionText = stateCodecPrimitiveDecode();
+    origin = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pos = stateCodecPrimitiveDecode();
+    showtext = stateCodecPrimitiveDecode();
+    text = stateCodecDSDecode(ds_type_list);
+    textLength = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

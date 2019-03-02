@@ -137,13 +137,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spawnTimer);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(spawnTimer);
 }
 else
 {
-    spawnTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    spawnTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

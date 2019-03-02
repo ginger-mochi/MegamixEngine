@@ -321,17 +321,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(nothingStruck);
-    stateCodecPrimitiveEncode(xst);
     stateCodecPrimitiveEncode(notDashing);
+    stateCodecPrimitiveEncode(nothingStruck);
     stateCodecPrimitiveEncode(slashLock);
+    stateCodecPrimitiveEncode(xst);
 }
 else
 {
-    nothingStruck = stateCodecPrimitiveDecode();
-    xst = stateCodecPrimitiveDecode();
     notDashing = stateCodecPrimitiveDecode();
+    nothingStruck = stateCodecPrimitiveDecode();
     slashLock = stateCodecPrimitiveDecode();
+    xst = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

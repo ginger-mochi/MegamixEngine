@@ -237,29 +237,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(missile);
     stateCodecPrimitiveEncode(accel);
+    stateCodecPrimitiveEncode(cosCounter);
+    stateCodecPrimitiveEncode(dives);
+    stateCodecIDEncode(missile);
     stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(ySpePrev);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(safety);
     stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(safety);
-    stateCodecPrimitiveEncode(dives);
-    stateCodecPrimitiveEncode(cosCounter);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(ySpePrev);
 }
 else
 {
-    missile = stateCodecIDDecode();
     accel = stateCodecPrimitiveDecode();
+    cosCounter = stateCodecPrimitiveDecode();
+    dives = stateCodecPrimitiveDecode();
+    missile = stateCodecIDDecode();
     moveTimer = stateCodecPrimitiveDecode();
-    ySpePrev = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    safety = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
-    safety = stateCodecPrimitiveDecode();
-    dives = stateCodecPrimitiveDecode();
-    cosCounter = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    ySpePrev = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

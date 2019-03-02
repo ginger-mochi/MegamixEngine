@@ -98,6 +98,14 @@ if (global.frozen == false)
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(flashScreen);
+}
+else
+{
+    flashScreen = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

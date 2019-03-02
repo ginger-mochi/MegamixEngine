@@ -190,13 +190,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasTurned);
     stateCodecPrimitiveEncode(canTurn);
+    stateCodecPrimitiveEncode(hasTurned);
 }
 else
 {
-    hasTurned = stateCodecPrimitiveDecode();
     canTurn = stateCodecPrimitiveDecode();
+    hasTurned = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

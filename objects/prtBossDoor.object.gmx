@@ -306,31 +306,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(closing);
-    stateCodecPrimitiveEncode(opening);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(destroyDelay);
-    stateCodecPrimitiveEncode(layer);
-    stateCodecPrimitiveEncode(doorHeight);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(type);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(isTile);
     stateCodecPrimitiveEncode(canOpen);
+    stateCodecPrimitiveEncode(closing);
+    stateCodecPrimitiveEncode(destroyDelay);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(doorHeight);
+    stateCodecPrimitiveEncode(height);
+    stateCodecPrimitiveEncode(imgSpeed);
+    stateCodecPrimitiveEncode(isTile);
+    stateCodecPrimitiveEncode(layer);
+    stateCodecPrimitiveEncode(opening);
+    stateCodecPrimitiveEncode(type);
 }
 else
 {
-    closing = stateCodecPrimitiveDecode();
-    opening = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    destroyDelay = stateCodecPrimitiveDecode();
-    layer = stateCodecPrimitiveDecode();
-    doorHeight = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    isTile = stateCodecPrimitiveDecode();
     canOpen = stateCodecPrimitiveDecode();
+    closing = stateCodecPrimitiveDecode();
+    destroyDelay = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    doorHeight = stateCodecPrimitiveDecode();
+    height = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
+    isTile = stateCodecPrimitiveDecode();
+    layer = stateCodecPrimitiveDecode();
+    opening = stateCodecPrimitiveDecode();
+    type = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

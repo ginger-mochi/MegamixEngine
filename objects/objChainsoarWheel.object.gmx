@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(reflectable);
-    stateCodecPrimitiveEncode(canLive);
     stateCodecPrimitiveEncode(accel);
     stateCodecPrimitiveEncode(bounceTimes);
-    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(canLive);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(reflectable);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    reflectable = stateCodecPrimitiveDecode();
-    canLive = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
     bounceTimes = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    canLive = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    reflectable = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

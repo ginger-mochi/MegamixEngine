@@ -199,15 +199,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(oil);
-    stateCodecPrimitiveEncode(fireSource);
     stateCodecPrimitiveEncode(fire);
+    stateCodecPrimitiveEncode(fireSource);
+    stateCodecPrimitiveEncode(oil);
 }
 else
 {
-    oil = stateCodecPrimitiveDecode();
-    fireSource = stateCodecPrimitiveDecode();
     fire = stateCodecPrimitiveDecode();
+    fireSource = stateCodecPrimitiveDecode();
+    oil = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

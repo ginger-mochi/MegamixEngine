@@ -145,14 +145,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(killTimer);
     stateCodecPrimitiveEncode(beingKilled);
+    stateCodecPrimitiveEncode(killTimer);
     stateCodecPrimitiveEncode(norespawn);
 }
 else
 {
-    killTimer = stateCodecPrimitiveDecode();
     beingKilled = stateCodecPrimitiveDecode();
+    killTimer = stateCodecPrimitiveDecode();
     norespawn = stateCodecPrimitiveDecode();
 }
 </string>

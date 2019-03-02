@@ -316,15 +316,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(isFrozen);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
     isFrozen = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

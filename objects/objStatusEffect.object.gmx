@@ -166,30 +166,32 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(statusChangedJump);
-    stateCodecPrimitiveEncode(storeJumpSpeed);
     stateCodecPrimitiveEncode(singleTrigger);
-    stateCodecPrimitiveEncode(statusCanShoot);
-    stateCodecPrimitiveEncode(statusOnIce);
-    stateCodecPrimitiveEncode(statusCanJump);
-    stateCodecPrimitiveEncode(statusChangedWalk);
     stateCodecPrimitiveEncode(statusCanClimb);
-    stateCodecPrimitiveEncode(statusJumpSpeed);
+    stateCodecPrimitiveEncode(statusCanJump);
+    stateCodecPrimitiveEncode(statusCanShoot);
     stateCodecPrimitiveEncode(statusCanSlide);
+    stateCodecPrimitiveEncode(statusChangedJump);
+    stateCodecPrimitiveEncode(statusChangedWalk);
+    stateCodecPrimitiveEncode(statusJumpSpeed);
+    stateCodecPrimitiveEncode(statusOnIce);
+    stateCodecPrimitiveEncode(statusWalkSpeed);
+    stateCodecPrimitiveEncode(storeJumpSpeed);
     stateCodecPrimitiveEncode(storeWalkSpeed);
 }
 else
 {
-    statusChangedJump = stateCodecPrimitiveDecode();
-    storeJumpSpeed = stateCodecPrimitiveDecode();
     singleTrigger = stateCodecPrimitiveDecode();
-    statusCanShoot = stateCodecPrimitiveDecode();
-    statusOnIce = stateCodecPrimitiveDecode();
-    statusCanJump = stateCodecPrimitiveDecode();
-    statusChangedWalk = stateCodecPrimitiveDecode();
     statusCanClimb = stateCodecPrimitiveDecode();
-    statusJumpSpeed = stateCodecPrimitiveDecode();
+    statusCanJump = stateCodecPrimitiveDecode();
+    statusCanShoot = stateCodecPrimitiveDecode();
     statusCanSlide = stateCodecPrimitiveDecode();
+    statusChangedJump = stateCodecPrimitiveDecode();
+    statusChangedWalk = stateCodecPrimitiveDecode();
+    statusJumpSpeed = stateCodecPrimitiveDecode();
+    statusOnIce = stateCodecPrimitiveDecode();
+    statusWalkSpeed = stateCodecPrimitiveDecode();
+    storeJumpSpeed = stateCodecPrimitiveDecode();
     storeWalkSpeed = stateCodecPrimitiveDecode();
 }
 </string>

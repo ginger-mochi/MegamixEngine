@@ -161,17 +161,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(bulletID);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecIDEncode(bulletID);
+    stateCodecPrimitiveEncode(obj);
+    stateCodecPrimitiveEncode(shooting);
 }
 else
 {
-    bulletID = stateCodecIDDecode();
-    shooting = stateCodecPrimitiveDecode();
-    obj = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    bulletID = stateCodecIDDecode();
+    obj = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

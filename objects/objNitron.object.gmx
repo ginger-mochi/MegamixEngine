@@ -170,19 +170,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dipTimer);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(dipTimer);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    dipTimer = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     radius = stateCodecPrimitiveDecode();
-    dipTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

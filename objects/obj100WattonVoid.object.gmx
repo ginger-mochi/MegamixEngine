@@ -116,15 +116,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fadephase);
-    stateCodecPrimitiveEncode(autoDieTimer);
     stateCodecPrimitiveEncode(autoDieTime);
+    stateCodecPrimitiveEncode(autoDieTimer);
+    stateCodecPrimitiveEncode(fadephase);
 }
 else
 {
-    fadephase = stateCodecPrimitiveDecode();
-    autoDieTimer = stateCodecPrimitiveDecode();
     autoDieTime = stateCodecPrimitiveDecode();
+    autoDieTimer = stateCodecPrimitiveDecode();
+    fadephase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

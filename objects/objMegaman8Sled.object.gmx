@@ -331,35 +331,35 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecDSEncode(playerProjectiles, ds_type_list);
-    stateCodecPrimitiveEncode(dead);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(yspeed);
-    stateCodecPrimitiveEncode(shootYOffset);
-    stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(viewX);
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(roundAlt);
+    stateCodecPrimitiveEncode(dead);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecDSEncode(playerProjectiles, ds_type_list);
     stateCodecIDEncode(rider);
+    stateCodecPrimitiveEncode(riderPhysicsAllowed);
+    stateCodecPrimitiveEncode(roundAlt);
+    stateCodecPrimitiveEncode(shootYOffset);
+    stateCodecPrimitiveEncode(viewX);
+    stateCodecPrimitiveEncode(weaponsAllowed);
+    stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    playerProjectiles = stateCodecDSDecode(ds_type_list);
-    dead = stateCodecPrimitiveDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
-    viewX = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
-    roundAlt = stateCodecPrimitiveDecode();
+    dead = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    maxSpeed = stateCodecPrimitiveDecode();
+    playerProjectiles = stateCodecDSDecode(ds_type_list);
     rider = stateCodecIDDecode();
+    riderPhysicsAllowed = stateCodecPrimitiveDecode();
+    roundAlt = stateCodecPrimitiveDecode();
+    shootYOffset = stateCodecPrimitiveDecode();
+    viewX = stateCodecPrimitiveDecode();
+    weaponsAllowed = stateCodecPrimitiveDecode();
+    xspeed = stateCodecPrimitiveDecode();
+    yspeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

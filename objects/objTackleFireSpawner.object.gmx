@@ -157,19 +157,19 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(alarmDrop);
-    stateCodecPrimitiveEncode(spawnWait);
-    stateCodecPrimitiveEncode(spacing);
-    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(num);
+    stateCodecPrimitiveEncode(spacing);
+    stateCodecPrimitiveEncode(spawnWait);
+    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
     alarmDrop = stateCodecPrimitiveDecode();
-    spawnWait = stateCodecPrimitiveDecode();
-    spacing = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
     num = stateCodecPrimitiveDecode();
+    spacing = stateCodecPrimitiveDecode();
+    spawnWait = stateCodecPrimitiveDecode();
+    startWait = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

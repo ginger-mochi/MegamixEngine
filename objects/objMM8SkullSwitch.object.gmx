@@ -126,13 +126,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(inverse);
+    stateCodecPrimitiveEncode(myFlag);
 }
 else
 {
-    myFlag = stateCodecPrimitiveDecode();
     inverse = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

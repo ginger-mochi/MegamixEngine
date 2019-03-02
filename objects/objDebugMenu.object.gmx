@@ -398,21 +398,21 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(endy);
-    stateCodecPrimitiveEncode(playerID);
-    stateCodecPrimitiveEncode(pauseLock);
-    stateCodecPrimitiveEncode(optionText);
     stateCodecPrimitiveEncode(mode);
     stateCodecPrimitiveEncode(option);
+    stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(pauseLock);
+    stateCodecPrimitiveEncode(playerID);
     stateCodecPrimitiveEncode(quickScrollTimer);
 }
 else
 {
     endy = stateCodecPrimitiveDecode();
-    playerID = stateCodecPrimitiveDecode();
-    pauseLock = stateCodecPrimitiveDecode();
-    optionText = stateCodecPrimitiveDecode();
     mode = stateCodecPrimitiveDecode();
     option = stateCodecPrimitiveDecode();
+    optionText = stateCodecPrimitiveDecode();
+    pauseLock = stateCodecPrimitiveDecode();
+    playerID = stateCodecPrimitiveDecode();
     quickScrollTimer = stateCodecPrimitiveDecode();
 }
 </string>

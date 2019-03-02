@@ -99,21 +99,23 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(tileWidth);
-    stateCodecPrimitiveEncode(tileLeft);
-    stateCodecPrimitiveEncode(tileTop);
+    stateCodecPrimitiveEncode(isGround);
+    stateCodecPrimitiveEncode(tile);
     stateCodecPrimitiveEncode(tileBG);
     stateCodecPrimitiveEncode(tileHeight);
-    stateCodecPrimitiveEncode(tile);
+    stateCodecPrimitiveEncode(tileLeft);
+    stateCodecPrimitiveEncode(tileTop);
+    stateCodecPrimitiveEncode(tileWidth);
 }
 else
 {
-    tileWidth = stateCodecPrimitiveDecode();
-    tileLeft = stateCodecPrimitiveDecode();
-    tileTop = stateCodecPrimitiveDecode();
+    isGround = stateCodecPrimitiveDecode();
+    tile = stateCodecPrimitiveDecode();
     tileBG = stateCodecPrimitiveDecode();
     tileHeight = stateCodecPrimitiveDecode();
-    tile = stateCodecPrimitiveDecode();
+    tileLeft = stateCodecPrimitiveDecode();
+    tileTop = stateCodecPrimitiveDecode();
+    tileWidth = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -346,25 +346,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attached);
-    stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(maxVspeed);
     stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(stepend);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(wallwait);
+    stateCodecPrimitiveEncode(attached);
     stateCodecPrimitiveEncode(bounceTimes);
+    stateCodecPrimitiveEncode(jumpSpeed);
+    stateCodecPrimitiveEncode(maxVspeed);
+    stateCodecPrimitiveEncode(stepend);
+    stateCodecPrimitiveEncode(wallwait);
+    stateCodecPrimitiveEncode(xx);
 }
 else
 {
-    attached = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
-    maxVspeed = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
-    stepend = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    wallwait = stateCodecPrimitiveDecode();
+    attached = stateCodecPrimitiveDecode();
     bounceTimes = stateCodecPrimitiveDecode();
+    jumpSpeed = stateCodecPrimitiveDecode();
+    maxVspeed = stateCodecPrimitiveDecode();
+    stepend = stateCodecPrimitiveDecode();
+    wallwait = stateCodecPrimitiveDecode();
+    xx = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

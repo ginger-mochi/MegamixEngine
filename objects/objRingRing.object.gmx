@@ -182,16 +182,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(megay);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(megax);
+    stateCodecPrimitiveEncode(megay);
 }
 else
 {
     col = stateCodecPrimitiveDecode();
-    megay = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     megax = stateCodecPrimitiveDecode();
+    megay = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

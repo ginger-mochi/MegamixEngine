@@ -225,19 +225,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(canShoot);
+    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(isDancing);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
-    canShoot = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    canShoot = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
     isDancing = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

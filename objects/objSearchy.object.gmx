@@ -172,23 +172,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(searchyImage);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(lightImage);
+    stateCodecPrimitiveEncode(lightTimer);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(searchlight);
-    stateCodecPrimitiveEncode(lightTimer);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(searchyImage);
 }
 else
 {
-    searchyImage = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     lightImage = stateCodecPrimitiveDecode();
+    lightTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     searchlight = stateCodecPrimitiveDecode();
-    lightTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    searchyImage = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

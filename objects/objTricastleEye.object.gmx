@@ -224,25 +224,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasCannon);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(anim);
-    stateCodecIDEncode(cannon);
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecIDEncode(cannon);
+    stateCodecPrimitiveEncode(hasCannon);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    hasCannon = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
-    cannon = stateCodecIDDecode();
+    animFrame = stateCodecPrimitiveDecode();
+    animSpeed = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    cannon = stateCodecIDDecode();
+    hasCannon = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

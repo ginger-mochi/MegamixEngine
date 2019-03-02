@@ -206,15 +206,15 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(initialDelay);
+    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
     active = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     initialDelay = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
     waitTimer = stateCodecPrimitiveDecode();
 }
 </string>

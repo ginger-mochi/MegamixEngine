@@ -381,29 +381,29 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecDSEncode(roomnames, ds_type_list);
     stateCodecPrimitiveEncode(endx);
-    stateCodecPrimitiveEncode(nonLevels);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(quickScrollTimer);
     stateCodecPrimitiveEncode(lr);
-    stateCodecDSEncode(roomlist, ds_type_list);
     stateCodecPrimitiveEncode(n);
+    stateCodecPrimitiveEncode(nonLevels);
+    stateCodecPrimitiveEncode(quickScrollTimer);
+    stateCodecDSEncode(roomlist, ds_type_list);
+    stateCodecDSEncode(roomnames, ds_type_list);
     stateCodecPrimitiveEncode(selected);
     stateCodecPrimitiveEncode(shift);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    roomnames = stateCodecDSDecode(ds_type_list);
     endx = stateCodecPrimitiveDecode();
-    nonLevels = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    quickScrollTimer = stateCodecPrimitiveDecode();
     lr = stateCodecPrimitiveDecode();
-    roomlist = stateCodecDSDecode(ds_type_list);
     n = stateCodecPrimitiveDecode();
+    nonLevels = stateCodecPrimitiveDecode();
+    quickScrollTimer = stateCodecPrimitiveDecode();
+    roomlist = stateCodecDSDecode(ds_type_list);
+    roomnames = stateCodecDSDecode(ds_type_list);
     selected = stateCodecPrimitiveDecode();
     shift = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

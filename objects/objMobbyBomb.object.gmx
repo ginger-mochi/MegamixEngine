@@ -120,16 +120,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(missleDir);
-    stateCodecPrimitiveEncode(getX);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(missleDir);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
-    missleDir = stateCodecPrimitiveDecode();
-    getX = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    getX = stateCodecPrimitiveDecode();
+    missleDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

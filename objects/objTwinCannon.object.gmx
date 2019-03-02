@@ -160,19 +160,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(twinCooldown);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(animEndme);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(twinCooldown);
 }
 else
 {
-    twinCooldown = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     animEndme = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    twinCooldown = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

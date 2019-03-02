@@ -512,45 +512,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(resetY);
-    stateCodecPrimitiveEncode(locationY);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(deadlyShadowClones);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(walkX);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(guard);
+    stateCodecPrimitiveEncode(hasFired);
     stateCodecPrimitiveEncode(imageNoMin);
     stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(moveToLocation);
     stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(timesMoved);
-    stateCodecDSEncode(shadowClones, ds_type_list);
-    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(locationX);
+    stateCodecPrimitiveEncode(locationY);
+    stateCodecPrimitiveEncode(moveToLocation);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(guard);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(resetY);
+    stateCodecDSEncode(shadowClones, ds_type_list);
+    stateCodecPrimitiveEncode(timesMoved);
+    stateCodecPrimitiveEncode(walkX);
 }
 else
 {
-    resetY = stateCodecPrimitiveDecode();
-    locationY = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     deadlyShadowClones = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    guard = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
     imageNoMin = stateCodecPrimitiveDecode();
     imageTimer = stateCodecPrimitiveDecode();
-    moveToLocation = stateCodecPrimitiveDecode();
     imageTimerMax = stateCodecPrimitiveDecode();
-    timesMoved = stateCodecPrimitiveDecode();
-    shadowClones = stateCodecDSDecode(ds_type_list);
-    delay = stateCodecPrimitiveDecode();
     locationX = stateCodecPrimitiveDecode();
+    locationY = stateCodecPrimitiveDecode();
+    moveToLocation = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    guard = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    resetY = stateCodecPrimitiveDecode();
+    shadowClones = stateCodecDSDecode(ds_type_list);
+    timesMoved = stateCodecPrimitiveDecode();
+    walkX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

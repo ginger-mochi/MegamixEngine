@@ -142,17 +142,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(usePlayerColor);
     stateCodecPrimitiveEncode(goToMercury);
     stateCodecPrimitiveEncode(hlth);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(usePlayerColor);
 }
 else
 {
-    usePlayerColor = stateCodecPrimitiveDecode();
     goToMercury = stateCodecPrimitiveDecode();
     hlth = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    usePlayerColor = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

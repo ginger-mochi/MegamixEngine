@@ -303,31 +303,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(currentShootCount);
     stateCodecPrimitiveEncode(animImage);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(shootTimerMax);
-    stateCodecPrimitiveEncode(shootImage);
-    stateCodecPrimitiveEncode(currentAngle);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(currentAngle);
+    stateCodecPrimitiveEncode(currentShootCount);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(shootCount);
+    stateCodecPrimitiveEncode(shootImage);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shootTimerMax);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    shootCount = stateCodecPrimitiveDecode();
-    currentShootCount = stateCodecPrimitiveDecode();
     animImage = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    shootTimerMax = stateCodecPrimitiveDecode();
-    shootImage = stateCodecPrimitiveDecode();
-    currentAngle = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    currentAngle = stateCodecPrimitiveDecode();
+    currentShootCount = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    shootCount = stateCodecPrimitiveDecode();
+    shootImage = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shootTimerMax = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

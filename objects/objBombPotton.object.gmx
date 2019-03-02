@@ -276,29 +276,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(deccel);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(onlyDamageMines);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(newX);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(explosionLenght);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(deccel);
+    stateCodecPrimitiveEncode(explosionLenght);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(newX);
+    stateCodecPrimitiveEncode(onlyDamageMines);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    deccel = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    onlyDamageMines = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    newX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    explosionLenght = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    deccel = stateCodecPrimitiveDecode();
+    explosionLenght = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    newX = stateCodecPrimitiveDecode();
+    onlyDamageMines = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -144,13 +144,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(triggered);
     stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(triggered);
 }
 else
 {
-    triggered = stateCodecPrimitiveDecode();
     maxSpeed = stateCodecPrimitiveDecode();
+    triggered = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

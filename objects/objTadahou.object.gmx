@@ -183,25 +183,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(shootWait);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(turnAroundWaitDiff);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(startFacingPlayer);
+    stateCodecPrimitiveEncode(turnAroundWaitDiff);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
     shootWait = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    turnAroundWaitDiff = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     startFacingPlayer = stateCodecPrimitiveDecode();
+    turnAroundWaitDiff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

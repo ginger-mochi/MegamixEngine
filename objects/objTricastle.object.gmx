@@ -318,33 +318,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startTime);
-    stateCodecPrimitiveEncode(shooter);
-    stateCodecPrimitiveEncode(flagImage);
-    stateCodecPrimitiveEncode(masterTimer);
-    stateCodecPrimitiveEncode(platHeight);
-    stateCodecIDEncode(leftTower);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(center);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecIDEncode(rightTower);
+    stateCodecIDEncode(center);
+    stateCodecPrimitiveEncode(flagImage);
     stateCodecPrimitiveEncode(flagYO);
+    stateCodecIDEncode(leftTower);
+    stateCodecPrimitiveEncode(masterTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(platHeight);
+    stateCodecIDEncode(rightTower);
+    stateCodecPrimitiveEncode(shooter);
+    stateCodecPrimitiveEncode(startTime);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    startTime = stateCodecPrimitiveDecode();
-    shooter = stateCodecPrimitiveDecode();
-    flagImage = stateCodecPrimitiveDecode();
-    masterTimer = stateCodecPrimitiveDecode();
-    platHeight = stateCodecPrimitiveDecode();
-    leftTower = stateCodecIDDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    center = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rightTower = stateCodecIDDecode();
+    center = stateCodecIDDecode();
+    flagImage = stateCodecPrimitiveDecode();
     flagYO = stateCodecPrimitiveDecode();
+    leftTower = stateCodecIDDecode();
+    masterTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    platHeight = stateCodecPrimitiveDecode();
+    rightTower = stateCodecIDDecode();
+    shooter = stateCodecPrimitiveDecode();
+    startTime = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

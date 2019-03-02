@@ -120,25 +120,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(weapon);
     stateCodecPrimitiveEncode(destroyIfUnlocked);
     stateCodecPrimitiveEncode(infiniteEnergy);
-    stateCodecPrimitiveEncode(weaponID);
+    stateCodecPrimitiveEncode(levelReward);
+    stateCodecPrimitiveEncode(lockBuster);
     stateCodecPrimitiveEncode(lockToWeapon);
     stateCodecPrimitiveEncode(lockWeapon);
-    stateCodecPrimitiveEncode(lockBuster);
-    stateCodecPrimitiveEncode(levelReward);
+    stateCodecPrimitiveEncode(weapon);
+    stateCodecPrimitiveEncode(weaponID);
 }
 else
 {
-    weapon = stateCodecPrimitiveDecode();
     destroyIfUnlocked = stateCodecPrimitiveDecode();
     infiniteEnergy = stateCodecPrimitiveDecode();
-    weaponID = stateCodecPrimitiveDecode();
+    levelReward = stateCodecPrimitiveDecode();
+    lockBuster = stateCodecPrimitiveDecode();
     lockToWeapon = stateCodecPrimitiveDecode();
     lockWeapon = stateCodecPrimitiveDecode();
-    lockBuster = stateCodecPrimitiveDecode();
-    levelReward = stateCodecPrimitiveDecode();
+    weapon = stateCodecPrimitiveDecode();
+    weaponID = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

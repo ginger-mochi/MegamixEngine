@@ -250,17 +250,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(shotsFired);
 }
 else
 {
-    shotsFired = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -272,25 +272,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(objectThrown);
-    stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(beginShoot);
-    stateCodecPrimitiveEncode(timerAdd);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(imageTimerMax);
+    stateCodecPrimitiveEncode(objectThrown);
+    stateCodecPrimitiveEncode(timerAdd);
 }
 else
 {
-    objectThrown = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
     beginShoot = stateCodecPrimitiveDecode();
-    timerAdd = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    imageTimerMax = stateCodecPrimitiveDecode();
+    objectThrown = stateCodecPrimitiveDecode();
+    timerAdd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

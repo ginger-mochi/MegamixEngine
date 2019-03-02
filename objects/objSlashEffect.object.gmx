@@ -101,15 +101,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(half);
     stateCodecPrimitiveEncode(xspeed);
     stateCodecPrimitiveEncode(yspeed);
-    stateCodecPrimitiveEncode(half);
 }
 else
 {
+    half = stateCodecPrimitiveDecode();
     xspeed = stateCodecPrimitiveDecode();
     yspeed = stateCodecPrimitiveDecode();
-    half = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

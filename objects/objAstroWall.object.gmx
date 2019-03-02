@@ -365,49 +365,57 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(rippleAnimationInterval);
-    stateCodecPrimitiveEncode(entityXScale);
-    stateCodecPrimitiveEncode(firstFrame);
-    stateCodecPrimitiveEncode(popN);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(entityWidth);
+    stateCodecPrimitiveEncode(DEFAULT_SPAWN_LIST);
+    stateCodecPrimitiveEncode(dropInterval);
     stateCodecPrimitiveEncode(entityHeight);
     stateCodecPrimitiveEncode(entityN);
     stateCodecPrimitiveEncode(entityObject);
+    stateCodecPrimitiveEncode(entityPop);
     stateCodecPrimitiveEncode(entitySprite);
-    stateCodecPrimitiveEncode(dropInterval);
-    stateCodecPrimitiveEncode(entityYSpeed);
+    stateCodecPrimitiveEncode(entityWidth);
+    stateCodecPrimitiveEncode(entityX);
+    stateCodecPrimitiveEncode(entityXScale);
     stateCodecPrimitiveEncode(entityXSpeed);
-    stateCodecPrimitiveEncode(spawnDensity);
-    stateCodecPrimitiveEncode(spawnList);
+    stateCodecPrimitiveEncode(entityYSpeed);
+    stateCodecPrimitiveEncode(firstFrame);
     stateCodecPrimitiveEncode(isMaster);
     stateCodecIDEncode(master);
-    stateCodecPrimitiveEncode(rippleAnimationSprite);
-    stateCodecPrimitiveEncode(DEFAULT_SPAWN_LIST);
     stateCodecPrimitiveEncode(minDist);
+    stateCodecPrimitiveEncode(popList);
+    stateCodecPrimitiveEncode(popN);
+    stateCodecPrimitiveEncode(rippleAnimationInterval);
+    stateCodecPrimitiveEncode(rippleAnimationSprite);
+    stateCodecPrimitiveEncode(rippleN);
+    stateCodecPrimitiveEncode(spawnDensity);
+    stateCodecPrimitiveEncode(spawnList);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    rippleAnimationInterval = stateCodecPrimitiveDecode();
-    entityXScale = stateCodecPrimitiveDecode();
-    firstFrame = stateCodecPrimitiveDecode();
-    popN = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    entityWidth = stateCodecPrimitiveDecode();
+    DEFAULT_SPAWN_LIST = stateCodecPrimitiveDecode();
+    dropInterval = stateCodecPrimitiveDecode();
     entityHeight = stateCodecPrimitiveDecode();
     entityN = stateCodecPrimitiveDecode();
     entityObject = stateCodecPrimitiveDecode();
+    entityPop = stateCodecPrimitiveDecode();
     entitySprite = stateCodecPrimitiveDecode();
-    dropInterval = stateCodecPrimitiveDecode();
-    entityYSpeed = stateCodecPrimitiveDecode();
+    entityWidth = stateCodecPrimitiveDecode();
+    entityX = stateCodecPrimitiveDecode();
+    entityXScale = stateCodecPrimitiveDecode();
     entityXSpeed = stateCodecPrimitiveDecode();
-    spawnDensity = stateCodecPrimitiveDecode();
-    spawnList = stateCodecPrimitiveDecode();
+    entityYSpeed = stateCodecPrimitiveDecode();
+    firstFrame = stateCodecPrimitiveDecode();
     isMaster = stateCodecPrimitiveDecode();
     master = stateCodecIDDecode();
-    rippleAnimationSprite = stateCodecPrimitiveDecode();
-    DEFAULT_SPAWN_LIST = stateCodecPrimitiveDecode();
     minDist = stateCodecPrimitiveDecode();
+    popList = stateCodecPrimitiveDecode();
+    popN = stateCodecPrimitiveDecode();
+    rippleAnimationInterval = stateCodecPrimitiveDecode();
+    rippleAnimationSprite = stateCodecPrimitiveDecode();
+    rippleN = stateCodecPrimitiveDecode();
+    spawnDensity = stateCodecPrimitiveDecode();
+    spawnList = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

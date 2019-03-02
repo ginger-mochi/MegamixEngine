@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(walkX);
-    stateCodecPrimitiveEncode(jumped);
-    stateCodecPrimitiveEncode(timeToJump);
     stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(fallen);
     stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(jumped);
+    stateCodecPrimitiveEncode(timeToJump);
     stateCodecPrimitiveEncode(turnAroundDelay);
+    stateCodecPrimitiveEncode(walkX);
 }
 else
 {
-    walkX = stateCodecPrimitiveDecode();
-    jumped = stateCodecPrimitiveDecode();
-    timeToJump = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
     fallen = stateCodecPrimitiveDecode();
     jumpY = stateCodecPrimitiveDecode();
+    jumped = stateCodecPrimitiveDecode();
+    timeToJump = stateCodecPrimitiveDecode();
     turnAroundDelay = stateCodecPrimitiveDecode();
+    walkX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

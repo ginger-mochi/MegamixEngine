@@ -162,16 +162,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(playUFOSounds);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(playUFOSounds);
     stateCodecPrimitiveEncode(sinCounter);
 }
 else
 {
-    playUFOSounds = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
+    playUFOSounds = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
 }
 </string>

@@ -177,25 +177,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attack);
+    stateCodecPrimitiveEncode(blink);
+    stateCodecPrimitiveEncode(blinkTimer);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(flipDir);
     stateCodecPrimitiveEncode(flipperIndex);
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(attack);
+    stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
+    attack = stateCodecPrimitiveDecode();
+    blink = stateCodecPrimitiveDecode();
+    blinkTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     flipDir = stateCodecPrimitiveDecode();
     flipperIndex = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
-    blink = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    attack = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

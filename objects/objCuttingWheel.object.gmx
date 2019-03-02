@@ -197,16 +197,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(mode);
     stateCodecPrimitiveEncode(action);
     stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(mode);
 }
 else
 {
     accel = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
     maxSpeed = stateCodecPrimitiveDecode();
+    mode = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -142,17 +142,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(trueX);
     stateCodecPrimitiveEncode(trueY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(dir);
 }
 else
 {
+    dir = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
     trueX = stateCodecPrimitiveDecode();
     trueY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

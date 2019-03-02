@@ -467,34 +467,34 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imageNoMin);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(beginAttackTimer);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(imageNoMin);
     stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(setX);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(setX);
     stateCodecPrimitiveEncode(setY);
 }
 else
 {
-    imageNoMin = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
     beginAttackTimer = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    imageNoMin = stateCodecPrimitiveDecode();
     imageTimer = stateCodecPrimitiveDecode();
     imageTimerMax = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    setX = stateCodecPrimitiveDecode();
     setY = stateCodecPrimitiveDecode();
 }
 </string>

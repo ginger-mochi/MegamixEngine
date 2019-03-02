@@ -551,43 +551,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(choosePhase);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(prevDepth);
-    stateCodecPrimitiveEncode(myTileDepth);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(isHard);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(shakeTimer);
     stateCodecIDEncode(block);
-    stateCodecPrimitiveEncode(lastPhase);
+    stateCodecPrimitiveEncode(canInitShoot);
+    stateCodecPrimitiveEncode(choosePhase);
     stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(newX);
+    stateCodecPrimitiveEncode(isHard);
     stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(lastPhase);
+    stateCodecPrimitiveEncode(myTileDepth);
+    stateCodecPrimitiveEncode(newX);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(prevDepth);
+    stateCodecPrimitiveEncode(shakeTimer);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    choosePhase = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    prevDepth = stateCodecPrimitiveDecode();
-    myTileDepth = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    isHard = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    shakeTimer = stateCodecPrimitiveDecode();
     block = stateCodecIDDecode();
-    lastPhase = stateCodecPrimitiveDecode();
+    canInitShoot = stateCodecPrimitiveDecode();
+    choosePhase = stateCodecPrimitiveDecode();
     getLastXspeed = stateCodecPrimitiveDecode();
-    newX = stateCodecPrimitiveDecode();
+    isHard = stateCodecPrimitiveDecode();
     jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    lastPhase = stateCodecPrimitiveDecode();
+    myTileDepth = stateCodecPrimitiveDecode();
+    newX = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    prevDepth = stateCodecPrimitiveDecode();
+    shakeTimer = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

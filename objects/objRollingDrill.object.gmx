@@ -233,15 +233,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecIDEncode(mysolid);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecIDEncode(mysolid);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    mysolid = stateCodecIDDecode();
     calibrated = stateCodecPrimitiveDecode();
+    mysolid = stateCodecIDDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

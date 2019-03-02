@@ -155,15 +155,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(spawnFire);
-    stateCodecPrimitiveEncode(style);
     stateCodecPrimitiveEncode(raiseTimer);
+    stateCodecIDArrayEncode(spawnFire);
+    stateCodecPrimitiveEncode(style);
 }
 else
 {
-    spawnFire = stateCodecIDDecode();
-    style = stateCodecPrimitiveDecode();
     raiseTimer = stateCodecPrimitiveDecode();
+    spawnFire = stateCodecIDArrayDecode();
+    style = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -121,15 +121,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(delayContact);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     delayContact = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

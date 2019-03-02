@@ -406,35 +406,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(destination);
+    stateCodecPrimitiveEncode(dispenseOffScreen);
+    stateCodecPrimitiveEncode(dstTag);
+    stateCodecPrimitiveEncode(flightTimer);
+    stateCodecPrimitiveEncode(nComplete);
     stateCodecPrimitiveEncode(spawnTimer);
+    stateCodecPrimitiveEncode(startFull);
+    stateCodecPrimitiveEncode(tackleFireFlightTime);
+    stateCodecPrimitiveEncode(tackleFireInterval);
+    stateCodecPrimitiveEncode(tackleFireN);
+    stateCodecPrimitiveEncode(tackleFireWarmupTime);
     stateCodecPrimitiveEncode(tag);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(dispenseOffScreen);
-    stateCodecPrimitiveEncode(destination);
-    stateCodecPrimitiveEncode(tackleFireInterval);
-    stateCodecPrimitiveEncode(tackleFireWarmupTime);
-    stateCodecPrimitiveEncode(nComplete);
-    stateCodecPrimitiveEncode(flightTimer);
-    stateCodecPrimitiveEncode(startFull);
-    stateCodecPrimitiveEncode(tackleFireN);
-    stateCodecPrimitiveEncode(dstTag);
-    stateCodecPrimitiveEncode(tackleFireFlightTime);
 }
 else
 {
+    destination = stateCodecPrimitiveDecode();
+    dispenseOffScreen = stateCodecPrimitiveDecode();
+    dstTag = stateCodecPrimitiveDecode();
+    flightTimer = stateCodecPrimitiveDecode();
+    nComplete = stateCodecPrimitiveDecode();
     spawnTimer = stateCodecPrimitiveDecode();
+    startFull = stateCodecPrimitiveDecode();
+    tackleFireFlightTime = stateCodecPrimitiveDecode();
+    tackleFireInterval = stateCodecPrimitiveDecode();
+    tackleFireN = stateCodecPrimitiveDecode();
+    tackleFireWarmupTime = stateCodecPrimitiveDecode();
     tag = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    dispenseOffScreen = stateCodecPrimitiveDecode();
-    destination = stateCodecPrimitiveDecode();
-    tackleFireInterval = stateCodecPrimitiveDecode();
-    tackleFireWarmupTime = stateCodecPrimitiveDecode();
-    nComplete = stateCodecPrimitiveDecode();
-    flightTimer = stateCodecPrimitiveDecode();
-    startFull = stateCodecPrimitiveDecode();
-    tackleFireN = stateCodecPrimitiveDecode();
-    dstTag = stateCodecPrimitiveDecode();
-    tackleFireFlightTime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

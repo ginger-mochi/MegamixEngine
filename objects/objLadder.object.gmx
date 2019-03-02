@@ -65,12 +65,10 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(mytop);
-    stateCodecPrimitiveEncode(isSolid);
 }
 else
 {
     mytop = stateCodecPrimitiveDecode();
-    isSolid = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

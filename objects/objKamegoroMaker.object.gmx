@@ -272,23 +272,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delayPipe);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecIDEncode(chosenPipe);
+    stateCodecPrimitiveEncode(delayPipe);
+    stateCodecPrimitiveEncode(moveDir);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(shotsFired);
 }
 else
 {
-    delayPipe = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     chosenPipe = stateCodecIDDecode();
+    delayPipe = stateCodecPrimitiveDecode();
+    moveDir = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

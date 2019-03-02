@@ -157,15 +157,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sprite);
     stateCodecPrimitiveEncode(imgSpeed);
     stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(sprite);
 }
 else
 {
-    sprite = stateCodecPrimitiveDecode();
     imgSpeed = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
+    sprite = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

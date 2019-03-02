@@ -180,19 +180,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(endTimer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(tailWag);
-    stateCodecPrimitiveEncode(tailIndex);
+    stateCodecPrimitiveEncode(endTimer);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(tailIndex);
+    stateCodecPrimitiveEncode(tailWag);
 }
 else
 {
-    endTimer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    tailWag = stateCodecPrimitiveDecode();
-    tailIndex = stateCodecPrimitiveDecode();
+    endTimer = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    tailIndex = stateCodecPrimitiveDecode();
+    tailWag = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

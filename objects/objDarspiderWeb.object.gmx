@@ -118,23 +118,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yspd);
-    stateCodecPrimitiveEncode(loops);
     stateCodecPrimitiveEncode(grv);
-    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(loops);
     stateCodecPrimitiveEncode(noFlicker);
-    stateCodecPrimitiveEncode(yend);
+    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(yend);
+    stateCodecPrimitiveEncode(yspd);
 }
 else
 {
-    yspd = stateCodecPrimitiveDecode();
-    loops = stateCodecPrimitiveDecode();
     grv = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
+    loops = stateCodecPrimitiveDecode();
     noFlicker = stateCodecPrimitiveDecode();
-    yend = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    yend = stateCodecPrimitiveDecode();
+    yspd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

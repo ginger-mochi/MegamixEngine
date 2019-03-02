@@ -442,33 +442,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(yMoveDir);
-    stateCodecPrimitiveEncode(hasTriggeredQuake);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(jumpY);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(hasTriggeredQuake);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shakeTimer);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(yMoveDir);
 }
 else
 {
-    shakeTimer = stateCodecPrimitiveDecode();
-    yMoveDir = stateCodecPrimitiveDecode();
-    hasTriggeredQuake = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    hasTriggeredQuake = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shakeTimer = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    yMoveDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

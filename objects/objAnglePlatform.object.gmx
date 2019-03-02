@@ -269,25 +269,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timeri);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(touched);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(canDrop);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(iphase);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timeri);
+    stateCodecPrimitiveEncode(touched);
 }
 else
 {
-    timeri = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    touched = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     canDrop = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     iphase = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    timeri = stateCodecPrimitiveDecode();
+    touched = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -109,15 +109,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timerMax);
     stateCodecPrimitiveEncode(disclaimerText);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timerMax);
 }
 else
 {
-    timerMax = stateCodecPrimitiveDecode();
     disclaimerText = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    timerMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

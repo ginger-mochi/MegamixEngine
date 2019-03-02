@@ -260,18 +260,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(spawnTimer);
-    stateCodecPrimitiveEncode(number);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpeed);
+    stateCodecPrimitiveEncode(number);
+    stateCodecPrimitiveEncode(spawnTimer);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    imgSpeed = stateCodecPrimitiveDecode();
-    spawnTimer = stateCodecPrimitiveDecode();
-    number = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
+    number = stateCodecPrimitiveDecode();
+    spawnTimer = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

@@ -320,46 +320,48 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(reverse);
+    stateCodecPrimitiveEncode(animBackgrounds);
     stateCodecPrimitiveEncode(animDelays);
-    stateCodecPrimitiveEncode(animTotal);
-    stateCodecPrimitiveEncode(regionHeight);
-    stateCodecPrimitiveEncode(animType);
     stateCodecPrimitiveEncode(animFrames);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(regionLeft);
-    stateCodecPrimitiveEncode(animTimers);
-    stateCodecPrimitiveEncode(animSpeeds);
-    stateCodecPrimitiveEncode(deleteOriginals);
-    stateCodecPrimitiveEncode(animLengths);
-    stateCodecPrimitiveEncode(animLayerOffset);
-    stateCodecPrimitiveEncode(animateOnTransition);
     stateCodecPrimitiveEncode(animLayer);
+    stateCodecPrimitiveEncode(animLayerOffset);
+    stateCodecPrimitiveEncode(animLengths);
+    stateCodecPrimitiveEncode(animSpeeds);
+    stateCodecPrimitiveEncode(animTimers);
+    stateCodecPrimitiveEncode(animTotal);
+    stateCodecPrimitiveEncode(animType);
+    stateCodecPrimitiveEncode(animateOnTransition);
     stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(regionWidth);
+    stateCodecPrimitiveEncode(deleteOriginals);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(regionHeight);
+    stateCodecPrimitiveEncode(regionLeft);
     stateCodecPrimitiveEncode(regionTop);
+    stateCodecPrimitiveEncode(regionWidth);
+    stateCodecPrimitiveEncode(reverse);
     stateCodecPrimitiveEncode(stopOnFlash);
 }
 else
 {
-    reverse = stateCodecPrimitiveDecode();
+    animBackgrounds = stateCodecPrimitiveDecode();
     animDelays = stateCodecPrimitiveDecode();
-    animTotal = stateCodecPrimitiveDecode();
-    regionHeight = stateCodecPrimitiveDecode();
-    animType = stateCodecPrimitiveDecode();
     animFrames = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    regionLeft = stateCodecPrimitiveDecode();
-    animTimers = stateCodecPrimitiveDecode();
-    animSpeeds = stateCodecPrimitiveDecode();
-    deleteOriginals = stateCodecPrimitiveDecode();
-    animLengths = stateCodecPrimitiveDecode();
-    animLayerOffset = stateCodecPrimitiveDecode();
-    animateOnTransition = stateCodecPrimitiveDecode();
     animLayer = stateCodecPrimitiveDecode();
+    animLayerOffset = stateCodecPrimitiveDecode();
+    animLengths = stateCodecPrimitiveDecode();
+    animSpeeds = stateCodecPrimitiveDecode();
+    animTimers = stateCodecPrimitiveDecode();
+    animTotal = stateCodecPrimitiveDecode();
+    animType = stateCodecPrimitiveDecode();
+    animateOnTransition = stateCodecPrimitiveDecode();
     delayTimer = stateCodecPrimitiveDecode();
-    regionWidth = stateCodecPrimitiveDecode();
+    deleteOriginals = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    regionHeight = stateCodecPrimitiveDecode();
+    regionLeft = stateCodecPrimitiveDecode();
     regionTop = stateCodecPrimitiveDecode();
+    regionWidth = stateCodecPrimitiveDecode();
+    reverse = stateCodecPrimitiveDecode();
     stopOnFlash = stateCodecPrimitiveDecode();
 }
 </string>

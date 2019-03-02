@@ -195,21 +195,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(origX);
     stateCodecPrimitiveEncode(comeBack);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(stopHere);
-    stateCodecPrimitiveEncode(orbit);
     stateCodecPrimitiveEncode(limitX);
+    stateCodecPrimitiveEncode(orbit);
+    stateCodecPrimitiveEncode(origX);
+    stateCodecPrimitiveEncode(stopHere);
 }
 else
 {
-    origX = stateCodecPrimitiveDecode();
     comeBack = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    stopHere = stateCodecPrimitiveDecode();
-    orbit = stateCodecPrimitiveDecode();
     limitX = stateCodecPrimitiveDecode();
+    orbit = stateCodecPrimitiveDecode();
+    origX = stateCodecPrimitiveDecode();
+    stopHere = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

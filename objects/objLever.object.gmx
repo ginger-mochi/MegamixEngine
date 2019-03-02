@@ -181,23 +181,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(oneShot);
-    stateCodecPrimitiveEncode(uptag);
-    stateCodecPrimitiveEncode(touchingPlayer);
-    stateCodecPrimitiveEncode(state);
-    stateCodecPrimitiveEncode(flipped);
     stateCodecPrimitiveEncode(downtag);
+    stateCodecPrimitiveEncode(flipped);
+    stateCodecPrimitiveEncode(oneShot);
+    stateCodecPrimitiveEncode(state);
+    stateCodecPrimitiveEncode(touchingPlayer);
     stateCodecPrimitiveEncode(transition_anim);
+    stateCodecPrimitiveEncode(uptag);
 }
 else
 {
-    oneShot = stateCodecPrimitiveDecode();
-    uptag = stateCodecPrimitiveDecode();
-    touchingPlayer = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
-    flipped = stateCodecPrimitiveDecode();
     downtag = stateCodecPrimitiveDecode();
+    flipped = stateCodecPrimitiveDecode();
+    oneShot = stateCodecPrimitiveDecode();
+    state = stateCodecPrimitiveDecode();
+    touchingPlayer = stateCodecPrimitiveDecode();
     transition_anim = stateCodecPrimitiveDecode();
+    uptag = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

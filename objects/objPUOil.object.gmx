@@ -188,27 +188,27 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bubbleTimer);
-    stateCodecPrimitiveEncode(despawnRange);
-    stateCodecPrimitiveEncode(shiftVisible);
-    stateCodecPrimitiveEncode(grav);
     stateCodecPrimitiveEncode(blockCollision);
-    stateCodecPrimitiveEncode(fire);
+    stateCodecPrimitiveEncode(bubbleTimer);
     stateCodecPrimitiveEncode(canHit);
-    stateCodecPrimitiveEncode(respawnRange);
+    stateCodecPrimitiveEncode(despawnRange);
+    stateCodecPrimitiveEncode(fire);
     stateCodecPrimitiveEncode(fireSource);
+    stateCodecPrimitiveEncode(grav);
+    stateCodecPrimitiveEncode(respawnRange);
+    stateCodecPrimitiveEncode(shiftVisible);
 }
 else
 {
-    bubbleTimer = stateCodecPrimitiveDecode();
-    despawnRange = stateCodecPrimitiveDecode();
-    shiftVisible = stateCodecPrimitiveDecode();
-    grav = stateCodecPrimitiveDecode();
     blockCollision = stateCodecPrimitiveDecode();
-    fire = stateCodecPrimitiveDecode();
+    bubbleTimer = stateCodecPrimitiveDecode();
     canHit = stateCodecPrimitiveDecode();
-    respawnRange = stateCodecPrimitiveDecode();
+    despawnRange = stateCodecPrimitiveDecode();
+    fire = stateCodecPrimitiveDecode();
     fireSource = stateCodecPrimitiveDecode();
+    grav = stateCodecPrimitiveDecode();
+    respawnRange = stateCodecPrimitiveDecode();
+    shiftVisible = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

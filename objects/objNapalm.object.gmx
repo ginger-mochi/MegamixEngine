@@ -241,14 +241,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dieTime);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(dieTime);
     stateCodecPrimitiveEncode(dying);
 }
 else
 {
-    dieTime = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    dieTime = stateCodecPrimitiveDecode();
     dying = stateCodecPrimitiveDecode();
 }
 </string>

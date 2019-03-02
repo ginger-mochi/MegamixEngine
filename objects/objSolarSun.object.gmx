@@ -333,17 +333,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sunY);
-    stateCodecPrimitiveEncode(sunLevel);
-    stateCodecPrimitiveEncode(weakSun);
     stateCodecPrimitiveEncode(curSunLevel);
+    stateCodecPrimitiveEncode(sunLevel);
+    stateCodecPrimitiveEncode(sunY);
+    stateCodecPrimitiveEncode(weakSun);
 }
 else
 {
-    sunY = stateCodecPrimitiveDecode();
-    sunLevel = stateCodecPrimitiveDecode();
-    weakSun = stateCodecPrimitiveDecode();
     curSunLevel = stateCodecPrimitiveDecode();
+    sunLevel = stateCodecPrimitiveDecode();
+    sunY = stateCodecPrimitiveDecode();
+    weakSun = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -224,35 +224,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(missileID);
     stateCodecPrimitiveEncode(chaseTimer);
-    stateCodecPrimitiveEncode(startWaitTimer);
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(missileID);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(turnSpeed);
+    stateCodecPrimitiveEncode(moveSpeed);
     stateCodecPrimitiveEncode(pangle);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(rotateChange);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(startWait);
+    stateCodecPrimitiveEncode(startWaitTimer);
+    stateCodecPrimitiveEncode(turnSpeed);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    missileID = stateCodecPrimitiveDecode();
     chaseTimer = stateCodecPrimitiveDecode();
-    startWaitTimer = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    missileID = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
-    turnSpeed = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
     pangle = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
     rotateChange = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    startWait = stateCodecPrimitiveDecode();
+    startWaitTimer = stateCodecPrimitiveDecode();
+    turnSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

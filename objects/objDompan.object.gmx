@@ -246,21 +246,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(jump);
     stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(sp);
+    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(calibrateTimer);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(jump);
+    stateCodecPrimitiveEncode(sp);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    jump = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
-    sp = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
     calibrateTimer = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    jump = stateCodecPrimitiveDecode();
+    sp = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

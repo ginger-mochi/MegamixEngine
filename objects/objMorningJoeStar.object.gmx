@@ -177,16 +177,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(cFrame);
     stateCodecPrimitiveEncode(newX);
     stateCodecPrimitiveEncode(newY);
-    stateCodecPrimitiveEncode(cFrame);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
+    cFrame = stateCodecPrimitiveDecode();
     newX = stateCodecPrimitiveDecode();
     newY = stateCodecPrimitiveDecode();
-    cFrame = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
 }
 </string>

@@ -311,29 +311,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(split_dist);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(move_time);
-    stateCodecPrimitiveEncode(exp_tol);
+    stateCodecPrimitiveEncode(animDiv);
     stateCodecPrimitiveEncode(color);
-    stateCodecPrimitiveEncode(wait_time);
-    stateCodecPrimitiveEncode(vertical);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(exp_tol);
     stateCodecPrimitiveEncode(max_alive);
     stateCodecPrimitiveEncode(move_distance);
+    stateCodecPrimitiveEncode(move_time);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(split_dist);
+    stateCodecPrimitiveEncode(vertical);
+    stateCodecPrimitiveEncode(wait_time);
 }
 else
 {
-    split_dist = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    move_time = stateCodecPrimitiveDecode();
-    exp_tol = stateCodecPrimitiveDecode();
+    animDiv = stateCodecPrimitiveDecode();
     color = stateCodecPrimitiveDecode();
-    wait_time = stateCodecPrimitiveDecode();
-    vertical = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    exp_tol = stateCodecPrimitiveDecode();
     max_alive = stateCodecPrimitiveDecode();
     move_distance = stateCodecPrimitiveDecode();
+    move_time = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    split_dist = stateCodecPrimitiveDecode();
+    vertical = stateCodecPrimitiveDecode();
+    wait_time = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

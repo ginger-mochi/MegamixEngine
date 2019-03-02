@@ -518,38 +518,38 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(maxEnergy);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(expectedEnergy);
-    stateCodecPrimitiveEncode(lockID);
     stateCodecPrimitiveEncode(activeTimer);
     stateCodecPrimitiveEncode(anim);
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(animTimer);
     stateCodecIDEncode(body);
-    stateCodecPrimitiveEncode(jellyfishTimer);
     stateCodecPrimitiveEncode(energy);
-    stateCodecPrimitiveEncode(animSpeed);
+    stateCodecPrimitiveEncode(expectedEnergy);
+    stateCodecPrimitiveEncode(jellyfishTimer);
+    stateCodecPrimitiveEncode(lockID);
+    stateCodecPrimitiveEncode(maxEnergy);
     stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(useRails);
 }
 else
 {
-    maxEnergy = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    expectedEnergy = stateCodecPrimitiveDecode();
-    lockID = stateCodecPrimitiveDecode();
     activeTimer = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
+    animFrame = stateCodecPrimitiveDecode();
+    animSpeed = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
     body = stateCodecIDDecode();
-    jellyfishTimer = stateCodecPrimitiveDecode();
     energy = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
+    expectedEnergy = stateCodecPrimitiveDecode();
+    jellyfishTimer = stateCodecPrimitiveDecode();
+    lockID = stateCodecPrimitiveDecode();
+    maxEnergy = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
     useRails = stateCodecPrimitiveDecode();
 }
 </string>

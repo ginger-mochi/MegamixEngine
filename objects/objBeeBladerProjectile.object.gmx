@@ -181,21 +181,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(lastLocationX);
     stateCodecPrimitiveEncode(lastLocationY);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
     lastLocationX = stateCodecPrimitiveDecode();
     lastLocationY = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

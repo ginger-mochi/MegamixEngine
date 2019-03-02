@@ -222,29 +222,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(lay_timer);
-    stateCodecPrimitiveEncode(route_tile_n);
-    stateCodecPrimitiveEncode(route_progress);
-    stateCodecPrimitiveEncode(tile_layer);
-    stateCodecPrimitiveEncode(move_speed);
-    stateCodecPrimitiveEncode(y_route);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(route_combined);
-    stateCodecPrimitiveEncode(route_tile);
     stateCodecPrimitiveEncode(lay_time);
+    stateCodecPrimitiveEncode(lay_timer);
+    stateCodecPrimitiveEncode(move_speed);
+    stateCodecPrimitiveEncode(route_combined);
+    stateCodecPrimitiveEncode(route_progress);
+    stateCodecPrimitiveEncode(route_tile);
+    stateCodecPrimitiveEncode(route_tile_n);
+    stateCodecPrimitiveEncode(tile_layer);
+    stateCodecPrimitiveEncode(y_route);
 }
 else
 {
-    lay_timer = stateCodecPrimitiveDecode();
-    route_tile_n = stateCodecPrimitiveDecode();
-    route_progress = stateCodecPrimitiveDecode();
-    tile_layer = stateCodecPrimitiveDecode();
-    move_speed = stateCodecPrimitiveDecode();
-    y_route = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    route_combined = stateCodecPrimitiveDecode();
-    route_tile = stateCodecPrimitiveDecode();
     lay_time = stateCodecPrimitiveDecode();
+    lay_timer = stateCodecPrimitiveDecode();
+    move_speed = stateCodecPrimitiveDecode();
+    route_combined = stateCodecPrimitiveDecode();
+    route_progress = stateCodecPrimitiveDecode();
+    route_tile = stateCodecPrimitiveDecode();
+    route_tile_n = stateCodecPrimitiveDecode();
+    tile_layer = stateCodecPrimitiveDecode();
+    y_route = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

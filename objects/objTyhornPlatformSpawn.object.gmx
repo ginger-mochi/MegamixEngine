@@ -132,15 +132,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(alarmSpawn);
     stateCodecPrimitiveEncode(initialDelay);
-    stateCodecPrimitiveEncode(waitTime);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(waitTime);
 }
 else
 {
     alarmSpawn = stateCodecPrimitiveDecode();
     initialDelay = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    waitTime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

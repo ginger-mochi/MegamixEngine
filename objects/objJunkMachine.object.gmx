@@ -231,8 +231,8 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(imageCountDir);
     stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(powerSource);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
@@ -240,8 +240,8 @@ else
     imageCountDir = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     powerSource = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

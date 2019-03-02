@@ -209,20 +209,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(doneCritSwing);
-    stateCodecPrimitiveEncode(swingCooldown);
     stateCodecPrimitiveEncode(state);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(swingCooldown);
 }
 else
 {
     actionTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
     doneCritSwing = stateCodecPrimitiveDecode();
-    swingCooldown = stateCodecPrimitiveDecode();
     state = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    swingCooldown = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

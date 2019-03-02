@@ -214,18 +214,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(slamTimer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(dummyTimer);
     stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(slamTimer);
 }
 else
 {
     actionTimer = stateCodecPrimitiveDecode();
-    slamTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     dummyTimer = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
+    slamTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

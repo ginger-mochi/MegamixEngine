@@ -229,25 +229,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(gravStr);
-    stateCodecPrimitiveEncode(toWall);
     stateCodecPrimitiveEncode(flag);
-    stateCodecPrimitiveEncode(imageMax);
+    stateCodecPrimitiveEncode(gravStr);
     stateCodecPrimitiveEncode(hasGravity);
-    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(imageMax);
     stateCodecPrimitiveEncode(imageReset);
+    stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(spreadAttack);
+    stateCodecPrimitiveEncode(toWall);
 }
 else
 {
-    gravStr = stateCodecPrimitiveDecode();
-    toWall = stateCodecPrimitiveDecode();
     flag = stateCodecPrimitiveDecode();
-    imageMax = stateCodecPrimitiveDecode();
+    gravStr = stateCodecPrimitiveDecode();
     hasGravity = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
+    imageMax = stateCodecPrimitiveDecode();
     imageReset = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
     spreadAttack = stateCodecPrimitiveDecode();
+    toWall = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

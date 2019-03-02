@@ -167,25 +167,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(getLength);
     stateCodecIDEncode(bod);
+    stateCodecPrimitiveEncode(getLength);
     stateCodecPrimitiveEncode(shake);
-    stateCodecIDEncode(snakeBoss);
     stateCodecPrimitiveEncode(shakeDir);
-    stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(startDir);
     stateCodecPrimitiveEncode(shakeSpeed);
+    stateCodecIDEncode(snakeBoss);
+    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    getLength = stateCodecPrimitiveDecode();
     bod = stateCodecIDDecode();
+    getLength = stateCodecPrimitiveDecode();
     shake = stateCodecPrimitiveDecode();
-    snakeBoss = stateCodecIDDecode();
     shakeDir = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
     shakeSpeed = stateCodecPrimitiveDecode();
+    snakeBoss = stateCodecIDDecode();
+    startDir = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -211,17 +211,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myLock);
-    stateCodecPrimitiveEncode(sectionBottom);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(myLock);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(sectionBottom);
 }
 else
 {
-    myLock = stateCodecPrimitiveDecode();
-    sectionBottom = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
+    myLock = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    sectionBottom = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

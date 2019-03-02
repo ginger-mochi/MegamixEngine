@@ -104,13 +104,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(travel);
     stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(travel);
 }
 else
 {
-    travel = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
+    travel = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

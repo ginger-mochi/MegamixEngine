@@ -100,13 +100,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shotCharge);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shotCharge);
 }
 else
 {
-    shotCharge = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    shotCharge = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

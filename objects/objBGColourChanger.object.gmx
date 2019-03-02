@@ -89,6 +89,14 @@ colour = global.nesPalette[7];
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(colour);
+}
+else
+{
+    colour = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

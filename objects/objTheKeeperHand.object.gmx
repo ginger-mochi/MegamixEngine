@@ -401,22 +401,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fallOnPlayer);
-    stateCodecPrimitiveEncode(subPhase);
     stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(fallOnPlayer);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(subPhase);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    fallOnPlayer = stateCodecPrimitiveDecode();
-    subPhase = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    fallOnPlayer = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    subPhase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

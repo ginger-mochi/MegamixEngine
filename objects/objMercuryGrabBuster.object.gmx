@@ -285,19 +285,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hp);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(hasItem);
+    stateCodecPrimitiveEncode(hp);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(hasItem);
 }
 else
 {
-    hp = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    hasItem = stateCodecPrimitiveDecode();
+    hp = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    hasItem = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

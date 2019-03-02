@@ -232,21 +232,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waterY);
     stateCodecPrimitiveEncode(explodeTimer);
     stateCodecPrimitiveEncode(explodeWait);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(waterY);
 }
 else
 {
-    waterY = stateCodecPrimitiveDecode();
     explodeTimer = stateCodecPrimitiveDecode();
     explodeWait = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    waterY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

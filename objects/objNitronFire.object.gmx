@@ -186,25 +186,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sprites);
-    stateCodecPrimitiveEncode(peakTimer);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(ogContactDamage);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecIDEncode(explosion);
     stateCodecPrimitiveEncode(col);
+    stateCodecIDEncode(explosion);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(ogContactDamage);
+    stateCodecPrimitiveEncode(peakTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(sprites);
 }
 else
 {
-    sprites = stateCodecPrimitiveDecode();
-    peakTimer = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    ogContactDamage = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    explosion = stateCodecIDDecode();
     col = stateCodecPrimitiveDecode();
+    explosion = stateCodecIDDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    ogContactDamage = stateCodecPrimitiveDecode();
+    peakTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    sprites = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

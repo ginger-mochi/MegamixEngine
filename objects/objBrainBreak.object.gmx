@@ -290,27 +290,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(jumpXSpd);
     stateCodecPrimitiveEncode(animBack);
+    stateCodecPrimitiveEncode(explodeTimer);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(ySpd);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(jumpXSpd);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(smokeTimer);
-    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(xSpd);
+    stateCodecPrimitiveEncode(ySpd);
 }
 else
 {
-    explodeTimer = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    jumpXSpd = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
+    explodeTimer = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    jumpXSpd = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     smokeTimer = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    xSpd = stateCodecPrimitiveDecode();
+    ySpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

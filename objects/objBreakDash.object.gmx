@@ -508,23 +508,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(breakDashLock);
-    stateCodecPrimitiveEncode(dashTimer);
-    stateCodecPrimitiveEncode(dashSpeed);
-    stateCodecPrimitiveEncode(flashOffset);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(breakDashLock);
+    stateCodecPrimitiveEncode(dashSpeed);
+    stateCodecPrimitiveEncode(dashTimer);
+    stateCodecPrimitiveEncode(flashOffset);
+    stateCodecPrimitiveEncode(flashTimer);
 }
 else
 {
-    breakDashLock = stateCodecPrimitiveDecode();
-    dashTimer = stateCodecPrimitiveDecode();
-    dashSpeed = stateCodecPrimitiveDecode();
-    flashOffset = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    breakDashLock = stateCodecPrimitiveDecode();
+    dashSpeed = stateCodecPrimitiveDecode();
+    dashTimer = stateCodecPrimitiveDecode();
+    flashOffset = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

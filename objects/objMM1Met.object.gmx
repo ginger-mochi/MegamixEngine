@@ -173,14 +173,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     radius = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

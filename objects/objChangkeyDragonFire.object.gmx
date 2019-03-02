@@ -255,25 +255,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fireExists);
-    stateCodecPrimitiveEncode(tackleFire);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(canFlip);
-    stateCodecPrimitiveEncode(isOnGround);
     stateCodecPrimitiveEncode(burnOut);
+    stateCodecPrimitiveEncode(canFlip);
+    stateCodecPrimitiveEncode(fireExists);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(isOnGround);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(tackleFire);
 }
 else
 {
-    fireExists = stateCodecPrimitiveDecode();
-    tackleFire = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    canFlip = stateCodecPrimitiveDecode();
-    isOnGround = stateCodecPrimitiveDecode();
     burnOut = stateCodecPrimitiveDecode();
+    canFlip = stateCodecPrimitiveDecode();
+    fireExists = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    isOnGround = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    tackleFire = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

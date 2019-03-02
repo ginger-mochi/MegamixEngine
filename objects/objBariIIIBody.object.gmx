@@ -334,21 +334,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(owner);
-    stateCodecPrimitiveEncode(appear);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(appear);
     stateCodecPrimitiveEncode(canShift);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(index);
+    stateCodecPrimitiveEncode(owner);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    owner = stateCodecPrimitiveDecode();
-    appear = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    appear = stateCodecPrimitiveDecode();
     canShift = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
     index = stateCodecPrimitiveDecode();
+    owner = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

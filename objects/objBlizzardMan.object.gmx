@@ -423,23 +423,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(skitime);
-    stateCodecPrimitiveEncode(reflectProjectiles);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(charging);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phasetime);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(reflectProjectiles);
+    stateCodecPrimitiveEncode(skitime);
 }
 else
 {
-    pose = stateCodecPrimitiveDecode();
-    skitime = stateCodecPrimitiveDecode();
-    reflectProjectiles = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     charging = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     phasetime = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    reflectProjectiles = stateCodecPrimitiveDecode();
+    skitime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

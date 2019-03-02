@@ -140,13 +140,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(standSpeed);
     stateCodecPrimitiveEncode(airSpeed);
+    stateCodecPrimitiveEncode(standSpeed);
 }
 else
 {
-    standSpeed = stateCodecPrimitiveDecode();
     airSpeed = stateCodecPrimitiveDecode();
+    standSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

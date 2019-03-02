@@ -154,17 +154,17 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(count);
     stateCodecIDEncode(i);
+    stateCodecPrimitiveEncode(startWait);
     stateCodecPrimitiveEncode(wait);
 }
 else
 {
     active = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
     count = stateCodecPrimitiveDecode();
     i = stateCodecIDDecode();
+    startWait = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
 }
 </string>

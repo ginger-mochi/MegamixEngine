@@ -236,15 +236,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(shell);
     stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(attackTimer);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
     shell = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

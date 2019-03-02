@@ -147,23 +147,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(lines);
-    stateCodecPrimitiveEncode(enx);
-    stateCodecPrimitiveEncode(ex);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(alarmTime);
-    stateCodecPrimitiveEncode(spawntime);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(enx);
     stateCodecPrimitiveEncode(eny);
+    stateCodecPrimitiveEncode(ex);
+    stateCodecPrimitiveEncode(lines);
+    stateCodecPrimitiveEncode(spawntime);
 }
 else
 {
-    lines = stateCodecPrimitiveDecode();
-    enx = stateCodecPrimitiveDecode();
-    ex = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     alarmTime = stateCodecPrimitiveDecode();
-    spawntime = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    enx = stateCodecPrimitiveDecode();
     eny = stateCodecPrimitiveDecode();
+    ex = stateCodecPrimitiveDecode();
+    lines = stateCodecPrimitiveDecode();
+    spawntime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -189,16 +189,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(startSpeed);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     bounces = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     startSpeed = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

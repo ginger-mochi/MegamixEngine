@@ -255,19 +255,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(getAngle);
-    stateCodecPrimitiveEncode(explode);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(shootAngle);
+    stateCodecPrimitiveEncode(explode);
+    stateCodecPrimitiveEncode(getAngle);
     stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(shootAngle);
 }
 else
 {
-    getAngle = stateCodecPrimitiveDecode();
-    explode = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    shootAngle = stateCodecPrimitiveDecode();
+    explode = stateCodecPrimitiveDecode();
+    getAngle = stateCodecPrimitiveDecode();
     imageOffset = stateCodecPrimitiveDecode();
+    shootAngle = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

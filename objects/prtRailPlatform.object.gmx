@@ -391,31 +391,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecIDEncode(lastRail);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(startingDirection);
-    stateCodecPrimitiveEncode(fallMomentum);
     stateCodecPrimitiveEncode(bumped);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(fallMomentum);
+    stateCodecPrimitiveEncode(init);
+    stateCodecIDEncode(lastRail);
+    stateCodecPrimitiveEncode(mySpeed);
     stateCodecPrimitiveEncode(prevRail);
+    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(startingDirection);
     stateCodecPrimitiveEncode(xOffset);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    lastRail = stateCodecIDDecode();
-    init = stateCodecPrimitiveDecode();
-    startingDirection = stateCodecPrimitiveDecode();
-    fallMomentum = stateCodecPrimitiveDecode();
     bumped = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    fallMomentum = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    lastRail = stateCodecIDDecode();
+    mySpeed = stateCodecPrimitiveDecode();
     prevRail = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
+    startingDirection = stateCodecPrimitiveDecode();
     xOffset = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

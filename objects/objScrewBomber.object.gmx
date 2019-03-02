@@ -216,23 +216,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(bullet);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(bullet);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    bullet = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    bullet = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

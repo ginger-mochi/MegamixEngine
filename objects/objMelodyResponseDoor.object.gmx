@@ -158,19 +158,19 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destroyTimer);
-    stateCodecPrimitiveEncode(mySolid);
     stateCodecPrimitiveEncode(allButtons);
-    stateCodecPrimitiveEncode(buttonsToPress);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(buttonsToPress);
+    stateCodecPrimitiveEncode(destroyTimer);
+    stateCodecIDEncode(mySolid);
 }
 else
 {
-    destroyTimer = stateCodecPrimitiveDecode();
-    mySolid = stateCodecPrimitiveDecode();
     allButtons = stateCodecPrimitiveDecode();
-    buttonsToPress = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    buttonsToPress = stateCodecPrimitiveDecode();
+    destroyTimer = stateCodecPrimitiveDecode();
+    mySolid = stateCodecIDDecode();
 }
 </string>
           </argument>

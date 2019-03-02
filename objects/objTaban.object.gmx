@@ -212,23 +212,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(changePhaseStart);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(changePhase);
-    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(changePhase);
+    stateCodecPrimitiveEncode(changePhaseStart);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(imageOffset);
 }
 else
 {
-    changePhaseStart = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    changePhase = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    changePhase = stateCodecPrimitiveDecode();
+    changePhaseStart = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -122,13 +122,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(destroyTimer);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    radius = stateCodecPrimitiveDecode();
     destroyTimer = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

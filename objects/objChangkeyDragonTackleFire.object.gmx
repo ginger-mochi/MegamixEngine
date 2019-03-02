@@ -166,21 +166,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(offsetX);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(offsetY);
     stateCodecPrimitiveEncode(heathpointsStart);
     stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(index);
+    stateCodecPrimitiveEncode(offsetX);
+    stateCodecPrimitiveEncode(offsetY);
+    stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    offsetX = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    offsetY = stateCodecPrimitiveDecode();
     heathpointsStart = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
     index = stateCodecPrimitiveDecode();
+    offsetX = stateCodecPrimitiveDecode();
+    offsetY = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

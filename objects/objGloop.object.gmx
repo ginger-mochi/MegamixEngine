@@ -336,33 +336,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(capture);
+    stateCodecPrimitiveEncode(dmg);
+    stateCodecPrimitiveEncode(dmgMax);
     stateCodecPrimitiveEncode(dmgTimer);
-    stateCodecPrimitiveEncode(setMega);
-    stateCodecPrimitiveEncode(hurtMega);
     stateCodecPrimitiveEncode(fire);
     stateCodecPrimitiveEncode(gloopLock);
-    stateCodecPrimitiveEncode(dmg);
-    stateCodecPrimitiveEncode(capture);
-    stateCodecPrimitiveEncode(pop);
-    stateCodecPrimitiveEncode(dmgMax);
+    stateCodecPrimitiveEncode(hurtMega);
     stateCodecPrimitiveEncode(movementLock);
+    stateCodecPrimitiveEncode(pop);
+    stateCodecPrimitiveEncode(setMega);
     stateCodecPrimitiveEncode(walkStore);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    capture = stateCodecPrimitiveDecode();
+    dmg = stateCodecPrimitiveDecode();
+    dmgMax = stateCodecPrimitiveDecode();
     dmgTimer = stateCodecPrimitiveDecode();
-    setMega = stateCodecPrimitiveDecode();
-    hurtMega = stateCodecPrimitiveDecode();
     fire = stateCodecPrimitiveDecode();
     gloopLock = stateCodecPrimitiveDecode();
-    dmg = stateCodecPrimitiveDecode();
-    capture = stateCodecPrimitiveDecode();
-    pop = stateCodecPrimitiveDecode();
-    dmgMax = stateCodecPrimitiveDecode();
+    hurtMega = stateCodecPrimitiveDecode();
     movementLock = stateCodecPrimitiveDecode();
+    pop = stateCodecPrimitiveDecode();
+    setMega = stateCodecPrimitiveDecode();
     walkStore = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

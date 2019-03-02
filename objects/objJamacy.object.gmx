@@ -175,17 +175,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(climbing);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
 }
 else
 {
-    imgSpd = stateCodecPrimitiveDecode();
     climbing = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -204,27 +204,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shotsLeft);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(jumps);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(canShoot);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(jumps);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shotsLeft);
 }
 else
 {
-    shotsLeft = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    canShoot = stateCodecPrimitiveDecode();
-    jumps = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    canShoot = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    jumps = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shotsLeft = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

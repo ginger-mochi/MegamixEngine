@@ -208,15 +208,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(centerX);
     stateCodecPrimitiveEncode(centerY);
     stateCodecPrimitiveEncode(dist);
-    stateCodecPrimitiveEncode(centerX);
 }
 else
 {
+    centerX = stateCodecPrimitiveDecode();
     centerY = stateCodecPrimitiveDecode();
     dist = stateCodecPrimitiveDecode();
-    centerX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

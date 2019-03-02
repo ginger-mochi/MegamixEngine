@@ -206,28 +206,30 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(checkAlive);
-    stateCodecPrimitiveEncode(sectionSurface);
-    stateCodecPrimitiveEncode(revealersN);
-    stateCodecPrimitiveEncode(tiles);
-    stateCodecPrimitiveEncode(sectionSurfaceMask);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(scanned);
-    stateCodecPrimitiveEncode(revealers);
-    stateCodecPrimitiveEncode(skipDraw);
+    stateCodecPrimitiveEncode(layer);
     stateCodecPrimitiveEncode(prevWeather);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(revealers);
+    stateCodecPrimitiveEncode(revealersN);
+    stateCodecPrimitiveEncode(scanned);
+    stateCodecPrimitiveEncode(sectionSurface);
+    stateCodecPrimitiveEncode(sectionSurfaceMask);
+    stateCodecPrimitiveEncode(skipDraw);
+    stateCodecPrimitiveEncode(tiles);
 }
 else
 {
     checkAlive = stateCodecPrimitiveDecode();
-    sectionSurface = stateCodecPrimitiveDecode();
-    revealersN = stateCodecPrimitiveDecode();
-    tiles = stateCodecPrimitiveDecode();
-    sectionSurfaceMask = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    scanned = stateCodecPrimitiveDecode();
-    revealers = stateCodecPrimitiveDecode();
-    skipDraw = stateCodecPrimitiveDecode();
+    layer = stateCodecPrimitiveDecode();
     prevWeather = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    revealers = stateCodecPrimitiveDecode();
+    revealersN = stateCodecPrimitiveDecode();
+    scanned = stateCodecPrimitiveDecode();
+    sectionSurface = stateCodecPrimitiveDecode();
+    sectionSurfaceMask = stateCodecPrimitiveDecode();
+    skipDraw = stateCodecPrimitiveDecode();
+    tiles = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

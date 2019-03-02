@@ -127,11 +127,11 @@ else if is_array(val)
             var length = array_length_2d(val, i)
             if (header == 9)
             {
-                buffer_write(global.stateCodecBuffer, buffer_u8, length);
+                buffer_write(global.stateCodecBuffer, buffer_u16, length);
             }
             else
             {
-                buffer_write(global.stateCodecBuffer, buffer_u16, length);
+                buffer_write(global.stateCodecBuffer, buffer_u8, length);
             }
             for (var j = 0; j < length; j++)
             {

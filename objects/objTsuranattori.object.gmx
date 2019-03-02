@@ -378,41 +378,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xSpeed);
-    stateCodecPrimitiveEncode(moveSpeedX);
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(aiTurn);
     stateCodecPrimitiveEncode(birdInstanceStore);
     stateCodecPrimitiveEncode(delayMove);
-    stateCodecPrimitiveEncode(moveSpeedY);
-    stateCodecPrimitiveEncode(extraBirdTurn);
-    stateCodecPrimitiveEncode(resetExtraBirds);
     stateCodecPrimitiveEncode(delayOriginalBird);
-    stateCodecPrimitiveEncode(ySpeed);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(extraBirds);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(aiTurn);
-    stateCodecPrimitiveEncode(turningFrames);
+    stateCodecPrimitiveEncode(extraBirdTurn);
+    stateCodecPrimitiveEncode(extraBirds);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveSpeedX);
+    stateCodecPrimitiveEncode(moveSpeedY);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(resetExtraBirds);
     stateCodecPrimitiveEncode(turnDelay);
+    stateCodecPrimitiveEncode(turningFrames);
+    stateCodecPrimitiveEncode(xSpeed);
+    stateCodecPrimitiveEncode(ySpeed);
 }
 else
 {
-    xSpeed = stateCodecPrimitiveDecode();
-    moveSpeedX = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    aiTurn = stateCodecPrimitiveDecode();
     birdInstanceStore = stateCodecPrimitiveDecode();
     delayMove = stateCodecPrimitiveDecode();
-    moveSpeedY = stateCodecPrimitiveDecode();
-    extraBirdTurn = stateCodecPrimitiveDecode();
-    resetExtraBirds = stateCodecPrimitiveDecode();
     delayOriginalBird = stateCodecPrimitiveDecode();
-    ySpeed = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    extraBirds = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    aiTurn = stateCodecPrimitiveDecode();
-    turningFrames = stateCodecPrimitiveDecode();
+    extraBirdTurn = stateCodecPrimitiveDecode();
+    extraBirds = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    moveSpeedX = stateCodecPrimitiveDecode();
+    moveSpeedY = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    resetExtraBirds = stateCodecPrimitiveDecode();
     turnDelay = stateCodecPrimitiveDecode();
+    turningFrames = stateCodecPrimitiveDecode();
+    xSpeed = stateCodecPrimitiveDecode();
+    ySpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

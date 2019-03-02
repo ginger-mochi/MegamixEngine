@@ -246,51 +246,51 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_regPosX);
-    stateCodecPrimitiveEncode(posX);
-    stateCodecPrimitiveEncode(posCount);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(_regPosY);
-    stateCodecPrimitiveEncode(posT);
-    stateCodecPrimitiveEncode(period);
-    stateCodecPrimitiveEncode(childCount);
-    stateCodecPrimitiveEncode(tileLayer);
-    stateCodecPrimitiveEncode(secY);
-    stateCodecPrimitiveEncode(tileChild);
-    stateCodecPrimitiveEncode(secX);
     stateCodecPrimitiveEncode(MVT_DIRECT);
     stateCodecPrimitiveEncode(MVT_SPAWNONLY);
-    stateCodecPrimitiveEncode(isCyclic);
-    stateCodecPrimitiveEncode(tileOffsetY);
     stateCodecPrimitiveEncode(MVT_SPAWNSHIFT);
     stateCodecPrimitiveEncode(MVT_SPEED);
+    stateCodecPrimitiveEncode(_regPosX);
+    stateCodecPrimitiveEncode(_regPosY);
+    stateCodecPrimitiveEncode(childCount);
+    stateCodecPrimitiveEncode(isCyclic);
+    stateCodecPrimitiveEncode(period);
+    stateCodecPrimitiveEncode(posCount);
+    stateCodecPrimitiveEncode(posT);
+    stateCodecPrimitiveEncode(posX);
     stateCodecPrimitiveEncode(posY);
+    stateCodecPrimitiveEncode(secX);
+    stateCodecPrimitiveEncode(secY);
+    stateCodecPrimitiveEncode(tileChild);
     stateCodecPrimitiveEncode(tileCount);
+    stateCodecPrimitiveEncode(tileLayer);
     stateCodecPrimitiveEncode(tileOffsetX);
+    stateCodecPrimitiveEncode(tileOffsetY);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    _regPosX = stateCodecPrimitiveDecode();
-    posX = stateCodecPrimitiveDecode();
-    posCount = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    _regPosY = stateCodecPrimitiveDecode();
-    posT = stateCodecPrimitiveDecode();
-    period = stateCodecPrimitiveDecode();
-    childCount = stateCodecPrimitiveDecode();
-    tileLayer = stateCodecPrimitiveDecode();
-    secY = stateCodecPrimitiveDecode();
-    tileChild = stateCodecPrimitiveDecode();
-    secX = stateCodecPrimitiveDecode();
     MVT_DIRECT = stateCodecPrimitiveDecode();
     MVT_SPAWNONLY = stateCodecPrimitiveDecode();
-    isCyclic = stateCodecPrimitiveDecode();
-    tileOffsetY = stateCodecPrimitiveDecode();
     MVT_SPAWNSHIFT = stateCodecPrimitiveDecode();
     MVT_SPEED = stateCodecPrimitiveDecode();
+    _regPosX = stateCodecPrimitiveDecode();
+    _regPosY = stateCodecPrimitiveDecode();
+    childCount = stateCodecPrimitiveDecode();
+    isCyclic = stateCodecPrimitiveDecode();
+    period = stateCodecPrimitiveDecode();
+    posCount = stateCodecPrimitiveDecode();
+    posT = stateCodecPrimitiveDecode();
+    posX = stateCodecPrimitiveDecode();
     posY = stateCodecPrimitiveDecode();
+    secX = stateCodecPrimitiveDecode();
+    secY = stateCodecPrimitiveDecode();
+    tileChild = stateCodecPrimitiveDecode();
     tileCount = stateCodecPrimitiveDecode();
+    tileLayer = stateCodecPrimitiveDecode();
     tileOffsetX = stateCodecPrimitiveDecode();
+    tileOffsetY = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

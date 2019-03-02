@@ -363,29 +363,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(xOff);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(skewerPhase);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(bobAround);
+    stateCodecPrimitiveEncode(bossTriggered);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(skewerPhase);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    cAngle = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    skewerPhase = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     bobAround = stateCodecPrimitiveDecode();
+    bossTriggered = stateCodecPrimitiveDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    skewerPhase = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

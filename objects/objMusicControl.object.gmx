@@ -265,38 +265,40 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(buf);
-    stateCodecPrimitiveEncode(playing);
+    stateCodecPrimitiveEncode(bufPointer);
+    stateCodecPrimitiveEncode(buffer_count);
+    stateCodecPrimitiveEncode(buffer_gme);
     stateCodecPrimitiveEncode(buffer_gme_address);
+    stateCodecPrimitiveEncode(buffer_gme_size);
+    stateCodecPrimitiveEncode(buffer_index);
     stateCodecPrimitiveEncode(buffer_size);
+    stateCodecPrimitiveEncode(endReached);
+    stateCodecPrimitiveEncode(forceReset);
+    stateCodecPrimitiveEncode(playing);
+    stateCodecPrimitiveEncode(sample_rate);
     stateCodecPrimitiveEncode(snd_queue);
     stateCodecPrimitiveEncode(sound_index);
-    stateCodecPrimitiveEncode(endReached);
-    stateCodecPrimitiveEncode(buffer_gme_size);
     stateCodecPrimitiveEncode(trackNumber);
-    stateCodecPrimitiveEncode(sample_rate);
-    stateCodecPrimitiveEncode(forceReset);
-    stateCodecPrimitiveEncode(buffer_index);
-    stateCodecPrimitiveEncode(buffer_gme);
     stateCodecPrimitiveEncode(track_number);
-    stateCodecPrimitiveEncode(bufPointer);
 }
 else
 {
     buf = stateCodecPrimitiveDecode();
-    playing = stateCodecPrimitiveDecode();
+    bufPointer = stateCodecPrimitiveDecode();
+    buffer_count = stateCodecPrimitiveDecode();
+    buffer_gme = stateCodecPrimitiveDecode();
     buffer_gme_address = stateCodecPrimitiveDecode();
+    buffer_gme_size = stateCodecPrimitiveDecode();
+    buffer_index = stateCodecPrimitiveDecode();
     buffer_size = stateCodecPrimitiveDecode();
+    endReached = stateCodecPrimitiveDecode();
+    forceReset = stateCodecPrimitiveDecode();
+    playing = stateCodecPrimitiveDecode();
+    sample_rate = stateCodecPrimitiveDecode();
     snd_queue = stateCodecPrimitiveDecode();
     sound_index = stateCodecPrimitiveDecode();
-    endReached = stateCodecPrimitiveDecode();
-    buffer_gme_size = stateCodecPrimitiveDecode();
     trackNumber = stateCodecPrimitiveDecode();
-    sample_rate = stateCodecPrimitiveDecode();
-    forceReset = stateCodecPrimitiveDecode();
-    buffer_index = stateCodecPrimitiveDecode();
-    buffer_gme = stateCodecPrimitiveDecode();
     track_number = stateCodecPrimitiveDecode();
-    bufPointer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

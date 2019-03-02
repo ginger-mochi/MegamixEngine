@@ -408,35 +408,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(realX);
-    stateCodecPrimitiveEncode(realY);
-    stateCodecPrimitiveEncode(prepareCollision);
-    stateCodecPrimitiveEncode(startMoving);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(offsetX);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(setY);
-    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(delayDisplay);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(offsetX);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(prepareCollision);
+    stateCodecPrimitiveEncode(realX);
+    stateCodecPrimitiveEncode(realY);
+    stateCodecPrimitiveEncode(setY);
+    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(startMoving);
 }
 else
 {
-    realX = stateCodecPrimitiveDecode();
-    realY = stateCodecPrimitiveDecode();
-    prepareCollision = stateCodecPrimitiveDecode();
-    startMoving = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
-    offsetX = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    setY = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
     delayDisplay = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    offsetX = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    prepareCollision = stateCodecPrimitiveDecode();
+    realX = stateCodecPrimitiveDecode();
+    realY = stateCodecPrimitiveDecode();
+    setY = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
+    startMoving = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -184,21 +184,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(i);
+    stateCodecPrimitiveEncode(mole);
+    stateCodecPrimitiveEncode(molelimit);
     stateCodecPrimitiveEncode(preyy);
     stateCodecPrimitiveEncode(shoottimer);
     stateCodecPrimitiveEncode(yscale);
-    stateCodecPrimitiveEncode(molelimit);
-    stateCodecPrimitiveEncode(mole);
-    stateCodecPrimitiveEncode(i);
 }
 else
 {
+    i = stateCodecPrimitiveDecode();
+    mole = stateCodecPrimitiveDecode();
+    molelimit = stateCodecPrimitiveDecode();
     preyy = stateCodecPrimitiveDecode();
     shoottimer = stateCodecPrimitiveDecode();
     yscale = stateCodecPrimitiveDecode();
-    molelimit = stateCodecPrimitiveDecode();
-    mole = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

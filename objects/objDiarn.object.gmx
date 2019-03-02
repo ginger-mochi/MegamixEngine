@@ -263,17 +263,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(imgOffset);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(col);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     phaseTimer = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

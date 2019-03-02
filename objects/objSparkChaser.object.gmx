@@ -381,41 +381,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(tail45Length);
-    stateCodecPrimitiveEncode(mainShot);
-    stateCodecPrimitiveEncode(tail30Length);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(moveCounter);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(launchY);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(tail0Length);
     stateCodecPrimitiveEncode(counter);
     stateCodecPrimitiveEncode(directionPersist);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(launchX);
+    stateCodecPrimitiveEncode(launchY);
+    stateCodecPrimitiveEncode(mainShot);
+    stateCodecPrimitiveEncode(moveCounter);
+    stateCodecPrimitiveEncode(moveSpeed);
     stateCodecPrimitiveEncode(moveTime);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(launchX);
+    stateCodecPrimitiveEncode(tail0Length);
+    stateCodecPrimitiveEncode(tail30Length);
+    stateCodecPrimitiveEncode(tail45Length);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    tail45Length = stateCodecPrimitiveDecode();
-    mainShot = stateCodecPrimitiveDecode();
-    tail30Length = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    moveCounter = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    launchY = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    tail0Length = stateCodecPrimitiveDecode();
     counter = stateCodecPrimitiveDecode();
     directionPersist = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    launchX = stateCodecPrimitiveDecode();
+    launchY = stateCodecPrimitiveDecode();
+    mainShot = stateCodecPrimitiveDecode();
+    moveCounter = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
     moveTime = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    launchX = stateCodecPrimitiveDecode();
+    tail0Length = stateCodecPrimitiveDecode();
+    tail30Length = stateCodecPrimitiveDecode();
+    tail45Length = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

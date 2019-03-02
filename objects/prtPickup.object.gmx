@@ -208,25 +208,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(grabable);
-    stateCodecPrimitiveEncode(disappear);
-    stateCodecPrimitiveEncode(heavy);
-    stateCodecPrimitiveEncode(flashTimer);
-    stateCodecPrimitiveEncode(respawnupondeath);
     stateCodecIDEncode(collectPlayer);
-    stateCodecPrimitiveEncode(usePlayerColor);
+    stateCodecPrimitiveEncode(disappear);
+    stateCodecPrimitiveEncode(flashTimer);
+    stateCodecPrimitiveEncode(grabable);
+    stateCodecPrimitiveEncode(heavy);
     stateCodecPrimitiveEncode(pushout);
+    stateCodecPrimitiveEncode(respawnupondeath);
+    stateCodecPrimitiveEncode(usePlayerColor);
 }
 else
 {
-    grabable = stateCodecPrimitiveDecode();
-    disappear = stateCodecPrimitiveDecode();
-    heavy = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
-    respawnupondeath = stateCodecPrimitiveDecode();
     collectPlayer = stateCodecIDDecode();
-    usePlayerColor = stateCodecPrimitiveDecode();
+    disappear = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
+    grabable = stateCodecPrimitiveDecode();
+    heavy = stateCodecPrimitiveDecode();
     pushout = stateCodecPrimitiveDecode();
+    respawnupondeath = stateCodecPrimitiveDecode();
+    usePlayerColor = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

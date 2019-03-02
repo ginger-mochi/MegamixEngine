@@ -353,23 +353,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(catchTimes);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(collapsed);
-    stateCodecPrimitiveEncode(collapseTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(canTurn);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(canTurn);
+    stateCodecPrimitiveEncode(catchTimes);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(collapseTimer);
+    stateCodecPrimitiveEncode(collapsed);
+    stateCodecPrimitiveEncode(init);
 }
 else
 {
-    catchTimes = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    collapsed = stateCodecPrimitiveDecode();
-    collapseTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    canTurn = stateCodecPrimitiveDecode();
+    catchTimes = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    collapseTimer = stateCodecPrimitiveDecode();
+    collapsed = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

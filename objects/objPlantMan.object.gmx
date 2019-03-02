@@ -409,35 +409,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(walkX);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(walkDestination);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(imageTimerMax);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(randomiser);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(guard);
+    stateCodecPrimitiveEncode(imageNoMin);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(imageTimerMax);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(randomiser);
+    stateCodecPrimitiveEncode(walkDestination);
+    stateCodecPrimitiveEncode(walkX);
 }
 else
 {
-    walkX = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    walkDestination = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
-    randomiser = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
     guard = stateCodecPrimitiveDecode();
+    imageNoMin = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    imageTimerMax = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    randomiser = stateCodecPrimitiveDecode();
+    walkDestination = stateCodecPrimitiveDecode();
+    walkX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -186,17 +186,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(stopRange);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(stopRange);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(xOffset);
 }
 else
 {
-    stopRange = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    stopRange = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     xOffset = stateCodecPrimitiveDecode();
 }

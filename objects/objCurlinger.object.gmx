@@ -220,18 +220,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(knocked);
+    stateCodecPrimitiveEncode(acceleration);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(keptXSpd);
-    stateCodecPrimitiveEncode(acceleration);
+    stateCodecPrimitiveEncode(knocked);
     stateCodecPrimitiveEncode(maxXSpd);
 }
 else
 {
-    knocked = stateCodecPrimitiveDecode();
+    acceleration = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     keptXSpd = stateCodecPrimitiveDecode();
-    acceleration = stateCodecPrimitiveDecode();
+    knocked = stateCodecPrimitiveDecode();
     maxXSpd = stateCodecPrimitiveDecode();
 }
 </string>

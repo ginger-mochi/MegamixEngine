@@ -77,17 +77,19 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destroyTiles);
-    stateCodecPrimitiveEncode(destroySolids);
-    stateCodecPrimitiveEncode(destroyTilesDepth);
+    stateCodecPrimitiveEncode(destroyEntities);
     stateCodecPrimitiveEncode(destroyObjects);
+    stateCodecPrimitiveEncode(destroySolids);
+    stateCodecPrimitiveEncode(destroyTiles);
+    stateCodecPrimitiveEncode(destroyTilesDepth);
 }
 else
 {
-    destroyTiles = stateCodecPrimitiveDecode();
-    destroySolids = stateCodecPrimitiveDecode();
-    destroyTilesDepth = stateCodecPrimitiveDecode();
+    destroyEntities = stateCodecPrimitiveDecode();
     destroyObjects = stateCodecPrimitiveDecode();
+    destroySolids = stateCodecPrimitiveDecode();
+    destroyTiles = stateCodecPrimitiveDecode();
+    destroyTilesDepth = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

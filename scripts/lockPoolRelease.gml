@@ -70,7 +70,7 @@ for (var lockPoolID = 0; lockPoolID < global.lockPoolN; lockPoolID++)
     if (global.lockPoolLockCount[lockPoolID] == 0 && global.lockPoolTombstone[lockPoolID])
     {
         global.lockPoolTombstone[lockPoolID] = false;
-        global.lockAvailable[lockPoolID] = true;
+        global.lockPoolAvailable[lockPoolID] = true;
     }
 }
 

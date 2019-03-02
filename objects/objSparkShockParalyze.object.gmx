@@ -153,13 +153,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(plzTarget);
     stateCodecPrimitiveEncode(countdownToDestruction);
+    stateCodecPrimitiveEncode(plzTarget);
 }
 else
 {
-    plzTarget = stateCodecPrimitiveDecode();
     countdownToDestruction = stateCodecPrimitiveDecode();
+    plzTarget = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

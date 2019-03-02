@@ -196,25 +196,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yCont);
-    stateCodecPrimitiveEncode(xCont);
-    stateCodecPrimitiveEncode(yLock);
+    stateCodecPrimitiveEncode(chgPhases);
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(lockMovement);
     stateCodecPrimitiveEncode(toggle);
+    stateCodecPrimitiveEncode(xCont);
     stateCodecPrimitiveEncode(xLock);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(chgPhases);
+    stateCodecPrimitiveEncode(yCont);
+    stateCodecPrimitiveEncode(yLock);
 }
 else
 {
-    yCont = stateCodecPrimitiveDecode();
-    xCont = stateCodecPrimitiveDecode();
-    yLock = stateCodecPrimitiveDecode();
+    chgPhases = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
     lockMovement = stateCodecPrimitiveDecode();
     toggle = stateCodecPrimitiveDecode();
+    xCont = stateCodecPrimitiveDecode();
     xLock = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    chgPhases = stateCodecPrimitiveDecode();
+    yCont = stateCodecPrimitiveDecode();
+    yLock = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

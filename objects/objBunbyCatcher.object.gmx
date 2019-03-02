@@ -306,37 +306,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(grabbedPlayer);
-    stateCodecPrimitiveEncode(leaving);
-    stateCodecPrimitiveEncode(leaveTime);
-    stateCodecPrimitiveEncode(stopX);
-    stateCodecPrimitiveEncode(othersGrabbed);
-    stateCodecPrimitiveEncode(myPlayer);
-    stateCodecPrimitiveEncode(stopTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(poppedUp);
-    stateCodecPrimitiveEncode(yOffset);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(catcherSpeed);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(grabbedPlayer);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(leaveTime);
+    stateCodecPrimitiveEncode(leaving);
+    stateCodecPrimitiveEncode(myPlayer);
+    stateCodecPrimitiveEncode(othersGrabbed);
+    stateCodecPrimitiveEncode(poppedUp);
+    stateCodecPrimitiveEncode(stopTimer);
+    stateCodecPrimitiveEncode(stopX);
     stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    grabbedPlayer = stateCodecPrimitiveDecode();
-    leaving = stateCodecPrimitiveDecode();
-    leaveTime = stateCodecPrimitiveDecode();
-    stopX = stateCodecPrimitiveDecode();
-    othersGrabbed = stateCodecPrimitiveDecode();
-    myPlayer = stateCodecPrimitiveDecode();
-    stopTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    poppedUp = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     catcherSpeed = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    grabbedPlayer = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    leaveTime = stateCodecPrimitiveDecode();
+    leaving = stateCodecPrimitiveDecode();
+    myPlayer = stateCodecPrimitiveDecode();
+    othersGrabbed = stateCodecPrimitiveDecode();
+    poppedUp = stateCodecPrimitiveDecode();
+    stopTimer = stateCodecPrimitiveDecode();
+    stopX = stateCodecPrimitiveDecode();
     xOffset = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

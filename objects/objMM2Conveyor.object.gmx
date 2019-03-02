@@ -171,22 +171,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animFrames);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(imgalarm);
+    stateCodecPrimitiveEncode(animTime);
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(hasBelt);
     stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(animTime);
+    stateCodecPrimitiveEncode(imgalarm);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
     animFrames = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
+    animTime = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
     hasBelt = stateCodecPrimitiveDecode();
     img = stateCodecPrimitiveDecode();
-    animTime = stateCodecPrimitiveDecode();
+    imgalarm = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -143,21 +143,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startLen);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(blockCollision);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(platformSprite);
+    stateCodecPrimitiveEncode(blockCollision);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(platformSprite);
+    stateCodecPrimitiveEncode(startLen);
 }
 else
 {
-    startLen = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    blockCollision = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    platformSprite = stateCodecPrimitiveDecode();
+    blockCollision = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    platformSprite = stateCodecPrimitiveDecode();
+    startLen = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

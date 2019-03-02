@@ -357,27 +357,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(size);
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(hasWeight);
+    stateCodecPrimitiveEncode(imgOffset);
+    stateCodecPrimitiveEncode(maxSize);
     stateCodecPrimitiveEncode(prevY);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(size);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(hasWeight);
-    stateCodecPrimitiveEncode(maxSize);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    size = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    hasWeight = stateCodecPrimitiveDecode();
+    imgOffset = stateCodecPrimitiveDecode();
+    maxSize = stateCodecPrimitiveDecode();
     prevY = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    size = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    hasWeight = stateCodecPrimitiveDecode();
-    maxSize = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

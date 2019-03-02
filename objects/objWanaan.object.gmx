@@ -132,15 +132,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldown);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(alarmDrop);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldown);
 }
 else
 {
-    cooldown = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     alarmDrop = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    cooldown = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

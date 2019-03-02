@@ -343,37 +343,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isJumping);
-    stateCodecPrimitiveEncode(isDei);
-    stateCodecPrimitiveEncode(prevWaitTime);
+    stateCodecPrimitiveEncode(ceilingAnimSpeed);
     stateCodecPrimitiveEncode(ceilingSpeed);
+    stateCodecPrimitiveEncode(imageIndex);
+    stateCodecPrimitiveEncode(isDei);
+    stateCodecPrimitiveEncode(isJumping);
+    stateCodecPrimitiveEncode(landAnimSpeed);
     stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(rightLimit);
     stateCodecPrimitiveEncode(onCeiling);
     stateCodecPrimitiveEncode(prevGravDir);
-    stateCodecPrimitiveEncode(landAnimSpeed);
+    stateCodecPrimitiveEncode(prevWaitTime);
+    stateCodecPrimitiveEncode(rightLimit);
     stateCodecPrimitiveEncode(startYscale);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(waitTime);
-    stateCodecPrimitiveEncode(imageIndex);
-    stateCodecPrimitiveEncode(ceilingAnimSpeed);
 }
 else
 {
-    isJumping = stateCodecPrimitiveDecode();
-    isDei = stateCodecPrimitiveDecode();
-    prevWaitTime = stateCodecPrimitiveDecode();
+    ceilingAnimSpeed = stateCodecPrimitiveDecode();
     ceilingSpeed = stateCodecPrimitiveDecode();
+    imageIndex = stateCodecPrimitiveDecode();
+    isDei = stateCodecPrimitiveDecode();
+    isJumping = stateCodecPrimitiveDecode();
+    landAnimSpeed = stateCodecPrimitiveDecode();
     leftLimit = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
     onCeiling = stateCodecPrimitiveDecode();
     prevGravDir = stateCodecPrimitiveDecode();
-    landAnimSpeed = stateCodecPrimitiveDecode();
+    prevWaitTime = stateCodecPrimitiveDecode();
+    rightLimit = stateCodecPrimitiveDecode();
     startYscale = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     waitTime = stateCodecPrimitiveDecode();
-    imageIndex = stateCodecPrimitiveDecode();
-    ceilingAnimSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

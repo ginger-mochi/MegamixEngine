@@ -298,31 +298,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attached);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(spinTimer);
-    stateCodecPrimitiveEncode(currY);
-    stateCodecPrimitiveEncode(currX);
-    stateCodecPrimitiveEncode(spinMod);
-    stateCodecPrimitiveEncode(spinRate);
-    stateCodecPrimitiveEncode(shootLock);
     stateCodecPrimitiveEncode(attachX);
+    stateCodecPrimitiveEncode(attached);
+    stateCodecPrimitiveEncode(currX);
+    stateCodecPrimitiveEncode(currY);
     stateCodecPrimitiveEncode(i);
     stateCodecPrimitiveEncode(offset);
+    stateCodecPrimitiveEncode(shootLock);
+    stateCodecPrimitiveEncode(spinMod);
+    stateCodecPrimitiveEncode(spinRate);
+    stateCodecPrimitiveEncode(spinTimer);
 }
 else
 {
-    attached = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    spinTimer = stateCodecPrimitiveDecode();
-    currY = stateCodecPrimitiveDecode();
-    currX = stateCodecPrimitiveDecode();
-    spinMod = stateCodecPrimitiveDecode();
-    spinRate = stateCodecPrimitiveDecode();
-    shootLock = stateCodecPrimitiveDecode();
     attachX = stateCodecPrimitiveDecode();
+    attached = stateCodecPrimitiveDecode();
+    currX = stateCodecPrimitiveDecode();
+    currY = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
     offset = stateCodecPrimitiveDecode();
+    shootLock = stateCodecPrimitiveDecode();
+    spinMod = stateCodecPrimitiveDecode();
+    spinRate = stateCodecPrimitiveDecode();
+    spinTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

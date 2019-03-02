@@ -462,35 +462,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(yCount);
     stateCodecPrimitiveEncode(animBack);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(bubbleLimit);
+    stateCodecPrimitiveEncode(bubbles);
     stateCodecIDEncode(child);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(yStart);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(bubbleLimit);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(bubbles);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(targX);
+    stateCodecPrimitiveEncode(yCount);
+    stateCodecPrimitiveEncode(yStart);
 }
 else
 {
-    targX = stateCodecPrimitiveDecode();
-    yCount = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    bubbleLimit = stateCodecPrimitiveDecode();
+    bubbles = stateCodecPrimitiveDecode();
     child = stateCodecIDDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    yStart = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    bubbleLimit = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    bubbles = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    targX = stateCodecPrimitiveDecode();
+    yCount = stateCodecPrimitiveDecode();
+    yStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

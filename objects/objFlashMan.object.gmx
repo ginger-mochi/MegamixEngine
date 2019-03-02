@@ -391,35 +391,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(beginAttackTimer);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(walkSpeed);
+    stateCodecPrimitiveEncode(beginAttackTimer);
     stateCodecPrimitiveEncode(doFlash);
     stateCodecPrimitiveEncode(flashInterval);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(isHard);
     stateCodecPrimitiveEncode(jumpHeight);
-    stateCodecPrimitiveEncode(shootTime);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(phaseTimer);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(shootTime);
+    stateCodecPrimitiveEncode(walkSpeed);
 }
 else
 {
-    beginAttackTimer = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    walkSpeed = stateCodecPrimitiveDecode();
+    beginAttackTimer = stateCodecPrimitiveDecode();
     doFlash = stateCodecPrimitiveDecode();
     flashInterval = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
     isHard = stateCodecPrimitiveDecode();
     jumpHeight = stateCodecPrimitiveDecode();
-    shootTime = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    phaseTimer = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    shootTime = stateCodecPrimitiveDecode();
+    walkSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

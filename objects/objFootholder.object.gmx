@@ -399,41 +399,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(targetMode);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(moveTarget);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(alarmTurn);
     stateCodecPrimitiveEncode(backtrack);
-    stateCodecPrimitiveEncode(xDir);
-    stateCodecPrimitiveEncode(startMode);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(mode);
+    stateCodecPrimitiveEncode(moveTarget);
+    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(mySpeed);
     stateCodecPrimitiveEncode(prevMoveTarget);
-    stateCodecPrimitiveEncode(alarmTurn);
     stateCodecPrimitiveEncode(reversePath);
-    stateCodecPrimitiveEncode(ys);
-    stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(startMode);
+    stateCodecPrimitiveEncode(targetMode);
+    stateCodecPrimitiveEncode(variation);
+    stateCodecPrimitiveEncode(xDir);
+    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(yDir);
+    stateCodecPrimitiveEncode(ys);
 }
 else
 {
-    targetMode = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    moveTarget = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    alarmTurn = stateCodecPrimitiveDecode();
     backtrack = stateCodecPrimitiveDecode();
-    xDir = stateCodecPrimitiveDecode();
-    startMode = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    mode = stateCodecPrimitiveDecode();
+    moveTarget = stateCodecPrimitiveDecode();
+    myFlag = stateCodecPrimitiveDecode();
     mySpeed = stateCodecPrimitiveDecode();
     prevMoveTarget = stateCodecPrimitiveDecode();
-    alarmTurn = stateCodecPrimitiveDecode();
     reversePath = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
+    startMode = stateCodecPrimitiveDecode();
+    targetMode = stateCodecPrimitiveDecode();
+    variation = stateCodecPrimitiveDecode();
+    xDir = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
     yDir = stateCodecPrimitiveDecode();
+    ys = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

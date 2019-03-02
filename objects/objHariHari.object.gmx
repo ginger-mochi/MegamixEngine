@@ -232,15 +232,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(animEndme);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    xs = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     animEndme = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

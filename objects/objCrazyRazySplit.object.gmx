@@ -150,15 +150,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yMax);
-    stateCodecPrimitiveEncode(turnTimer);
     stateCodecPrimitiveEncode(stopTimer);
+    stateCodecPrimitiveEncode(turnTimer);
+    stateCodecPrimitiveEncode(yMax);
 }
 else
 {
-    yMax = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
     stopTimer = stateCodecPrimitiveDecode();
+    turnTimer = stateCodecPrimitiveDecode();
+    yMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

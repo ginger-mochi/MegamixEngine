@@ -117,15 +117,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spawnMax);
     stateCodecPrimitiveEncode(alarmSpawn);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(spawnMax);
 }
 else
 {
-    spawnMax = stateCodecPrimitiveDecode();
     alarmSpawn = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    spawnMax = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

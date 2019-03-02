@@ -271,29 +271,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(initialPattern);
     stateCodecPrimitiveEncode(nextX);
+    stateCodecPrimitiveEncode(nextY);
+    stateCodecPrimitiveEncode(pattern);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(prevX);
     stateCodecPrimitiveEncode(prevY);
-    stateCodecPrimitiveEncode(nextY);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(pattern);
-    stateCodecPrimitiveEncode(initialPattern);
-    stateCodecPrimitiveEncode(windowDir);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(vdir);
+    stateCodecPrimitiveEncode(windowDir);
 }
 else
 {
+    initialPattern = stateCodecPrimitiveDecode();
     nextX = stateCodecPrimitiveDecode();
+    nextY = stateCodecPrimitiveDecode();
+    pattern = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     prevX = stateCodecPrimitiveDecode();
     prevY = stateCodecPrimitiveDecode();
-    nextY = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    pattern = stateCodecPrimitiveDecode();
-    initialPattern = stateCodecPrimitiveDecode();
-    windowDir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     vdir = stateCodecPrimitiveDecode();
+    windowDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -216,17 +216,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(size);
-    stateCodecPrimitiveEncode(isWave);
     stateCodecPrimitiveEncode(isBomb);
     stateCodecPrimitiveEncode(isFlying);
+    stateCodecPrimitiveEncode(isWave);
+    stateCodecPrimitiveEncode(size);
 }
 else
 {
-    size = stateCodecPrimitiveDecode();
-    isWave = stateCodecPrimitiveDecode();
     isBomb = stateCodecPrimitiveDecode();
     isFlying = stateCodecPrimitiveDecode();
+    isWave = stateCodecPrimitiveDecode();
+    size = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

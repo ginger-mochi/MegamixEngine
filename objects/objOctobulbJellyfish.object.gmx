@@ -170,23 +170,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(anim);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(animSpeed);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    animSpeed = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

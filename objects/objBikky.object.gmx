@@ -203,17 +203,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(waitTime);
     stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(imgIndex);
 }
 else
 {
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
     waitTime = stateCodecPrimitiveDecode();
     waitTimer = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

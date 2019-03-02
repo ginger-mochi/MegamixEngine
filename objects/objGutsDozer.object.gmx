@@ -499,34 +499,34 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(playerOnTank);
-    stateCodecPrimitiveEncode(isDying);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(dstX);
-    stateCodecPrimitiveEncode(animTimerTreads);
     stateCodecPrimitiveEncode(animTimerMouth);
+    stateCodecPrimitiveEncode(animTimerTreads);
     stateCodecIDEncode(child);
+    stateCodecPrimitiveEncode(dstX);
+    stateCodecPrimitiveEncode(explodeTimer);
+    stateCodecPrimitiveEncode(isDying);
+    stateCodecPrimitiveEncode(moveSpeed);
+    stateCodecIDEncode(mySolid);
+    stateCodecPrimitiveEncode(playerOnTank);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(waitTime);
 }
 else
 {
-    explodeTimer = stateCodecPrimitiveDecode();
-    mySolid = stateCodecIDDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    playerOnTank = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    dstX = stateCodecPrimitiveDecode();
-    animTimerTreads = stateCodecPrimitiveDecode();
     animTimerMouth = stateCodecPrimitiveDecode();
+    animTimerTreads = stateCodecPrimitiveDecode();
     child = stateCodecIDDecode();
+    dstX = stateCodecPrimitiveDecode();
+    explodeTimer = stateCodecPrimitiveDecode();
+    isDying = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
+    mySolid = stateCodecIDDecode();
+    playerOnTank = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
     waitTime = stateCodecPrimitiveDecode();
 }
 </string>

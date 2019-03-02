@@ -217,26 +217,26 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(aimAtMegaman);
+    stateCodecPrimitiveEncode(center);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(hitFloor);
+    stateCodecPrimitiveEncode(hitWall);
+    stateCodecPrimitiveEncode(i);
     stateCodecPrimitiveEncode(shuntedIntoRoof);
     stateCodecPrimitiveEncode(spreadAttack);
     stateCodecPrimitiveEncode(target);
-    stateCodecPrimitiveEncode(center);
-    stateCodecPrimitiveEncode(hitWall);
-    stateCodecPrimitiveEncode(hitFloor);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(i);
 }
 else
 {
     aimAtMegaman = stateCodecPrimitiveDecode();
+    center = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    hitFloor = stateCodecPrimitiveDecode();
+    hitWall = stateCodecPrimitiveDecode();
+    i = stateCodecPrimitiveDecode();
     shuntedIntoRoof = stateCodecPrimitiveDecode();
     spreadAttack = stateCodecPrimitiveDecode();
     target = stateCodecPrimitiveDecode();
-    center = stateCodecPrimitiveDecode();
-    hitWall = stateCodecPrimitiveDecode();
-    hitFloor = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

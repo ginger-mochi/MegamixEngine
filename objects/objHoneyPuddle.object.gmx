@@ -237,18 +237,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(despawnTimer);
+    stateCodecIDEncode(caughtPlayer);
     stateCodecPrimitiveEncode(caughtTimer);
     stateCodecPrimitiveEncode(caughtXScalePrev);
-    stateCodecIDEncode(caughtPlayer);
+    stateCodecPrimitiveEncode(despawnTimer);
     stateCodecPrimitiveEncode(honeyLock);
 }
 else
 {
-    despawnTimer = stateCodecPrimitiveDecode();
+    caughtPlayer = stateCodecIDDecode();
     caughtTimer = stateCodecPrimitiveDecode();
     caughtXScalePrev = stateCodecPrimitiveDecode();
-    caughtPlayer = stateCodecIDDecode();
+    despawnTimer = stateCodecPrimitiveDecode();
     honeyLock = stateCodecPrimitiveDecode();
 }
 </string>

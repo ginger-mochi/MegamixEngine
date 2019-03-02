@@ -162,22 +162,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yspeed1);
-    stateCodecPrimitiveEncode(jumpCount);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(xspeed1);
+    stateCodecPrimitiveEncode(jumpCount);
     stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(xspeed1);
     stateCodecPrimitiveEncode(xspeed2);
+    stateCodecPrimitiveEncode(yspeed1);
     stateCodecPrimitiveEncode(yspeed2);
 }
 else
 {
-    yspeed1 = stateCodecPrimitiveDecode();
-    jumpCount = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    xspeed1 = stateCodecPrimitiveDecode();
+    jumpCount = stateCodecPrimitiveDecode();
     type = stateCodecPrimitiveDecode();
+    xspeed1 = stateCodecPrimitiveDecode();
     xspeed2 = stateCodecPrimitiveDecode();
+    yspeed1 = stateCodecPrimitiveDecode();
     yspeed2 = stateCodecPrimitiveDecode();
 }
 </string>

@@ -201,18 +201,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(obj);
-    stateCodecPrimitiveEncode(attachedToCloud);
     stateCodecPrimitiveEncode(animEndme);
+    stateCodecPrimitiveEncode(attachedToCloud);
     stateCodecIDEncode(myCloud);
+    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    obj = stateCodecPrimitiveDecode();
-    attachedToCloud = stateCodecPrimitiveDecode();
     animEndme = stateCodecPrimitiveDecode();
+    attachedToCloud = stateCodecPrimitiveDecode();
     myCloud = stateCodecIDDecode();
+    obj = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
 }
 </string>

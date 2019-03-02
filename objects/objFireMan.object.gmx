@@ -326,21 +326,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spriteShoot);
-    stateCodecPrimitiveEncode(spriteRun);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spriteRun);
+    stateCodecPrimitiveEncode(spriteShoot);
 }
 else
 {
-    spriteShoot = stateCodecPrimitiveDecode();
-    spriteRun = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    spriteRun = stateCodecPrimitiveDecode();
+    spriteShoot = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

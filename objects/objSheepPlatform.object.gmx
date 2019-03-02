@@ -110,13 +110,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(playedSFX);
     stateCodecPrimitiveEncode(myFlag);
+    stateCodecPrimitiveEncode(playedSFX);
 }
 else
 {
-    playedSFX = stateCodecPrimitiveDecode();
     myFlag = stateCodecPrimitiveDecode();
+    playedSFX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

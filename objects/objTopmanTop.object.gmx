@@ -163,18 +163,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(number);
-    stateCodecPrimitiveEncode(stopAtSolid);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(stopAtSolid);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
     number = stateCodecPrimitiveDecode();
-    stopAtSolid = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    stopAtSolid = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

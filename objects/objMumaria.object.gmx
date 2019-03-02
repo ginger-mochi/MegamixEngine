@@ -303,15 +303,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mypower);
     stateCodecPrimitiveEncode(action);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(mypower);
 }
 else
 {
-    mypower = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    mypower = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

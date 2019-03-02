@@ -129,16 +129,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(tornado);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(kamegoroDead);
+    stateCodecPrimitiveEncode(tornado);
 }
 else
 {
     active = stateCodecPrimitiveDecode();
-    tornado = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     kamegoroDead = stateCodecPrimitiveDecode();
+    tornado = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

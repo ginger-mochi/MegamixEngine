@@ -323,31 +323,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(swooceIn);
-    stateCodecPrimitiveEncode(prevX);
-    stateCodecPrimitiveEncode(prevY);
     stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(lenght);
-    stateCodecPrimitiveEncode(prevXView);
+    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(playedSound);
+    stateCodecPrimitiveEncode(prevX);
+    stateCodecPrimitiveEncode(prevXView);
+    stateCodecPrimitiveEncode(prevY);
+    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(spawnHeightOffset);
+    stateCodecPrimitiveEncode(swooceIn);
 }
 else
 {
-    swooceIn = stateCodecPrimitiveDecode();
-    prevX = stateCodecPrimitiveDecode();
-    prevY = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     lenght = stateCodecPrimitiveDecode();
-    prevXView = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
     playedSound = stateCodecPrimitiveDecode();
+    prevX = stateCodecPrimitiveDecode();
+    prevXView = stateCodecPrimitiveDecode();
+    prevY = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
     spawnHeightOffset = stateCodecPrimitiveDecode();
+    swooceIn = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

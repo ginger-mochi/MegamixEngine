@@ -213,15 +213,15 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phasetimer);
 }
 else
 {
     blinkTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     phasetimer = stateCodecPrimitiveDecode();
 }
 </string>

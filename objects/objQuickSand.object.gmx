@@ -183,27 +183,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(stretchY);
-    stateCodecIDEncode(sand);
-    stateCodecPrimitiveEncode(stretchX);
-    stateCodecPrimitiveEncode(sandWidth);
-    stateCodecPrimitiveEncode(noRain);
-    stateCodecPrimitiveEncode(stopYScale);
-    stateCodecPrimitiveEncode(imgsp);
-    stateCodecPrimitiveEncode(stopXScale);
     stateCodecPrimitiveEncode(i);
+    stateCodecPrimitiveEncode(imgsp);
+    stateCodecPrimitiveEncode(noRain);
+    stateCodecIDEncode(sand);
+    stateCodecPrimitiveEncode(sandWidth);
+    stateCodecPrimitiveEncode(stopXScale);
+    stateCodecPrimitiveEncode(stopYScale);
+    stateCodecPrimitiveEncode(stretchX);
+    stateCodecPrimitiveEncode(stretchY);
 }
 else
 {
-    stretchY = stateCodecPrimitiveDecode();
-    sand = stateCodecIDDecode();
-    stretchX = stateCodecPrimitiveDecode();
-    sandWidth = stateCodecPrimitiveDecode();
-    noRain = stateCodecPrimitiveDecode();
-    stopYScale = stateCodecPrimitiveDecode();
-    imgsp = stateCodecPrimitiveDecode();
-    stopXScale = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
+    imgsp = stateCodecPrimitiveDecode();
+    noRain = stateCodecPrimitiveDecode();
+    sand = stateCodecIDDecode();
+    sandWidth = stateCodecPrimitiveDecode();
+    stopXScale = stateCodecPrimitiveDecode();
+    stopYScale = stateCodecPrimitiveDecode();
+    stretchX = stateCodecPrimitiveDecode();
+    stretchY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

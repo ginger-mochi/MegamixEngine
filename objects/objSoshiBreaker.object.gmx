@@ -232,19 +232,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(safeTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecIDEncode(block);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(safeTimer);
 }
 else
 {
-    safeTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     block = stateCodecIDDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    safeTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

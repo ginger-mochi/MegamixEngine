@@ -181,15 +181,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(oldmask);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phasetimer);
-    stateCodecPrimitiveEncode(oldmask);
 }
 else
 {
+    oldmask = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     phasetimer = stateCodecPrimitiveDecode();
-    oldmask = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

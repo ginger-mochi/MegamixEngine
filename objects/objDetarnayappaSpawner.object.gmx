@@ -137,18 +137,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(activationDistance);
-    stateCodecPrimitiveEncode(spawnTimer);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(interval);
+    stateCodecPrimitiveEncode(spawnTimer);
 }
 else
 {
     activationDistance = stateCodecPrimitiveDecode();
-    spawnTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     interval = stateCodecPrimitiveDecode();
+    spawnTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

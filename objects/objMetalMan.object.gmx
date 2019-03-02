@@ -361,35 +361,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(bladeThrow);
-    stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(bladeThrow);
     stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(throwTimer);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(flashTimer);
+    stateCodecPrimitiveEncode(getLastXspeed);
     stateCodecPrimitiveEncode(getLastYspeed);
+    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(throwTimer);
 }
 else
 {
-    jumpTimer = stateCodecPrimitiveDecode();
-    bladeThrow = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    getLastXspeed = stateCodecPrimitiveDecode();
-    getX = stateCodecPrimitiveDecode();
+    bladeThrow = stateCodecPrimitiveDecode();
     canInitShoot = stateCodecPrimitiveDecode();
-    throwTimer = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    flashTimer = stateCodecPrimitiveDecode();
+    getLastXspeed = stateCodecPrimitiveDecode();
     getLastYspeed = stateCodecPrimitiveDecode();
+    getX = stateCodecPrimitiveDecode();
+    jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    throwTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

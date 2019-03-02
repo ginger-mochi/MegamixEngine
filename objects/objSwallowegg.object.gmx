@@ -226,27 +226,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(flameFrame);
     stateCodecPrimitiveEncode(hasEgg);
-    stateCodecPrimitiveEncode(stopX);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(spawnEggReset);
     stateCodecPrimitiveEncode(spawnEgg);
-    stateCodecPrimitiveEncode(flameFrame);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(spawnEggReset);
+    stateCodecPrimitiveEncode(stopX);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    flameFrame = stateCodecPrimitiveDecode();
     hasEgg = stateCodecPrimitiveDecode();
-    stopX = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    spawnEggReset = stateCodecPrimitiveDecode();
     spawnEgg = stateCodecPrimitiveDecode();
-    flameFrame = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    spawnEggReset = stateCodecPrimitiveDecode();
+    stopX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -253,17 +253,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

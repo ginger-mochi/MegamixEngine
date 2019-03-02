@@ -174,19 +174,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecIDArrayEncode(enemy);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecIDEncode(enemy);
-    stateCodecPrimitiveEncode(col);
 }
 else
 {
+    actionTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    enemy = stateCodecIDArrayDecode();
     init = stateCodecPrimitiveDecode();
     shooting = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    enemy = stateCodecIDDecode();
-    col = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

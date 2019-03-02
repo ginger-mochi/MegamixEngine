@@ -103,14 +103,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(destroyTimer);
-    stateCodecPrimitiveEncode(reflectable);
     stateCodecPrimitiveEncode(fire);
+    stateCodecPrimitiveEncode(reflectable);
 }
 else
 {
     destroyTimer = stateCodecPrimitiveDecode();
-    reflectable = stateCodecPrimitiveDecode();
     fire = stateCodecPrimitiveDecode();
+    reflectable = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -280,28 +280,28 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xMax);
-    stateCodecIDEncode(child);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(partner);
-    stateCodecPrimitiveEncode(strMMX);
     stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecIDEncode(child);
+    stateCodecPrimitiveEncode(partner);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(strMMX);
     stateCodecPrimitiveEncode(strMMY);
     stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(xMax);
     stateCodecPrimitiveEncode(xMin);
 }
 else
 {
-    xMax = stateCodecPrimitiveDecode();
-    child = stateCodecIDDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    partner = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
+    child = stateCodecIDDecode();
+    partner = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    strMMX = stateCodecPrimitiveDecode();
     strMMY = stateCodecPrimitiveDecode();
     variant = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    xMax = stateCodecPrimitiveDecode();
     xMin = stateCodecPrimitiveDecode();
 }
 </string>

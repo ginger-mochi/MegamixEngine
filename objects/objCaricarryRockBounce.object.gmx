@@ -123,17 +123,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xscale);
     stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(bouncesMax);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(xscale);
 }
 else
 {
-    xscale = stateCodecPrimitiveDecode();
     bounces = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     bouncesMax = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    xscale = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -174,51 +174,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dropBlockCollision);
-    stateCodecPrimitiveEncode(isEnd);
-    stateCodecPrimitiveEncode(nextYdir);
-    stateCodecPrimitiveEncode(prevXdir);
-    stateCodecIDEncode(prevBoulder);
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(boulderCount);
-    stateCodecPrimitiveEncode(dropXspeed);
     stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(startRef);
-    stateCodecPrimitiveEncode(dropYspeed);
-    stateCodecPrimitiveEncode(particleSprite);
-    stateCodecPrimitiveEncode(isStart);
-    stateCodecPrimitiveEncode(endRef);
-    stateCodecPrimitiveEncode(dropGrav);
     stateCodecPrimitiveEncode(customSprite);
-    stateCodecPrimitiveEncode(script);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(dropBlockCollision);
+    stateCodecPrimitiveEncode(dropGrav);
+    stateCodecPrimitiveEncode(dropXspeed);
+    stateCodecPrimitiveEncode(dropYspeed);
+    stateCodecPrimitiveEncode(endRef);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(isEnd);
+    stateCodecPrimitiveEncode(isStart);
     stateCodecIDEncode(nextBoulder);
     stateCodecPrimitiveEncode(nextXdir);
+    stateCodecPrimitiveEncode(nextYdir);
+    stateCodecPrimitiveEncode(particleSprite);
+    stateCodecIDEncode(prevBoulder);
+    stateCodecPrimitiveEncode(prevXdir);
     stateCodecPrimitiveEncode(prevYdir);
+    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(startRef);
 }
 else
 {
-    dropBlockCollision = stateCodecPrimitiveDecode();
-    isEnd = stateCodecPrimitiveDecode();
-    nextYdir = stateCodecPrimitiveDecode();
-    prevXdir = stateCodecPrimitiveDecode();
-    prevBoulder = stateCodecIDDecode();
-    init = stateCodecPrimitiveDecode();
     boulderCount = stateCodecPrimitiveDecode();
-    dropXspeed = stateCodecPrimitiveDecode();
     code = stateCodecPrimitiveDecode();
-    startRef = stateCodecPrimitiveDecode();
-    dropYspeed = stateCodecPrimitiveDecode();
-    particleSprite = stateCodecPrimitiveDecode();
-    isStart = stateCodecPrimitiveDecode();
-    endRef = stateCodecPrimitiveDecode();
-    dropGrav = stateCodecPrimitiveDecode();
     customSprite = stateCodecPrimitiveDecode();
-    script = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    dropBlockCollision = stateCodecPrimitiveDecode();
+    dropGrav = stateCodecPrimitiveDecode();
+    dropXspeed = stateCodecPrimitiveDecode();
+    dropYspeed = stateCodecPrimitiveDecode();
+    endRef = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    isEnd = stateCodecPrimitiveDecode();
+    isStart = stateCodecPrimitiveDecode();
     nextBoulder = stateCodecIDDecode();
     nextXdir = stateCodecPrimitiveDecode();
+    nextYdir = stateCodecPrimitiveDecode();
+    particleSprite = stateCodecPrimitiveDecode();
+    prevBoulder = stateCodecIDDecode();
+    prevXdir = stateCodecPrimitiveDecode();
     prevYdir = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
+    startRef = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

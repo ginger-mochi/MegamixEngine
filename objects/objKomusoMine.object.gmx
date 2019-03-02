@@ -145,21 +145,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(countTimer);
-    stateCodecPrimitiveEncode(soundEffect);
-    stateCodecPrimitiveEncode(explode);
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(timerReset);
+    stateCodecPrimitiveEncode(countTimer);
+    stateCodecPrimitiveEncode(explode);
     stateCodecPrimitiveEncode(objectDrop);
+    stateCodecPrimitiveEncode(soundEffect);
+    stateCodecPrimitiveEncode(timerReset);
 }
 else
 {
-    countTimer = stateCodecPrimitiveDecode();
-    soundEffect = stateCodecPrimitiveDecode();
-    explode = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
-    timerReset = stateCodecPrimitiveDecode();
+    countTimer = stateCodecPrimitiveDecode();
+    explode = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
+    soundEffect = stateCodecPrimitiveDecode();
+    timerReset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

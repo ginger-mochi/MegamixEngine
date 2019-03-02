@@ -320,39 +320,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(childObject);
+    stateCodecPrimitiveEncode(childStore);
     stateCodecPrimitiveEncode(enemiesDefeated);
+    stateCodecPrimitiveEncode(enemiesOnScreen);
+    stateCodecPrimitiveEncode(enemiesToDefeat);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(initalSpawn);
     stateCodecPrimitiveEncode(numA);
     stateCodecPrimitiveEncode(numCur);
-    stateCodecPrimitiveEncode(initalSpawn);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(enemiesOnScreen);
-    stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(childStore);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(enemiesToDefeat);
-    stateCodecPrimitiveEncode(childObject);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(variant);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
+    childObject = stateCodecPrimitiveDecode();
+    childStore = stateCodecPrimitiveDecode();
     enemiesDefeated = stateCodecPrimitiveDecode();
+    enemiesOnScreen = stateCodecPrimitiveDecode();
+    enemiesToDefeat = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    initalSpawn = stateCodecPrimitiveDecode();
     numA = stateCodecPrimitiveDecode();
     numCur = stateCodecPrimitiveDecode();
-    initalSpawn = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    enemiesOnScreen = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
-    childStore = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    enemiesToDefeat = stateCodecPrimitiveDecode();
-    childObject = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    variant = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -320,24 +320,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownImageMax);
     stateCodecPrimitiveEncode(cooldownImageTimer);
     stateCodecPrimitiveEncode(currentPlatformOffset);
-    stateCodecIDEncode(mySolid);
     stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(cooldownImageMax);
+    stateCodecIDEncode(mySolid);
     stateCodecPrimitiveEncode(platformCalc);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(platformOffset);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    cooldownImageMax = stateCodecPrimitiveDecode();
     cooldownImageTimer = stateCodecPrimitiveDecode();
     currentPlatformOffset = stateCodecPrimitiveDecode();
-    mySolid = stateCodecIDDecode();
     imageOffset = stateCodecPrimitiveDecode();
-    cooldownImageMax = stateCodecPrimitiveDecode();
+    mySolid = stateCodecIDDecode();
     platformCalc = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     platformOffset = stateCodecPrimitiveDecode();
 }
 </string>

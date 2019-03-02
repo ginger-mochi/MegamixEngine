@@ -177,21 +177,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(type);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(type);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    type = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

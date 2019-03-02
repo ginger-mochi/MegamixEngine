@@ -460,17 +460,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(bounce);
     stateCodecPrimitiveEncode(riderPhysicsAllowed);
     stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(active);
 }
 else
 {
+    active = stateCodecPrimitiveDecode();
     bounce = stateCodecPrimitiveDecode();
     riderPhysicsAllowed = stateCodecPrimitiveDecode();
     weaponsAllowed = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -86,6 +86,14 @@
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(parent);
+}
+else
+{
+    parent = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

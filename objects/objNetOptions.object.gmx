@@ -372,12 +372,14 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(enabled);
     stateCodecPrimitiveEncode(mode);
     stateCodecPrimitiveEncode(opt_n);
+    stateCodecPrimitiveEncode(sel_y);
 }
 else
 {
     enabled = stateCodecPrimitiveDecode();
     mode = stateCodecPrimitiveDecode();
     opt_n = stateCodecPrimitiveDecode();
+    sel_y = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

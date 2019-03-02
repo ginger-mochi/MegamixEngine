@@ -201,16 +201,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(canCollide);
     stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(canCollide);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
+    canCollide = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
-    canCollide = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

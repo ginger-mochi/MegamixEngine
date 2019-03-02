@@ -168,14 +168,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(sinCounter);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
 }
 </string>

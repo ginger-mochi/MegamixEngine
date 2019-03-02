@@ -173,18 +173,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(popDelay);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(popDelay);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    popDelay = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    popDelay = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

@@ -336,41 +336,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ignores_pits);
-    stateCodecPrimitiveEncode(walk_start);
-    stateCodecPrimitiveEncode(only_jumps);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(move_speed);
-    stateCodecPrimitiveEncode(walk_speed);
-    stateCodecPrimitiveEncode(jump_sprite);
-    stateCodecPrimitiveEncode(walk_end);
-    stateCodecPrimitiveEncode(mode_timer);
-    stateCodecPrimitiveEncode(jumps_pits);
-    stateCodecPrimitiveEncode(jump_speed);
     stateCodecPrimitiveEncode(avoidsPits);
-    stateCodecPrimitiveEncode(walk_sprite);
     stateCodecPrimitiveEncode(behaviour);
-    stateCodecPrimitiveEncode(mode_timer_end);
+    stateCodecPrimitiveEncode(ignores_pits);
+    stateCodecPrimitiveEncode(jump_speed);
+    stateCodecPrimitiveEncode(jump_sprite);
     stateCodecPrimitiveEncode(jump_start);
+    stateCodecPrimitiveEncode(jumps_pits);
+    stateCodecPrimitiveEncode(mode);
+    stateCodecPrimitiveEncode(mode_timer);
+    stateCodecPrimitiveEncode(mode_timer_end);
+    stateCodecPrimitiveEncode(move_speed);
+    stateCodecPrimitiveEncode(only_jumps);
+    stateCodecPrimitiveEncode(walk_end);
+    stateCodecPrimitiveEncode(walk_speed);
+    stateCodecPrimitiveEncode(walk_sprite);
+    stateCodecPrimitiveEncode(walk_start);
 }
 else
 {
-    ignores_pits = stateCodecPrimitiveDecode();
-    walk_start = stateCodecPrimitiveDecode();
-    only_jumps = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
-    move_speed = stateCodecPrimitiveDecode();
-    walk_speed = stateCodecPrimitiveDecode();
-    jump_sprite = stateCodecPrimitiveDecode();
-    walk_end = stateCodecPrimitiveDecode();
-    mode_timer = stateCodecPrimitiveDecode();
-    jumps_pits = stateCodecPrimitiveDecode();
-    jump_speed = stateCodecPrimitiveDecode();
     avoidsPits = stateCodecPrimitiveDecode();
-    walk_sprite = stateCodecPrimitiveDecode();
     behaviour = stateCodecPrimitiveDecode();
-    mode_timer_end = stateCodecPrimitiveDecode();
+    ignores_pits = stateCodecPrimitiveDecode();
+    jump_speed = stateCodecPrimitiveDecode();
+    jump_sprite = stateCodecPrimitiveDecode();
     jump_start = stateCodecPrimitiveDecode();
+    jumps_pits = stateCodecPrimitiveDecode();
+    mode = stateCodecPrimitiveDecode();
+    mode_timer = stateCodecPrimitiveDecode();
+    mode_timer_end = stateCodecPrimitiveDecode();
+    move_speed = stateCodecPrimitiveDecode();
+    only_jumps = stateCodecPrimitiveDecode();
+    walk_end = stateCodecPrimitiveDecode();
+    walk_speed = stateCodecPrimitiveDecode();
+    walk_sprite = stateCodecPrimitiveDecode();
+    walk_start = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

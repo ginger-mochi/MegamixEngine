@@ -292,33 +292,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myLock);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(selectTime);
-    stateCodecIDEncode(rock);
-    stateCodecPrimitiveEncode(lastDrop);
+    stateCodecPrimitiveEncode(animLoop);
     stateCodecPrimitiveEncode(dropTime);
     stateCodecPrimitiveEncode(explodeOnDeath);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(animLoop);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(lastDrop);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(myLock);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecIDEncode(rock);
+    stateCodecPrimitiveEncode(selectTime);
 }
 else
 {
-    myLock = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    selectTime = stateCodecPrimitiveDecode();
-    rock = stateCodecIDDecode();
-    lastDrop = stateCodecPrimitiveDecode();
+    animLoop = stateCodecPrimitiveDecode();
     dropTime = stateCodecPrimitiveDecode();
     explodeOnDeath = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    animLoop = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    lastDrop = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    myLock = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    rock = stateCodecIDDecode();
+    selectTime = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

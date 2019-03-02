@@ -244,21 +244,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isFromMiniboss);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(canBounce);
     stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(isFromMiniboss);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    isFromMiniboss = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     canBounce = stateCodecPrimitiveDecode();
     canShoot = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    isFromMiniboss = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

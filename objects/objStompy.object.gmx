@@ -287,25 +287,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(doQuake);
-    stateCodecPrimitiveEncode(turnTrigger);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(doQuake);
+    stateCodecPrimitiveEncode(findYSpeed);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(storeXScale);
-    stateCodecPrimitiveEncode(findYSpeed);
+    stateCodecPrimitiveEncode(turnTrigger);
 }
 else
 {
-    doQuake = stateCodecPrimitiveDecode();
-    turnTrigger = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    doQuake = stateCodecPrimitiveDecode();
+    findYSpeed = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     storeXScale = stateCodecPrimitiveDecode();
-    findYSpeed = stateCodecPrimitiveDecode();
+    turnTrigger = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

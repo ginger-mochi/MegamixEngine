@@ -108,15 +108,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(high);
-    stateCodecPrimitiveEncode(lockTransition);
     stateCodecPrimitiveEncode(category);
+    stateCodecPrimitiveEncode(high);
+    stateCodecIDEncode(i);
+    stateCodecPrimitiveEncode(lockTransition);
 }
 else
 {
-    high = stateCodecPrimitiveDecode();
-    lockTransition = stateCodecPrimitiveDecode();
     category = stateCodecPrimitiveDecode();
+    high = stateCodecPrimitiveDecode();
+    i = stateCodecIDDecode();
+    lockTransition = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

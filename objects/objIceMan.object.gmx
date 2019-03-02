@@ -395,29 +395,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yCount);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(origY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(scaleWall);
     stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(shotLimit);
-    stateCodecPrimitiveEncode(scaleWall);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(yCount);
 }
 else
 {
-    yCount = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     origY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    scaleWall = stateCodecPrimitiveDecode();
     shooting = stateCodecPrimitiveDecode();
     shotLimit = stateCodecPrimitiveDecode();
-    scaleWall = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    yCount = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

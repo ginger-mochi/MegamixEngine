@@ -187,25 +187,25 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(setSide);
-    stateCodecPrimitiveEncode(cAngle);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecIDEncode(bullet);
     stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecIDArrayEncode(bullet);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setSide);
     stateCodecPrimitiveEncode(storeXScale);
 }
 else
 {
     addAngle = stateCodecPrimitiveDecode();
-    setSide = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    bullet = stateCodecIDDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
+    bullet = stateCodecIDArrayDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    setSide = stateCodecPrimitiveDecode();
     storeXScale = stateCodecPrimitiveDecode();
 }
 </string>

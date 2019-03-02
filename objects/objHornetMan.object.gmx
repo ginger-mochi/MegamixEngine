@@ -414,25 +414,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(counter);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgIndex2);
     stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(counter);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    counter = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgIndex2 = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    counter = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

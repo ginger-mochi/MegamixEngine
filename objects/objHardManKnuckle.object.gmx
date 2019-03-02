@@ -138,17 +138,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(moveToY);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(moveToY);
+    stateCodecPrimitiveEncode(strMMX);
 }
 else
 {
-    strMMX = stateCodecPrimitiveDecode();
-    moveToY = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    moveToY = stateCodecPrimitiveDecode();
+    strMMX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

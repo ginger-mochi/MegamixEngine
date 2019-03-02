@@ -446,43 +446,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startLeftPos);
-    stateCodecPrimitiveEncode(pux);
-    stateCodecPrimitiveEncode(mySpeedMax);
-    stateCodecPrimitiveEncode(initp);
     stateCodecPrimitiveEncode(animImage);
+    stateCodecPrimitiveEncode(backtrackTimer);
     stateCodecPrimitiveEncode(backtrackTimerMax);
+    stateCodecPrimitiveEncode(canBacktrack);
     stateCodecPrimitiveEncode(canDraw);
     stateCodecPrimitiveEncode(changeDir);
-    stateCodecPrimitiveEncode(canBacktrack);
     stateCodecIDEncode(firstPlatform);
-    stateCodecIDEncode(secondPlatform);
-    stateCodecPrimitiveEncode(puy);
+    stateCodecPrimitiveEncode(initp);
+    stateCodecPrimitiveEncode(mySpeedMax);
     stateCodecPrimitiveEncode(pdx);
     stateCodecPrimitiveEncode(pdy);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pux);
+    stateCodecPrimitiveEncode(puy);
+    stateCodecIDEncode(secondPlatform);
+    stateCodecPrimitiveEncode(startLeftPos);
     stateCodecPrimitiveEncode(startRightPos);
-    stateCodecPrimitiveEncode(backtrackTimer);
 }
 else
 {
-    startLeftPos = stateCodecPrimitiveDecode();
-    pux = stateCodecPrimitiveDecode();
-    mySpeedMax = stateCodecPrimitiveDecode();
-    initp = stateCodecPrimitiveDecode();
     animImage = stateCodecPrimitiveDecode();
+    backtrackTimer = stateCodecPrimitiveDecode();
     backtrackTimerMax = stateCodecPrimitiveDecode();
+    canBacktrack = stateCodecPrimitiveDecode();
     canDraw = stateCodecPrimitiveDecode();
     changeDir = stateCodecPrimitiveDecode();
-    canBacktrack = stateCodecPrimitiveDecode();
     firstPlatform = stateCodecIDDecode();
-    secondPlatform = stateCodecIDDecode();
-    puy = stateCodecPrimitiveDecode();
+    initp = stateCodecPrimitiveDecode();
+    mySpeedMax = stateCodecPrimitiveDecode();
     pdx = stateCodecPrimitiveDecode();
     pdy = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pux = stateCodecPrimitiveDecode();
+    puy = stateCodecPrimitiveDecode();
+    secondPlatform = stateCodecIDDecode();
+    startLeftPos = stateCodecPrimitiveDecode();
     startRightPos = stateCodecPrimitiveDecode();
-    backtrackTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

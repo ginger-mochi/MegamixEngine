@@ -374,29 +374,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(speedLimit);
-    stateCodecPrimitiveEncode(awaken);
     stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(deathTimer);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(harmEnemies);
+    stateCodecPrimitiveEncode(awaken);
     stateCodecPrimitiveEncode(deathTime);
+    stateCodecPrimitiveEncode(deathTimer);
+    stateCodecPrimitiveEncode(harmEnemies);
+    stateCodecPrimitiveEncode(speedLimit);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
-    speedLimit = stateCodecPrimitiveDecode();
-    awaken = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
-    deathTimer = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
-    harmEnemies = stateCodecPrimitiveDecode();
+    awaken = stateCodecPrimitiveDecode();
     deathTime = stateCodecPrimitiveDecode();
+    deathTimer = stateCodecPrimitiveDecode();
+    harmEnemies = stateCodecPrimitiveDecode();
+    speedLimit = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

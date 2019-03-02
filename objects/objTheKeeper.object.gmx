@@ -436,45 +436,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(rightHand);
-    stateCodecPrimitiveEncode(attackCount);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(upperBound);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(backSprite);
-    stateCodecPrimitiveEncode(lockID);
-    stateCodecPrimitiveEncode(leftBound);
     stateCodecPrimitiveEncode(anim);
-    stateCodecIDEncode(leftHand);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(rightBound);
-    stateCodecIDEncode(ball);
+    stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(attackCount);
+    stateCodecPrimitiveEncode(backSprite);
+    stateCodecIDEncode(ball);
     stateCodecPrimitiveEncode(ballDir);
+    stateCodecPrimitiveEncode(leftBound);
+    stateCodecIDEncode(leftHand);
+    stateCodecPrimitiveEncode(lockID);
+    stateCodecIDEncode(mySolid);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(rightBound);
+    stateCodecIDEncode(rightHand);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(upperBound);
 }
 else
 {
-    rightHand = stateCodecIDDecode();
-    attackCount = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    mySolid = stateCodecIDDecode();
-    upperBound = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    backSprite = stateCodecPrimitiveDecode();
-    lockID = stateCodecPrimitiveDecode();
-    leftBound = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
-    leftHand = stateCodecIDDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    rightBound = stateCodecPrimitiveDecode();
-    ball = stateCodecIDDecode();
+    animFrame = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
+    attackCount = stateCodecPrimitiveDecode();
+    backSprite = stateCodecPrimitiveDecode();
+    ball = stateCodecIDDecode();
     ballDir = stateCodecPrimitiveDecode();
+    leftBound = stateCodecPrimitiveDecode();
+    leftHand = stateCodecIDDecode();
+    lockID = stateCodecPrimitiveDecode();
+    mySolid = stateCodecIDDecode();
+    phase = stateCodecPrimitiveDecode();
+    rightBound = stateCodecPrimitiveDecode();
+    rightHand = stateCodecIDDecode();
+    timer = stateCodecPrimitiveDecode();
+    type = stateCodecPrimitiveDecode();
+    upperBound = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

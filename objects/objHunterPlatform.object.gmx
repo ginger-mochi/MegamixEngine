@@ -193,33 +193,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(startYSet);
+    stateCodecPrimitiveEncode(forceMove);
     stateCodecPrimitiveEncode(hasTriggered);
     stateCodecPrimitiveEncode(isRandom);
-    stateCodecPrimitiveEncode(timerMax);
-    stateCodecPrimitiveEncode(forceMove);
-    stateCodecPrimitiveEncode(timerN);
-    stateCodecPrimitiveEncode(minY);
-    stateCodecPrimitiveEncode(oldYSet);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(ySet);
     stateCodecPrimitiveEncode(maxY);
+    stateCodecPrimitiveEncode(minY);
+    stateCodecPrimitiveEncode(moveDir);
+    stateCodecPrimitiveEncode(oldYSet);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(startYSet);
+    stateCodecPrimitiveEncode(timerMax);
+    stateCodecPrimitiveEncode(timerN);
+    stateCodecPrimitiveEncode(ySet);
 }
 else
 {
-    startYSet = stateCodecPrimitiveDecode();
+    forceMove = stateCodecPrimitiveDecode();
     hasTriggered = stateCodecPrimitiveDecode();
     isRandom = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
-    forceMove = stateCodecPrimitiveDecode();
-    timerN = stateCodecPrimitiveDecode();
-    minY = stateCodecPrimitiveDecode();
-    oldYSet = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    ySet = stateCodecPrimitiveDecode();
     maxY = stateCodecPrimitiveDecode();
+    minY = stateCodecPrimitiveDecode();
+    moveDir = stateCodecPrimitiveDecode();
+    oldYSet = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    startYSet = stateCodecPrimitiveDecode();
+    timerMax = stateCodecPrimitiveDecode();
+    timerN = stateCodecPrimitiveDecode();
+    ySet = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

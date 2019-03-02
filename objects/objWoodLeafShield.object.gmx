@@ -171,18 +171,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(followWood);
+    stateCodecPrimitiveEncode(myObject);
     stateCodecPrimitiveEncode(range);
     stateCodecPrimitiveEncode(rotationTimer);
-    stateCodecPrimitiveEncode(myObject);
     stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
     followWood = stateCodecPrimitiveDecode();
+    myObject = stateCodecPrimitiveDecode();
     range = stateCodecPrimitiveDecode();
     rotationTimer = stateCodecPrimitiveDecode();
-    myObject = stateCodecPrimitiveDecode();
     xs = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }

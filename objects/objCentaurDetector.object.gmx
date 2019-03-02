@@ -133,14 +133,16 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hitFloor);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(hitFloor);
+    stateCodecPrimitiveEncode(i);
     stateCodecPrimitiveEncode(shuntedIntoRoof);
 }
 else
 {
-    hitFloor = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    hitFloor = stateCodecPrimitiveDecode();
+    i = stateCodecPrimitiveDecode();
     shuntedIntoRoof = stateCodecPrimitiveDecode();
 }
 </string>

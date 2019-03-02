@@ -123,17 +123,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(sinCounter);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(sinCounter);
     stateCodecPrimitiveEncode(sinc);
+    stateCodecPrimitiveEncode(xs);
 }
 else
 {
-    xs = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    sinCounter = stateCodecPrimitiveDecode();
     sinc = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -259,27 +259,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spike);
+    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(doSFX);
-    stateCodecPrimitiveEncode(sprite);
     stateCodecIDEncode(mySolid);
+    stateCodecPrimitiveEncode(neverDespawn);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(spike);
+    stateCodecPrimitiveEncode(sprite);
+    stateCodecPrimitiveEncode(startup);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(wait);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(startup);
-    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    spike = stateCodecPrimitiveDecode();
+    active = stateCodecPrimitiveDecode();
     doSFX = stateCodecPrimitiveDecode();
-    sprite = stateCodecPrimitiveDecode();
     mySolid = stateCodecIDDecode();
+    neverDespawn = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    spike = stateCodecPrimitiveDecode();
+    sprite = stateCodecPrimitiveDecode();
+    startup = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
-    startup = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

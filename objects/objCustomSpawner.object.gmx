@@ -237,35 +237,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spawnWait);
-    stateCodecPrimitiveEncode(shiftEdgeHorizontal);
-    stateCodecPrimitiveEncode(object);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(countOwn);
     stateCodecPrimitiveEncode(limit);
+    stateCodecPrimitiveEncode(object);
+    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(scriptArgC);
+    stateCodecPrimitiveEncode(scriptArgV);
+    stateCodecPrimitiveEncode(shiftEdgeHorizontal);
     stateCodecPrimitiveEncode(shiftEdgeVertical);
     stateCodecPrimitiveEncode(spawnList);
     stateCodecPrimitiveEncode(spawnN);
+    stateCodecPrimitiveEncode(spawnWait);
     stateCodecPrimitiveEncode(spawnedCount);
-    stateCodecPrimitiveEncode(countOwn);
-    stateCodecPrimitiveEncode(scriptArgV);
     stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(scriptArgC);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    spawnWait = stateCodecPrimitiveDecode();
-    shiftEdgeHorizontal = stateCodecPrimitiveDecode();
-    object = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    code = stateCodecPrimitiveDecode();
+    countOwn = stateCodecPrimitiveDecode();
     limit = stateCodecPrimitiveDecode();
+    object = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
+    scriptArgC = stateCodecPrimitiveDecode();
+    scriptArgV = stateCodecPrimitiveDecode();
+    shiftEdgeHorizontal = stateCodecPrimitiveDecode();
     shiftEdgeVertical = stateCodecPrimitiveDecode();
     spawnList = stateCodecPrimitiveDecode();
     spawnN = stateCodecPrimitiveDecode();
+    spawnWait = stateCodecPrimitiveDecode();
     spawnedCount = stateCodecPrimitiveDecode();
-    countOwn = stateCodecPrimitiveDecode();
-    scriptArgV = stateCodecPrimitiveDecode();
     startWait = stateCodecPrimitiveDecode();
-    scriptArgC = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -210,19 +210,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(yscalestart);
     stateCodecPrimitiveEncode(action);
+    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(alarmTime);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(yscalestart);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    yscalestart = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
     alarmTime = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    yscalestart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

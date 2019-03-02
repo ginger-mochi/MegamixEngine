@@ -330,45 +330,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(obstacleList);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(r);
-    stateCodecPrimitiveEncode(preciseMask);
-    stateCodecPrimitiveEncode(nonPreciseMask);
-    stateCodecPrimitiveEncode(ry);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(rx);
-    stateCodecPrimitiveEncode(hacks);
-    stateCodecPrimitiveEncode(rdir);
     stateCodecPrimitiveEncode(angularSpeed);
-    stateCodecPrimitiveEncode(order);
-    stateCodecPrimitiveEncode(onlyDamagePlayer);
     stateCodecPrimitiveEncode(drainCooldown);
+    stateCodecPrimitiveEncode(hacks);
+    stateCodecPrimitiveEncode(imgSpeed);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(nonPreciseMask);
+    stateCodecPrimitiveEncode(obstacleList);
+    stateCodecPrimitiveEncode(onlyDamagePlayer);
+    stateCodecPrimitiveEncode(order);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(preciseMask);
+    stateCodecPrimitiveEncode(r);
+    stateCodecPrimitiveEncode(rdir);
+    stateCodecPrimitiveEncode(rx);
+    stateCodecPrimitiveEncode(ry);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(variation);
 }
 else
 {
-    variation = stateCodecPrimitiveDecode();
-    obstacleList = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    r = stateCodecPrimitiveDecode();
-    preciseMask = stateCodecPrimitiveDecode();
-    nonPreciseMask = stateCodecPrimitiveDecode();
-    ry = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    rx = stateCodecPrimitiveDecode();
-    hacks = stateCodecPrimitiveDecode();
-    rdir = stateCodecPrimitiveDecode();
     angularSpeed = stateCodecPrimitiveDecode();
-    order = stateCodecPrimitiveDecode();
-    onlyDamagePlayer = stateCodecPrimitiveDecode();
     drainCooldown = stateCodecPrimitiveDecode();
+    hacks = stateCodecPrimitiveDecode();
+    imgSpeed = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    nonPreciseMask = stateCodecPrimitiveDecode();
+    obstacleList = stateCodecPrimitiveDecode();
+    onlyDamagePlayer = stateCodecPrimitiveDecode();
+    order = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    preciseMask = stateCodecPrimitiveDecode();
+    r = stateCodecPrimitiveDecode();
+    rdir = stateCodecPrimitiveDecode();
+    rx = stateCodecPrimitiveDecode();
+    ry = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    variation = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

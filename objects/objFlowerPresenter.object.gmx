@@ -169,17 +169,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(flower);
-    stateCodecPrimitiveEncode(state);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(flower);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(state);
 }
 else
 {
-    imageOffset = stateCodecPrimitiveDecode();
-    flower = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    flower = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    state = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

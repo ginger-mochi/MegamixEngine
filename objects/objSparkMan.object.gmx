@@ -462,35 +462,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(bossTriggered);
     stateCodecPrimitiveEncode(delayUse);
     stateCodecPrimitiveEncode(drawLSpark);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(setX);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(jumpY);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(setX);
+    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(storeDirection);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
+    attackTimerMax = stateCodecPrimitiveDecode();
+    bossTriggered = stateCodecPrimitiveDecode();
     delayUse = stateCodecPrimitiveDecode();
     drawLSpark = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    jumpY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    setX = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
     storeDirection = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -316,19 +316,19 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(cannonIndex);
     stateCodecPrimitiveEncode(headShark);
-    stateCodecPrimitiveEncode(phaseMultiple);
-    stateCodecPrimitiveEncode(leftShark);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(hitInvun);
+    stateCodecPrimitiveEncode(leftShark);
+    stateCodecPrimitiveEncode(phaseMultiple);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     cannonIndex = stateCodecPrimitiveDecode();
     headShark = stateCodecPrimitiveDecode();
-    phaseMultiple = stateCodecPrimitiveDecode();
-    leftShark = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     hitInvun = stateCodecPrimitiveDecode();
+    leftShark = stateCodecPrimitiveDecode();
+    phaseMultiple = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

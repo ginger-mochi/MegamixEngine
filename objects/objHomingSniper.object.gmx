@@ -528,23 +528,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(controllerTargets);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(controllerTargets);
     stateCodecPrimitiveEncode(crosshairFrame);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(isController);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
-    controllerTargets = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    controllerTargets = stateCodecPrimitiveDecode();
     crosshairFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     isController = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -110,17 +110,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spawned);
-    stateCodecPrimitiveEncode(spawnDelayMax);
     stateCodecPrimitiveEncode(child);
     stateCodecPrimitiveEncode(spawnDelay);
+    stateCodecPrimitiveEncode(spawnDelayMax);
+    stateCodecPrimitiveEncode(spawned);
 }
 else
 {
-    spawned = stateCodecPrimitiveDecode();
-    spawnDelayMax = stateCodecPrimitiveDecode();
     child = stateCodecPrimitiveDecode();
     spawnDelay = stateCodecPrimitiveDecode();
+    spawnDelayMax = stateCodecPrimitiveDecode();
+    spawned = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

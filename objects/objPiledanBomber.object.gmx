@@ -255,23 +255,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(subPhase);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(myPiledan);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(myPiledan);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(sinCounter);
+    stateCodecPrimitiveEncode(subPhase);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    subPhase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    myPiledan = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    myPiledan = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
+    subPhase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

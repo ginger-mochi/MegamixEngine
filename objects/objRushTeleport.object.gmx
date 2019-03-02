@@ -329,27 +329,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(warpInSFX);
-    stateCodecPrimitiveEncode(upordown);
-    stateCodecPrimitiveEncode(teleportTimer);
-    stateCodecPrimitiveEncode(warpOutSFX);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(type);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(canNeverLand);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(mySpeed);
+    stateCodecPrimitiveEncode(teleportTimer);
+    stateCodecPrimitiveEncode(type);
+    stateCodecPrimitiveEncode(upordown);
+    stateCodecPrimitiveEncode(warpInSFX);
+    stateCodecPrimitiveEncode(warpOutSFX);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    warpInSFX = stateCodecPrimitiveDecode();
-    upordown = stateCodecPrimitiveDecode();
-    teleportTimer = stateCodecPrimitiveDecode();
-    warpOutSFX = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     canNeverLand = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    mySpeed = stateCodecPrimitiveDecode();
+    teleportTimer = stateCodecPrimitiveDecode();
+    type = stateCodecPrimitiveDecode();
+    upordown = stateCodecPrimitiveDecode();
+    warpInSFX = stateCodecPrimitiveDecode();
+    warpOutSFX = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

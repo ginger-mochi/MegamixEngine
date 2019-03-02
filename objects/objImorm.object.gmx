@@ -277,26 +277,26 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkSpeed);
-    stateCodecPrimitiveEncode(hideWhileHanging);
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(animOffset);
     stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(blinkSpeed);
     stateCodecPrimitiveEncode(gravDir);
+    stateCodecPrimitiveEncode(hideWhileHanging);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(yscaleStart);
 }
 else
 {
-    blinkSpeed = stateCodecPrimitiveDecode();
-    hideWhileHanging = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     animOffset = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    blinkSpeed = stateCodecPrimitiveDecode();
     gravDir = stateCodecPrimitiveDecode();
+    hideWhileHanging = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
     yscaleStart = stateCodecPrimitiveDecode();
 }
 </string>

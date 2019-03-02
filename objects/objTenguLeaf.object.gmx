@@ -111,15 +111,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(xOffset);
     stateCodecPrimitiveEncode(speedMultiplier);
+    stateCodecPrimitiveEncode(xOffset);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    yOffset = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
     speedMultiplier = stateCodecPrimitiveDecode();
+    xOffset = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

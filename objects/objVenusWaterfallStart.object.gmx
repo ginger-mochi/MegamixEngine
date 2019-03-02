@@ -115,16 +115,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(i);
+    stateCodecPrimitiveEncode(spawner);
     stateCodecIDEncode(water);
     stateCodecPrimitiveEncode(yDist);
-    stateCodecPrimitiveEncode(spawner);
 }
 else
 {
     i = stateCodecIDDecode();
+    spawner = stateCodecPrimitiveDecode();
     water = stateCodecIDDecode();
     yDist = stateCodecPrimitiveDecode();
-    spawner = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

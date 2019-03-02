@@ -280,33 +280,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(oldLocation);
-    stateCodecPrimitiveEncode(cLocation);
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(destroyClockArm);
-    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(headX);
-    stateCodecPrimitiveEncode(cDistance);
     stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecPrimitiveEncode(cAngle);
+    stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(cLocation);
+    stateCodecPrimitiveEncode(destroyClockArm);
+    stateCodecPrimitiveEncode(headX);
+    stateCodecIDEncode(oldLocation);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    oldLocation = stateCodecIDDecode();
-    cLocation = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
-    destroyClockArm = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    headX = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
+    cAngle = stateCodecPrimitiveDecode();
+    cDistance = stateCodecPrimitiveDecode();
+    cLocation = stateCodecPrimitiveDecode();
+    destroyClockArm = stateCodecPrimitiveDecode();
+    headX = stateCodecPrimitiveDecode();
+    oldLocation = stateCodecIDDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

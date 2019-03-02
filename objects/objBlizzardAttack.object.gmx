@@ -181,17 +181,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(my_y);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(my_x);
     stateCodecPrimitiveEncode(go);
+    stateCodecPrimitiveEncode(my_x);
+    stateCodecPrimitiveEncode(my_y);
 }
 else
 {
-    my_y = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    my_x = stateCodecPrimitiveDecode();
     go = stateCodecPrimitiveDecode();
+    my_x = stateCodecPrimitiveDecode();
+    my_y = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

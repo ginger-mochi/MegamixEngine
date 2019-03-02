@@ -169,15 +169,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounced);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(bounced);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(xSpdConst);
 }
 else
 {
-    bounced = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    bounced = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     xSpdConst = stateCodecPrimitiveDecode();
 }

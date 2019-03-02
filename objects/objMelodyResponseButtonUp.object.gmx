@@ -504,33 +504,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasInit);
-    stateCodecPrimitiveEncode(buttonAmount);
-    stateCodecPrimitiveEncode(doIt);
-    stateCodecPrimitiveEncode(num);
     stateCodecPrimitiveEncode(animationTimer);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(buttonAmount);
     stateCodecPrimitiveEncode(buttonNoPressed);
     stateCodecPrimitiveEncode(buttonPuzzle);
-    stateCodecPrimitiveEncode(storageObjID);
     stateCodecPrimitiveEncode(currentRotation);
-    stateCodecPrimitiveEncode(randomList);
+    stateCodecPrimitiveEncode(doIt);
+    stateCodecPrimitiveEncode(hasInit);
+    stateCodecPrimitiveEncode(num);
     stateCodecPrimitiveEncode(pressed);
+    stateCodecPrimitiveEncode(randomList);
+    stateCodecPrimitiveEncode(storageObjID);
 }
 else
 {
-    hasInit = stateCodecPrimitiveDecode();
-    buttonAmount = stateCodecPrimitiveDecode();
-    doIt = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
     animationTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    buttonAmount = stateCodecPrimitiveDecode();
     buttonNoPressed = stateCodecPrimitiveDecode();
     buttonPuzzle = stateCodecPrimitiveDecode();
-    storageObjID = stateCodecPrimitiveDecode();
     currentRotation = stateCodecPrimitiveDecode();
-    randomList = stateCodecPrimitiveDecode();
+    doIt = stateCodecPrimitiveDecode();
+    hasInit = stateCodecPrimitiveDecode();
+    num = stateCodecPrimitiveDecode();
     pressed = stateCodecPrimitiveDecode();
+    randomList = stateCodecPrimitiveDecode();
+    storageObjID = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

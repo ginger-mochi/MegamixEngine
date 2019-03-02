@@ -139,19 +139,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(isActive);
     stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(explodeRadius);
     stateCodecPrimitiveEncode(explodeDelay);
+    stateCodecPrimitiveEncode(explodeRadius);
+    stateCodecPrimitiveEncode(isActive);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    isActive = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
-    explodeRadius = stateCodecPrimitiveDecode();
     explodeDelay = stateCodecPrimitiveDecode();
+    explodeRadius = stateCodecPrimitiveDecode();
+    isActive = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

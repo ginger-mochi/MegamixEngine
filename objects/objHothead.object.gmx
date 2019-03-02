@@ -145,13 +145,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(animEndme);
+    stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    shootTimer = stateCodecPrimitiveDecode();
     animEndme = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

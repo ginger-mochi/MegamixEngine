@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(jumpDistance);
+    stateCodecPrimitiveEncode(jumpHeight);
+    stateCodecPrimitiveEncode(jumpType);
     stateCodecPrimitiveEncode(jumpXSpeed);
     stateCodecPrimitiveEncode(landTimer);
-    stateCodecPrimitiveEncode(jumpType);
-    stateCodecPrimitiveEncode(jumpDistance);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(jumpHeight);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
+    jumpDistance = stateCodecPrimitiveDecode();
+    jumpHeight = stateCodecPrimitiveDecode();
+    jumpType = stateCodecPrimitiveDecode();
     jumpXSpeed = stateCodecPrimitiveDecode();
     landTimer = stateCodecPrimitiveDecode();
-    jumpType = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    jumpHeight = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

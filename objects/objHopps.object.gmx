@@ -216,29 +216,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(liftOff);
     stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(xSOffset);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(cooldownTimerMax1);
+    stateCodecPrimitiveEncode(cooldownTimerMax2);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(cooldownTimerMax1);
+    stateCodecPrimitiveEncode(liftOff);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(cooldownTimerMax2);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(xSOffset);
 }
 else
 {
-    liftOff = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
-    xSOffset = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    cooldownTimerMax1 = stateCodecPrimitiveDecode();
+    cooldownTimerMax2 = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
     imageTimer = stateCodecPrimitiveDecode();
     imageTimerMax = stateCodecPrimitiveDecode();
-    cooldownTimerMax1 = stateCodecPrimitiveDecode();
+    liftOff = stateCodecPrimitiveDecode();
     radius = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    cooldownTimerMax2 = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    xSOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

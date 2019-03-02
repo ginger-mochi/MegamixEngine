@@ -183,19 +183,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shotLimit);
-    stateCodecIDEncode(chunco);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecIDEncode(chunco);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shotLimit);
 }
 else
 {
-    shotLimit = stateCodecPrimitiveDecode();
-    chunco = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    chunco = stateCodecIDDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shotLimit = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

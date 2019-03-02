@@ -410,25 +410,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(lock);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(platTarget);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(lock);
-    stateCodecPrimitiveEncode(getY);
 }
 else
 {
+    contactStart = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    getY = stateCodecPrimitiveDecode();
+    lock = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     platTarget = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     yOffset = stateCodecPrimitiveDecode();
-    contactStart = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    lock = stateCodecPrimitiveDecode();
-    getY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

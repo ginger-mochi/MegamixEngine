@@ -197,33 +197,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(myinstance);
-    stateCodecPrimitiveEncode(otheruptag);
-    stateCodecPrimitiveEncode(createTime);
     stateCodecPrimitiveEncode(TILE_DEPTH_UNSET);
-    stateCodecPrimitiveEncode(tag);
-    stateCodecPrimitiveEncode(object);
-    stateCodecPrimitiveEncode(propagated);
-    stateCodecPrimitiveEncode(myindex);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(otherstate);
-    stateCodecPrimitiveEncode(tile_depth);
+    stateCodecPrimitiveEncode(createTime);
     stateCodecPrimitiveEncode(myTile);
+    stateCodecPrimitiveEncode(myindex);
+    stateCodecIDEncode(myinstance);
+    stateCodecPrimitiveEncode(object);
+    stateCodecPrimitiveEncode(otherstate);
+    stateCodecPrimitiveEncode(otheruptag);
+    stateCodecPrimitiveEncode(propagated);
+    stateCodecPrimitiveEncode(tag);
+    stateCodecPrimitiveEncode(tile_depth);
 }
 else
 {
-    myinstance = stateCodecIDDecode();
-    otheruptag = stateCodecPrimitiveDecode();
-    createTime = stateCodecPrimitiveDecode();
     TILE_DEPTH_UNSET = stateCodecPrimitiveDecode();
-    tag = stateCodecPrimitiveDecode();
-    object = stateCodecPrimitiveDecode();
-    propagated = stateCodecPrimitiveDecode();
-    myindex = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    otherstate = stateCodecPrimitiveDecode();
-    tile_depth = stateCodecPrimitiveDecode();
+    createTime = stateCodecPrimitiveDecode();
     myTile = stateCodecPrimitiveDecode();
+    myindex = stateCodecPrimitiveDecode();
+    myinstance = stateCodecIDDecode();
+    object = stateCodecPrimitiveDecode();
+    otherstate = stateCodecPrimitiveDecode();
+    otheruptag = stateCodecPrimitiveDecode();
+    propagated = stateCodecPrimitiveDecode();
+    tag = stateCodecPrimitiveDecode();
+    tile_depth = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

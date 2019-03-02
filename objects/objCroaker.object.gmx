@@ -192,21 +192,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shooting);
     stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(spitSpeed);
     stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(childLimit);
+    stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(shooting);
+    stateCodecPrimitiveEncode(spitSpeed);
 }
 else
 {
-    shooting = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    spitSpeed = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
     childLimit = stateCodecPrimitiveDecode();
+    img = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
+    spitSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

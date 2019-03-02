@@ -147,21 +147,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(blockCollison);
     stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(ys);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
     blockCollison = stateCodecPrimitiveDecode();
     img = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

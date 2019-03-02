@@ -506,51 +506,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(cloneDelayOffset);
-    stateCodecIDEncode(clone);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(jumpToX);
-    stateCodecPrimitiveEncode(memYspeed);
     stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(knockbackTimer);
-    stateCodecPrimitiveEncode(isHard);
-    stateCodecPrimitiveEncode(pauseY);
+    stateCodecIDEncode(clone);
     stateCodecPrimitiveEncode(cloneAddedDelay);
-    stateCodecPrimitiveEncode(makeClones);
+    stateCodecPrimitiveEncode(cloneDelayOffset);
     stateCodecPrimitiveEncode(cloneId);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(getLastXspeed);
+    stateCodecPrimitiveEncode(isHard);
+    stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(jumpToX);
+    stateCodecPrimitiveEncode(knockbackTimer);
+    stateCodecPrimitiveEncode(landTimer);
+    stateCodecPrimitiveEncode(makeClones);
+    stateCodecPrimitiveEncode(maxClones);
+    stateCodecPrimitiveEncode(memYspeed);
+    stateCodecPrimitiveEncode(pauseY);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(landTimer);
-    stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(maxClones);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(phase);
 }
 else
 {
-    jumpTimer = stateCodecPrimitiveDecode();
-    cloneDelayOffset = stateCodecPrimitiveDecode();
-    clone = stateCodecIDDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    jumpToX = stateCodecPrimitiveDecode();
-    memYspeed = stateCodecPrimitiveDecode();
     canInitShoot = stateCodecPrimitiveDecode();
-    knockbackTimer = stateCodecPrimitiveDecode();
-    isHard = stateCodecPrimitiveDecode();
-    pauseY = stateCodecPrimitiveDecode();
+    clone = stateCodecIDDecode();
     cloneAddedDelay = stateCodecPrimitiveDecode();
-    makeClones = stateCodecPrimitiveDecode();
+    cloneDelayOffset = stateCodecPrimitiveDecode();
     cloneId = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    getLastXspeed = stateCodecPrimitiveDecode();
+    isHard = stateCodecPrimitiveDecode();
+    jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    jumpToX = stateCodecPrimitiveDecode();
+    knockbackTimer = stateCodecPrimitiveDecode();
+    landTimer = stateCodecPrimitiveDecode();
+    makeClones = stateCodecPrimitiveDecode();
+    maxClones = stateCodecPrimitiveDecode();
+    memYspeed = stateCodecPrimitiveDecode();
+    pauseY = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    landTimer = stateCodecPrimitiveDecode();
-    getLastXspeed = stateCodecPrimitiveDecode();
-    maxClones = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

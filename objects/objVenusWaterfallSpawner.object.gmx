@@ -148,18 +148,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveTimer);
     stateCodecIDEncode(start);
     stateCodecIDEncode(stop);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(waterDelay);
     stateCodecPrimitiveEncode(waterTimer);
 }
 else
 {
     init = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
     start = stateCodecIDDecode();
     stop = stateCodecIDDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     waterDelay = stateCodecPrimitiveDecode();
     waterTimer = stateCodecPrimitiveDecode();
 }

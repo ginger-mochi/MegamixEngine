@@ -193,26 +193,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(fric);
-    stateCodecPrimitiveEncode(tetherSpacing);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(walkAccel);
-    stateCodecPrimitiveEncode(trueGrav);
-    stateCodecPrimitiveEncode(initStepBoost);
     stateCodecPrimitiveEncode(hingeX);
+    stateCodecPrimitiveEncode(initStepBoost);
     stateCodecPrimitiveEncode(initStepBoostDir);
     stateCodecPrimitiveEncode(playedSFX);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(tetherSpacing);
+    stateCodecPrimitiveEncode(trueGrav);
+    stateCodecPrimitiveEncode(walkAccel);
 }
 else
 {
     fric = stateCodecPrimitiveDecode();
-    tetherSpacing = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    walkAccel = stateCodecPrimitiveDecode();
-    trueGrav = stateCodecPrimitiveDecode();
-    initStepBoost = stateCodecPrimitiveDecode();
     hingeX = stateCodecPrimitiveDecode();
+    initStepBoost = stateCodecPrimitiveDecode();
     initStepBoostDir = stateCodecPrimitiveDecode();
     playedSFX = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    tetherSpacing = stateCodecPrimitiveDecode();
+    trueGrav = stateCodecPrimitiveDecode();
+    walkAccel = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

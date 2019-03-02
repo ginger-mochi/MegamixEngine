@@ -162,17 +162,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(resetCooldown);
     stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(shootAngle);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(resetCooldown);
+    stateCodecPrimitiveEncode(shootAngle);
 }
 else
 {
-    resetCooldown = stateCodecPrimitiveDecode();
     cooldownMax = stateCodecPrimitiveDecode();
-    shootAngle = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    resetCooldown = stateCodecPrimitiveDecode();
+    shootAngle = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

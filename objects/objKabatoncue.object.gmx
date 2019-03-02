@@ -157,22 +157,22 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(canCreateMissiles);
     stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(earJiggle);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(earJiggle);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(missilesCreated);
 }
 else
 {
     canCreateMissiles = stateCodecPrimitiveDecode();
     cooldownMax = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    earJiggle = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    earJiggle = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     missilesCreated = stateCodecPrimitiveDecode();
 }
 </string>

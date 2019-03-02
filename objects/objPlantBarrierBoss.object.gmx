@@ -193,21 +193,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(curX);
-    stateCodecPrimitiveEncode(curY);
     stateCodecPrimitiveEncode(addAngle);
     stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistanceMax);
     stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(cDistanceMax);
+    stateCodecPrimitiveEncode(curX);
+    stateCodecPrimitiveEncode(curY);
 }
 else
 {
-    curX = stateCodecPrimitiveDecode();
-    curY = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
     cAngle = stateCodecPrimitiveDecode();
-    cDistanceMax = stateCodecPrimitiveDecode();
     cDistance = stateCodecPrimitiveDecode();
+    cDistanceMax = stateCodecPrimitiveDecode();
+    curX = stateCodecPrimitiveDecode();
+    curY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

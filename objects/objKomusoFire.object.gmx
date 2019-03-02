@@ -186,35 +186,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yMin);
     stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(yScale);
-    stateCodecPrimitiveEncode(imgalarm);
-    stateCodecPrimitiveEncode(startY);
     stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(imageTimer);
     stateCodecPrimitiveEncode(cDir);
-    stateCodecPrimitiveEncode(destroyCounter);
     stateCodecPrimitiveEncode(cDistance);
+    stateCodecPrimitiveEncode(destroyCounter);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(imgalarm);
     stateCodecPrimitiveEncode(moveCounter);
     stateCodecPrimitiveEncode(moveDist);
-    stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(startY);
+    stateCodecPrimitiveEncode(yMin);
+    stateCodecPrimitiveEncode(yScale);
 }
 else
 {
-    yMin = stateCodecPrimitiveDecode();
     addAngle = stateCodecPrimitiveDecode();
-    yScale = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
-    startY = stateCodecPrimitiveDecode();
     cAngle = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
     cDir = stateCodecPrimitiveDecode();
-    destroyCounter = stateCodecPrimitiveDecode();
     cDistance = stateCodecPrimitiveDecode();
+    destroyCounter = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    img = stateCodecPrimitiveDecode();
+    imgalarm = stateCodecPrimitiveDecode();
     moveCounter = stateCodecPrimitiveDecode();
     moveDist = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
+    startY = stateCodecPrimitiveDecode();
+    yMin = stateCodecPrimitiveDecode();
+    yScale = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

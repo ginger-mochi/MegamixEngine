@@ -215,20 +215,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(pivot);
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pivot);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    pivot = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     animFrame = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pivot = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

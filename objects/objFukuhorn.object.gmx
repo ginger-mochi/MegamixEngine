@@ -344,37 +344,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(chargeDelay);
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(hideTimer);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(chargeDelay);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(hideTimer);
+    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(moves);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    chargeDelay = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
-    hideTimer = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     canShoot = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    chargeDelay = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    hideTimer = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
     moves = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

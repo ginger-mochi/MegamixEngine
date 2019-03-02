@@ -218,17 +218,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(anim);
+    stateCodecPrimitiveEncode(animFrame);
     stateCodecPrimitiveEncode(animSpeed);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     anim = stateCodecPrimitiveDecode();
+    animFrame = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

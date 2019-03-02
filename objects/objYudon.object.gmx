@@ -314,39 +314,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(closeBlastDoors);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(missileCol);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(e);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(doorOpenMax);
     stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(missile1);
-    stateCodecIDEncode(missileArray);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(missile2);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(closeBlastDoors);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(doorOpenMax);
+    stateCodecPrimitiveEncode(e);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(missile1);
+    stateCodecPrimitiveEncode(missile2);
+    stateCodecIDArrayEncode(missileArray);
+    stateCodecPrimitiveEncode(missileCol);
+    stateCodecPrimitiveEncode(shooting);
 }
 else
 {
-    closeBlastDoors = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    missileCol = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    e = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    doorOpenMax = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
-    missile1 = stateCodecPrimitiveDecode();
-    missileArray = stateCodecIDDecode();
-    img = stateCodecPrimitiveDecode();
-    missile2 = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    closeBlastDoors = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    doorOpenMax = stateCodecPrimitiveDecode();
+    e = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    img = stateCodecPrimitiveDecode();
+    missile1 = stateCodecPrimitiveDecode();
+    missile2 = stateCodecPrimitiveDecode();
+    missileArray = stateCodecIDArrayDecode();
+    missileCol = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

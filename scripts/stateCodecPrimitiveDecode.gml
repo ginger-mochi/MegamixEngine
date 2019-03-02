@@ -80,10 +80,13 @@ switch (header)
                 }
                 
                 // initialize row
-                retv[i, length - 1] = 0;
-                for (var j = 0; j < length; j++)
+                if (length > 0)
                 {
-                    retv[i, j] = stateCodecPrimitiveDecode();
+                    retv[i, length - 1] = 0;
+                    for (var j = 0; j < length; j++)
+                    {
+                        retv[i, j] = stateCodecPrimitiveDecode();
+                    }
                 }
             }
             return retv;

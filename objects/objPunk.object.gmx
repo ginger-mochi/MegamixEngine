@@ -484,29 +484,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(xOff);
-    stateCodecPrimitiveEncode(storeY);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
     stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(hasTriggeredFall);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(setY);
+    stateCodecPrimitiveEncode(shakeTimer);
+    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(storeY);
+    stateCodecPrimitiveEncode(xOff);
 }
 else
 {
-    shakeTimer = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
-    storeY = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    hasTriggeredFall = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     setY = stateCodecPrimitiveDecode();
+    shakeTimer = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
+    storeY = stateCodecPrimitiveDecode();
+    xOff = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -156,16 +156,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(jumpCount);
 }
 else
 {
     animBack = stateCodecPrimitiveDecode();
-    jumpCount = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    jumpCount = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

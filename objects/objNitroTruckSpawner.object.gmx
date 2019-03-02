@@ -133,17 +133,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(truckSpeed);
-    stateCodecPrimitiveEncode(spawn_interval);
     stateCodecPrimitiveEncode(objectToSpawn);
+    stateCodecPrimitiveEncode(spawn_interval);
     stateCodecPrimitiveEncode(spawn_timer);
+    stateCodecPrimitiveEncode(truckSpeed);
 }
 else
 {
-    truckSpeed = stateCodecPrimitiveDecode();
-    spawn_interval = stateCodecPrimitiveDecode();
     objectToSpawn = stateCodecPrimitiveDecode();
+    spawn_interval = stateCodecPrimitiveDecode();
     spawn_timer = stateCodecPrimitiveDecode();
+    truckSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

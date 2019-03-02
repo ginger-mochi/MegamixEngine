@@ -118,15 +118,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timeUntilDeath);
     stateCodecPrimitiveEncode(alarmTimeMax);
     stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(timeUntilDeath);
 }
 else
 {
-    timeUntilDeath = stateCodecPrimitiveDecode();
     alarmTimeMax = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
+    timeUntilDeath = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -277,19 +277,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(has_honked);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(begunMove);
-    stateCodecPrimitiveEncode(slowdeath_timer);
     stateCodecPrimitiveEncode(damageOffset);
+    stateCodecPrimitiveEncode(has_honked);
+    stateCodecPrimitiveEncode(slowdeath_timer);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
-    has_honked = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     begunMove = stateCodecPrimitiveDecode();
-    slowdeath_timer = stateCodecPrimitiveDecode();
     damageOffset = stateCodecPrimitiveDecode();
+    has_honked = stateCodecPrimitiveDecode();
+    slowdeath_timer = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

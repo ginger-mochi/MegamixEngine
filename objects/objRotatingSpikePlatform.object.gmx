@@ -199,19 +199,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(canDrop);
     stateCodecPrimitiveEncode(initImageIndex);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(timeri);
     stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timeri);
 }
 else
 {
+    canDrop = stateCodecPrimitiveDecode();
     initImageIndex = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    canDrop = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
+    timeri = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

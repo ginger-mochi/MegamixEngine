@@ -135,16 +135,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(dropRock);
     stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
 }
 else
 {
     active = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     dropRock = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

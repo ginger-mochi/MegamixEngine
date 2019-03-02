@@ -228,16 +228,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(hasCannon);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
     animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     hasCannon = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

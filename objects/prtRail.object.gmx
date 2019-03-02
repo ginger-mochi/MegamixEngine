@@ -61,10 +61,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(drop);
 }
 else
 {
+    dir = stateCodecPrimitiveDecode();
     drop = stateCodecPrimitiveDecode();
 }
 </string>

@@ -255,25 +255,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(graceWait);
     stateCodecPrimitiveEncode(animBack);
+    stateCodecPrimitiveEncode(graceWait);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(shootWait);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shootWait);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
-    graceWait = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
+    graceWait = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    shootWait = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shootWait = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

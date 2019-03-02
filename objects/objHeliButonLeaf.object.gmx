@@ -121,19 +121,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yspeed);
     stateCodecPrimitiveEncode(animBack);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(xspeed);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(xspeed);
+    stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    yspeed = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    xspeed = stateCodecPrimitiveDecode();
+    yspeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

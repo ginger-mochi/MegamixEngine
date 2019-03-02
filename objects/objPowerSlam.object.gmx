@@ -246,21 +246,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(knocked);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(down);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(knocked);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(down);
 }
 else
 {
-    knocked = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    down = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    knocked = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    down = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

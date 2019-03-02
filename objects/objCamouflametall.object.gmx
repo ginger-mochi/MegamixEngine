@@ -205,17 +205,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(cooldownTimer);
     stateCodecPrimitiveEncode(player_costume_id);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
     canShoot = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
     player_costume_id = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -420,41 +420,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(overrideY);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(lockID);
-    stateCodecPrimitiveEncode(joeFrame);
-    stateCodecPrimitiveEncode(destroyTerrain);
-    stateCodecPrimitiveEncode(spdF);
     stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(introType);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(overrideX);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(strMMY);
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(carFrame);
-    stateCodecPrimitiveEncode(spdB);
+    stateCodecPrimitiveEncode(destroyTerrain);
+    stateCodecPrimitiveEncode(introType);
+    stateCodecPrimitiveEncode(joeFrame);
+    stateCodecPrimitiveEncode(lockID);
+    stateCodecPrimitiveEncode(moveDir);
+    stateCodecPrimitiveEncode(overrideX);
+    stateCodecPrimitiveEncode(overrideY);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(spdB);
+    stateCodecPrimitiveEncode(spdF);
+    stateCodecPrimitiveEncode(strMMX);
+    stateCodecPrimitiveEncode(strMMY);
 }
 else
 {
-    overrideY = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    lockID = stateCodecPrimitiveDecode();
-    joeFrame = stateCodecPrimitiveDecode();
-    destroyTerrain = stateCodecPrimitiveDecode();
-    spdF = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
-    introType = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    overrideX = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    strMMY = stateCodecPrimitiveDecode();
+    attackTimer = stateCodecPrimitiveDecode();
     carFrame = stateCodecPrimitiveDecode();
-    spdB = stateCodecPrimitiveDecode();
+    destroyTerrain = stateCodecPrimitiveDecode();
+    introType = stateCodecPrimitiveDecode();
+    joeFrame = stateCodecPrimitiveDecode();
+    lockID = stateCodecPrimitiveDecode();
+    moveDir = stateCodecPrimitiveDecode();
+    overrideX = stateCodecPrimitiveDecode();
+    overrideY = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
+    spdB = stateCodecPrimitiveDecode();
+    spdF = stateCodecPrimitiveDecode();
+    strMMX = stateCodecPrimitiveDecode();
+    strMMY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

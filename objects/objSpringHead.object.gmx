@@ -241,21 +241,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(fastSpeed);
-    stateCodecPrimitiveEncode(slowSpeed);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(bounceTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(fastSpeed);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(slowSpeed);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     animSpeed = stateCodecPrimitiveDecode();
-    fastSpeed = stateCodecPrimitiveDecode();
-    slowSpeed = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     bounceTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    fastSpeed = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    slowSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

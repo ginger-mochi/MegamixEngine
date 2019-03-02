@@ -455,18 +455,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(clearSource);
-    stateCodecPrimitiveEncode(snowSource);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(sinCounter);
+    stateCodecPrimitiveEncode(snowSource);
 }
 else
 {
     actionTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     clearSource = stateCodecPrimitiveDecode();
-    snowSource = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
+    snowSource = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

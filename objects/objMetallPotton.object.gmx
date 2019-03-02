@@ -174,19 +174,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(met2);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecIDEncode(met);
     stateCodecPrimitiveEncode(met1);
+    stateCodecPrimitiveEncode(met2);
+    stateCodecPrimitiveEncode(shootTimer);
 }
 else
 {
-    met2 = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     met = stateCodecIDDecode();
     met1 = stateCodecPrimitiveDecode();
+    met2 = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -353,38 +353,38 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(rollerFrame);
-    stateCodecPrimitiveEncode(doQuake);
-    stateCodecPrimitiveEncode(turnTrigger);
-    stateCodecIDEncode(child);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
+    stateCodecIDEncode(child);
+    stateCodecPrimitiveEncode(cutterFrame);
+    stateCodecPrimitiveEncode(doQuake);
+    stateCodecPrimitiveEncode(hasCutter);
+    stateCodecPrimitiveEncode(jitterFrame);
     stateCodecPrimitiveEncode(mouthOpen);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(hasCutter);
-    stateCodecPrimitiveEncode(cutterFrame);
-    stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(jitterFrame);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(rollerFrame);
     stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(turnTrigger);
+    stateCodecPrimitiveEncode(variant);
     stateCodecPrimitiveEncode(wheelFrame);
 }
 else
 {
-    rollerFrame = stateCodecPrimitiveDecode();
-    doQuake = stateCodecPrimitiveDecode();
-    turnTrigger = stateCodecPrimitiveDecode();
-    child = stateCodecIDDecode();
     attackTimer = stateCodecPrimitiveDecode();
     attackTimerMax = stateCodecPrimitiveDecode();
+    child = stateCodecIDDecode();
+    cutterFrame = stateCodecPrimitiveDecode();
+    doQuake = stateCodecPrimitiveDecode();
+    hasCutter = stateCodecPrimitiveDecode();
+    jitterFrame = stateCodecPrimitiveDecode();
     mouthOpen = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
-    hasCutter = stateCodecPrimitiveDecode();
-    cutterFrame = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
-    jitterFrame = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    rollerFrame = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
+    turnTrigger = stateCodecPrimitiveDecode();
+    variant = stateCodecPrimitiveDecode();
     wheelFrame = stateCodecPrimitiveDecode();
 }
 </string>

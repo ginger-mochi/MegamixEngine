@@ -164,35 +164,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(finalTeleportX);
-    stateCodecPrimitiveEncode(hasBossSpawned);
-    stateCodecPrimitiveEncode(bossesDefeated);
-    stateCodecPrimitiveEncode(finalTeleportY);
-    stateCodecPrimitiveEncode(bossesToDefeat);
-    stateCodecIDEncode(inst);
-    stateCodecPrimitiveEncode(teleportY);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(bossesDefeated);
+    stateCodecPrimitiveEncode(bossesToDefeat);
     stateCodecPrimitiveEncode(clearedBossX);
-    stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(lockOn);
     stateCodecPrimitiveEncode(clearedBossY);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(finalTeleportX);
+    stateCodecPrimitiveEncode(finalTeleportY);
+    stateCodecPrimitiveEncode(hasBossSpawned);
+    stateCodecIDEncode(inst);
+    stateCodecPrimitiveEncode(lockOn);
+    stateCodecPrimitiveEncode(myRoom);
+    stateCodecPrimitiveEncode(teleportX);
+    stateCodecPrimitiveEncode(teleportY);
 }
 else
 {
-    finalTeleportX = stateCodecPrimitiveDecode();
-    hasBossSpawned = stateCodecPrimitiveDecode();
-    bossesDefeated = stateCodecPrimitiveDecode();
-    finalTeleportY = stateCodecPrimitiveDecode();
-    bossesToDefeat = stateCodecPrimitiveDecode();
-    inst = stateCodecIDDecode();
-    teleportY = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
+    bossesDefeated = stateCodecPrimitiveDecode();
+    bossesToDefeat = stateCodecPrimitiveDecode();
     clearedBossX = stateCodecPrimitiveDecode();
-    myRoom = stateCodecPrimitiveDecode();
-    lockOn = stateCodecPrimitiveDecode();
     clearedBossY = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    finalTeleportX = stateCodecPrimitiveDecode();
+    finalTeleportY = stateCodecPrimitiveDecode();
+    hasBossSpawned = stateCodecPrimitiveDecode();
+    inst = stateCodecIDDecode();
+    lockOn = stateCodecPrimitiveDecode();
+    myRoom = stateCodecPrimitiveDecode();
+    teleportX = stateCodecPrimitiveDecode();
+    teleportY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

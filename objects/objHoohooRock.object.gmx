@@ -160,13 +160,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(init);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

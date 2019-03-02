@@ -150,15 +150,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(activated);
     stateCodecPrimitiveEncode(explod);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    radius = stateCodecPrimitiveDecode();
     activated = stateCodecPrimitiveDecode();
     explod = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

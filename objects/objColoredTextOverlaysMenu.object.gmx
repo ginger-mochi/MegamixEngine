@@ -395,35 +395,35 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cursorImgSpd);
+    stateCodecPrimitiveEncode(buffer);
     stateCodecPrimitiveEncode(current);
-    stateCodecPrimitiveEncode(newControls);
-    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
     stateCodecPrimitiveEncode(cursorImgIndex);
+    stateCodecPrimitiveEncode(cursorImgSpd);
+    stateCodecPrimitiveEncode(dialogueBoxLightOffset);
+    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
+    stateCodecPrimitiveEncode(newControls);
+    stateCodecPrimitiveEncode(option);
     stateCodecPrimitiveEncode(optionText);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(press);
     stateCodecPrimitiveEncode(selected);
     stateCodecPrimitiveEncode(verticalQuickScrollTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(buffer);
-    stateCodecPrimitiveEncode(press);
-    stateCodecPrimitiveEncode(dialogueBoxLightOffset);
 }
 else
 {
-    cursorImgSpd = stateCodecPrimitiveDecode();
+    buffer = stateCodecPrimitiveDecode();
     current = stateCodecPrimitiveDecode();
-    newControls = stateCodecPrimitiveDecode();
-    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
     cursorImgIndex = stateCodecPrimitiveDecode();
+    cursorImgSpd = stateCodecPrimitiveDecode();
+    dialogueBoxLightOffset = stateCodecPrimitiveDecode();
+    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
+    newControls = stateCodecPrimitiveDecode();
+    option = stateCodecPrimitiveDecode();
     optionText = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    press = stateCodecPrimitiveDecode();
     selected = stateCodecPrimitiveDecode();
     verticalQuickScrollTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
-    buffer = stateCodecPrimitiveDecode();
-    press = stateCodecPrimitiveDecode();
-    dialogueBoxLightOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

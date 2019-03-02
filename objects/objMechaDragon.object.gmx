@@ -349,32 +349,32 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(normalSprite);
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(fireSprite);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(normalHurtSprite);
-    stateCodecPrimitiveEncode(fireHurtSprite);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(explodeTimer);
+    stateCodecPrimitiveEncode(fireHurtSprite);
+    stateCodecPrimitiveEncode(fireSprite);
     stateCodecPrimitiveEncode(isDying);
+    stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(normalHurtSprite);
+    stateCodecPrimitiveEncode(normalSprite);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(pose);
 }
 else
 {
-    normalSprite = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
-    fireSprite = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    normalHurtSprite = stateCodecPrimitiveDecode();
-    fireHurtSprite = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     canInitShoot = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    explodeTimer = stateCodecPrimitiveDecode();
+    fireHurtSprite = stateCodecPrimitiveDecode();
+    fireSprite = stateCodecPrimitiveDecode();
     isDying = stateCodecPrimitiveDecode();
+    jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    normalHurtSprite = stateCodecPrimitiveDecode();
+    normalSprite = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
     pose = stateCodecPrimitiveDecode();
 }
 </string>

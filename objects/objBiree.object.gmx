@@ -202,29 +202,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_velY);
-    stateCodecPrimitiveEncode(_groundDir);
-    stateCodecPrimitiveEncode(db);
-    stateCodecPrimitiveEncode(_velX);
-    stateCodecPrimitiveEncode(_prevCollision);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(sp);
     stateCodecPrimitiveEncode(_dir);
-    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(_groundDir);
+    stateCodecPrimitiveEncode(_prevCollision);
+    stateCodecPrimitiveEncode(_velX);
+    stateCodecPrimitiveEncode(_velY);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(db);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(sp);
 }
 else
 {
-    _velY = stateCodecPrimitiveDecode();
-    _groundDir = stateCodecPrimitiveDecode();
-    db = stateCodecPrimitiveDecode();
-    _velX = stateCodecPrimitiveDecode();
-    _prevCollision = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    sp = stateCodecPrimitiveDecode();
     _dir = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    _groundDir = stateCodecPrimitiveDecode();
+    _prevCollision = stateCodecPrimitiveDecode();
+    _velX = stateCodecPrimitiveDecode();
+    _velY = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    db = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    sp = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

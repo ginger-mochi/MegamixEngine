@@ -255,33 +255,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(leftLimit);
     stateCodecIDEncode(myMissile);
+    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(pixelsMoved);
+    stateCodecPrimitiveEncode(rightLimit);
     stateCodecPrimitiveEncode(shootAfter);
     stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(rightLimit);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    animFrame = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    leftLimit = stateCodecPrimitiveDecode();
     myMissile = stateCodecIDDecode();
+    phase = stateCodecPrimitiveDecode();
     pixelsMoved = stateCodecPrimitiveDecode();
+    rightLimit = stateCodecPrimitiveDecode();
     shootAfter = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
-    leftLimit = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

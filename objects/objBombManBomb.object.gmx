@@ -127,15 +127,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(collectMe);
     stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(attackTimer);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
     collectMe = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

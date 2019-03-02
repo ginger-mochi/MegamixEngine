@@ -280,21 +280,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(shootAmountMax);
-    stateCodecPrimitiveEncode(realContactDamage);
     stateCodecPrimitiveEncode(collapse);
+    stateCodecPrimitiveEncode(realContactDamage);
     stateCodecPrimitiveEncode(shootAmount);
+    stateCodecPrimitiveEncode(shootAmountMax);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shooting);
 }
 else
 {
-    shooting = stateCodecPrimitiveDecode();
-    shootAmountMax = stateCodecPrimitiveDecode();
-    realContactDamage = stateCodecPrimitiveDecode();
     collapse = stateCodecPrimitiveDecode();
+    realContactDamage = stateCodecPrimitiveDecode();
     shootAmount = stateCodecPrimitiveDecode();
+    shootAmountMax = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

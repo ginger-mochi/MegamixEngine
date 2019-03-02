@@ -144,17 +144,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(obj);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
-    obj = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
+    obj = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

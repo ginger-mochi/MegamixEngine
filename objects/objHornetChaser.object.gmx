@@ -296,15 +296,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(pickup);
     stateCodecPrimitiveEncode(alarmChase);
     stateCodecPrimitiveEncode(chase);
+    stateCodecIDEncode(pickup);
 }
 else
 {
-    pickup = stateCodecIDDecode();
     alarmChase = stateCodecPrimitiveDecode();
     chase = stateCodecPrimitiveDecode();
+    pickup = stateCodecIDDecode();
 }
 </string>
           </argument>

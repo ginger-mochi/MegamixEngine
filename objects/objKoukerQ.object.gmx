@@ -197,19 +197,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shakeDir);
-    stateCodecPrimitiveEncode(isFalling);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(col);
     stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(isFalling);
+    stateCodecPrimitiveEncode(shakeDir);
 }
 else
 {
-    shakeDir = stateCodecPrimitiveDecode();
-    isFalling = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    isFalling = stateCodecPrimitiveDecode();
+    shakeDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

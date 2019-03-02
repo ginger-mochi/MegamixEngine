@@ -223,19 +223,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(timeri);
-    stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(iphase);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(timeri);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
     canDrop = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
     iphase = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    timeri = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

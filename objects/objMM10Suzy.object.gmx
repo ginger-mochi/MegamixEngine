@@ -215,23 +215,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(beginStartDir);
-    stateCodecPrimitiveEncode(startDir);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(firsttime);
+    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(moving);
-    stateCodecPrimitiveEncode(firsttime);
+    stateCodecPrimitiveEncode(startDir);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     beginStartDir = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    firsttime = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
     moving = stateCodecPrimitiveDecode();
-    firsttime = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

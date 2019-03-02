@@ -323,42 +323,42 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sineCounter);
-    stateCodecPrimitiveEncode(shootLimit);
-    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(_hitTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(attackTimer);
     stateCodecPrimitiveEncode(canFlip);
-    stateCodecPrimitiveEncode(changkeyNumber);
-    stateCodecPrimitiveEncode(lastXscale);
-    stateCodecPrimitiveEncode(_hitTimer);
-    stateCodecPrimitiveEncode(shootTime);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(introDone);
     stateCodecPrimitiveEncode(canRegen);
-    stateCodecPrimitiveEncode(sineCounter2);
-    stateCodecPrimitiveEncode(waveSpeed);
-    stateCodecPrimitiveEncode(waveHeight);
+    stateCodecPrimitiveEncode(changkeyNumber);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(introDone);
+    stateCodecPrimitiveEncode(lastXscale);
+    stateCodecPrimitiveEncode(shootLimit);
+    stateCodecPrimitiveEncode(shootTime);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(sineCounter);
+    stateCodecPrimitiveEncode(sineCounter2);
+    stateCodecPrimitiveEncode(waveHeight);
+    stateCodecPrimitiveEncode(waveSpeed);
     stateCodecPrimitiveEncode(waveWidth);
 }
 else
 {
-    sineCounter = stateCodecPrimitiveDecode();
-    shootLimit = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    _hitTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
     canFlip = stateCodecPrimitiveDecode();
-    changkeyNumber = stateCodecPrimitiveDecode();
-    lastXscale = stateCodecPrimitiveDecode();
-    _hitTimer = stateCodecPrimitiveDecode();
-    shootTime = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    introDone = stateCodecPrimitiveDecode();
     canRegen = stateCodecPrimitiveDecode();
-    sineCounter2 = stateCodecPrimitiveDecode();
-    waveSpeed = stateCodecPrimitiveDecode();
-    waveHeight = stateCodecPrimitiveDecode();
+    changkeyNumber = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    introDone = stateCodecPrimitiveDecode();
+    lastXscale = stateCodecPrimitiveDecode();
+    shootLimit = stateCodecPrimitiveDecode();
+    shootTime = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    sineCounter = stateCodecPrimitiveDecode();
+    sineCounter2 = stateCodecPrimitiveDecode();
+    waveHeight = stateCodecPrimitiveDecode();
+    waveSpeed = stateCodecPrimitiveDecode();
     waveWidth = stateCodecPrimitiveDecode();
 }
 </string>

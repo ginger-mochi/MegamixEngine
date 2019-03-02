@@ -211,16 +211,16 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(bulletSpeed);
     stateCodecPrimitiveEncode(cloudSpeed);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(uncoverWaitTimer);
     stateCodecPrimitiveEncode(sinCounter);
+    stateCodecPrimitiveEncode(uncoverWaitTimer);
 }
 else
 {
     bulletSpeed = stateCodecPrimitiveDecode();
     cloudSpeed = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    uncoverWaitTimer = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
+    uncoverWaitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

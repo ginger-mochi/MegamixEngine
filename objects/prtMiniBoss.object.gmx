@@ -355,26 +355,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(_init);
-    stateCodecPrimitiveEncode(xplX);
-    stateCodecPrimitiveEncode(introTimer);
-    stateCodecPrimitiveEncode(lockTransition);
-    stateCodecPrimitiveEncode(killed);
-    stateCodecPrimitiveEncode(rescursiveExplosion);
-    stateCodecPrimitiveEncode(introSprite);
-    stateCodecPrimitiveEncode(xplY);
     stateCodecPrimitiveEncode(doesIntro);
+    stateCodecPrimitiveEncode(introSprite);
+    stateCodecPrimitiveEncode(introTimer);
+    stateCodecPrimitiveEncode(killed);
+    stateCodecPrimitiveEncode(lockTransition);
+    stateCodecPrimitiveEncode(rescursiveExplosion);
+    stateCodecPrimitiveEncode(xplX);
+    stateCodecPrimitiveEncode(xplY);
 }
 else
 {
     _init = stateCodecPrimitiveDecode();
-    xplX = stateCodecPrimitiveDecode();
-    introTimer = stateCodecPrimitiveDecode();
-    lockTransition = stateCodecPrimitiveDecode();
-    killed = stateCodecPrimitiveDecode();
-    rescursiveExplosion = stateCodecPrimitiveDecode();
-    introSprite = stateCodecPrimitiveDecode();
-    xplY = stateCodecPrimitiveDecode();
     doesIntro = stateCodecPrimitiveDecode();
+    introSprite = stateCodecPrimitiveDecode();
+    introTimer = stateCodecPrimitiveDecode();
+    killed = stateCodecPrimitiveDecode();
+    lockTransition = stateCodecPrimitiveDecode();
+    rescursiveExplosion = stateCodecPrimitiveDecode();
+    xplX = stateCodecPrimitiveDecode();
+    xplY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

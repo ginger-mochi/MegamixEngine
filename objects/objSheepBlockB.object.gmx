@@ -199,9 +199,9 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(colourBlock);
     stateCodecPrimitiveEncode(disappearTimer);
     stateCodecPrimitiveEncode(recurseDepth);
+    stateCodecPrimitiveEncode(spawn);
     stateCodecIDEncode(spawnID);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(spawn);
 }
 else
 {
@@ -209,9 +209,9 @@ else
     colourBlock = stateCodecPrimitiveDecode();
     disappearTimer = stateCodecPrimitiveDecode();
     recurseDepth = stateCodecPrimitiveDecode();
+    spawn = stateCodecPrimitiveDecode();
     spawnID = stateCodecIDDecode();
     timer = stateCodecPrimitiveDecode();
-    spawn = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -148,20 +148,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(tileID);
+    stateCodecPrimitiveEncode(animLength);
+    stateCodecPrimitiveEncode(animTime);
     stateCodecPrimitiveEncode(animateOnTransition);
     stateCodecPrimitiveEncode(animationLayer);
-    stateCodecPrimitiveEncode(animTime);
     stateCodecPrimitiveEncode(i);
+    stateCodecPrimitiveEncode(tileID);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    tileID = stateCodecPrimitiveDecode();
+    animLength = stateCodecPrimitiveDecode();
+    animTime = stateCodecPrimitiveDecode();
     animateOnTransition = stateCodecPrimitiveDecode();
     animationLayer = stateCodecPrimitiveDecode();
-    animTime = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
+    tileID = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

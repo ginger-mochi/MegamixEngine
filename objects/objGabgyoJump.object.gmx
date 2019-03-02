@@ -225,22 +225,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(ogContactDamage);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
     init = stateCodecPrimitiveDecode();
     ogContactDamage = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

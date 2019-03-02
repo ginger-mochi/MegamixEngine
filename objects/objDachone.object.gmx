@@ -295,29 +295,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(lockTransition);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(cooldownMax);
     stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(imageOffset);
+    stateCodecPrimitiveEncode(imageTimer);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(lockTransition);
+    stateCodecPrimitiveEncode(moveDelay);
+    stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    moveDelay = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    lockTransition = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    cooldownMax = stateCodecPrimitiveDecode();
     cooldownTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
+    imageTimer = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    lockTransition = stateCodecPrimitiveDecode();
+    moveDelay = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

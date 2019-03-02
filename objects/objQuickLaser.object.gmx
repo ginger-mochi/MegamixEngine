@@ -583,39 +583,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(b);
+    stateCodecPrimitiveEncode(drainCooldown);
+    stateCodecPrimitiveEncode(horM);
+    stateCodecPrimitiveEncode(lastXScale);
     stateCodecPrimitiveEncode(myPixel);
     stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(x2);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(step);
-    stateCodecPrimitiveEncode(x1);
-    stateCodecPrimitiveEncode(pauseStep);
     stateCodecPrimitiveEncode(pauseEndStep);
-    stateCodecPrimitiveEncode(horM);
-    stateCodecPrimitiveEncode(drainCooldown);
-    stateCodecPrimitiveEncode(b);
-    stateCodecPrimitiveEncode(y2);
-    stateCodecPrimitiveEncode(verM);
-    stateCodecPrimitiveEncode(lastXScale);
+    stateCodecPrimitiveEncode(pauseStep);
     stateCodecDSEncode(solidList, ds_type_list);
+    stateCodecPrimitiveEncode(step);
+    stateCodecPrimitiveEncode(variation);
+    stateCodecPrimitiveEncode(verM);
+    stateCodecPrimitiveEncode(x1);
+    stateCodecPrimitiveEncode(x2);
+    stateCodecPrimitiveEncode(y2);
 }
 else
 {
+    b = stateCodecPrimitiveDecode();
+    drainCooldown = stateCodecPrimitiveDecode();
+    horM = stateCodecPrimitiveDecode();
+    lastXScale = stateCodecPrimitiveDecode();
     myPixel = stateCodecPrimitiveDecode();
     mySpeed = stateCodecPrimitiveDecode();
-    x2 = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    step = stateCodecPrimitiveDecode();
-    x1 = stateCodecPrimitiveDecode();
-    pauseStep = stateCodecPrimitiveDecode();
     pauseEndStep = stateCodecPrimitiveDecode();
-    horM = stateCodecPrimitiveDecode();
-    drainCooldown = stateCodecPrimitiveDecode();
-    b = stateCodecPrimitiveDecode();
-    y2 = stateCodecPrimitiveDecode();
-    verM = stateCodecPrimitiveDecode();
-    lastXScale = stateCodecPrimitiveDecode();
+    pauseStep = stateCodecPrimitiveDecode();
     solidList = stateCodecDSDecode(ds_type_list);
+    step = stateCodecPrimitiveDecode();
+    variation = stateCodecPrimitiveDecode();
+    verM = stateCodecPrimitiveDecode();
+    x1 = stateCodecPrimitiveDecode();
+    x2 = stateCodecPrimitiveDecode();
+    y2 = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

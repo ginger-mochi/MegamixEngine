@@ -109,21 +109,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(reflectable);
-    stateCodecPrimitiveEncode(turnAfter);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(path_speed);
     stateCodecPrimitiveEncode(order);
+    stateCodecPrimitiveEncode(path_speed);
+    stateCodecPrimitiveEncode(reflectable);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(turnAfter);
 }
 else
 {
-    reflectable = stateCodecPrimitiveDecode();
-    turnAfter = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    path_speed = stateCodecPrimitiveDecode();
     order = stateCodecPrimitiveDecode();
+    path_speed = stateCodecPrimitiveDecode();
+    reflectable = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    turnAfter = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

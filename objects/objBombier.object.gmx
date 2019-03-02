@@ -205,19 +205,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasBomb);
-    stateCodecPrimitiveEncode(flyAwayTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(flyAwayTimer);
+    stateCodecPrimitiveEncode(hasBomb);
+    stateCodecPrimitiveEncode(imgIndex);
 }
 else
 {
-    hasBomb = stateCodecPrimitiveDecode();
-    flyAwayTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    flyAwayTimer = stateCodecPrimitiveDecode();
+    hasBomb = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

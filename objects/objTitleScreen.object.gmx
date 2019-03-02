@@ -155,20 +155,20 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(options);
     stateCodecPrimitiveEncode(canProceed);
+    stateCodecPrimitiveEncode(demoTimer);
     stateCodecPrimitiveEncode(drawtext);
     stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(demoTimer);
+    stateCodecPrimitiveEncode(options);
     stateCodecPrimitiveEncode(wait);
 }
 else
 {
-    options = stateCodecPrimitiveDecode();
     canProceed = stateCodecPrimitiveDecode();
+    demoTimer = stateCodecPrimitiveDecode();
     drawtext = stateCodecPrimitiveDecode();
     option = stateCodecPrimitiveDecode();
-    demoTimer = stateCodecPrimitiveDecode();
+    options = stateCodecPrimitiveDecode();
     wait = stateCodecPrimitiveDecode();
 }
 </string>

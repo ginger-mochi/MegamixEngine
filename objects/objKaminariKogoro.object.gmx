@@ -281,19 +281,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(action);
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(doesLightning);
     stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
     action = stateCodecPrimitiveDecode();
+    actionTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     doesLightning = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

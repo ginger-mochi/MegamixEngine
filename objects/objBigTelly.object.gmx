@@ -307,35 +307,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(megaX);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(riseAndFallWait);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(ySpd);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(dropWait);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(dropCount);
+    stateCodecPrimitiveEncode(dropWait);
+    stateCodecPrimitiveEncode(imgIndex);
+    stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(megaX);
     stateCodecPrimitiveEncode(moveWait);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(riseAndFallWait);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(variation);
+    stateCodecPrimitiveEncode(xSpd);
+    stateCodecPrimitiveEncode(ySpd);
 }
 else
 {
-    megaX = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    riseAndFallWait = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    dropWait = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
     dropCount = stateCodecPrimitiveDecode();
+    dropWait = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
+    imgSpd = stateCodecPrimitiveDecode();
+    megaX = stateCodecPrimitiveDecode();
     moveWait = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    riseAndFallWait = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    variation = stateCodecPrimitiveDecode();
+    xSpd = stateCodecPrimitiveDecode();
+    ySpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

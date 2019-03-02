@@ -116,20 +116,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(storeDir);
-    stateCodecPrimitiveEncode(knuckleDusterPlatform);
-    stateCodecPrimitiveEncode(distanceTimer);
     stateCodecPrimitiveEncode(delayTimer);
+    stateCodecPrimitiveEncode(distanceTimer);
+    stateCodecPrimitiveEncode(knuckleDusterPlatform);
     stateCodecPrimitiveEncode(resetDelay);
+    stateCodecPrimitiveEncode(storeDir);
     stateCodecPrimitiveEncode(test);
 }
 else
 {
-    storeDir = stateCodecPrimitiveDecode();
-    knuckleDusterPlatform = stateCodecPrimitiveDecode();
-    distanceTimer = stateCodecPrimitiveDecode();
     delayTimer = stateCodecPrimitiveDecode();
+    distanceTimer = stateCodecPrimitiveDecode();
+    knuckleDusterPlatform = stateCodecPrimitiveDecode();
     resetDelay = stateCodecPrimitiveDecode();
+    storeDir = stateCodecPrimitiveDecode();
     test = stateCodecPrimitiveDecode();
 }
 </string>

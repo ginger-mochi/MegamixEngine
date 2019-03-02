@@ -286,14 +286,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(topLock);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(topLock);
 }
 else
 {
     animFrame = stateCodecPrimitiveDecode();
-    topLock = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    topLock = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -214,15 +214,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(speedSet);
     stateCodecPrimitiveEncode(aiming);
     stateCodecPrimitiveEncode(indexOffset);
+    stateCodecPrimitiveEncode(reDirTimer);
+    stateCodecPrimitiveEncode(speedSet);
 }
 else
 {
-    speedSet = stateCodecPrimitiveDecode();
     aiming = stateCodecPrimitiveDecode();
     indexOffset = stateCodecPrimitiveDecode();
+    reDirTimer = stateCodecPrimitiveDecode();
+    speedSet = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

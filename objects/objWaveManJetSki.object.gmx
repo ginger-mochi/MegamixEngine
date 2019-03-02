@@ -375,35 +375,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(physicsLock);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(inWater);
-    stateCodecPrimitiveEncode(maxSpeed);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(scroll);
-    stateCodecPrimitiveEncode(yOffset);
-    stateCodecPrimitiveEncode(shootYOffset);
-    stateCodecIDEncode(waterPlat);
+    stateCodecPrimitiveEncode(inWater);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(physicsLock);
     stateCodecIDEncode(rider);
+    stateCodecPrimitiveEncode(riderPhysicsAllowed);
+    stateCodecPrimitiveEncode(scroll);
+    stateCodecPrimitiveEncode(shootYOffset);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecIDEncode(waterPlat);
+    stateCodecPrimitiveEncode(weaponsAllowed);
+    stateCodecPrimitiveEncode(yOffset);
 }
 else
 {
-    physicsLock = stateCodecPrimitiveDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    inWater = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    scroll = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
-    waterPlat = stateCodecIDDecode();
+    inWater = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    maxSpeed = stateCodecPrimitiveDecode();
+    physicsLock = stateCodecPrimitiveDecode();
     rider = stateCodecIDDecode();
+    riderPhysicsAllowed = stateCodecPrimitiveDecode();
+    scroll = stateCodecPrimitiveDecode();
+    shootYOffset = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    waterPlat = stateCodecIDDecode();
+    weaponsAllowed = stateCodecPrimitiveDecode();
+    yOffset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -345,19 +345,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(nextgrav);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(destroyTimer);
     stateCodecPrimitiveEncode(isBlock);
+    stateCodecPrimitiveEncode(nextgrav);
     stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    nextgrav = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     destroyTimer = stateCodecPrimitiveDecode();
     isBlock = stateCodecPrimitiveDecode();
+    nextgrav = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -295,18 +295,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(hasBlinked);
     stateCodecPrimitiveEncode(imgSpd);
     stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(hasBlinked);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
     animBack = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    hasBlinked = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
-    hasBlinked = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

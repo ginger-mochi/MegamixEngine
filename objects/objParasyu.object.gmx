@@ -161,15 +161,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(rangeActive);
     stateCodecPrimitiveEncode(offset);
+    stateCodecPrimitiveEncode(rangeActive);
 }
 else
 {
     active = stateCodecPrimitiveDecode();
     distance = stateCodecPrimitiveDecode();
-    rangeActive = stateCodecPrimitiveDecode();
     offset = stateCodecPrimitiveDecode();
+    rangeActive = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

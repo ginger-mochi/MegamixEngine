@@ -163,18 +163,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(alarmAttack);
-    stateCodecPrimitiveEncode(zapLength);
     stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(sx);
     stateCodecPrimitiveEncode(waitLength);
+    stateCodecPrimitiveEncode(zapLength);
 }
 else
 {
     alarmAttack = stateCodecPrimitiveDecode();
-    zapLength = stateCodecPrimitiveDecode();
     delay = stateCodecPrimitiveDecode();
     sx = stateCodecPrimitiveDecode();
     waitLength = stateCodecPrimitiveDecode();
+    zapLength = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

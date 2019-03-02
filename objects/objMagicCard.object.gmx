@@ -273,13 +273,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(pickup);
     stateCodecPrimitiveEncode(boomerangBack);
+    stateCodecIDEncode(pickup);
 }
 else
 {
-    pickup = stateCodecIDDecode();
     boomerangBack = stateCodecPrimitiveDecode();
+    pickup = stateCodecIDDecode();
 }
 </string>
           </argument>

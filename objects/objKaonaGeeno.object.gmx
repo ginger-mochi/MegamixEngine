@@ -284,21 +284,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(waitTimer);
     stateCodecPrimitiveEncode(kaonaSize);
-    stateCodecPrimitiveEncode(throwTimer);
-    stateCodecPrimitiveEncode(throwRange);
-    stateCodecPrimitiveEncode(phase);
     stateCodecIDEncode(myKaona);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(throwRange);
+    stateCodecPrimitiveEncode(throwTimer);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
-    waitTimer = stateCodecPrimitiveDecode();
     kaonaSize = stateCodecPrimitiveDecode();
-    throwTimer = stateCodecPrimitiveDecode();
-    throwRange = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     myKaona = stateCodecIDDecode();
+    phase = stateCodecPrimitiveDecode();
+    throwRange = stateCodecPrimitiveDecode();
+    throwTimer = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

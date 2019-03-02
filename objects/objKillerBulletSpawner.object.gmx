@@ -133,20 +133,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(delay);
+    stateCodecPrimitiveEncode(dir);
     stateCodecIDEncode(i);
+    stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    obj = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
     i = stateCodecIDDecode();
+    obj = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
 }
 </string>

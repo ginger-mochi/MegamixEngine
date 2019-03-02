@@ -494,35 +494,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(currentImg);
+    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(animAdd);
-    stateCodecPrimitiveEncode(trailTimer);
-    stateCodecPrimitiveEncode(shootYOffset);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(currentImg);
     stateCodecPrimitiveEncode(dustTimer);
     stateCodecPrimitiveEncode(physicsLock);
+    stateCodecPrimitiveEncode(riderPhysicsAllowed);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shootYOffset);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(trailTimer);
     stateCodecPrimitiveEncode(turning);
-    stateCodecPrimitiveEncode(active);
     stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    currentImg = stateCodecPrimitiveDecode();
+    active = stateCodecPrimitiveDecode();
     animAdd = stateCodecPrimitiveDecode();
-    trailTimer = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
+    currentImg = stateCodecPrimitiveDecode();
     dustTimer = stateCodecPrimitiveDecode();
     physicsLock = stateCodecPrimitiveDecode();
+    riderPhysicsAllowed = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shootYOffset = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    trailTimer = stateCodecPrimitiveDecode();
     turning = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
     weaponsAllowed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

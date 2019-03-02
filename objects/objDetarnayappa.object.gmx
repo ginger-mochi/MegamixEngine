@@ -214,29 +214,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yspd);
-    stateCodecPrimitiveEncode(shootY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(shotCount);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(endY);
     stateCodecPrimitiveEncode(_im);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(endY);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(shootY);
+    stateCodecPrimitiveEncode(shotCount);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(yspd);
 }
 else
 {
-    yspd = stateCodecPrimitiveDecode();
-    shootY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    shotCount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    endY = stateCodecPrimitiveDecode();
     _im = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    endY = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    shootY = stateCodecPrimitiveDecode();
+    shotCount = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    yspd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

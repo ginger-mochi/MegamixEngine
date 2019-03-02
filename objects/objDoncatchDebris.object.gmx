@@ -123,16 +123,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(xtravel);
     stateCodecPrimitiveEncode(lowGrav);
     stateCodecPrimitiveEncode(version);
+    stateCodecPrimitiveEncode(xtravel);
     stateCodecPrimitiveEncode(ytravel);
 }
 else
 {
-    xtravel = stateCodecPrimitiveDecode();
     lowGrav = stateCodecPrimitiveDecode();
     version = stateCodecPrimitiveDecode();
+    xtravel = stateCodecPrimitiveDecode();
     ytravel = stateCodecPrimitiveDecode();
 }
 </string>

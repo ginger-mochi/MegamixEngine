@@ -94,26 +94,28 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(conditionScriptArgV);
     stateCodecPrimitiveEncode(allowSpawn);
-    stateCodecPrimitiveEncode(playerYDistance);
-    stateCodecPrimitiveEncode(conditionScriptArgC);
-    stateCodecPrimitiveEncode(playerXDistance);
-    stateCodecPrimitiveEncode(conditionScript);
     stateCodecPrimitiveEncode(conditionCode);
+    stateCodecPrimitiveEncode(conditionScript);
+    stateCodecPrimitiveEncode(conditionScriptArgC);
+    stateCodecPrimitiveEncode(conditionScriptArgV);
+    stateCodecPrimitiveEncode(despawnType);
     stateCodecPrimitiveEncode(faction);
+    stateCodecPrimitiveEncode(playerXDistance);
+    stateCodecPrimitiveEncode(playerYDistance);
     stateCodecPrimitiveEncode(spawnConditionNegate);
 }
 else
 {
-    conditionScriptArgV = stateCodecPrimitiveDecode();
     allowSpawn = stateCodecPrimitiveDecode();
-    playerYDistance = stateCodecPrimitiveDecode();
-    conditionScriptArgC = stateCodecPrimitiveDecode();
-    playerXDistance = stateCodecPrimitiveDecode();
-    conditionScript = stateCodecPrimitiveDecode();
     conditionCode = stateCodecPrimitiveDecode();
+    conditionScript = stateCodecPrimitiveDecode();
+    conditionScriptArgC = stateCodecPrimitiveDecode();
+    conditionScriptArgV = stateCodecPrimitiveDecode();
+    despawnType = stateCodecPrimitiveDecode();
     faction = stateCodecPrimitiveDecode();
+    playerXDistance = stateCodecPrimitiveDecode();
+    playerYDistance = stateCodecPrimitiveDecode();
     spawnConditionNegate = stateCodecPrimitiveDecode();
 }
 </string>

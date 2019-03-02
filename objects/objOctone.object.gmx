@@ -225,15 +225,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(waitTimer);
     stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(waitTimer);
 }
 else
 {
     phase = stateCodecPrimitiveDecode();
     phaseTimer = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
     shootTimer = stateCodecPrimitiveDecode();
+    waitTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

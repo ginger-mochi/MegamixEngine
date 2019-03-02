@@ -323,23 +323,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
     stateCodecPrimitiveEncode(alarmStop);
-    stateCodecPrimitiveEncode(fastSpeed);
-    stateCodecPrimitiveEncode(stopped);
-    stateCodecPrimitiveEncode(slowSpeed);
     stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(fastSpeed);
     stateCodecPrimitiveEncode(imageSpd);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(slowSpeed);
+    stateCodecPrimitiveEncode(stopped);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
     alarmStop = stateCodecPrimitiveDecode();
-    fastSpeed = stateCodecPrimitiveDecode();
-    stopped = stateCodecPrimitiveDecode();
-    slowSpeed = stateCodecPrimitiveDecode();
     col = stateCodecPrimitiveDecode();
+    fastSpeed = stateCodecPrimitiveDecode();
     imageSpd = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    slowSpeed = stateCodecPrimitiveDecode();
+    stopped = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

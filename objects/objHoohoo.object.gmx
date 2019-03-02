@@ -233,19 +233,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(hasRock);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(sinCounter);
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(hasRock);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(sinCounter);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    hasRock = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
     animTimer = stateCodecPrimitiveDecode();
+    col = stateCodecPrimitiveDecode();
+    hasRock = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    sinCounter = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

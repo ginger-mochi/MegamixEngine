@@ -151,17 +151,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destX);
-    stateCodecPrimitiveEncode(stopAtSolid);
     stateCodecPrimitiveEncode(canStep);
+    stateCodecPrimitiveEncode(destX);
     stateCodecPrimitiveEncode(destY);
+    stateCodecPrimitiveEncode(stopAtSolid);
 }
 else
 {
-    destX = stateCodecPrimitiveDecode();
-    stopAtSolid = stateCodecPrimitiveDecode();
     canStep = stateCodecPrimitiveDecode();
+    destX = stateCodecPrimitiveDecode();
     destY = stateCodecPrimitiveDecode();
+    stopAtSolid = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

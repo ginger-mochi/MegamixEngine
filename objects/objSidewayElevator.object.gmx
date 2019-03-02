@@ -223,25 +223,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(imgalarm);
     stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(drawrail);
     stateCodecPrimitiveEncode(button);
-    stateCodecPrimitiveEncode(rightbutton);
+    stateCodecPrimitiveEncode(drawrail);
     stateCodecPrimitiveEncode(img);
+    stateCodecPrimitiveEncode(imgalarm);
     stateCodecPrimitiveEncode(leftbutton);
+    stateCodecPrimitiveEncode(maxSpeed);
+    stateCodecPrimitiveEncode(rightbutton);
 }
 else
 {
-    maxSpeed = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
     accel = stateCodecPrimitiveDecode();
-    drawrail = stateCodecPrimitiveDecode();
     button = stateCodecPrimitiveDecode();
-    rightbutton = stateCodecPrimitiveDecode();
+    drawrail = stateCodecPrimitiveDecode();
     img = stateCodecPrimitiveDecode();
+    imgalarm = stateCodecPrimitiveDecode();
     leftbutton = stateCodecPrimitiveDecode();
+    maxSpeed = stateCodecPrimitiveDecode();
+    rightbutton = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

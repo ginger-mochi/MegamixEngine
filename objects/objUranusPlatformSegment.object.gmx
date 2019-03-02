@@ -169,21 +169,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(gravDir);
     stateCodecPrimitiveEncode(moveAmount);
+    stateCodecPrimitiveEncode(moveSpeed);
     stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(range);
 }
 else
 {
-    moveSpeed = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
     gravDir = stateCodecPrimitiveDecode();
     moveAmount = stateCodecPrimitiveDecode();
+    moveSpeed = stateCodecPrimitiveDecode();
     moveTimer = stateCodecPrimitiveDecode();
+    parent = stateCodecPrimitiveDecode();
+    range = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

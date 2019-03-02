@@ -219,25 +219,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(deadlyShadowClones);
     stateCodecPrimitiveEncode(debugABSX);
     stateCodecPrimitiveEncode(debugABSY);
-    stateCodecPrimitiveEncode(moveToLocation);
-    stateCodecPrimitiveEncode(locationY);
-    stateCodecPrimitiveEncode(deadlyShadowClones);
-    stateCodecPrimitiveEncode(locationX);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(locationX);
+    stateCodecPrimitiveEncode(locationY);
+    stateCodecPrimitiveEncode(moveToLocation);
+    stateCodecPrimitiveEncode(phase);
 }
 else
 {
+    deadlyShadowClones = stateCodecPrimitiveDecode();
     debugABSX = stateCodecPrimitiveDecode();
     debugABSY = stateCodecPrimitiveDecode();
-    moveToLocation = stateCodecPrimitiveDecode();
-    locationY = stateCodecPrimitiveDecode();
-    deadlyShadowClones = stateCodecPrimitiveDecode();
-    locationX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     hasFired = stateCodecPrimitiveDecode();
+    locationX = stateCodecPrimitiveDecode();
+    locationY = stateCodecPrimitiveDecode();
+    moveToLocation = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

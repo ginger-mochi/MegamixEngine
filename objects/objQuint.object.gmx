@@ -355,50 +355,50 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cutter);
-    stateCodecPrimitiveEncode(startXspeed);
-    stateCodecPrimitiveEncode(teleportSakugarne);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(teleportTimer);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(teleportY);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(spriteStand);
-    stateCodecPrimitiveEncode(spriteJump);
-    stateCodecPrimitiveEncode(teleportIndex);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(getLastY);
     stateCodecPrimitiveEncode(bouncePhase);
-    stateCodecPrimitiveEncode(startXScale);
-    stateCodecPrimitiveEncode(spriteRun);
+    stateCodecPrimitiveEncode(canInitShoot);
+    stateCodecPrimitiveEncode(cutter);
+    stateCodecPrimitiveEncode(getLastY);
     stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
     stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(spriteJump);
+    stateCodecPrimitiveEncode(spriteRun);
+    stateCodecPrimitiveEncode(spriteStand);
+    stateCodecPrimitiveEncode(startXScale);
+    stateCodecPrimitiveEncode(startXspeed);
+    stateCodecPrimitiveEncode(teleportIndex);
+    stateCodecPrimitiveEncode(teleportSakugarne);
+    stateCodecPrimitiveEncode(teleportTimer);
     stateCodecPrimitiveEncode(teleportX);
+    stateCodecPrimitiveEncode(teleportY);
     stateCodecPrimitiveEncode(teleporting);
 }
 else
 {
-    cutter = stateCodecPrimitiveDecode();
-    startXspeed = stateCodecPrimitiveDecode();
-    teleportSakugarne = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    teleportTimer = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    teleportY = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    spriteStand = stateCodecPrimitiveDecode();
-    spriteJump = stateCodecPrimitiveDecode();
-    teleportIndex = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    getLastY = stateCodecPrimitiveDecode();
     bouncePhase = stateCodecPrimitiveDecode();
-    startXScale = stateCodecPrimitiveDecode();
-    spriteRun = stateCodecPrimitiveDecode();
+    canInitShoot = stateCodecPrimitiveDecode();
+    cutter = stateCodecPrimitiveDecode();
+    getLastY = stateCodecPrimitiveDecode();
     jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    spriteJump = stateCodecPrimitiveDecode();
+    spriteRun = stateCodecPrimitiveDecode();
+    spriteStand = stateCodecPrimitiveDecode();
+    startXScale = stateCodecPrimitiveDecode();
+    startXspeed = stateCodecPrimitiveDecode();
+    teleportIndex = stateCodecPrimitiveDecode();
+    teleportSakugarne = stateCodecPrimitiveDecode();
+    teleportTimer = stateCodecPrimitiveDecode();
     teleportX = stateCodecPrimitiveDecode();
+    teleportY = stateCodecPrimitiveDecode();
     teleporting = stateCodecPrimitiveDecode();
 }
 </string>

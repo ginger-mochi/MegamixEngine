@@ -221,16 +221,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(init);
 }
 else
 {
     action = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

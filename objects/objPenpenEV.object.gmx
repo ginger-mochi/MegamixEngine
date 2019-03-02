@@ -366,33 +366,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boostWait);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(theirX);
     stateCodecPrimitiveEncode(animCount);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(myX);
-    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(boostWait);
     stateCodecPrimitiveEncode(bounced);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(decel);
-    stateCodecPrimitiveEncode(prevXSpeed);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(myX);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(prevXSpeed);
+    stateCodecPrimitiveEncode(theirX);
+    stateCodecPrimitiveEncode(timer);
+    stateCodecPrimitiveEncode(xSpd);
 }
 else
 {
-    boostWait = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    theirX = stateCodecPrimitiveDecode();
     animCount = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    myX = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    boostWait = stateCodecPrimitiveDecode();
     bounced = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     decel = stateCodecPrimitiveDecode();
-    prevXSpeed = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    myX = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    prevXSpeed = stateCodecPrimitiveDecode();
+    theirX = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
+    xSpd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

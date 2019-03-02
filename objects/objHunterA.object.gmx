@@ -335,27 +335,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(getAngle);
+    stateCodecPrimitiveEncode(hasFired);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(storeY);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(poseImgSpeed);
 }
 else
 {
+    attackTimer = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
     getAngle = stateCodecPrimitiveDecode();
+    hasFired = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
     storeY = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -173,17 +173,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shotCharge);
-    stateCodecPrimitiveEncode(shootTimer);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(parent);
+    stateCodecPrimitiveEncode(shootTimer);
+    stateCodecPrimitiveEncode(shotCharge);
 }
 else
 {
-    shotCharge = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
+    shootTimer = stateCodecPrimitiveDecode();
+    shotCharge = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

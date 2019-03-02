@@ -98,6 +98,14 @@ if (!instance_exists(objToadMan))
 // for encoding basic instance properties.
 stateCodecInstance();
 
+if (global.stateCodecEncode)
+{
+    stateCodecPrimitiveEncode(timer);
+}
+else
+{
+    timer = stateCodecPrimitiveDecode();
+}
 </string>
           </argument>
         </arguments>

@@ -510,27 +510,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(bounces);
     stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(yStore);
+    stateCodecPrimitiveEncode(imageOffset);
     stateCodecPrimitiveEncode(laserSpeed);
     stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(yStore);
 }
 else
 {
-    spd = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
     bounces = stateCodecPrimitiveDecode();
     hasTriggeredFall = stateCodecPrimitiveDecode();
-    yStore = stateCodecPrimitiveDecode();
+    imageOffset = stateCodecPrimitiveDecode();
     laserSpeed = stateCodecPrimitiveDecode();
     phase = stateCodecPrimitiveDecode();
     shotsFired = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    yStore = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

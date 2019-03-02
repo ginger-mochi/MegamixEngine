@@ -363,47 +363,47 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpTimer);
     stateCodecDSEncode(airShoot, ds_type_grid);
-    stateCodecPrimitiveEncode(bladeThrow);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(bladeThrow);
     stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(throwTimer);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(lastShot2);
-    stateCodecPrimitiveEncode(timesFired);
     stateCodecPrimitiveEncode(flashTimer);
     stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(getX);
-    stateCodecPrimitiveEncode(lastShot1);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(lastShot0);
     stateCodecPrimitiveEncode(getLastYspeed);
+    stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(jumpAmount);
+    stateCodecPrimitiveEncode(jumpTimer);
+    stateCodecPrimitiveEncode(lastShot0);
+    stateCodecPrimitiveEncode(lastShot1);
+    stateCodecPrimitiveEncode(lastShot2);
     stateCodecPrimitiveEncode(maxBlowSpeed);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(pose);
+    stateCodecPrimitiveEncode(poseImgSpeed);
+    stateCodecPrimitiveEncode(throwTimer);
+    stateCodecPrimitiveEncode(timesFired);
 }
 else
 {
-    jumpTimer = stateCodecPrimitiveDecode();
     airShoot = stateCodecDSDecode(ds_type_grid);
-    bladeThrow = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    bladeThrow = stateCodecPrimitiveDecode();
     canInitShoot = stateCodecPrimitiveDecode();
-    throwTimer = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    pose = stateCodecPrimitiveDecode();
-    lastShot2 = stateCodecPrimitiveDecode();
-    timesFired = stateCodecPrimitiveDecode();
     flashTimer = stateCodecPrimitiveDecode();
     getLastXspeed = stateCodecPrimitiveDecode();
-    getX = stateCodecPrimitiveDecode();
-    lastShot1 = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    lastShot0 = stateCodecPrimitiveDecode();
     getLastYspeed = stateCodecPrimitiveDecode();
+    getX = stateCodecPrimitiveDecode();
+    jumpAmount = stateCodecPrimitiveDecode();
+    jumpTimer = stateCodecPrimitiveDecode();
+    lastShot0 = stateCodecPrimitiveDecode();
+    lastShot1 = stateCodecPrimitiveDecode();
+    lastShot2 = stateCodecPrimitiveDecode();
     maxBlowSpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    pose = stateCodecPrimitiveDecode();
+    poseImgSpeed = stateCodecPrimitiveDecode();
+    throwTimer = stateCodecPrimitiveDecode();
+    timesFired = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

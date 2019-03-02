@@ -93,10 +93,12 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(spd);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

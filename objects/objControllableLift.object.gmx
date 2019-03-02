@@ -226,29 +226,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yMin);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(resetMe);
-    stateCodecPrimitiveEncode(lockPool);
-    stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(yMax);
     stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(dir);
+    stateCodecIDEncode(child);
     stateCodecPrimitiveEncode(deltaY);
+    stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(lockPool);
+    stateCodecPrimitiveEncode(range);
+    stateCodecPrimitiveEncode(resetMe);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(yMax);
+    stateCodecPrimitiveEncode(yMin);
 }
 else
 {
-    yMin = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    resetMe = stateCodecPrimitiveDecode();
-    lockPool = stateCodecPrimitiveDecode();
-    child = stateCodecIDDecode();
-    yMax = stateCodecPrimitiveDecode();
     active = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    child = stateCodecIDDecode();
     deltaY = stateCodecPrimitiveDecode();
+    dir = stateCodecPrimitiveDecode();
+    lockPool = stateCodecPrimitiveDecode();
+    range = stateCodecPrimitiveDecode();
+    resetMe = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    yMax = stateCodecPrimitiveDecode();
+    yMin = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

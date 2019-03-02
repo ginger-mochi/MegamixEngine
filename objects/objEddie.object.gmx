@@ -229,25 +229,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myItem);
-    stateCodecPrimitiveEncode(disappearTime);
-    stateCodecPrimitiveEncode(permanent);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(code);
+    stateCodecPrimitiveEncode(disappearTime);
     stateCodecPrimitiveEncode(moveTowardsPlayer);
+    stateCodecPrimitiveEncode(myItem);
+    stateCodecPrimitiveEncode(permanent);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(script);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    myItem = stateCodecPrimitiveDecode();
-    disappearTime = stateCodecPrimitiveDecode();
-    permanent = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    script = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     code = stateCodecPrimitiveDecode();
+    disappearTime = stateCodecPrimitiveDecode();
     moveTowardsPlayer = stateCodecPrimitiveDecode();
+    myItem = stateCodecPrimitiveDecode();
+    permanent = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    script = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

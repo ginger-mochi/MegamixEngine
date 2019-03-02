@@ -179,16 +179,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(actionTimer);
     stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(delay);
 }
 else
 {
     action = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
     actionTimer = stateCodecPrimitiveDecode();
     calibrated = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

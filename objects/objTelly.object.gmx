@@ -176,15 +176,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(travelSpeed);
     stateCodecPrimitiveEncode(cycleHold);
     stateCodecPrimitiveEncode(left);
+    stateCodecPrimitiveEncode(travelSpeed);
 }
 else
 {
-    travelSpeed = stateCodecPrimitiveDecode();
     cycleHold = stateCodecPrimitiveDecode();
     left = stateCodecPrimitiveDecode();
+    travelSpeed = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

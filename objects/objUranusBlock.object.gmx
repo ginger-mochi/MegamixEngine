@@ -224,39 +224,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(resetDepth);
-    stateCodecPrimitiveEncode(thrown);
-    stateCodecPrimitiveEncode(tileTop);
-    stateCodecIDEncode(solidBlock);
-    stateCodecPrimitiveEncode(tileBG);
-    stateCodecPrimitiveEncode(tileX);
-    stateCodecPrimitiveEncode(tileY);
-    stateCodecPrimitiveEncode(tileHeight);
-    stateCodecPrimitiveEncode(tileWidth);
-    stateCodecPrimitiveEncode(thrownSign);
     stateCodecPrimitiveEncode(getX);
+    stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(myTile);
+    stateCodecPrimitiveEncode(resetDepth);
+    stateCodecIDEncode(solidBlock);
+    stateCodecPrimitiveEncode(thrown);
+    stateCodecPrimitiveEncode(thrownSign);
+    stateCodecPrimitiveEncode(tileBG);
+    stateCodecPrimitiveEncode(tileHeight);
     stateCodecPrimitiveEncode(tileLeft);
     stateCodecPrimitiveEncode(tileNumber);
-    stateCodecPrimitiveEncode(myTile);
-    stateCodecPrimitiveEncode(getY);
+    stateCodecPrimitiveEncode(tileTop);
+    stateCodecPrimitiveEncode(tileWidth);
+    stateCodecPrimitiveEncode(tileX);
+    stateCodecPrimitiveEncode(tileY);
 }
 else
 {
-    resetDepth = stateCodecPrimitiveDecode();
-    thrown = stateCodecPrimitiveDecode();
-    tileTop = stateCodecPrimitiveDecode();
-    solidBlock = stateCodecIDDecode();
-    tileBG = stateCodecPrimitiveDecode();
-    tileX = stateCodecPrimitiveDecode();
-    tileY = stateCodecPrimitiveDecode();
-    tileHeight = stateCodecPrimitiveDecode();
-    tileWidth = stateCodecPrimitiveDecode();
-    thrownSign = stateCodecPrimitiveDecode();
     getX = stateCodecPrimitiveDecode();
+    getY = stateCodecPrimitiveDecode();
+    myTile = stateCodecPrimitiveDecode();
+    resetDepth = stateCodecPrimitiveDecode();
+    solidBlock = stateCodecIDDecode();
+    thrown = stateCodecPrimitiveDecode();
+    thrownSign = stateCodecPrimitiveDecode();
+    tileBG = stateCodecPrimitiveDecode();
+    tileHeight = stateCodecPrimitiveDecode();
     tileLeft = stateCodecPrimitiveDecode();
     tileNumber = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
-    getY = stateCodecPrimitiveDecode();
+    tileTop = stateCodecPrimitiveDecode();
+    tileWidth = stateCodecPrimitiveDecode();
+    tileX = stateCodecPrimitiveDecode();
+    tileY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

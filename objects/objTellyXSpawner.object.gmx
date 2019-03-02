@@ -123,17 +123,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(col);
+    stateCodecPrimitiveEncode(delay);
     stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(shoottimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(col);
 }
 else
 {
+    col = stateCodecPrimitiveDecode();
+    delay = stateCodecPrimitiveDecode();
     obj = stateCodecPrimitiveDecode();
     shoottimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

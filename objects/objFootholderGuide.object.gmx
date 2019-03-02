@@ -90,10 +90,12 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(myFlag);
     stateCodecPrimitiveEncode(order);
 }
 else
 {
+    myFlag = stateCodecPrimitiveDecode();
     order = stateCodecPrimitiveDecode();
 }
 </string>

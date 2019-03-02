@@ -254,17 +254,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(entityx);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(entityy);
     stateCodecIDEncode(entity);
+    stateCodecPrimitiveEncode(entityx);
+    stateCodecPrimitiveEncode(entityy);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    entityx = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    entityy = stateCodecPrimitiveDecode();
     entity = stateCodecIDDecode();
+    entityx = stateCodecPrimitiveDecode();
+    entityy = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

@@ -286,17 +286,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(isLightning);
     stateCodecPrimitiveEncode(state);
     stateCodecPrimitiveEncode(stateTimer);
-    stateCodecPrimitiveEncode(isLightning);
-    stateCodecPrimitiveEncode(animTimer);
 }
 else
 {
+    animTimer = stateCodecPrimitiveDecode();
+    isLightning = stateCodecPrimitiveDecode();
     state = stateCodecPrimitiveDecode();
     stateTimer = stateCodecPrimitiveDecode();
-    isLightning = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

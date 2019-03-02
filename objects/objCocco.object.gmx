@@ -241,31 +241,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecPrimitiveEncode(animTimer);
     stateCodecPrimitiveEncode(cooldownMax);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(e);
     stateCodecPrimitiveEncode(egg1);
     stateCodecPrimitiveEncode(egg2);
-    stateCodecPrimitiveEncode(e);
     stateCodecPrimitiveEncode(egg3);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(actionTimer);
+    stateCodecIDArrayEncode(eggArray);
     stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecIDEncode(eggArray);
-    stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(shooting);
 }
 else
 {
+    actionTimer = stateCodecPrimitiveDecode();
+    animTimer = stateCodecPrimitiveDecode();
     cooldownMax = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    e = stateCodecPrimitiveDecode();
     egg1 = stateCodecPrimitiveDecode();
     egg2 = stateCodecPrimitiveDecode();
-    e = stateCodecPrimitiveDecode();
     egg3 = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
+    eggArray = stateCodecIDArrayDecode();
     img = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    eggArray = stateCodecIDDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    shooting = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

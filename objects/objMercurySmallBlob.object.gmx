@@ -182,21 +182,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blobID);
-    stateCodecPrimitiveEncode(trigBlob);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(blobMove);
-    stateCodecPrimitiveEncode(big);
     stateCodecPrimitiveEncode(attackTimer);
+    stateCodecPrimitiveEncode(big);
+    stateCodecPrimitiveEncode(blobID);
+    stateCodecPrimitiveEncode(blobMove);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(trigBlob);
 }
 else
 {
-    blobID = stateCodecPrimitiveDecode();
-    trigBlob = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    blobMove = stateCodecPrimitiveDecode();
-    big = stateCodecPrimitiveDecode();
     attackTimer = stateCodecPrimitiveDecode();
+    big = stateCodecPrimitiveDecode();
+    blobID = stateCodecPrimitiveDecode();
+    blobMove = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    trigBlob = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

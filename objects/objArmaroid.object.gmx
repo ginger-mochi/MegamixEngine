@@ -300,29 +300,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecIDEncode(missile);
-    stateCodecPrimitiveEncode(spinTimer);
     stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(hasLooped);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecIDEncode(missile);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(radius);
+    stateCodecPrimitiveEncode(shotsFired);
+    stateCodecPrimitiveEncode(spinTimer);
 }
 else
 {
-    missile = stateCodecIDDecode();
-    spinTimer = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
     hasLooped = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    missile = stateCodecIDDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    radius = stateCodecPrimitiveDecode();
+    shotsFired = stateCodecPrimitiveDecode();
+    spinTimer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

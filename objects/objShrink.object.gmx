@@ -201,22 +201,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(animTimer);
+    stateCodecPrimitiveEncode(calibrated);
     stateCodecPrimitiveEncode(chaseTimer);
     stateCodecPrimitiveEncode(preDir);
-    stateCodecPrimitiveEncode(targetY);
-    stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(preSpeed);
-    stateCodecPrimitiveEncode(calibrated);
+    stateCodecPrimitiveEncode(targetX);
+    stateCodecPrimitiveEncode(targetY);
 }
 else
 {
     animTimer = stateCodecPrimitiveDecode();
+    calibrated = stateCodecPrimitiveDecode();
     chaseTimer = stateCodecPrimitiveDecode();
     preDir = stateCodecPrimitiveDecode();
-    targetY = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
     preSpeed = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
+    targetX = stateCodecPrimitiveDecode();
+    targetY = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

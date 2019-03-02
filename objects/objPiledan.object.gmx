@@ -185,29 +185,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(destY);
     stateCodecPrimitiveEncode(fallSpeed);
     stateCodecPrimitiveEncode(foundMachine);
-    stateCodecPrimitiveEncode(xscaleStart);
+    stateCodecPrimitiveEncode(horSpeed);
+    stateCodecPrimitiveEncode(startDir);
     stateCodecPrimitiveEncode(startY);
     stateCodecPrimitiveEncode(timer);
     stateCodecPrimitiveEncode(waveSpeed);
-    stateCodecPrimitiveEncode(destY);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(horSpeed);
     stateCodecPrimitiveEncode(waveWidth);
+    stateCodecPrimitiveEncode(xscaleStart);
 }
 else
 {
+    destY = stateCodecPrimitiveDecode();
     fallSpeed = stateCodecPrimitiveDecode();
     foundMachine = stateCodecPrimitiveDecode();
-    xscaleStart = stateCodecPrimitiveDecode();
+    horSpeed = stateCodecPrimitiveDecode();
+    startDir = stateCodecPrimitiveDecode();
     startY = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
     waveSpeed = stateCodecPrimitiveDecode();
-    destY = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    horSpeed = stateCodecPrimitiveDecode();
     waveWidth = stateCodecPrimitiveDecode();
+    xscaleStart = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

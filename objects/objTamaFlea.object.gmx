@@ -126,15 +126,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(dir);
 }
 else
 {
+    dir = stateCodecPrimitiveDecode();
     spd = stateCodecPrimitiveDecode();
     timer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

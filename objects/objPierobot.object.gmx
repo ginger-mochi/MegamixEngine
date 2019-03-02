@@ -190,14 +190,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bounceTimes);
-    stateCodecPrimitiveEncode(mygear);
     stateCodecPrimitiveEncode(contactStart);
+    stateCodecPrimitiveEncode(mygear);
 }
 else
 {
     bounceTimes = stateCodecPrimitiveDecode();
-    mygear = stateCodecPrimitiveDecode();
     contactStart = stateCodecPrimitiveDecode();
+    mygear = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

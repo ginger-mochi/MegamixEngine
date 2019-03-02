@@ -191,24 +191,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(direct);
     stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(direct);
+    stateCodecPrimitiveEncode(moveDelay);
     stateCodecPrimitiveEncode(moveDir);
     stateCodecPrimitiveEncode(moveDist);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(shootAngle);
 }
 else
 {
-    moveDelay = stateCodecPrimitiveDecode();
-    direct = stateCodecPrimitiveDecode();
     cooldownMax = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    cooldownTimer = stateCodecPrimitiveDecode();
+    direct = stateCodecPrimitiveDecode();
+    moveDelay = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
     moveDist = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
     shootAngle = stateCodecPrimitiveDecode();
 }
 </string>

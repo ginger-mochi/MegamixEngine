@@ -109,19 +109,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(fileName);
     stateCodecPrimitiveEncode(loopPoint);
     stateCodecPrimitiveEncode(musicType);
-    stateCodecPrimitiveEncode(trackNumber);
-    stateCodecPrimitiveEncode(songVolume);
     stateCodecPrimitiveEncode(songLength);
+    stateCodecPrimitiveEncode(songVolume);
+    stateCodecPrimitiveEncode(trackNumber);
 }
 else
 {
+    fileName = stateCodecPrimitiveDecode();
     loopPoint = stateCodecPrimitiveDecode();
     musicType = stateCodecPrimitiveDecode();
-    trackNumber = stateCodecPrimitiveDecode();
-    songVolume = stateCodecPrimitiveDecode();
     songLength = stateCodecPrimitiveDecode();
+    songVolume = stateCodecPrimitiveDecode();
+    trackNumber = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

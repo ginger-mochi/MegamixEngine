@@ -108,15 +108,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
+    stateCodecPrimitiveEncode(hitRoof);
     stateCodecPrimitiveEncode(i);
     stateCodecPrimitiveEncode(offRoof);
-    stateCodecPrimitiveEncode(hitRoof);
 }
 else
 {
+    hitRoof = stateCodecPrimitiveDecode();
     i = stateCodecPrimitiveDecode();
     offRoof = stateCodecPrimitiveDecode();
-    hitRoof = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

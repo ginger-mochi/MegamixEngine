@@ -322,23 +322,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(noCollision);
-    stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(angle);
     stateCodecPrimitiveEncode(bounceCount);
-    stateCodecPrimitiveEncode(wallCooldown);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(noCollision);
     stateCodecPrimitiveEncode(savedYspeed);
+    stateCodecPrimitiveEncode(spd);
+    stateCodecPrimitiveEncode(wallCooldown);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    noCollision = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
     angle = stateCodecPrimitiveDecode();
     bounceCount = stateCodecPrimitiveDecode();
-    wallCooldown = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    noCollision = stateCodecPrimitiveDecode();
     savedYspeed = stateCodecPrimitiveDecode();
+    spd = stateCodecPrimitiveDecode();
+    wallCooldown = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

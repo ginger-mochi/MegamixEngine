@@ -389,39 +389,39 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(setup);
-    stateCodecPrimitiveEncode(level);
-    stateCodecPrimitiveEncode(xm);
-    stateCodecPrimitiveEncode(linem);
-    stateCodecPrimitiveEncode(drawspath);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(dots);
-    stateCodecPrimitiveEncode(skipped);
     stateCodecPrimitiveEncode(counter);
-    stateCodecPrimitiveEncode(started);
-    stateCodecPrimitiveEncode(liney);
     stateCodecPrimitiveEncode(cutscene);
+    stateCodecPrimitiveEncode(dots);
+    stateCodecPrimitiveEncode(drawspath);
+    stateCodecPrimitiveEncode(level);
+    stateCodecPrimitiveEncode(linem);
     stateCodecPrimitiveEncode(linex);
-    stateCodecPrimitiveEncode(ys);
+    stateCodecPrimitiveEncode(liney);
     stateCodecPrimitiveEncode(path);
+    stateCodecPrimitiveEncode(setup);
+    stateCodecPrimitiveEncode(skipped);
+    stateCodecPrimitiveEncode(started);
+    stateCodecPrimitiveEncode(xm);
+    stateCodecPrimitiveEncode(xs);
+    stateCodecPrimitiveEncode(ys);
 }
 else
 {
-    setup = stateCodecPrimitiveDecode();
-    level = stateCodecPrimitiveDecode();
-    xm = stateCodecPrimitiveDecode();
-    linem = stateCodecPrimitiveDecode();
-    drawspath = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    dots = stateCodecPrimitiveDecode();
-    skipped = stateCodecPrimitiveDecode();
     counter = stateCodecPrimitiveDecode();
-    started = stateCodecPrimitiveDecode();
-    liney = stateCodecPrimitiveDecode();
     cutscene = stateCodecPrimitiveDecode();
+    dots = stateCodecPrimitiveDecode();
+    drawspath = stateCodecPrimitiveDecode();
+    level = stateCodecPrimitiveDecode();
+    linem = stateCodecPrimitiveDecode();
     linex = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    liney = stateCodecPrimitiveDecode();
     path = stateCodecPrimitiveDecode();
+    setup = stateCodecPrimitiveDecode();
+    skipped = stateCodecPrimitiveDecode();
+    started = stateCodecPrimitiveDecode();
+    xm = stateCodecPrimitiveDecode();
+    xs = stateCodecPrimitiveDecode();
+    ys = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

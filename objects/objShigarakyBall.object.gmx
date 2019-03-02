@@ -173,19 +173,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(killTimer);
-    stateCodecPrimitiveEncode(variation);
     stateCodecPrimitiveEncode(animBack);
     stateCodecPrimitiveEncode(imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
+    stateCodecPrimitiveEncode(killTimer);
+    stateCodecPrimitiveEncode(variation);
 }
 else
 {
-    killTimer = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
     animBack = stateCodecPrimitiveDecode();
     imgIndex = stateCodecPrimitiveDecode();
     imgSpd = stateCodecPrimitiveDecode();
+    killTimer = stateCodecPrimitiveDecode();
+    variation = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

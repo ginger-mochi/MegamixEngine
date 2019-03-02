@@ -421,53 +421,53 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(platx);
-    stateCodecPrimitiveEncode(plat);
-    stateCodecPrimitiveEncode(canProgressDoor);
-    stateCodecPrimitiveEncode(num);
     stateCodecPrimitiveEncode(activate);
-    stateCodecPrimitiveEncode(yvs);
-    stateCodecPrimitiveEncode(darksp);
-    stateCodecIDEncode(triggerPlayer);
     stateCodecPrimitiveEncode(alpha);
-    stateCodecPrimitiveEncode(darken);
-    stateCodecPrimitiveEncode(screenFixSpeed);
-    stateCodecPrimitiveEncode(xvs);
-    stateCodecPrimitiveEncode(screenSpeed);
-    stateCodecPrimitiveEncode(doorWait);
     stateCodecPrimitiveEncode(borderDistance);
-    stateCodecPrimitiveEncode(door);
+    stateCodecPrimitiveEncode(canProgressDoor);
     stateCodecPrimitiveEncode(canStep);
-    stateCodecPrimitiveEncode(platy);
+    stateCodecPrimitiveEncode(darken);
+    stateCodecPrimitiveEncode(darksp);
     stateCodecPrimitiveEncode(dir);
+    stateCodecPrimitiveEncode(door);
+    stateCodecPrimitiveEncode(doorWait);
     stateCodecPrimitiveEncode(endit);
-    stateCodecPrimitiveEncode(platv);
     stateCodecPrimitiveEncode(mydoor);
+    stateCodecPrimitiveEncode(num);
+    stateCodecPrimitiveEncode(plat);
+    stateCodecPrimitiveEncode(platv);
+    stateCodecPrimitiveEncode(platx);
+    stateCodecPrimitiveEncode(platy);
+    stateCodecPrimitiveEncode(screenFixSpeed);
+    stateCodecPrimitiveEncode(screenSpeed);
+    stateCodecIDEncode(triggerPlayer);
+    stateCodecPrimitiveEncode(xvs);
+    stateCodecPrimitiveEncode(yvs);
 }
 else
 {
-    platx = stateCodecPrimitiveDecode();
-    plat = stateCodecPrimitiveDecode();
-    canProgressDoor = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
     activate = stateCodecPrimitiveDecode();
-    yvs = stateCodecPrimitiveDecode();
-    darksp = stateCodecPrimitiveDecode();
-    triggerPlayer = stateCodecIDDecode();
     alpha = stateCodecPrimitiveDecode();
-    darken = stateCodecPrimitiveDecode();
-    screenFixSpeed = stateCodecPrimitiveDecode();
-    xvs = stateCodecPrimitiveDecode();
-    screenSpeed = stateCodecPrimitiveDecode();
-    doorWait = stateCodecPrimitiveDecode();
     borderDistance = stateCodecPrimitiveDecode();
-    door = stateCodecPrimitiveDecode();
+    canProgressDoor = stateCodecPrimitiveDecode();
     canStep = stateCodecPrimitiveDecode();
-    platy = stateCodecPrimitiveDecode();
+    darken = stateCodecPrimitiveDecode();
+    darksp = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
+    door = stateCodecPrimitiveDecode();
+    doorWait = stateCodecPrimitiveDecode();
     endit = stateCodecPrimitiveDecode();
-    platv = stateCodecPrimitiveDecode();
     mydoor = stateCodecPrimitiveDecode();
+    num = stateCodecPrimitiveDecode();
+    plat = stateCodecPrimitiveDecode();
+    platv = stateCodecPrimitiveDecode();
+    platx = stateCodecPrimitiveDecode();
+    platy = stateCodecPrimitiveDecode();
+    screenFixSpeed = stateCodecPrimitiveDecode();
+    screenSpeed = stateCodecPrimitiveDecode();
+    triggerPlayer = stateCodecIDDecode();
+    xvs = stateCodecPrimitiveDecode();
+    yvs = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

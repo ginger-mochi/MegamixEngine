@@ -254,31 +254,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(prevX);
     stateCodecPrimitiveEncode(SPEED);
-    stateCodecPrimitiveEncode(prevY);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(spawnXOffset);
-    stateCodecPrimitiveEncode(endXoffset);
-    stateCodecPrimitiveEncode(phase);
     stateCodecPrimitiveEncode(a);
+    stateCodecPrimitiveEncode(animFrame);
+    stateCodecPrimitiveEncode(endXoffset);
     stateCodecPrimitiveEncode(horSpeed);
+    stateCodecPrimitiveEncode(phase);
+    stateCodecPrimitiveEncode(prevX);
+    stateCodecPrimitiveEncode(prevY);
+    stateCodecPrimitiveEncode(spawnXOffset);
     stateCodecPrimitiveEncode(spawnYOffset);
+    stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    prevX = stateCodecPrimitiveDecode();
     SPEED = stateCodecPrimitiveDecode();
-    prevY = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    spawnXOffset = stateCodecPrimitiveDecode();
-    endXoffset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
     a = stateCodecPrimitiveDecode();
+    animFrame = stateCodecPrimitiveDecode();
+    endXoffset = stateCodecPrimitiveDecode();
     horSpeed = stateCodecPrimitiveDecode();
+    phase = stateCodecPrimitiveDecode();
+    prevX = stateCodecPrimitiveDecode();
+    prevY = stateCodecPrimitiveDecode();
+    spawnXOffset = stateCodecPrimitiveDecode();
     spawnYOffset = stateCodecPrimitiveDecode();
+    timer = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

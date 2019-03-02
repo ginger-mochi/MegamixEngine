@@ -172,23 +172,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(spawnHeadReset);
-    stateCodecPrimitiveEncode(spawnHead);
-    stateCodecPrimitiveEncode(moveDist);
     stateCodecPrimitiveEncode(bodyInstanceStore);
-    stateCodecPrimitiveEncode(moveTimer);
     stateCodecPrimitiveEncode(directionStore);
+    stateCodecPrimitiveEncode(init);
+    stateCodecPrimitiveEncode(moveDist);
+    stateCodecPrimitiveEncode(moveTimer);
+    stateCodecPrimitiveEncode(spawnHead);
+    stateCodecPrimitiveEncode(spawnHeadReset);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    spawnHeadReset = stateCodecPrimitiveDecode();
-    spawnHead = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
     bodyInstanceStore = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
     directionStore = stateCodecPrimitiveDecode();
+    init = stateCodecPrimitiveDecode();
+    moveDist = stateCodecPrimitiveDecode();
+    moveTimer = stateCodecPrimitiveDecode();
+    spawnHead = stateCodecPrimitiveDecode();
+    spawnHeadReset = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

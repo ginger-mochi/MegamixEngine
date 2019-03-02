@@ -105,10 +105,12 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(hitWall);
+    stateCodecPrimitiveEncode(i);
 }
 else
 {
     hitWall = stateCodecPrimitiveDecode();
+    i = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>
