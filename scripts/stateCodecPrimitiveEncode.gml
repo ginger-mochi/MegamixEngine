@@ -92,7 +92,7 @@ else if is_string(val)
 else if is_array(val)
 {
     // if array is small:
-    var height = array_height_2d(val)
+    var height = array_height_2d(val);
     var maxLength2d = array2dMaxLength(val);
     if (height == 1)
     {
@@ -135,7 +135,7 @@ else if is_array(val)
             }
             for (var j = 0; j < length; j++)
             {
-                stateCodecPrimitiveDecode(val[i, j]);
+                stateCodecPrimitiveEncode(val[i, j]);
             }
         }
     }

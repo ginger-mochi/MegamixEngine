@@ -38,7 +38,7 @@ facePlayer = true;
 // Enemy specific code
 shooting = false;
 animTimer = 0;
-bulletID = -10;
+bulletID = noone;
 
 obj = objColtonBullet;
 </string>

@@ -4,12 +4,22 @@
 
 if (!argument[0])
 {
+    var msg = "Assertion failed.";
     if (argument_count > 1)
     {
         // caps makes this easier to spot in the inspector
         var ERROR_MESSAGE = argument[1];
         printErr(ERROR_MESSAGE);
         printErr("FATAL ASSERTION FAILURE");
+        msg = "Assertion failed: " + ERROR_MESSAGE;
+    }
+    
+    if (debug_mode)
+    {
+        if (show_question(msg + global.newLine + global.newLine + "When not in debug mode, this will crash the game." + global.newLine + global.newLine + "Please pause the debugger now to investigate the cause of the crash, or press 'no' to crash the game and get a stack trace."))
+        {
+            return 0;
+        }
     }
     
     // intentionally invoke crash:
