@@ -28,7 +28,11 @@ switch (header)
         return buffer_read(global.stateCodecBuffer, buffer_u64);
     case 13:
         return undefined;
-    default: {
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    {
         // arrays
         var height;
         var is1d = true;
@@ -92,4 +96,6 @@ switch (header)
             return retv;
         }
     }
+    default:
+        assert(false, "unknown variable type header: " + string(header));
 }

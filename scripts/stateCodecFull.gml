@@ -7,42 +7,53 @@
 // serialize game state information
 stateCodecGlobals();
 
+// serialize random seed (modifies seed in order to be loadable.)
+if (global.stateCodecEncode)
+{
+    var newSeed = irandom($ffffff);
+    random_set_seed(newSeed);
+    var check = irandom($ffffff);
+    buffer_write(global.stateCodecBuffer, buffer_s32, newSeed);
+    buffer_write(global.stateCodecBuffer, buffer_s32, check);
+}
+else
+{
+    var newSeed = buffer_read(global.stateCodecBuffer, buffer_s32);
+    var check = buffer_read(global.stateCodecBuffer, buffer_s32);
+    random_set_seed(newSeed);
+    assert(check == irandom($ffffff), "random seed determinism check failed.")
+}
+
 // serialize all instances
 
 if (global.stateCodecEncode)
 {
     // TODO: consider deactivated instances
     // TODO: clean up id map, removing deleted instances..
+    
+    ds_map_clear(global.stateCodecUnswizzledToID);
+    ds_map_clear(global.stateCodecIDToUnswizzled);
+    
+    // assign unswizzled IDs.
+    var unswizzled_id = 0;
     with (all)
     {
-        var unswizzled_id = ds_map_find_value(global.stateCodecIDToUnswizzled, id);
-        if (is_undefined(unswizzled_id))
-        {
-            unswizzled_id = 0;
-            // assign new unswizzled ID
-            while (true)
-            {
-                if (is_undefined(ds_map_find_value(global.stateCodecUnswizzledToID, unswizzled_id)))
-                {
-                    ds_map_replace(global.stateCodecUnswizzledToID, unswizzled_id, id);
-                    ds_map_replace(global.stateCodecIDToUnswizzled, id, unswizzled_id);
-                    break;
-                }
-                unswizzled_id++;
-            }
-        }
+        ds_map_replace(global.stateCodecUnswizzledToID, unswizzled_id, id);
+        ds_map_replace(global.stateCodecIDToUnswizzled, id, unswizzled_id);
+                    
         var objectIndexEncoded = object_index - global.firstObject;
         assert(objectIndexEncoded >= 0, "encoded object index negative: " + object_get_name(object_index));
         
         // write object index
+        assert(unswizzled_id != $ffff);
         buffer_write(global.stateCodecBuffer, buffer_u16, unswizzled_id);
         buffer_write(global.stateCodecBuffer, buffer_u16, objectIndexEncoded);
+        unswizzled_id++;
     }
     
     // end marker
     buffer_write(global.stateCodecBuffer, buffer_u16, $ffff);
     
-    // let's hope with statements execute deterministically.
     with (all)
     {
         // codec event
@@ -58,11 +69,26 @@ if (global.stateCodecEncode)
 }
 else
 {
-    // read unswizzled-object_index map, assign unswizzled ids to instances.
+    // deserialize
     ds_map_clear(global.stateCodecUnswizzledToID);
     ds_map_clear(global.stateCodecIDToUnswizzled);
+    ds_map_clear(global.stateCodecUnswizzledCountByObject);
     var objects;
     var objectCount = 0;
+    
+    // collect list of objects (required to delete objects of which there are none in the save state.)
+    // initialize their counts to 0.
+    with all
+    {
+        var previous_count = ds_map_find_value(global.stateCodecUnswizzledCountByObject, object_index);
+        if (is_undefined(previous_count))
+        {
+            ds_map_replace(global.stateCodecUnswizzledCountByObject, object_index, 0);
+            objects[objectCount++] = object_index;
+        }
+    }
+    
+    // read unswizzled-object_index map, assign unswizzled ids to instances.
     while (true)
     {
         var unswizzled_id = buffer_read(global.stateCodecBuffer, buffer_u16);
@@ -72,6 +98,7 @@ else
         }
         
         var _object_index = buffer_read(global.stateCodecBuffer, buffer_u16) + global.firstObject;
+        assert(object_exists(_object_index));
         
         // update count of objects per instance
         var previous_count = ds_map_find_value(global.stateCodecUnswizzledCountByObject, _object_index);
@@ -101,19 +128,24 @@ else
     }
     
     // destroy excess instances.
+    var instanceArray;
+    deleteInstanceArray[500] = 0;
     for (var keyIter = 0; keyIter < objectCount; keyIter++)
     {
         var _object_index = objects[keyIter];
         var instanceCount = ds_map_find_value(global.stateCodecUnswizzledCountByObject, _object_index);
-        for (var i = instanceCount; true; i++)
+        var deleteCount = 0;
+        
+        // collect list of instances to delete.
+        for (var i = instanceCount; i < instance_number(_object_index); i++)
         {
-            var instance = instance_find(_object_index, i);
-            if (i >= instance_number(_object_index))
-            {
-                break;
-            }
-            
-            with (instance)
+            deleteInstanceArray[deleteCount++] = instance_find(_object_index, i);
+        }
+        
+        // delete instances.
+        for (var i = 0; i < deleteCount; i++)
+        {
+            with (deleteInstanceArray[i])
             {
                 print("deleted excess " + object_get_name(object_index));
                 
@@ -121,11 +153,12 @@ else
                 instance_change(objStruct, false);
                 instance_destroy();
             }
-            continue;
         }
     }
     
     // decode for each instance.
+    print("Decoding instance data.")
+    print(buffer_tell(global.stateCodecBuffer));
     while (true)
     {
         var unswizzled_id = buffer_read(global.stateCodecBuffer, buffer_u16);
@@ -140,7 +173,11 @@ else
             with (_id)
             {
                 event_user(EV_CODEC);
+                print("Decoded " + object_get_name(object_index));
             }
         }
     }
+    
+    print("All instances done.");
+    
 }

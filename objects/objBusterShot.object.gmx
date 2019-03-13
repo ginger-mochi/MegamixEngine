@@ -29,6 +29,8 @@
 
 inWater = -1;
 
+dir = 0;
+
 if object_index == objNormalBusterShot
 {
     scrBusterDefault_Create();
@@ -49,7 +51,6 @@ else if instance_exists(parent)
         case "Bass": 
         {
             scrBusterBass_Create();
-            dir = 0;
             break;
         }
     }

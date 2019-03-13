@@ -148,6 +148,7 @@ statusSliding = true;
 plt = 0;
 isFrozen = 0;
 freezeTimer = 0;
+inked = false;
 
 
 // vehicle: the instance of a vehicle mega man
@@ -582,6 +583,7 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(xDir);
     stateCodecPrimitiveEncode(xScaleOverride);
     stateCodecPrimitiveEncode(yDir);
+    stateCodecPrimitiveEncode(inked);
 }
 else
 {
@@ -678,6 +680,7 @@ else
     xDir = stateCodecPrimitiveDecode();
     xScaleOverride = stateCodecPrimitiveDecode();
     yDir = stateCodecPrimitiveDecode();
+    inked = stateCodecPrimitiveDecode();
 }
 </string>
           </argument>

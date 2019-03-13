@@ -4,8 +4,21 @@
 // bitstring encodings (basic instance data and data comression flags).
 var complexImageEncoding;
 var hasSprite = sprite_index != -1;
-var hasMask = mask_index != -1;
 var complexMotionEncoding;
+var hasAlarms = false;
+
+// TODO: alarms are rare enough that they could be made object-specific.
+for (var i = 0; i < 12; i++)
+{
+    if (alarm[i] != 0)
+    {
+        hasAlarms = true;
+        break;
+    }
+}
+
+// alarms and masks are both rare, so we combine their flags (in an attempt to minimize entropy).
+var hasMaskOrAlarms = mask_index != -1 || hasAlarms;
 
 if (global.stateCodecEncode)
 {
@@ -13,7 +26,7 @@ if (global.stateCodecEncode)
     complexMotionEncoding = solid || hspeed != 0 || vspeed != 0 || friction != 0 || gravity != 0
     var bitString = complexMotionEncoding | (!!visible << 1) | (!!persistent << 2) | ((image_xscale == 1) << 3)
         | ((image_yscale == 1) << 4) | (complexImageEncoding << 5)
-        | (hasSprite << 6) | (hasMask << 7);
+        | (hasSprite << 6) | (hasMaskOrAlarms << 7);
     buffer_write(global.stateCodecBuffer, buffer_u8, bitString);
 }
 else
@@ -28,7 +41,7 @@ else
     image_yscale = image_yscale * 2 - 1;
     complexImageEncoding = !!(bitString & $20);
     hasSprite = !!(bitString & $40);
-    hasMask = !!(bitString & $80);
+    hasMaskOrAlarms = !!(bitString & $80);
 }
 
 // most instance data.
@@ -46,9 +59,23 @@ if (global.stateCodecEncode)
             print(object_get_name(object_index) + string(image_index));
         }
     }
-    if (hasMask)
+    if (hasMaskOrAlarms)
     {
-        buffer_write(global.stateCodecBuffer, buffer_u16, mask_index - global.firstSprite);
+        // mask:
+        if (mask_index == -1)
+        {
+            buffer_write(global.stateCodecBuffer, buffer_u16, $ffff);
+        }
+        else
+        {
+            buffer_write(global.stateCodecBuffer, buffer_u16, mask_index - global.firstSprite);
+        }
+        
+        // alarms:
+        for (var i = 0; i < 12; i++)
+        {
+            buffer_write(global.stateCodecBuffer, buffer_f32, alarm[i]);
+        }
     }
     buffer_write(global.stateCodecBuffer, buffer_f32, image_speed);
     if (complexImageEncoding)
@@ -68,8 +95,8 @@ if (global.stateCodecEncode)
         buffer_write(global.stateCodecBuffer, buffer_f32, gravity);
         buffer_write(global.stateCodecBuffer, buffer_f32, gravity_direction);
     }
-    // minimum: 13 bytes. maximum: 62 bytes.
-    // expected: 19 bytes.
+    // minimum: 13 bytes. maximum: 110 bytes.
+    // expected median: 19 bytes.
     
     // minimum could possibly be reduced by not encoding x,y for objects without a sprite
     // and located at (0, 0) (using hasSprite flag in bitString.)
@@ -98,10 +125,24 @@ else
         sprite_index = -1;
     }
     
-    // read mask
-    if (hasMask)
+    if (hasMaskOrAlarms)
     {
-        mask_index = buffer_read(global.stateCodecBuffer, buffer_u16) + global.firstSprite;
+        // read mask
+        var in = buffer_read(global.stateCodecBuffer, buffer_u16);
+        if (in == $ffff)
+        {
+            mask_index = -1;
+        }
+        else
+        {
+            mask_index = in + global.firstSprite;
+        }
+        
+        // read alarms
+        for (var i = 0; i < 12; i++)
+        {
+            alarm[i] = buffer_read(global.stateCodecBuffer, buffer_f32);
+        }
     }
     else
     {
