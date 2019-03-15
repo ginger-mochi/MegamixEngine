@@ -16,13 +16,13 @@ if (uid >= $fffc)
     // special values
     return uid - $10000;
 }
-else if (object_exists(uid))
+else if (uid < (global.lastObject - global.firstObject))
 {
     return global.firstObject + uid;
 }
 else
 {
-    var uid = ds_map_find_value(global.stateCodecUnswizzledToID, uid);
+    uid = ds_map_find_value(global.stateCodecUnswizzledToID, uid - global.lastObject);
     assert(!is_undefined(uid), "no mapping for unswizzled id!");
     return uid;
 }
