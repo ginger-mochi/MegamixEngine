@@ -173,11 +173,10 @@ else
             with (_id)
             {
                 event_user(EV_CODEC);
-                print("Decoded " + object_get_name(object_index));
             }
         }
     }
     
-    print("All instances done.");
+    print("All instances decoded.");
     
 }

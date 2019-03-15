@@ -5200,6 +5200,11 @@
       <script>scripts\stateCodecSurfaceEncode.gml</script>
       <script>scripts\stateCodecSurfaceDecode.gml</script>
     </scripts>
+    <scripts name="Resimulation">
+      <script>scripts\resimulatePhase.gml</script>
+      <script>scripts\resimulate.gml</script>
+      <script>scripts\resimulateInstanceTick.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Level Objects">

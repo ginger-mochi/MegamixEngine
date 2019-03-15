@@ -25,8 +25,24 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>stateCodecInit();
-global.stateCodecBuffer = buffer_create(8000, buffer_grow, 1);
+            <string>/// this object is not really necessary for save states,
+// it just uses the stateCodec API / provides an interface for the player.
+
+stateCodecInit();
+
+// saves/loads when user presses 'I'
+m_userSnapshot = buffer_create(50000, buffer_grow, 1);
+
+m_resimBufferActive = false;
+
+// circular array of buffers
+m_resimBufferLength = 32;
+
+// resimulation buffer
+for (var i = 0; i &lt; m_resimBufferLength; i++)
+{
+    m_resimBuffer[i] = buffer_create(50000, buffer_grow, 1);
+}
 </string>
           </argument>
         </arguments>
@@ -51,7 +67,8 @@ global.stateCodecBuffer = buffer_create(8000, buffer_grow, 1);
             <kind>1</kind>
             <string>if (keyboard_check_pressed(ord('I')))
 {
-    print("SAVING STATE")
+    print("SAVING STATE");
+    global.stateCodecBuffer = m_userSnapshot;
     buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
     global.stateCodecEncode = true;
     stateCodecFull();
@@ -60,12 +77,74 @@ global.stateCodecBuffer = buffer_create(8000, buffer_grow, 1);
 }
 else if (keyboard_check_pressed(ord('L')))
 {
+    global.stateCodecBuffer = m_userSnapshot;
     buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    print("LOADING STATE")
+    print("LOADING STATE");
     global.stateCodecEncode = false;
     stateCodecFull();
     var dataLength = buffer_tell(global.stateCodecBuffer);
     print(string(dataLength) + " bytes loaded.")
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// resimulation
+
+if (keyboard_check_pressed(ord('R')) || keyboard_check_pressed(ord('T')))
+{
+    if (m_resimBufferActive)
+    {
+        print("Loading state from m_resimBuffer.");
+        global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
+        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+        
+        // load state
+        global.stateCodecEncode = false;
+        stateCodecFull();
+        
+        if (keyboard_check_pressed(ord('R')))
+        {
+            // resimulate
+            print("Resimulating");
+            resimulate(m_resimBufferLength, ev_step_normal);
+        }
+    }
+    else
+    {
+        show_debug_overlay(true);
+        m_resimBufferActive = true;
+        print("Starting recording.")
+    }
+}
+else
+{
+    if (m_resimBufferActive)
+    {
+        // save to resimulation buffer.
+        global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
+        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+        global.stateCodecEncode = true;
+        stateCodecFull();
+    }
 }
 </string>
           </argument>
