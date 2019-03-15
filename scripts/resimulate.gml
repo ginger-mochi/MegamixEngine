@@ -39,5 +39,5 @@ case ev_step_end:
     }
     break;
 default:
-        assert(false, "Invalid netplay resimulation phase.");
+        assert(false, "Invalid resimulation phase.");
 }

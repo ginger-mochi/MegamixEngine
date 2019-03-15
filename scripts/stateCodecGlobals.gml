@@ -184,6 +184,16 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(global.weaponPrimaryColor)
     stateCodecPrimitiveEncode(global.weaponSecondaryColor)
     stateCodecPrimitiveEncode(global.wTanks)
+    stateCodecPrimitiveEncode(global.keyLeft);
+    stateCodecPrimitiveEncode(global.keyRight);
+    stateCodecPrimitiveEncode(global.keyUp);
+    stateCodecPrimitiveEncode(global.keyDown);
+    stateCodecPrimitiveEncode(global.keyJump);
+    stateCodecPrimitiveEncode(global.keyShoot);
+    stateCodecPrimitiveEncode(global.keySlide);
+    stateCodecPrimitiveEncode(global.keyPause);
+    stateCodecPrimitiveEncode(global.keyWeaponSwitchLeft);
+    stateCodecPrimitiveEncode(global.keyWeaponSwitchRight);
 }
 else
 {
@@ -369,4 +379,14 @@ else
     global.weaponPrimaryColor = stateCodecPrimitiveDecode()
     global.weaponSecondaryColor = stateCodecPrimitiveDecode()
     global.wTanks = stateCodecPrimitiveDecode()
+    global.keyLeft = stateCodecPrimitiveDecode();
+    global.keyRight = stateCodecPrimitiveDecode();
+    global.keyUp = stateCodecPrimitiveDecode();
+    global.keyDown = stateCodecPrimitiveDecode();
+    global.keyJump = stateCodecPrimitiveDecode();
+    global.keyShoot = stateCodecPrimitiveDecode();
+    global.keySlide = stateCodecPrimitiveDecode();
+    global.keyPause = stateCodecPrimitiveDecode();
+    global.keyWeaponSwitchLeft = stateCodecPrimitiveDecode();
+    global.keyWeaponSwitchRight = stateCodecPrimitiveDecode();
 }

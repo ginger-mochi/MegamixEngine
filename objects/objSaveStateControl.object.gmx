@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-10000000</depth>
   <persistent>-1</persistent>
   <parentName>prtAlwaysActive</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -43,6 +43,9 @@ for (var i = 0; i &lt; m_resimBufferLength; i++)
 {
     m_resimBuffer[i] = buffer_create(50000, buffer_grow, 1);
 }
+
+m_continualResimulation = false;
+m_recordInterval = 1;
 </string>
           </argument>
         </arguments>
@@ -65,85 +68,38 @@ for (var i = 0; i &lt; m_resimBufferLength; i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(ord('I')))
+            <string>if (m_continualResimulation)
 {
-    print("SAVING STATE");
-    global.stateCodecBuffer = m_userSnapshot;
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    global.stateCodecEncode = true;
-    stateCodecFull();
-    var dataLength = buffer_tell(global.stateCodecBuffer);
-    print(string(dataLength) + " bytes saved.")
-}
-else if (keyboard_check_pressed(ord('L')))
-{
-    global.stateCodecBuffer = m_userSnapshot;
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    print("LOADING STATE");
-    global.stateCodecEncode = false;
-    stateCodecFull();
-    var dataLength = buffer_tell(global.stateCodecBuffer);
-    print(string(dataLength) + " bytes loaded.")
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// resimulation
-
-if (keyboard_check_pressed(ord('R')) || keyboard_check_pressed(ord('T')))
-{
-    if (m_resimBufferActive)
+    if (global.gameTimer mod m_recordInterval == 0)
     {
-        print("Loading state from m_resimBuffer.");
-        global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
-        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-        
-        // load state
-        global.stateCodecEncode = false;
-        stateCodecFull();
-        
-        if (keyboard_check_pressed(ord('R')))
-        {
-            // resimulate
-            print("Resimulating");
-            resimulate(m_resimBufferLength, ev_step_normal);
-        }
-    }
-    else
-    {
-        show_debug_overlay(true);
-        m_resimBufferActive = true;
-        print("Starting recording.")
-    }
-}
-else
-{
-    if (m_resimBufferActive)
-    {
-        // save to resimulation buffer.
+        // save state at the end of each interval (even when resimulating)
         global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
         buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
         global.stateCodecEncode = true;
         stateCodecFull();
+    }
+}
+else
+{
+    if (keyboard_check_pressed(ord('I')))
+    {
+        print("SAVING STATE");
+        global.stateCodecBuffer = m_userSnapshot;
+        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+        global.stateCodecEncode = true;
+        stateCodecFull();
+        var dataLength = buffer_tell(global.stateCodecBuffer);
+        print(string(dataLength) + " bytes saved.")
+    }
+    else if (keyboard_check_pressed(ord('L')))
+    {
+        global.stateCodecBuffer = m_userSnapshot;
+        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+        print("LOADING STATE");
+        global.stateCodecEncode = false;
+        stateCodecFull();
+        var dataLength = buffer_tell(global.stateCodecBuffer);
+        print(string(dataLength) + " bytes loaded.")
     }
 }
 </string>
@@ -169,6 +125,87 @@ else
           <argument>
             <kind>1</kind>
             <string>/// doesn't serialize.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="75">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// resimulation
+// we perform this in the pre-draw event because it happens just before the begin step event.
+
+if (keyboard_check_pressed(ord('Q')) &amp;&amp; m_resimBufferActive)
+{
+    m_continualResimulation ^= true;
+}
+
+if (m_continualResimulation)
+{
+    // load state, then resimulate.
+    var gameTimer = global.gameTimer;
+    var loadFrame = floorTo(global.gameTimer - 4, m_recordInterval);
+    global.stateCodecBuffer = m_resimBuffer[loadFrame mod m_resimBufferLength];
+    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+    global.stateCodecEncode = false;
+    stateCodecFull();
+    resimulate(gameTimer - loadFrame, ev_step_begin);
+}
+else
+{
+    if (keyboard_check_pressed(ord('R')) || keyboard_check_pressed(ord('T')))
+    {
+        if (m_resimBufferActive)
+        {
+            print("Loading state from m_resimBuffer.");
+            global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
+            buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+            
+            // load state
+            global.stateCodecEncode = false;
+            stateCodecFull();
+            
+            if (keyboard_check_pressed(ord('R')))
+            {
+                // resimulate
+                print("Resimulating");
+                resimulate(m_resimBufferLength, ev_step_normal);
+            }
+        }
+        else
+        {
+            show_debug_overlay(true);
+            m_resimBufferActive = true;
+            print("Starting recording.")
+        }
+    }
+    else
+    {
+        if (m_resimBufferActive)
+        {
+            // save to resimulation buffer.
+            global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
+            buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+            global.stateCodecEncode = true;
+            stateCodecFull();
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
