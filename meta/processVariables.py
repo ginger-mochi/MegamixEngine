@@ -10,7 +10,8 @@ srevarname = "[a-zA-Z_][a-zA-Z0-9_]*"
 reFindVars = regex.compile(r"\s*(" + srevarname + "\.)?(" + srevarname + ")(\[(?P<accessor>.*)\])?\s*=(?!=)(?P<assignment>[^;\n]*)")
 reFindLocals = regex.compile(r"\s*var (\s*(" + srevarname + ")\s*(=[^,;\n]+\s*)?,?)+")
 reParent = regex.compile(r"<parentName>([^<]*)</parentName>")
-reObjectFileParse = regex.compile(r"(.*)\.object\.gmx")
+reObjectFileParse = regex.compile(r"^(.*)\.object\.gmx$")
+reScriptFileParse = regex.compile(r"^(.*)\.gml$")
 
 builtin = {'hspeed', 'vspeed', 'solid', 'visible', 'persistent', 'depth', 'alarm', 'object_index',
 			'sprite_index', 'image_index', 'image_alpha', 'image_angle', 'image_blend',
@@ -20,8 +21,17 @@ builtin = {'hspeed', 'vspeed', 'solid', 'visible', 'persistent', 'depth', 'alarm
 			'background_colour', 'background_color', 'view_xview', 'view_yview', 'view_wview', 'view_hview', 'view_visible',
 			'view_enabled', 'room_speed', 'background_visible'}
 			
+class GlobalsParseResult:
+	def __init__(self):
+		self.globals = True
+		self.variables = []
+		self.variableIsArray = {}
+		self.variableType = {}
+		self.variableAssignments = {}
+			
 class ObjectParseResult:
 	def __init__(self):
+		self.globals = False
 		self.name = ""
 		self.path = ""
 		# parse result for parent.
@@ -40,13 +50,16 @@ class ObjectParseResult:
 		self.instanceVariablesAll = []
 		# this and any ancestor's definite instance variable.
 		self.instanceVariablesDefiniteAll = []
+		# these variables are arrays
+		self.instanceVariableIsArray = {}
 		# maps vars which have a known type to their type ('id', 'map', etc.)
 		self.instanceVariableType = {}
 		# maps variables to a list of all rhs of the assignments they appear in.
 		self.instanceVariableAssignments = {}
 		
-def walkObjects(directory, verbose=False, ignore=None):
-	# yields ObjectParseResults for all objects in the given directory.
+def walkObjects(directory, verbose=False, ignore=None, ignoreFiles=[], globals=True):
+	# yields ObjectParseResults for all objects and scripts in the given parse directory.
+	# final yield is of type GlobalsParseResult (unless globals is False, in which case all yields are ObjectParseResults)
 	# verbose: print to stdout
 	# ignore: variables names to ignore (built-in variables are always ignored)
 
@@ -55,10 +68,19 @@ def walkObjects(directory, verbose=False, ignore=None):
 	else:
 		ignore |= builtin
 		
+	ignoreFiles = list(map(lambda p : p.replace(os.path.sep, '/'), ignoreFiles))
+		
 	dir = directory
+	objdir = os.path.join(dir, "objects")
+	scrdir = os.path.join(dir, "scripts")
 	needs_processing = [dir]
 	if not dir.endswith(".object.gmx"):
-		needs_processing = list(map(lambda p : os.path.join(dir, p).replace(os.path.sep, '/'), os.listdir(dir)))
+		needs_processing = list(map(lambda p : os.path.join(objdir, p).replace(os.path.sep, '/'), os.listdir(objdir)))
+		if globals:
+			# process scripts (and process them before the objects)
+			needs_processing = list(map(lambda p : os.path.join(scrdir, p).replace(os.path.sep, '/'), os.listdir(scrdir))) + needs_processing
+		
+		
 	processed = []
 	process_count = len(needs_processing)
 
@@ -68,33 +90,48 @@ def walkObjects(directory, verbose=False, ignore=None):
 	questionableVarCounts = []
 	localVarCounts = []
 	
+	globalresult = GlobalsParseResult()
+	globalvars = set()
+	globalrhs = dict()
+	globalisarray = set()
+	
 	while len(needs_processing) > 0:
-		objFile = needs_processing.pop(0).strip()
-		objFileNameMatch = reObjectFileParse.match(objFile)
-		if objFileNameMatch is None:
+		file = needs_processing.pop(0).strip()
+		if file in ignoreFiles:
+			continue
+		objFileNameMatch = reObjectFileParse.match(file)
+		isObject = objFileNameMatch is not None
+		isScript = reScriptFileParse.match(file) is not None
+		if not isObject and not isScript:
+			continue
+		if isScript and not globals:
+			# todo: search scripts to flag non-local definitions.
 			continue
 		result = None
-		with open(objFile, "r", encoding="utf8") as f:
+		with open(file, "r", encoding="utf8") as f:
 			fcontents = f.read()
-			parentMatch = reParent.search(fcontents)
-			parentFile = None
-			if parentMatch is not None:
-				parent = parentMatch.group(1)
-				if parent != "" and parent != "&lt;undefined&gt;":
-					# put objFile back on list and process parent instead
-					parentFile = os.path.join(os.path.dirname(objFile), parent + ".object.gmx").replace(os.path.sep, '/')
-					if parentFile not in processed:
-						needs_processing.insert(0, objFile)
-						if parentFile in needs_processing:
-							needs_processing.remove(parentFile)
-						needs_processing.insert(0, parentFile)
-						continue
+			result = None
+			if isObject:
+				# objects must be parsed in order.
+				parentMatch = reParent.search(fcontents)
+				parentFile = None
+				if parentMatch is not None:
+					parent = parentMatch.group(1)
+					if parent != "" and parent != "&lt;undefined&gt;":
+						# put file back on list and process parent instead
+						parentFile = os.path.join(os.path.dirname(file), parent + ".object.gmx").replace(os.path.sep, '/')
+						if parentFile not in processed:
+							needs_processing.insert(0, file)
+							if parentFile in needs_processing:
+								needs_processing.remove(parentFile)
+							needs_processing.insert(0, parentFile)
+							continue
 					
-			result = ObjectParseResult()
-			result.name = objFileNameMatch.group(1)
-			result.path = objFile
-			if parentFile is not None:
-				result.parentResult = results[parentFile]
+				result = ObjectParseResult()
+				result.name = objFileNameMatch.group(1)
+				result.path = file
+				if parentFile is not None:
+					result.parentResult = results[parentFile]
 			
 			# find create event
 			createStart = fcontents.find("<event eventtype=\"0\" enumb=\"0\">")
@@ -103,7 +140,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 				createEnd = fcontents.find("</event>", createStart)
 			
 			# find comments
-			commentSpans = parseComments(fcontents, objFile.endswith(".object.gmx"))
+			commentSpans = parseComments(fcontents, file.endswith(".object.gmx"))
 			
 			# find all with () { ... } ranges
 			withSpans = parseWiths(fcontents)
@@ -127,7 +164,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 					# could potentially be other.other
 					varInstance = True
 					varOther = True
-				if varInstance:
+				if varInstance and isObject:
 					# check with spans to see if this is definitely being assigned to a different instance.
 					withsTreeLocation = locateInWithsTree(match.span()[0], withSpans)
 					if len(withsTreeLocation) > 0:
@@ -142,7 +179,8 @@ def walkObjects(directory, verbose=False, ignore=None):
 					# try to determine swizzle type
 					assignment = match.group('assignment').strip()
 					if varName not in rhs:
-						rhs[varName].append(assignment)
+						rhs[varName] = []
+					rhs[varName].append(assignment)
 					if len(match.captures("accessor")) > 0:
 						accessor = match.group("accessor")
 						if (not accessor.startswith("?") and not accessor.startswith("|") and not accessor.startswith("#") and not accessor.startswith("@")):
@@ -153,9 +191,21 @@ def walkObjects(directory, verbose=False, ignore=None):
 					if match.span()[0] < createEnd:
 						definite.add(varName)
 				else: # other/global?
-					if match.group(1) == "global":
+					if match.group(1) == "global." and globals:
+						varName = "global." + varName
 						assignment = match.group('assignment').strip()
+						if varName not in globalrhs:
+							globalrhs[varName] = []
+						globalrhs[varName].append(assignment)
 						
+						if len(match.captures("accessor")) > 0:
+							accessor = match.group("accessor")
+							if (not accessor.startswith("?") and not accessor.startswith("|") and not accessor.startswith("#") and not accessor.startswith("@")):
+								globalisarray.add(varName)
+							
+						globalvars.add(varName)
+						
+			# local vars (var statements)
 			for match in reFindLocals.finditer(fcontents):
 				# list of vars declared in this var statement (can be more than one!)
 				localDecls = match.captures(2)
@@ -164,69 +214,100 @@ def walkObjects(directory, verbose=False, ignore=None):
 			vars -= locals
 			vars -= ignore
 			locals -= ignore
-			objvars[objFile] = vars.copy()
-			if parentFile is not None:
-				vars -= objvars[parentFile]
-				objvars[objFile] |= objvars[parentFile]
-				
-			definite &= vars
-			questionable = vars - definite
-			swizzledType = {var: swizzledType[var] for var in vars & set(swizzledType.keys())}
-			isArray = isArray & vars
-
-			if verbose:
-				print(objFile)
-				print("\"with\" statements:", withSpans)
+			if isObject:
+				objvars[file] = vars.copy()
 				if parentFile is not None:
-					print("> inherits from ({})".format(parent))
-				for var in vars:
-					symbol = "*"
-					if var in swizzledType.keys():
-						symbol = swizzledType[var]
-					if var in isArray:
-						symbol += "[]"
-					if var not in questionable:
-						print("{:<8}{}".format(symbol, var))
-				for var in questionable:
-					symbol = ""
-					if var in swizzledType.keys():
-						symbol = swizzledType[var]
-					if var not in questionable:
-						print("{:<8}{}".format(symbol, var))
-					print("{:<8}{}".format(symbol + "?", var))
-				for local in locals:
-					print("(local) {}".format(local))
-				print()
-			instanceVarCounts.append(len(vars))
-			questionableVarCounts.append(len(questionable))
-			localVarCounts.append(len(locals))
+					vars -= objvars[parentFile]
+					objvars[file] |= objvars[parentFile]
+					
+				definite &= vars
+				questionable = vars - definite
+				type = {}
+				for varName in rhs.keys():
+					type[varName] = inferTypeFromAssignments(rhs[varName])
+				result.instanceVariableIsArray = isArray
+				
+				isArray = isArray & vars
+
+				if verbose:
+					print(file)
+					print("\"with\" statements:", withSpans)
+					if parentFile is not None:
+						print("> inherits from ({})".format(parent))
+					for var in vars:
+						symbol = "*"
+						if var in type.keys():
+							symbol = type[var]
+						if symbol is "":
+							symbol = "*"
+						if var in isArray:
+							symbol += "[]"
+						if var not in questionable:
+							varLine = "{:<8} {}".format(symbol, var)
+							alignLen = max(0, 60 - len(varLine))
+							varLine += " "*alignLen
+							varLine += str(rhs[var])
+							print(varLine)
+					for var in questionable:
+						symbol = ""
+						if var in type.keys():
+							symbol = type[var]
+						print("{:<8} {}".format(symbol + "?", var))
+					for local in locals:
+						print("(local) {}".format(local))
+					print()
+				instanceVarCounts.append(len(vars))
+				questionableVarCounts.append(len(questionable))
+				localVarCounts.append(len(locals))
+				
+				result.localVariables = locals
+				result.instanceVariables = vars
+				result.instanceVariablesQuestionable = questionable
+				result.instanceVariablesDefinite = vars - questionable
+				result.instanceVariableAssignments = rhs
+				result.instanceVariableType = type
+				if parentFile is not None:
+					result.instanceVariableType = {**result.parentResult.instanceVariableType, **type}
+					result.instanceVariableIsArray |= result.parentResult.instanceVariableIsArray
+					result.instanceVariablesInherited   = objvars[parentFile]
+					result.instanceVariablesAll         = vars                             | result.parentResult.instanceVariablesAll
+					result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite | result.parentResult.instanceVariablesDefiniteAll
+				else:
+					result.instanceVariablesAll         = vars
+					result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite
 			
-			result.localVariables = locals
-			result.instanceVariables = vars
-			result.instanceVariablesQuestionable = questionable
-			result.instanceVariablesDefinite = vars - questionable
-			result.instanceVariableAssignments = rhs
-			result.instanceVariableType = {}
-			for varName in rhs.keys():
-				result.instanceVariableType[varName] = inferTypeFromAssignments(rhs[varName])
-			result.instanceVariableIsArray = isArray
-			if parentFile is not None:
-				result.instanceVariableType = {**result.parentResult.instanceVariableType, **swizzledType}
-				result.instanceVariableIsArray |= result.parentResult.instanceVariableIsArray
-				result.instanceVariablesInherited   = objvars[parentFile]
-				result.instanceVariablesAll         = vars                             | result.parentResult.instanceVariablesAll
-				result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite | result.parentResult.instanceVariablesDefiniteAll
-			else:
-				result.instanceVariablesAll         = vars
-				result.instanceVariablesDefiniteAll = result.instanceVariablesDefinite
-			
-		processed.append(objFile)
+		processed.append(file)
 		if verbose:
 			print (" "*50, round(100 - 100 * len(needs_processing) / process_count, 1), "%")
-		if result is not None:
-			results[objFile] = result
-			yield result
-	
+		if isObject:
+			if result is not None:
+				results[file] = result
+				yield result
+	if globals:
+		globaltype = {}
+		for varName in globalrhs.keys():
+				globaltype[varName] = inferTypeFromAssignments(globalrhs[varName])
+			
+		globalresult.variables = globalvars
+		globalresult.variableIsArray = globalisarray
+		globalresult.variableAssignments = globalrhs
+		globalresult.variableType = globaltype
+		
+		if verbose:
+			print("Globals:")
+			for var in globalvars:
+				symbol = "*"
+				if var in globaltype.keys():
+					symbol = globaltype[var]
+				if symbol is "":
+					symbol = "*"
+				if var in isArray:
+					symbol += "[]"
+				if var not in questionable:
+					print("{:<8} {}".format(symbol, var))
+			print()
+			
+		yield(globalresult)
 	if verbose:
 		print("Stats:")
 		print("mean instance vars: ", round(statistics.mean(instanceVarCounts), 2))
@@ -236,7 +317,6 @@ def walkObjects(directory, verbose=False, ignore=None):
 		print("median instance vars: ", statistics.median(instanceVarCounts))
 		print("median questionable: ", statistics.median(questionableVarCounts))
 		print("median locals: ", statistics.median(localVarCounts))
-		yield(globals)
 
 def is_number(s):
     try:
@@ -274,9 +354,13 @@ def inferTypeFromAssignment(assignment):
 		return 'queue'
 	elif assignment.startswith('ds_priority_create'):
 		return 'priority'
+	elif assignment.startswith('external_define'):
+		return 'external-function'
 	elif assignment.startswith('string(') or assignment.startswith('"'):
 		return 'string'
 	elif is_number(assignment):
+		return 'number'
+	elif assignment == 'false' or assignment == 'true':
 		return 'number'
 	return '?'
 		
@@ -287,10 +371,12 @@ def inferTypeFromAssignments(assignments):
 	might_be_number = False
 	might_be_string = False
 	# these can be ascertained with a high probability when encountered.
-	definite_types = ['id', 'surface', 'map', 'list', 'grid', 'stack', 'queue', 'priority']
+	definite_types = ['id', 'surface', 'map', 'list', 'grid', 'stack', 'queue', 'priority', 'external-function']
 	decided_types = []
+	types = []
 	for assignment in assignments:
-		type = inferTypeFromAssignment
+		type = inferTypeFromAssignment(assignment)
+		types.append(type)
 		if type == '?':
 			#ignore assignments which cannot be analyzed
 			continue
@@ -298,7 +384,6 @@ def inferTypeFromAssignments(assignments):
 			might_be_number = True
 		if 'string' == type:
 			might_be_string = True
-		types.append(type)
 		if type in definite_types and type not in decided_types:
 			decided_types.append(type)
 	if len(decided_types) > 1:
