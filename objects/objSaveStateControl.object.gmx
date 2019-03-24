@@ -29,6 +29,7 @@
 // it just uses the stateCodec API / provides an interface for the player.
 
 stateCodecInit();
+resimulateInit();
 
 // saves/loads when user presses 'I'
 m_userSnapshot = buffer_create(50000, buffer_grow, 4);
@@ -42,11 +43,11 @@ m_resimBufferLength = 32;
 for (var i = 0; i &lt; m_resimBufferLength; i++)
 {
     m_resimBuffer[i] = buffer_create(50000, buffer_grow, 4);
+    m_resimBufferFrame[i] = -1;
 }
 
 m_continualResimulation = false;
-m_recordInterval = 16;
-m_isResimulating = false;
+m_recordInterval = 12;
 </string>
           </argument>
         </arguments>
@@ -69,39 +70,37 @@ m_isResimulating = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (m_continualResimulation)
+            <string>if ((global.gameTimer mod m_recordInterval == 0 &amp;&amp; m_continualResimulation &amp;&amp; global.resimulating) || m_resimBufferActive &amp;&amp; ! m_continualResimulation)
 {
-    if (global.gameTimer mod m_recordInterval == 0 and m_isResimulating)
-    {
-        // save state at the end of each interval (even when resimulating)
-        global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
-        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-        global.stateCodecEncode = true;
-        stateCodecFull();
-    }
+    // save state at the end of each interval (note that this will only happen during resimulation, which is every frame anyways.)
+    var bufferIndex = global.gameTimer mod m_resimBufferLength;
+    global.stateCodecBuffer = m_resimBuffer[bufferIndex];
+    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+    global.stateCodecEncode = true;
+    print("Snapshotting frame " + string(global.gameTimer));
+    stateCodecFull();
+    m_resimBufferFrame[bufferIndex] = global.gameTimer;
 }
-else
+
+if (keyboard_check_pressed(ord('I')))
 {
-    if (keyboard_check_pressed(ord('I')))
-    {
-        print("SAVING STATE");
-        global.stateCodecBuffer = m_userSnapshot;
-        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-        global.stateCodecEncode = true;
-        stateCodecFull();
-        var dataLength = buffer_tell(global.stateCodecBuffer);
-        print(string(dataLength) + " bytes saved.")
-    }
-    else if (keyboard_check_pressed(ord('L')))
-    {
-        global.stateCodecBuffer = m_userSnapshot;
-        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-        print("LOADING STATE");
-        global.stateCodecEncode = false;
-        stateCodecFull();
-        var dataLength = buffer_tell(global.stateCodecBuffer);
-        print(string(dataLength) + " bytes loaded.")
-    }
+    print("SAVING STATE");
+    global.stateCodecBuffer = m_userSnapshot;
+    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+    global.stateCodecEncode = true;
+    stateCodecFull();
+    var dataLength = buffer_tell(global.stateCodecBuffer);
+    print(string(dataLength) + " bytes saved.")
+}
+else if (keyboard_check_pressed(ord('L')))
+{
+    global.stateCodecBuffer = m_userSnapshot;
+    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+    print("LOADING STATE");
+    global.stateCodecEncode = false;
+    stateCodecFull();
+    var dataLength = buffer_tell(global.stateCodecBuffer);
+    print(string(dataLength) + " bytes loaded.")
 }
 </string>
           </argument>
@@ -126,6 +125,8 @@ else
           <argument>
             <kind>1</kind>
             <string>/// doesn't serialize.
+
+scrNoEffect();
 </string>
           </argument>
         </arguments>
@@ -161,13 +162,22 @@ if (m_continualResimulation)
     // load state, then resimulate.
     var gameTimer = global.gameTimer;
     var loadFrame = floorTo(global.gameTimer - m_recordInterval, m_recordInterval);
-    global.stateCodecBuffer = m_resimBuffer[loadFrame mod m_resimBufferLength];
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    global.stateCodecEncode = false;
-    stateCodecFull();
-    m_isResimulating = false;
-    resimulate(gameTimer - loadFrame, ev_step_begin);
-    m_isResimulating = true;
+    var bufferIndex = loadFrame mod m_resimBufferLength;
+    var bufferFrame = m_resimBufferFrame[bufferIndex];
+    if (bufferFrame == loadFrame)
+    {
+        global.stateCodecBuffer = m_resimBuffer[bufferIndex];
+        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+        global.stateCodecEncode = false;
+        stateCodecFull();
+        assert(global.gameTimer == bufferFrame);
+        resimulate(gameTimer - loadFrame, ev_step_begin);
+    }
+    else
+    {
+        // frame wasn't saved :(
+        print("Would load frame " + string(loadFrame) + ", but frame " + string(bufferFrame) + " was found instead.");
+    }
 }
 else
 {
@@ -187,7 +197,7 @@ else
             {
                 // resimulate
                 print("Resimulating");
-                resimulate(m_resimBufferLength, ev_step_normal);
+                resimulate(m_resimBufferLength, ev_step_begin);
             }
         }
         else
@@ -195,17 +205,6 @@ else
             show_debug_overlay(true);
             m_resimBufferActive = true;
             print("Starting recording.")
-        }
-    }
-    else
-    {
-        if (m_resimBufferActive)
-        {
-            // save to resimulation buffer.
-            global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
-            buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-            global.stateCodecEncode = true;
-            stateCodecFull();
         }
     }
 }

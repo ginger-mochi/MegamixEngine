@@ -84,16 +84,29 @@ def getSerializationCode(var, type, isArray):
 		codeDecode += "{} = stateCodecPrimitiveDecode();\n".format(var)
 	return codeEncode, codeDecode	
 
+# variables not to encode
 ignore = [
+# static
 'global.lastObject',
 'global.lastBackground',
 'global.lastSprite',
 'global.lastScript',
-'global.soundVolume',
+'global.nesPalette',
+'global.sinTableID',
+
+# transient
+'global.resimulating'
+'global.createArgument',
+'global.playerProjectileCreator',
+'global.gml_fn_retval',
+'global.execute_gml_function_ERR',
+
+# config
 'global.vsync',
 'global.musicvolume',
 'global.musicVolume',
-'global.createArgument',
+'global.soundVolume',
+'global.screensize',
 'global.downKey',
 'global.joystick_jumpKey',
 'global.joystick_pauseKey',
@@ -110,22 +123,24 @@ ignore = [
 'global.upKey',
 'global.weaponSwitchLeftKey',
 'global.weaponSwitchRightKey',
-'global.gml_fn_retval',
-'global.execute_gml_function_ERR',
-'global.nesPalette',
-'global.screensize',
-'global.sinTableID'
 ]
 
+# ignore variables that start with these
 ignoreWC = [
-'global.sl_',
+# static from filesystem
 'global.dll_',
-'global.record',
+'global.roomExternal',
+
+#transient
+'global.sl_',
+'global.retval',
+
+# too cumbersome to support and not relevant
 'global.unitTest',
 'global.unitSuite',
-'global.retval',
 'global.record',
-'global.roomExternal',
+
+# recursion
 'global.stateCodec'
 ]
 

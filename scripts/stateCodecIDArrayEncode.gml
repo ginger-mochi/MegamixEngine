@@ -4,7 +4,7 @@
 
 // map array elements to unswizzled ID and then encode.
 var idarr = argument0;
-var uidarr;
+var uidarr = 0;
 
 var buffer = global.stateCodecBuffer;
 global.stateCodecBuffer = undefined;

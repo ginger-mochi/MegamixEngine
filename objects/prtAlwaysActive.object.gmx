@@ -25,9 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>frozen = 0;
-
-image_speed = 0;
+            <string>image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -61,15 +59,6 @@ image_speed = 0;
 // This object has no parent, so it is responsible
 // for encoding basic instance properties.
 stateCodecInstance();
-
-if (global.stateCodecEncode)
-{
-    buffer_write(global.stateCodecBuffer, buffer_f32, frozen);
-}
-else
-{
-    frozen = buffer_read(global.stateCodecBuffer, buffer_f32);
-}
 </string>
           </argument>
         </arguments>

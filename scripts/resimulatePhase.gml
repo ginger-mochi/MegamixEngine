@@ -8,6 +8,8 @@
 // problem: 'with' statement executes in order of depth, but
 // in this case it needs to execute in order of resource tree index.
 
+global.resimulating = true;
+
 switch (argument0)
 {
     case -1:
@@ -37,3 +39,5 @@ switch (argument0)
     default:
         assert(false, "Invalid netplay resimulation phase.");
 }
+
+global.resimulating = false;

@@ -17,9 +17,17 @@ else if (object_exists(_id))
 }
 else
 {
-    var uid = ds_map_find_value(global.stateCodecIDToUnswizzled, _id);
-    assert(!is_undefined(uid), "no mapping for id!");
-    encode = uid + global.lastObject;
+    if (!instance_exists(_id))
+    {
+        // encode destroyed instances as noone.
+        encode = $10000 + noone;
+    }
+    else
+    {
+        var uid = ds_map_find_value(global.stateCodecIDToUnswizzled, _id);
+        assert(!is_undefined(uid), "no mapping for id!");
+        encode = uid + global.lastObject;
+    }
 }
 
 // consider using buffer_f32 instead if number of instances + objects exceeds $fffb

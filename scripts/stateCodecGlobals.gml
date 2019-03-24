@@ -155,7 +155,6 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(global.playerFrozen);
     stateCodecPrimitiveEncode(global.playerHealth);
     stateCodecPrimitiveEncode(global.playerLock);
-    stateCodecIDEncode(global.playerProjectileCreator);
     stateCodecPrimitiveEncode(global.playerSprite);
     buffer_write(global.stateCodecBuffer, buffer_f32, global.playerSpriteMax);
     buffer_write(global.stateCodecBuffer, buffer_f32, global.playingcustommusic);
@@ -382,7 +381,6 @@ else
     global.playerFrozen = stateCodecPrimitiveDecode();
     global.playerHealth = stateCodecPrimitiveDecode();
     global.playerLock = stateCodecPrimitiveDecode();
-    global.playerProjectileCreator = stateCodecIDDecode();
     global.playerSprite = stateCodecPrimitiveDecode();
     global.playerSpriteMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     global.playingcustommusic = buffer_read(global.stateCodecBuffer, buffer_f32);

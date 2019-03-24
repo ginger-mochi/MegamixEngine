@@ -39,7 +39,7 @@ global.songMemory = -1;
 // Instance variables
 snd_queue = noone;
 buffer_gme = noone;
-buffer_gme_address = 0;
+buffer_gme_address = "";
 buffer_gme_size = 0;
 playing = false;
 endReached = true;
@@ -268,7 +268,7 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(bufPointer);
     buffer_write(global.stateCodecBuffer, buffer_f32, buffer_count);
     stateCodecPrimitiveEncode(buffer_gme);
-    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_gme_address);
+    buffer_write(global.stateCodecBuffer, buffer_string, buffer_gme_address);
     buffer_write(global.stateCodecBuffer, buffer_f32, buffer_gme_size);
     buffer_write(global.stateCodecBuffer, buffer_f32, buffer_index);
     buffer_write(global.stateCodecBuffer, buffer_f32, buffer_size);
@@ -287,7 +287,7 @@ else
     bufPointer = stateCodecPrimitiveDecode();
     buffer_count = buffer_read(global.stateCodecBuffer, buffer_f32);
     buffer_gme = stateCodecPrimitiveDecode();
-    buffer_gme_address = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buffer_gme_address = buffer_read(global.stateCodecBuffer, buffer_string);
     buffer_gme_size = buffer_read(global.stateCodecBuffer, buffer_f32);
     buffer_index = buffer_read(global.stateCodecBuffer, buffer_f32);
     buffer_size = buffer_read(global.stateCodecBuffer, buffer_f32);
