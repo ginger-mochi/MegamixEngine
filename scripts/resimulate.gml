@@ -5,6 +5,7 @@
 
 var n = argument[0];
 var eventPhase = argument[1];
+global.resimulationStartTimer = global.gameTimer;
 chronoReset();
 
 switch (eventPhase)
@@ -45,3 +46,4 @@ default:
 
 var timeElapsed = chronoGet() * 1000;
 print(string(timeElapsed) + " ms to resimulate " + string(n) + " frames.");
+print(" -which is " + string(timeElapsed / n) + " ms per frame");

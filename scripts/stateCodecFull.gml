@@ -1,10 +1,11 @@
-/// stateCodecFull()
+/// stateCodecFull(save?, buffer
 /// serializes/deserializes the current game state into the provided buffer.
-/// ensure these globals are set:
-/// global.stateCodecBuffer - buffer to write/read
-/// global.stateCodecEncode - if true, write; if false, read
+/// the caller is responsible for ensuring that the buffer is seeked to the desired start location (typically 0).
 
+global.stateCodecEncode = argument0;
+global.stateCodecBuffer = argument1;
 global.stateCodecCount++;
+
 chronoReset();
 
 // serialize game state information

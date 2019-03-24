@@ -70,37 +70,33 @@ m_recordInterval = 12;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if ((global.gameTimer mod m_recordInterval == 0 &amp;&amp; m_continualResimulation &amp;&amp; global.resimulating) || m_resimBufferActive &amp;&amp; ! m_continualResimulation)
+            <string>if ((m_continualResimulation &amp;&amp; global.resimulating &amp;&amp; global.gameTimer == global.resimulationStartTimer + 1) || m_resimBufferActive &amp;&amp; ! m_continualResimulation)
 {
     // save state at the end of each interval (note that this will only happen during resimulation, which is every frame anyways.)
     var bufferIndex = global.gameTimer mod m_resimBufferLength;
-    global.stateCodecBuffer = m_resimBuffer[bufferIndex];
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    global.stateCodecEncode = true;
+    buffer_seek(m_resimBuffer[bufferIndex], buffer_seek_start, 0);
     print("Snapshotting frame " + string(global.gameTimer));
-    stateCodecFull();
+    stateCodecFull(true, m_resimBuffer[bufferIndex]);
     m_resimBufferFrame[bufferIndex] = global.gameTimer;
 }
-
-if (keyboard_check_pressed(ord('I')))
+if (!global.resimulating)
 {
-    print("SAVING STATE");
-    global.stateCodecBuffer = m_userSnapshot;
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    global.stateCodecEncode = true;
-    stateCodecFull();
-    var dataLength = buffer_tell(global.stateCodecBuffer);
-    print(string(dataLength) + " bytes saved.")
-}
-else if (keyboard_check_pressed(ord('L')))
-{
-    global.stateCodecBuffer = m_userSnapshot;
-    buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-    print("LOADING STATE");
-    global.stateCodecEncode = false;
-    stateCodecFull();
-    var dataLength = buffer_tell(global.stateCodecBuffer);
-    print(string(dataLength) + " bytes loaded.")
+    if (keyboard_check_pressed(ord('I')))
+    {
+        print("SAVING STATE");
+        buffer_seek(m_userSnapshot, buffer_seek_start, 0);
+        stateCodecFull(true, m_userSnapshot);
+        var dataLength = buffer_tell(global.stateCodecBuffer);
+        print(string(dataLength) + " bytes saved.")
+    }
+    else if (keyboard_check_pressed(ord('L')))
+    {
+        buffer_seek(m_userSnapshot, buffer_seek_start, 0);
+        print("LOADING STATE");
+        stateCodecFull(false, m_userSnapshot);
+        var dataLength = buffer_tell(global.stateCodecBuffer);
+        print(string(dataLength) + " bytes loaded.")
+    }
 }
 </string>
           </argument>
@@ -164,15 +160,14 @@ if (m_continualResimulation)
 {
     // load state, then resimulate.
     var gameTimer = global.gameTimer;
-    var loadFrame = floorTo(global.gameTimer - m_recordInterval, m_recordInterval);
+    var loadFrame = global.gameTimer - m_recordInterval;
     var bufferIndex = loadFrame mod m_resimBufferLength;
     var bufferFrame = m_resimBufferFrame[bufferIndex];
     if (bufferFrame == loadFrame)
     {
-        global.stateCodecBuffer = m_resimBuffer[bufferIndex];
-        buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
-        global.stateCodecEncode = false;
-        stateCodecFull();
+        buffer_seek(m_resimBuffer[bufferIndex], buffer_seek_start, 0);
+        // save state
+        stateCodecFull(false, m_resimBuffer[bufferIndex]);
         assert(global.gameTimer == bufferFrame);
         resimulate(gameTimer - loadFrame, ev_step_begin);
     }
@@ -189,12 +184,11 @@ else
         if (m_resimBufferActive)
         {
             print("Loading state from m_resimBuffer.");
-            global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
-            buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
+            var bufferIndex = global.gameTimer mod m_resimBufferLength;
+            buffer_seek(m_resimBuffer[bufferIndex], buffer_seek_start, 0);
             
             // load state
-            global.stateCodecEncode = false;
-            stateCodecFull();
+            stateCodecFull(false, m_resimBuffer[bufferIndex]);
             
             if (keyboard_check_pressed(ord('R')))
             {

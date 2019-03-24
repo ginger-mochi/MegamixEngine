@@ -5226,8 +5226,8 @@
     </scripts>
     <scripts name="Resimulation">
       <script>scripts\resimulateInit.gml</script>
-      <script>scripts\resimulatePhase.gml</script>
       <script>scripts\resimulate.gml</script>
+      <script>scripts\resimulatePhase.gml</script>
       <script>scripts\resimulateInstanceTick.gml</script>
     </scripts>
   </scripts>

@@ -1,3 +1,4 @@
 /// resimulateInit()
 /// initializes resimulation framework
 global.resimulating = false;
+global.resimulationStartTimer = 0;
