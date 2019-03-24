@@ -5,7 +5,7 @@
 
 var n = argument[0];
 var eventPhase = argument[1];
-var startTime = current_time;
+chronoReset();
 
 switch (eventPhase)
 {
@@ -43,5 +43,5 @@ default:
         assert(false, "Invalid resimulation phase.");
 }
 
-var timeElapsed = current_time - startTime;
+var timeElapsed = chronoGet() * 1000;
 print(string(timeElapsed) + " ms to resimulate " + string(n) + " frames.");

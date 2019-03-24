@@ -5,11 +5,13 @@
 /// global.stateCodecEncode - if true, write; if false, read
 
 global.stateCodecCount++;
-var startTime = current_time;
+chronoReset();
 
 // serialize game state information
 stateCodecBuiltIn();
 stateCodecGlobals();
+
+var globalsTime = chronoGet() * 1000;
 
 // serialize all instances
 
@@ -168,7 +170,7 @@ else
     
 }
 
-var timeElapsed = current_time - startTime;
+var timeElapsed = chronoGet() * 1000;
 if (global.stateCodecEncode)
 {
     print(string(timeElapsed) + " ms to serialize.");
@@ -177,3 +179,4 @@ else
 {
     print(string(timeElapsed) + " ms to deserialize.");
 }
+print("  -globals were " + string(globalsTime) + " ms.");
