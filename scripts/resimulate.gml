@@ -5,6 +5,7 @@
 
 var n = argument[0];
 var eventPhase = argument[1];
+var startTime = current_time;
 
 switch (eventPhase)
 {
@@ -41,3 +42,6 @@ case ev_step_end:
 default:
         assert(false, "Invalid resimulation phase.");
 }
+
+var timeElapsed = current_time - startTime;
+print(string(timeElapsed) + " ms to resimulate " + string(n) + " frames.");

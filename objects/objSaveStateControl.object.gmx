@@ -152,6 +152,9 @@ scrNoEffect();
             <string>/// resimulation
 // we perform this in the pre-draw event because it happens just before the begin step event.
 
+print("codec events: " + string(global.stateCodecCount));
+global.stateCodecCount = 0;
+
 if (keyboard_check_pressed(ord('Q')) &amp;&amp; m_resimBufferActive)
 {
     m_continualResimulation ^= true;

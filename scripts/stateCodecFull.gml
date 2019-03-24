@@ -4,6 +4,9 @@
 /// global.stateCodecBuffer - buffer to write/read
 /// global.stateCodecEncode - if true, write; if false, read
 
+global.stateCodecCount++;
+var startTime = current_time;
+
 // serialize game state information
 stateCodecBuiltIn();
 stateCodecGlobals();
@@ -163,4 +166,14 @@ else
     
     print("All instances decoded.");
     
+}
+
+var timeElapsed = current_time - startTime;
+if (global.stateCodecEncode)
+{
+    print(string(timeElapsed) + " ms to serialize.");
+}
+else
+{
+    print(string(timeElapsed) + " ms to deserialize.");
 }
