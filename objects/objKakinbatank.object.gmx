@@ -427,32 +427,32 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(detectsShot);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, detectsShot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(maxDist);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(prevX);
-    stateCodecPrimitiveEncode(shielded);
-    stateCodecPrimitiveEncode(speed1);
-    stateCodecPrimitiveEncode(speed2);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shielded);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speed1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speed2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(xscaleStart);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    detectsShot = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    detectsShot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     maxDist = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevX = stateCodecPrimitiveDecode();
-    shielded = stateCodecPrimitiveDecode();
-    speed1 = stateCodecPrimitiveDecode();
-    speed2 = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    shielded = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speed1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speed2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     xscaleStart = stateCodecPrimitiveDecode();
 }
 </string>

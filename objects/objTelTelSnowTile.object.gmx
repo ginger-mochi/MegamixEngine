@@ -99,23 +99,23 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isGround);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isGround);
     stateCodecPrimitiveEncode(tile);
     stateCodecPrimitiveEncode(tileBG);
-    stateCodecPrimitiveEncode(tileHeight);
-    stateCodecPrimitiveEncode(tileLeft);
-    stateCodecPrimitiveEncode(tileTop);
-    stateCodecPrimitiveEncode(tileWidth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileLeft);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileTop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileWidth);
 }
 else
 {
-    isGround = stateCodecPrimitiveDecode();
+    isGround = buffer_read(global.stateCodecBuffer, buffer_f32);
     tile = stateCodecPrimitiveDecode();
     tileBG = stateCodecPrimitiveDecode();
-    tileHeight = stateCodecPrimitiveDecode();
-    tileLeft = stateCodecPrimitiveDecode();
-    tileTop = stateCodecPrimitiveDecode();
-    tileWidth = stateCodecPrimitiveDecode();
+    tileHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileLeft = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileTop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileWidth = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

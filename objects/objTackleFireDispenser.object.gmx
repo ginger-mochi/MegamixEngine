@@ -407,34 +407,34 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(destination);
-    stateCodecPrimitiveEncode(dispenseOffScreen);
-    stateCodecPrimitiveEncode(dstTag);
-    stateCodecPrimitiveEncode(flightTimer);
-    stateCodecPrimitiveEncode(nComplete);
-    stateCodecPrimitiveEncode(spawnTimer);
-    stateCodecPrimitiveEncode(startFull);
-    stateCodecPrimitiveEncode(tackleFireFlightTime);
-    stateCodecPrimitiveEncode(tackleFireInterval);
-    stateCodecPrimitiveEncode(tackleFireN);
-    stateCodecPrimitiveEncode(tackleFireWarmupTime);
-    stateCodecPrimitiveEncode(tag);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dispenseOffScreen);
+    buffer_write(global.stateCodecBuffer, buffer_string, dstTag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flightTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nComplete);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startFull);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tackleFireFlightTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tackleFireInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tackleFireN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tackleFireWarmupTime);
+    buffer_write(global.stateCodecBuffer, buffer_string, tag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
     destination = stateCodecPrimitiveDecode();
-    dispenseOffScreen = stateCodecPrimitiveDecode();
-    dstTag = stateCodecPrimitiveDecode();
-    flightTimer = stateCodecPrimitiveDecode();
-    nComplete = stateCodecPrimitiveDecode();
-    spawnTimer = stateCodecPrimitiveDecode();
-    startFull = stateCodecPrimitiveDecode();
-    tackleFireFlightTime = stateCodecPrimitiveDecode();
-    tackleFireInterval = stateCodecPrimitiveDecode();
-    tackleFireN = stateCodecPrimitiveDecode();
-    tackleFireWarmupTime = stateCodecPrimitiveDecode();
-    tag = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    dispenseOffScreen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dstTag = buffer_read(global.stateCodecBuffer, buffer_string);
+    flightTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nComplete = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startFull = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tackleFireFlightTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tackleFireInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tackleFireN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tackleFireWarmupTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tag = buffer_read(global.stateCodecBuffer, buffer_string);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

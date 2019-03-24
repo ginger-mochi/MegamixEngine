@@ -323,31 +323,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(lenght);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(playedSound);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lenght);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playedSound);
     stateCodecPrimitiveEncode(prevX);
     stateCodecPrimitiveEncode(prevXView);
     stateCodecPrimitiveEncode(prevY);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(spawnHeightOffset);
-    stateCodecPrimitiveEncode(swooceIn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnHeightOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, swooceIn);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    lenght = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    playedSound = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lenght = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playedSound = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevX = stateCodecPrimitiveDecode();
     prevXView = stateCodecPrimitiveDecode();
     prevY = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    spawnHeightOffset = stateCodecPrimitiveDecode();
-    swooceIn = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnHeightOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    swooceIn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

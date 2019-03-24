@@ -186,19 +186,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(directionStore);
-    stateCodecPrimitiveEncode(flag0);
-    stateCodecPrimitiveEncode(moveDist);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(upOrDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, directionStore);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flag0);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, upOrDown);
 }
 else
 {
-    directionStore = stateCodecPrimitiveDecode();
-    flag0 = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    upOrDown = stateCodecPrimitiveDecode();
+    directionStore = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flag0 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    upOrDown = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

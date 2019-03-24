@@ -229,43 +229,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(canStep);
-    stateCodecPrimitiveEncode(centerShift);
-    stateCodecPrimitiveEncode(mySpeedMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, centerShift);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeedMax);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(radiusSquare);
-    stateCodecPrimitiveEncode(xMain);
-    stateCodecPrimitiveEncode(xPosition);
-    stateCodecPrimitiveEncode(xspeedMain);
-    stateCodecPrimitiveEncode(xspeedPlatform);
-    stateCodecPrimitiveEncode(yMain);
-    stateCodecPrimitiveEncode(yMax);
-    stateCodecPrimitiveEncode(yMin);
-    stateCodecPrimitiveEncode(yPosition);
-    stateCodecPrimitiveEncode(yspeedMain);
-    stateCodecPrimitiveEncode(yspeedPlatform);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radiusSquare);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xMain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xPosition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeedMain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeedPlatform);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yPosition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeedMain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeedPlatform);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    canStep = stateCodecPrimitiveDecode();
-    centerShift = stateCodecPrimitiveDecode();
-    mySpeedMax = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canStep = buffer_read(global.stateCodecBuffer, buffer_f32);
+    centerShift = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeedMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    radiusSquare = stateCodecPrimitiveDecode();
-    xMain = stateCodecPrimitiveDecode();
-    xPosition = stateCodecPrimitiveDecode();
-    xspeedMain = stateCodecPrimitiveDecode();
-    xspeedPlatform = stateCodecPrimitiveDecode();
-    yMain = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
-    yMin = stateCodecPrimitiveDecode();
-    yPosition = stateCodecPrimitiveDecode();
-    yspeedMain = stateCodecPrimitiveDecode();
-    yspeedPlatform = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radiusSquare = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xMain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xPosition = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeedMain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeedPlatform = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yPosition = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeedMain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeedPlatform = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -304,30 +304,30 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecIDEncode(ball);
-    stateCodecPrimitiveEncode(ballSpeed);
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(hasAttacked);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ballSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasAttacked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     ball = stateCodecIDDecode();
-    ballSpeed = stateCodecPrimitiveDecode();
-    bounces = stateCodecPrimitiveDecode();
-    hasAttacked = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    ballSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasAttacked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
 }
 </string>

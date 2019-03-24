@@ -115,11 +115,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yDist);
 }
 else
 {
-    yDist = stateCodecPrimitiveDecode();
+    yDist = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

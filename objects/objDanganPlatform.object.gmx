@@ -105,15 +105,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmTurn);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(ysp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ysp);
 }
 else
 {
-    alarmTurn = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    ysp = stateCodecPrimitiveDecode();
+    alarmTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ysp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

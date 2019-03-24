@@ -303,12 +303,12 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(attached);
     stateCodecPrimitiveEncode(currX);
     stateCodecPrimitiveEncode(currY);
-    stateCodecPrimitiveEncode(i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
     stateCodecPrimitiveEncode(offset);
     stateCodecPrimitiveEncode(shootLock);
-    stateCodecPrimitiveEncode(spinMod);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spinMod);
     stateCodecPrimitiveEncode(spinRate);
-    stateCodecPrimitiveEncode(spinTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spinTimer);
 }
 else
 {
@@ -317,12 +317,12 @@ else
     attached = stateCodecPrimitiveDecode();
     currX = stateCodecPrimitiveDecode();
     currY = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
     offset = stateCodecPrimitiveDecode();
     shootLock = stateCodecPrimitiveDecode();
-    spinMod = stateCodecPrimitiveDecode();
+    spinMod = buffer_read(global.stateCodecBuffer, buffer_f32);
     spinRate = stateCodecPrimitiveDecode();
-    spinTimer = stateCodecPrimitiveDecode();
+    spinTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

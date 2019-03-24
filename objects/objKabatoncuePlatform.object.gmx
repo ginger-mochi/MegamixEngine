@@ -196,15 +196,15 @@ if (global.stateCodecEncode)
 {
     stateCodecIDEncode(bossID);
     stateCodecPrimitiveEncode(enemyObject);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
     bossID = stateCodecIDDecode();
     enemyObject = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

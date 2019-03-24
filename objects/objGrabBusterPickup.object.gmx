@@ -137,15 +137,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(gotomega);
-    stateCodecPrimitiveEncode(hlth);
-    stateCodecPrimitiveEncode(is1Up);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gotomega);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hlth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, is1Up);
 }
 else
 {
-    gotomega = stateCodecPrimitiveDecode();
-    hlth = stateCodecPrimitiveDecode();
-    is1Up = stateCodecPrimitiveDecode();
+    gotomega = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hlth = buffer_read(global.stateCodecBuffer, buffer_f32);
+    is1Up = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

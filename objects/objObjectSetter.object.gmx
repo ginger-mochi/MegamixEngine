@@ -215,11 +215,11 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isTile);
 }
 else
 {
-    isTile = stateCodecPrimitiveDecode();
+    isTile = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

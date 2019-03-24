@@ -649,41 +649,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canLean);
-    stateCodecPrimitiveEncode(canPraise);
-    stateCodecPrimitiveEncode(ceiling);
-    stateCodecPrimitiveEncode(chooseJumpX);
-    stateCodecPrimitiveEncode(chooseJumpY);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(jumpDist);
-    stateCodecPrimitiveEncode(middlePlatform);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rainSuns);
-    stateCodecPrimitiveEncode(realXSpeed);
-    stateCodecPrimitiveEncode(shots);
-    stateCodecPrimitiveEncode(sunLevel);
-    stateCodecPrimitiveEncode(xCross);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canLean);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canPraise);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ceiling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chooseJumpX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chooseJumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, middlePlatform);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rainSuns);
+    buffer_write(global.stateCodecBuffer, buffer_f32, realXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shots);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sunLevel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xCross);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    canLean = stateCodecPrimitiveDecode();
-    canPraise = stateCodecPrimitiveDecode();
-    ceiling = stateCodecPrimitiveDecode();
-    chooseJumpX = stateCodecPrimitiveDecode();
-    chooseJumpY = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    jumpDist = stateCodecPrimitiveDecode();
-    middlePlatform = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rainSuns = stateCodecPrimitiveDecode();
-    realXSpeed = stateCodecPrimitiveDecode();
-    shots = stateCodecPrimitiveDecode();
-    sunLevel = stateCodecPrimitiveDecode();
-    xCross = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canLean = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canPraise = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ceiling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chooseJumpX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chooseJumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    middlePlatform = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rainSuns = buffer_read(global.stateCodecBuffer, buffer_f32);
+    realXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shots = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sunLevel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xCross = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

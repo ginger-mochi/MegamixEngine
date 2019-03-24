@@ -128,25 +128,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cachedShakeH);
-    stateCodecPrimitiveEncode(cachedShakeV);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(onlyShiftTiles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cachedShakeH);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cachedShakeV);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onlyShiftTiles);
     stateCodecPrimitiveEncode(shakeHorizontal);
     stateCodecPrimitiveEncode(shakeTime);
     stateCodecPrimitiveEncode(shakeVertical);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    cachedShakeH = stateCodecPrimitiveDecode();
-    cachedShakeV = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    onlyShiftTiles = stateCodecPrimitiveDecode();
+    cachedShakeH = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cachedShakeV = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    onlyShiftTiles = buffer_read(global.stateCodecBuffer, buffer_f32);
     shakeHorizontal = stateCodecPrimitiveDecode();
     shakeTime = stateCodecPrimitiveDecode();
     shakeVertical = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

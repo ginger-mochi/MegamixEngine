@@ -399,41 +399,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aimDist);
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aimDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animOffset);
     stateCodecPrimitiveEncode(blueSprite);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(gravDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravDir);
     stateCodecPrimitiveEncode(greenSprite);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(newAngle);
-    stateCodecPrimitiveEncode(old);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, old);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(redSprite);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(tx);
-    stateCodecPrimitiveEncode(ty);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ty);
     stateCodecPrimitiveEncode(xscaleStart);
     stateCodecPrimitiveEncode(yellowSprite);
 }
 else
 {
-    aimDist = stateCodecPrimitiveDecode();
-    angle = stateCodecPrimitiveDecode();
-    animOffset = stateCodecPrimitiveDecode();
+    aimDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     blueSprite = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    gravDir = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gravDir = buffer_read(global.stateCodecBuffer, buffer_f32);
     greenSprite = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    newAngle = stateCodecPrimitiveDecode();
-    old = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    old = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     redSprite = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    tx = stateCodecPrimitiveDecode();
-    ty = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ty = buffer_read(global.stateCodecBuffer, buffer_f32);
     xscaleStart = stateCodecPrimitiveDecode();
     yellowSprite = stateCodecPrimitiveDecode();
 }

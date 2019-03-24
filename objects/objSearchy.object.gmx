@@ -172,23 +172,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(lightImage);
-    stateCodecPrimitiveEncode(lightTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(searchlight);
-    stateCodecPrimitiveEncode(searchyImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, searchlight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, searchyImage);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    lightImage = stateCodecPrimitiveDecode();
-    lightTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    searchlight = stateCodecPrimitiveDecode();
-    searchyImage = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    searchlight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    searchyImage = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

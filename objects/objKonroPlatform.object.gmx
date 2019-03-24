@@ -169,26 +169,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(distanceTimer);
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(moveDist);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(resetDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distanceTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetDelay);
     stateCodecPrimitiveEncode(storeDir);
-    stateCodecPrimitiveEncode(subX);
-    stateCodecPrimitiveEncode(test);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, test);
 }
 else
 {
     delayTimer = stateCodecPrimitiveDecode();
-    distanceTimer = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    resetDelay = stateCodecPrimitiveDecode();
+    distanceTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
     storeDir = stateCodecPrimitiveDecode();
-    subX = stateCodecPrimitiveDecode();
-    test = stateCodecPrimitiveDecode();
+    subX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    test = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

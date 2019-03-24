@@ -322,23 +322,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(didShoot);
-    stateCodecPrimitiveEncode(maxTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, didShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(spinDir);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spinDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    didShoot = stateCodecPrimitiveDecode();
-    maxTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    didShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    spinDir = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    spinDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

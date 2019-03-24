@@ -175,16 +175,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
     stateCodecPrimitiveEncode(waitStart);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
     waitStart = stateCodecPrimitiveDecode();
 }
 </string>

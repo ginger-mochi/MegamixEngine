@@ -244,21 +244,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(canBounce);
-    stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(isFromMiniboss);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canBounce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isFromMiniboss);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    canBounce = stateCodecPrimitiveDecode();
-    canShoot = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    isFromMiniboss = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canBounce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isFromMiniboss = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

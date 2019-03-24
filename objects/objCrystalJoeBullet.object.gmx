@@ -146,13 +146,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(loops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loops);
 }
 else
 {
-    imgIndex = stateCodecPrimitiveDecode();
-    loops = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    loops = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

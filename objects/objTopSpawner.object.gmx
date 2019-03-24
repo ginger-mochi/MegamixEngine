@@ -130,17 +130,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmSpawn);
-    stateCodecPrimitiveEncode(myTopSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myTopSpeed);
     stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
 }
 else
 {
-    alarmSpawn = stateCodecPrimitiveDecode();
-    myTopSpeed = stateCodecPrimitiveDecode();
+    alarmSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myTopSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

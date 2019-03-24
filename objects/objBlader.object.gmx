@@ -199,19 +199,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(targetY);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    targetY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

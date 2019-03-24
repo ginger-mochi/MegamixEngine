@@ -170,18 +170,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dipTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dipTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    dipTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dipTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
 }
 </string>

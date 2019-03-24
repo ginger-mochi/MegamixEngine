@@ -354,27 +354,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_init);
-    stateCodecPrimitiveEncode(doesIntro);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doesIntro);
     stateCodecPrimitiveEncode(introSprite);
     stateCodecPrimitiveEncode(introTimer);
-    stateCodecPrimitiveEncode(killed);
-    stateCodecPrimitiveEncode(lockTransition);
-    stateCodecPrimitiveEncode(rescursiveExplosion);
-    stateCodecPrimitiveEncode(xplX);
-    stateCodecPrimitiveEncode(xplY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, killed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockTransition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rescursiveExplosion);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xplX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xplY);
 }
 else
 {
-    _init = stateCodecPrimitiveDecode();
-    doesIntro = stateCodecPrimitiveDecode();
+    _init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doesIntro = buffer_read(global.stateCodecBuffer, buffer_f32);
     introSprite = stateCodecPrimitiveDecode();
     introTimer = stateCodecPrimitiveDecode();
-    killed = stateCodecPrimitiveDecode();
-    lockTransition = stateCodecPrimitiveDecode();
-    rescursiveExplosion = stateCodecPrimitiveDecode();
-    xplX = stateCodecPrimitiveDecode();
-    xplY = stateCodecPrimitiveDecode();
+    killed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockTransition = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rescursiveExplosion = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xplX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xplY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

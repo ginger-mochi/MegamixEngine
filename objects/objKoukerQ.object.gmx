@@ -197,19 +197,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(isFalling);
-    stateCodecPrimitiveEncode(shakeDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isFalling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeDir);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    isFalling = stateCodecPrimitiveDecode();
-    shakeDir = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isFalling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shakeDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

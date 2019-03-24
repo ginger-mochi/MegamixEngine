@@ -118,12 +118,12 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
     xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

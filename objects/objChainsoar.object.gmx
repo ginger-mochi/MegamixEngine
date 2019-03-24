@@ -192,11 +192,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
 }
 else
 {
-    imgSpd = stateCodecPrimitiveDecode();
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

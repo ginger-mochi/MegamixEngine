@@ -313,25 +313,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(cooldownImageMax);
-    stateCodecPrimitiveEncode(cooldownImageTimer);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(preventFiring);
-    stateCodecPrimitiveEncode(preventFiringMax);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preventFiring);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preventFiringMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    cooldownImageMax = stateCodecPrimitiveDecode();
-    cooldownImageTimer = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    preventFiring = stateCodecPrimitiveDecode();
-    preventFiringMax = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preventFiring = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preventFiringMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

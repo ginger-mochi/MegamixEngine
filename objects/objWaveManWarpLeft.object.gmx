@@ -92,13 +92,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

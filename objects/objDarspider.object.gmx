@@ -343,37 +343,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ceilingAnimSpeed);
-    stateCodecPrimitiveEncode(ceilingSpeed);
-    stateCodecPrimitiveEncode(imageIndex);
-    stateCodecPrimitiveEncode(isDei);
-    stateCodecPrimitiveEncode(isJumping);
-    stateCodecPrimitiveEncode(landAnimSpeed);
-    stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(onCeiling);
-    stateCodecPrimitiveEncode(prevGravDir);
-    stateCodecPrimitiveEncode(prevWaitTime);
-    stateCodecPrimitiveEncode(rightLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ceilingAnimSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ceilingSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDei);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isJumping);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landAnimSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leftLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onCeiling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevGravDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevWaitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rightLimit);
     stateCodecPrimitiveEncode(startYscale);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
 }
 else
 {
-    ceilingAnimSpeed = stateCodecPrimitiveDecode();
-    ceilingSpeed = stateCodecPrimitiveDecode();
-    imageIndex = stateCodecPrimitiveDecode();
-    isDei = stateCodecPrimitiveDecode();
-    isJumping = stateCodecPrimitiveDecode();
-    landAnimSpeed = stateCodecPrimitiveDecode();
-    leftLimit = stateCodecPrimitiveDecode();
-    onCeiling = stateCodecPrimitiveDecode();
-    prevGravDir = stateCodecPrimitiveDecode();
-    prevWaitTime = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
+    ceilingAnimSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ceilingSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDei = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isJumping = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landAnimSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leftLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    onCeiling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevGravDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevWaitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rightLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
     startYscale = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

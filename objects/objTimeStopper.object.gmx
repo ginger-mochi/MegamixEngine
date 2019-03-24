@@ -217,11 +217,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animationTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animationTimer);
 }
 else
 {
-    animationTimer = stateCodecPrimitiveDecode();
+    animationTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

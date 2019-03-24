@@ -130,11 +130,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

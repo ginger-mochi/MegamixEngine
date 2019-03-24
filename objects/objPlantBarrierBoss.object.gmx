@@ -193,19 +193,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(cDistanceMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistanceMax);
     stateCodecPrimitiveEncode(curX);
     stateCodecPrimitiveEncode(curY);
 }
 else
 {
-    addAngle = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    cDistanceMax = stateCodecPrimitiveDecode();
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistanceMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     curX = stateCodecPrimitiveDecode();
     curY = stateCodecPrimitiveDecode();
 }

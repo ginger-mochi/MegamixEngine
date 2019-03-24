@@ -344,13 +344,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blownUp);
-    stateCodecPrimitiveEncode(destroyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blownUp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTimer);
 }
 else
 {
-    blownUp = stateCodecPrimitiveDecode();
-    destroyTimer = stateCodecPrimitiveDecode();
+    blownUp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

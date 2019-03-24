@@ -123,13 +123,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(warningTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, warningTime);
 }
 else
 {
-    blinkTimer = stateCodecPrimitiveDecode();
-    warningTime = stateCodecPrimitiveDecode();
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    warningTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

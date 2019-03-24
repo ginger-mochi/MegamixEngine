@@ -152,19 +152,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(canCollide);
-    stateCodecPrimitiveEncode(deathTimer);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canCollide);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deathTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    canCollide = stateCodecPrimitiveDecode();
-    deathTimer = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canCollide = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deathTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

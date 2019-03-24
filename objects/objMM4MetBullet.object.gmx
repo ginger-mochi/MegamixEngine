@@ -101,15 +101,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(xscale);
-    stateCodecPrimitiveEncode(yscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yscale);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    xscale = stateCodecPrimitiveDecode();
-    yscale = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xscale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yscale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

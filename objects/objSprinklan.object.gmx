@@ -309,38 +309,38 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(fastSpeed);
-    stateCodecPrimitiveEncode(frameOffset);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(shootMax);
-    stateCodecPrimitiveEncode(slowSpeed);
-    stateCodecPrimitiveEncode(stopTimer);
-    stateCodecPrimitiveEncode(stopped);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, anim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fastSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, frameOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slowSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(xdir);
 }
 else
 {
-    anim = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    fastSpeed = stateCodecPrimitiveDecode();
-    frameOffset = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shootCount = stateCodecPrimitiveDecode();
-    shootMax = stateCodecPrimitiveDecode();
-    slowSpeed = stateCodecPrimitiveDecode();
-    stopTimer = stateCodecPrimitiveDecode();
-    stopped = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fastSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    frameOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    slowSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     xdir = stateCodecPrimitiveDecode();
 }
 </string>

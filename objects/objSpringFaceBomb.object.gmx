@@ -234,23 +234,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(preGround);
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preGround);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    preGround = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preGround = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

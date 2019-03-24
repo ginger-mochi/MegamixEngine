@@ -423,23 +423,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(charging);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phasetime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, charging);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phasetime);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(reflectProjectiles);
-    stateCodecPrimitiveEncode(skitime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reflectProjectiles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, skitime);
 }
 else
 {
-    charging = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phasetime = stateCodecPrimitiveDecode();
+    charging = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phasetime = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    reflectProjectiles = stateCodecPrimitiveDecode();
-    skitime = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    reflectProjectiles = buffer_read(global.stateCodecBuffer, buffer_f32);
+    skitime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -109,13 +109,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

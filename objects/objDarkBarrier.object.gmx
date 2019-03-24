@@ -195,21 +195,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(comeBack);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(limitX);
-    stateCodecPrimitiveEncode(orbit);
-    stateCodecPrimitiveEncode(origX);
-    stateCodecPrimitiveEncode(stopHere);
+    buffer_write(global.stateCodecBuffer, buffer_f32, comeBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, limitX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, orbit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, origX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopHere);
 }
 else
 {
-    comeBack = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    limitX = stateCodecPrimitiveDecode();
-    orbit = stateCodecPrimitiveDecode();
-    origX = stateCodecPrimitiveDecode();
-    stopHere = stateCodecPrimitiveDecode();
+    comeBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    limitX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    orbit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    origX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopHere = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

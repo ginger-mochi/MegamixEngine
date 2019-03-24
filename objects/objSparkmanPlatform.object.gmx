@@ -153,23 +153,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(acc);
-    stateCodecPrimitiveEncode(decendSpeed);
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(subY);
-    stateCodecPrimitiveEncode(subYspeed);
-    stateCodecPrimitiveEncode(test);
+    buffer_write(global.stateCodecBuffer, buffer_f32, acc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decendSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, test);
 }
 else
 {
-    acc = stateCodecPrimitiveDecode();
-    decendSpeed = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    subY = stateCodecPrimitiveDecode();
-    subYspeed = stateCodecPrimitiveDecode();
-    test = stateCodecPrimitiveDecode();
+    acc = buffer_read(global.stateCodecBuffer, buffer_f32);
+    decendSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    subY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    subYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    test = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

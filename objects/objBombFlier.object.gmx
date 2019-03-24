@@ -208,19 +208,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bulletSpeed);
-    stateCodecPrimitiveEncode(cloudSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(uncoverWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bulletSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cloudSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, uncoverWaitTimer);
 }
 else
 {
-    bulletSpeed = stateCodecPrimitiveDecode();
-    cloudSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
-    uncoverWaitTimer = stateCodecPrimitiveDecode();
+    bulletSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cloudSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    uncoverWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

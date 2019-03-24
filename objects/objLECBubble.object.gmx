@@ -205,17 +205,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecPrimitiveEncode(capture);
-    stateCodecPrimitiveEncode(pop);
-    stateCodecPrimitiveEncode(setMega);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setMega);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     capture = stateCodecPrimitiveDecode();
-    pop = stateCodecPrimitiveDecode();
-    setMega = stateCodecPrimitiveDecode();
+    pop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setMega = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

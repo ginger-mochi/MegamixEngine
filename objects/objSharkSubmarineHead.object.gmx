@@ -232,19 +232,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkMultiple);
-    stateCodecPrimitiveEncode(blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkMultiple);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
     stateCodecIDEncode(cannon);
-    stateCodecPrimitiveEncode(eyeIndex);
-    stateCodecPrimitiveEncode(startFiring);
+    buffer_write(global.stateCodecBuffer, buffer_f32, eyeIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startFiring);
 }
 else
 {
-    blinkMultiple = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
+    blinkMultiple = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     cannon = stateCodecIDDecode();
-    eyeIndex = stateCodecPrimitiveDecode();
-    startFiring = stateCodecPrimitiveDecode();
+    eyeIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startFiring = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -118,15 +118,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmTimeMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmTimeMax);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(timeUntilDeath);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeUntilDeath);
 }
 else
 {
-    alarmTimeMax = stateCodecPrimitiveDecode();
+    alarmTimeMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     startDir = stateCodecPrimitiveDecode();
-    timeUntilDeath = stateCodecPrimitiveDecode();
+    timeUntilDeath = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

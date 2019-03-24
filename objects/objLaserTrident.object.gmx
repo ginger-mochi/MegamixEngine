@@ -255,16 +255,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(entity);
-    stateCodecPrimitiveEncode(entityx);
-    stateCodecPrimitiveEncode(entityy);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, entityx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, entityy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
     entity = stateCodecIDDecode();
-    entityx = stateCodecPrimitiveDecode();
-    entityy = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    entityx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    entityy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

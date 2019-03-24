@@ -233,15 +233,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
     stateCodecIDEncode(mysolid);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    calibrated = stateCodecPrimitiveDecode();
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
     mysolid = stateCodecIDDecode();
-    spd = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

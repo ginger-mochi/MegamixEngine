@@ -214,17 +214,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aiming);
-    stateCodecPrimitiveEncode(indexOffset);
-    stateCodecPrimitiveEncode(reDirTimer);
-    stateCodecPrimitiveEncode(speedSet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aiming);
+    buffer_write(global.stateCodecBuffer, buffer_f32, indexOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reDirTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedSet);
 }
 else
 {
-    aiming = stateCodecPrimitiveDecode();
-    indexOffset = stateCodecPrimitiveDecode();
-    reDirTimer = stateCodecPrimitiveDecode();
-    speedSet = stateCodecPrimitiveDecode();
+    aiming = buffer_read(global.stateCodecBuffer, buffer_f32);
+    indexOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    reDirTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedSet = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

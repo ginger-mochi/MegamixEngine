@@ -225,15 +225,15 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(manualPartnerX);
-    stateCodecPrimitiveEncode(moved);
-    stateCodecPrimitiveEncode(ontop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moved);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ontop);
     stateCodecIDEncode(partner);
 }
 else
 {
     manualPartnerX = stateCodecPrimitiveDecode();
-    moved = stateCodecPrimitiveDecode();
-    ontop = stateCodecPrimitiveDecode();
+    moved = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ontop = buffer_read(global.stateCodecBuffer, buffer_f32);
     partner = stateCodecIDDecode();
 }
 </string>

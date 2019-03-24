@@ -189,15 +189,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounceTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceTimes);
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(mygear);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mygear);
 }
 else
 {
-    bounceTimes = stateCodecPrimitiveDecode();
+    bounceTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
     contactStart = stateCodecPrimitiveDecode();
-    mygear = stateCodecPrimitiveDecode();
+    mygear = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

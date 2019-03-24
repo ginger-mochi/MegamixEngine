@@ -155,11 +155,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isStationary);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isStationary);
 }
 else
 {
-    isStationary = stateCodecPrimitiveDecode();
+    isStationary = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

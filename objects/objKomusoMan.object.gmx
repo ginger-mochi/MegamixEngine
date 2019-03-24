@@ -512,45 +512,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(deadlyShadowClones);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(guard);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(locationX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deadlyShadowClones);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, guard);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageNoMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, locationX);
     stateCodecPrimitiveEncode(locationY);
-    stateCodecPrimitiveEncode(moveToLocation);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveToLocation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(resetY);
-    stateCodecDSEncode(shadowClones, ds_type_list);
-    stateCodecPrimitiveEncode(timesMoved);
-    stateCodecPrimitiveEncode(walkX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timesMoved);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkX);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    deadlyShadowClones = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    guard = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    locationX = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deadlyShadowClones = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    guard = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageNoMin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    locationX = buffer_read(global.stateCodecBuffer, buffer_f32);
     locationY = stateCodecPrimitiveDecode();
-    moveToLocation = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    moveToLocation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
     resetY = stateCodecPrimitiveDecode();
-    shadowClones = stateCodecDSDecode(ds_type_list);
-    timesMoved = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
+    timesMoved = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

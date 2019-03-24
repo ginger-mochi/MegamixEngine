@@ -583,39 +583,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(b);
-    stateCodecPrimitiveEncode(drainCooldown);
-    stateCodecPrimitiveEncode(horM);
+    buffer_write(global.stateCodecBuffer, buffer_f32, b);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drainCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, horM);
     stateCodecPrimitiveEncode(lastXScale);
-    stateCodecPrimitiveEncode(myPixel);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(pauseEndStep);
-    stateCodecPrimitiveEncode(pauseStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myPixel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pauseEndStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pauseStep);
     stateCodecDSEncode(solidList, ds_type_list);
-    stateCodecPrimitiveEncode(step);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(verM);
-    stateCodecPrimitiveEncode(x1);
-    stateCodecPrimitiveEncode(x2);
-    stateCodecPrimitiveEncode(y2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, step);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, verM);
+    buffer_write(global.stateCodecBuffer, buffer_f32, x1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, x2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, y2);
 }
 else
 {
-    b = stateCodecPrimitiveDecode();
-    drainCooldown = stateCodecPrimitiveDecode();
-    horM = stateCodecPrimitiveDecode();
+    b = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drainCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horM = buffer_read(global.stateCodecBuffer, buffer_f32);
     lastXScale = stateCodecPrimitiveDecode();
-    myPixel = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    pauseEndStep = stateCodecPrimitiveDecode();
-    pauseStep = stateCodecPrimitiveDecode();
+    myPixel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pauseEndStep = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pauseStep = buffer_read(global.stateCodecBuffer, buffer_f32);
     solidList = stateCodecDSDecode(ds_type_list);
-    step = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    verM = stateCodecPrimitiveDecode();
-    x1 = stateCodecPrimitiveDecode();
-    x2 = stateCodecPrimitiveDecode();
-    y2 = stateCodecPrimitiveDecode();
+    step = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    verM = buffer_read(global.stateCodecBuffer, buffer_f32);
+    x1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    x2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    y2 = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

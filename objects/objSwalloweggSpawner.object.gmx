@@ -128,15 +128,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

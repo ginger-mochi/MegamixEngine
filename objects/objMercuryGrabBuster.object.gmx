@@ -285,19 +285,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(hasItem);
-    stateCodecPrimitiveEncode(hp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hp);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     hasItem = stateCodecPrimitiveDecode();
-    hp = stateCodecPrimitiveDecode();
+    hp = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

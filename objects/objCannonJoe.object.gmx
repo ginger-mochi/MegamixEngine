@@ -163,17 +163,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bulletID);
-    stateCodecPrimitiveEncode(canSpin);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bulletID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canSpin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bulletID = stateCodecPrimitiveDecode();
-    canSpin = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bulletID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canSpin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

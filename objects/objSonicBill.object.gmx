@@ -150,15 +150,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(explod);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explod);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    explod = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explod = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

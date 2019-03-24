@@ -213,19 +213,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dummyTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(slamTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dummyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slamTimer);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    dummyTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    slamTimer = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dummyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    slamTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

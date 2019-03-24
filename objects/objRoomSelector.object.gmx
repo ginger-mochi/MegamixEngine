@@ -381,29 +381,29 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(endx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endx);
     stateCodecPrimitiveEncode(lr);
     stateCodecPrimitiveEncode(n);
     stateCodecPrimitiveEncode(nonLevels);
-    stateCodecPrimitiveEncode(quickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, quickScrollTimer);
     stateCodecDSEncode(roomlist, ds_type_list);
     stateCodecDSEncode(roomnames, ds_type_list);
-    stateCodecPrimitiveEncode(selected);
-    stateCodecPrimitiveEncode(shift);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selected);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shift);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    endx = stateCodecPrimitiveDecode();
+    endx = buffer_read(global.stateCodecBuffer, buffer_f32);
     lr = stateCodecPrimitiveDecode();
     n = stateCodecPrimitiveDecode();
     nonLevels = stateCodecPrimitiveDecode();
-    quickScrollTimer = stateCodecPrimitiveDecode();
+    quickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     roomlist = stateCodecDSDecode(ds_type_list);
     roomnames = stateCodecDSDecode(ds_type_list);
-    selected = stateCodecPrimitiveDecode();
-    shift = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    selected = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shift = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -189,18 +189,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(goingDown);
-    stateCodecPrimitiveEncode(hasSwitch);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(spineKiller);
+    buffer_write(global.stateCodecBuffer, buffer_f32, goingDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasSwitch);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spineKiller);
     stateCodecPrimitiveEncode(spinesToKill);
 }
 else
 {
-    goingDown = stateCodecPrimitiveDecode();
-    hasSwitch = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    spineKiller = stateCodecPrimitiveDecode();
+    goingDown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasSwitch = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spineKiller = buffer_read(global.stateCodecBuffer, buffer_f32);
     spinesToKill = stateCodecPrimitiveDecode();
 }
 </string>

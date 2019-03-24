@@ -324,27 +324,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_dir);
-    stateCodecPrimitiveEncode(_groundDir);
-    stateCodecPrimitiveEncode(_prevCollision);
-    stateCodecPrimitiveEncode(_velX);
-    stateCodecPrimitiveEncode(_velY);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _groundDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _prevCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _velX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _velY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    _dir = stateCodecPrimitiveDecode();
-    _groundDir = stateCodecPrimitiveDecode();
-    _prevCollision = stateCodecPrimitiveDecode();
-    _velX = stateCodecPrimitiveDecode();
-    _velY = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    _dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _groundDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _prevCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _velX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _velY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

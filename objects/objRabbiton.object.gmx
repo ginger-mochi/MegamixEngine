@@ -390,31 +390,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(animPauseTimer);
-    stateCodecPrimitiveEncode(back);
-    stateCodecPrimitiveEncode(chasing);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(ySpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animPauseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, back);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chasing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySpd);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    animPauseTimer = stateCodecPrimitiveDecode();
-    back = stateCodecPrimitiveDecode();
-    chasing = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animPauseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    back = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chasing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

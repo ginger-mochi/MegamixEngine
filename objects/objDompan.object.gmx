@@ -246,21 +246,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(calibrateTimer);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(jump);
-    stateCodecPrimitiveEncode(sp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, action);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrateTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sp);
 }
 else
 {
-    action = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    calibrateTimer = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    jump = stateCodecPrimitiveDecode();
-    sp = stateCodecPrimitiveDecode();
+    action = buffer_read(global.stateCodecBuffer, buffer_f32);
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrateTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

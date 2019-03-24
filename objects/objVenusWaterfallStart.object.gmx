@@ -117,14 +117,14 @@ if (global.stateCodecEncode)
     stateCodecIDEncode(i);
     stateCodecPrimitiveEncode(spawner);
     stateCodecIDEncode(water);
-    stateCodecPrimitiveEncode(yDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yDist);
 }
 else
 {
     i = stateCodecIDDecode();
     spawner = stateCodecPrimitiveDecode();
     water = stateCodecIDDecode();
-    yDist = stateCodecPrimitiveDecode();
+    yDist = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

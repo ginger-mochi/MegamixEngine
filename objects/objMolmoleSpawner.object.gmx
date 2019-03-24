@@ -184,21 +184,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
     stateCodecPrimitiveEncode(mole);
-    stateCodecPrimitiveEncode(molelimit);
-    stateCodecPrimitiveEncode(preyy);
-    stateCodecPrimitiveEncode(shoottimer);
-    stateCodecPrimitiveEncode(yscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, molelimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preyy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shoottimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yscale);
 }
 else
 {
-    i = stateCodecPrimitiveDecode();
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
     mole = stateCodecPrimitiveDecode();
-    molelimit = stateCodecPrimitiveDecode();
-    preyy = stateCodecPrimitiveDecode();
-    shoottimer = stateCodecPrimitiveDecode();
-    yscale = stateCodecPrimitiveDecode();
+    molelimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preyy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shoottimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yscale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

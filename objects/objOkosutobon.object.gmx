@@ -374,29 +374,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(awaken);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, awaken);
     stateCodecPrimitiveEncode(deathTime);
-    stateCodecPrimitiveEncode(deathTimer);
-    stateCodecPrimitiveEncode(harmEnemies);
-    stateCodecPrimitiveEncode(speedLimit);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deathTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, harmEnemies);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animOffset = stateCodecPrimitiveDecode();
-    awaken = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    awaken = buffer_read(global.stateCodecBuffer, buffer_f32);
     deathTime = stateCodecPrimitiveDecode();
-    deathTimer = stateCodecPrimitiveDecode();
-    harmEnemies = stateCodecPrimitiveDecode();
-    speedLimit = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    deathTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    harmEnemies = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

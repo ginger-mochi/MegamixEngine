@@ -108,15 +108,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hitRoof);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(offRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, offRoof);
 }
 else
 {
-    hitRoof = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    offRoof = stateCodecPrimitiveDecode();
+    hitRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    offRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

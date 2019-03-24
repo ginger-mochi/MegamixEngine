@@ -343,35 +343,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(boomSound);
-    stateCodecPrimitiveEncode(ex);
-    stateCodecPrimitiveEncode(ey);
-    stateCodecPrimitiveEncode(flash);
-    stateCodecPrimitiveEncode(pressed);
-    stateCodecPrimitiveEncode(shownumber);
-    stateCodecPrimitiveEncode(time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boomSound);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ey);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flash);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pressed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shownumber);
+    buffer_write(global.stateCodecBuffer, buffer_f32, time);
     stateCodecPrimitiveEncode(timerstart);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(ys);
-    stateCodecPrimitiveEncode(yy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yy);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    boomSound = stateCodecPrimitiveDecode();
-    ex = stateCodecPrimitiveDecode();
-    ey = stateCodecPrimitiveDecode();
-    flash = stateCodecPrimitiveDecode();
-    pressed = stateCodecPrimitiveDecode();
-    shownumber = stateCodecPrimitiveDecode();
-    time = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boomSound = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ey = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flash = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pressed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shownumber = buffer_read(global.stateCodecBuffer, buffer_f32);
+    time = buffer_read(global.stateCodecBuffer, buffer_f32);
     timerstart = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
-    yy = stateCodecPrimitiveDecode();
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yy = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

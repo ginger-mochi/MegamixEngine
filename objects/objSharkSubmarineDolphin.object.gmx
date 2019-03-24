@@ -143,11 +143,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bouncyCalamity);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bouncyCalamity);
 }
 else
 {
-    bouncyCalamity = stateCodecPrimitiveDecode();
+    bouncyCalamity = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

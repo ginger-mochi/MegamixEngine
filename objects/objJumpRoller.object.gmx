@@ -249,23 +249,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(flameTimer);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(jumpCooldown);
-    stateCodecPrimitiveEncode(wheelTimer);
-    stateCodecPrimitiveEncode(wheelVal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wheelTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wheelVal);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    flameTimer = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    jumpCooldown = stateCodecPrimitiveDecode();
-    wheelTimer = stateCodecPrimitiveDecode();
-    wheelVal = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wheelTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wheelVal = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

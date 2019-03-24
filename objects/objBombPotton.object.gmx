@@ -276,29 +276,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(deccel);
-    stateCodecPrimitiveEncode(explosionLenght);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(newX);
-    stateCodecPrimitiveEncode(onlyDamageMines);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explosionLenght);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onlyDamageMines);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    animOffset = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    deccel = stateCodecPrimitiveDecode();
-    explosionLenght = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    newX = stateCodecPrimitiveDecode();
-    onlyDamageMines = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deccel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explosionLenght = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    onlyDamageMines = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

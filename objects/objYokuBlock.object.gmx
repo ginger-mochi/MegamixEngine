@@ -259,29 +259,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(doSFX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doSFX);
     stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(neverDespawn);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spike);
+    buffer_write(global.stateCodecBuffer, buffer_f32, neverDespawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spike);
     stateCodecPrimitiveEncode(sprite);
-    stateCodecPrimitiveEncode(startup);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startup);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    doSFX = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doSFX = buffer_read(global.stateCodecBuffer, buffer_f32);
     mySolid = stateCodecIDDecode();
-    neverDespawn = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spike = stateCodecPrimitiveDecode();
+    neverDespawn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spike = buffer_read(global.stateCodecBuffer, buffer_f32);
     sprite = stateCodecPrimitiveDecode();
-    startup = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    startup = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

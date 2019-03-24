@@ -182,14 +182,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(oldmask);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phasetimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phasetimer);
 }
 else
 {
     oldmask = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phasetimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phasetimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

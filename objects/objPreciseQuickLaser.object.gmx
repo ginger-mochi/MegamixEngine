@@ -330,45 +330,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angularSpeed);
-    stateCodecPrimitiveEncode(drainCooldown);
-    stateCodecPrimitiveEncode(hacks);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angularSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drainCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hacks);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
     stateCodecPrimitiveEncode(nonPreciseMask);
     stateCodecPrimitiveEncode(obstacleList);
-    stateCodecPrimitiveEncode(onlyDamagePlayer);
-    stateCodecPrimitiveEncode(order);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onlyDamagePlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, order);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(preciseMask);
     stateCodecPrimitiveEncode(r);
     stateCodecPrimitiveEncode(rdir);
     stateCodecPrimitiveEncode(rx);
     stateCodecPrimitiveEncode(ry);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
 }
 else
 {
-    angularSpeed = stateCodecPrimitiveDecode();
-    drainCooldown = stateCodecPrimitiveDecode();
-    hacks = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
+    angularSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drainCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hacks = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     nonPreciseMask = stateCodecPrimitiveDecode();
     obstacleList = stateCodecPrimitiveDecode();
-    onlyDamagePlayer = stateCodecPrimitiveDecode();
-    order = stateCodecPrimitiveDecode();
+    onlyDamagePlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    order = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
     preciseMask = stateCodecPrimitiveDecode();
     r = stateCodecPrimitiveDecode();
     rdir = stateCodecPrimitiveDecode();
     rx = stateCodecPrimitiveDecode();
     ry = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

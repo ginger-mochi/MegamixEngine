@@ -218,23 +218,23 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(overwriteAnimation);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, overwriteAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecIDEncode(player);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(viewX);
-    stateCodecPrimitiveEncode(viewY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, viewX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, viewY);
 }
 else
 {
     X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
-    overwriteAnimation = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    overwriteAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     player = stateCodecIDDecode();
-    timer = stateCodecPrimitiveDecode();
-    viewX = stateCodecPrimitiveDecode();
-    viewY = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    viewX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    viewY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

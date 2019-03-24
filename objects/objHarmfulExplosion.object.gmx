@@ -156,18 +156,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(damageEnemies);
-    stateCodecPrimitiveEncode(damagePlayer);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, damageEnemies);
+    buffer_write(global.stateCodecBuffer, buffer_f32, damagePlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    damageEnemies = stateCodecPrimitiveDecode();
-    damagePlayer = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    damageEnemies = buffer_read(global.stateCodecBuffer, buffer_f32);
+    damagePlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

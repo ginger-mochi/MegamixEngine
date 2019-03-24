@@ -150,15 +150,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(stopTimer);
-    stateCodecPrimitiveEncode(turnTimer);
-    stateCodecPrimitiveEncode(yMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMax);
 }
 else
 {
-    stopTimer = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
+    stopTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMax = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

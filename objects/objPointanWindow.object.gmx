@@ -177,21 +177,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

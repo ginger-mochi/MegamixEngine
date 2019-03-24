@@ -192,23 +192,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmDrop);
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(dummyLogic);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(popDelay);
-    stateCodecPrimitiveEncode(randomOffset);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dummyLogic);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, randomOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    alarmDrop = stateCodecPrimitiveDecode();
+    alarmDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
     contactStart = stateCodecPrimitiveDecode();
-    dummyLogic = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    popDelay = stateCodecPrimitiveDecode();
-    randomOffset = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    dummyLogic = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    popDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    randomOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

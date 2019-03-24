@@ -565,45 +565,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animStore);
-    stateCodecPrimitiveEncode(attackRandomiser);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(findWall);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(jumpToWall);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(oilSlider);
-    stateCodecPrimitiveEncode(oldAttack);
-    stateCodecPrimitiveEncode(onWall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(storeSpeed);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animStore);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackRandomiser);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayUse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, findWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpToWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oilSlider);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oldAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    animStore = stateCodecPrimitiveDecode();
-    attackRandomiser = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    findWall = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    jumpToWall = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    oilSlider = stateCodecPrimitiveDecode();
-    oldAttack = stateCodecPrimitiveDecode();
-    onWall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    storeSpeed = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    animStore = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackRandomiser = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayUse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    findWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpToWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oilSlider = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oldAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    onWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

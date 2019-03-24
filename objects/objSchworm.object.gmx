@@ -174,19 +174,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
     stateCodecIDArrayEncode(enemy);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
     enemy = stateCodecIDArrayDecode();
-    init = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

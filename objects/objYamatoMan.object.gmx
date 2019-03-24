@@ -421,27 +421,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(skewerPhase);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, skewerPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    skewerPhase = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    skewerPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

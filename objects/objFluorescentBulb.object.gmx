@@ -231,25 +231,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(maxFall);
-    stateCodecPrimitiveEncode(maxRise);
-    stateCodecPrimitiveEncode(myDir);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(waitTime);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxRise);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    maxFall = stateCodecPrimitiveDecode();
-    maxRise = stateCodecPrimitiveDecode();
-    myDir = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxRise = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

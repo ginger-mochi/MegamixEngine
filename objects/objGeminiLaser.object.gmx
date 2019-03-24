@@ -322,23 +322,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(bounceCount);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(noCollision);
-    stateCodecPrimitiveEncode(savedYspeed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(wallCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, noCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, savedYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wallCooldown);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    bounceCount = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    noCollision = stateCodecPrimitiveDecode();
-    savedYspeed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    wallCooldown = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounceCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    noCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    savedYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wallCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

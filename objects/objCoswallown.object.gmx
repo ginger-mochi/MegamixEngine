@@ -122,16 +122,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    imgIndex = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

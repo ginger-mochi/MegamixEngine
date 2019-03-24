@@ -129,13 +129,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cosCounter);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cosCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
 }
 else
 {
-    cosCounter = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    cosCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

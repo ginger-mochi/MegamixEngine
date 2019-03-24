@@ -266,25 +266,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boomCounter);
-    stateCodecPrimitiveEncode(cSpeed);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(headUp);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(turnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boomCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, headUp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTimer);
 }
 else
 {
-    boomCounter = stateCodecPrimitiveDecode();
-    cSpeed = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    headUp = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
+    boomCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    headUp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

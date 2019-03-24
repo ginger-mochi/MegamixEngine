@@ -136,15 +136,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

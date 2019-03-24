@@ -190,23 +190,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(prevYspeed);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    prevYspeed = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -314,39 +314,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(closeBlastDoors);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, closeBlastDoors);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
     stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(doorOpenMax);
-    stateCodecPrimitiveEncode(e);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(missile1);
-    stateCodecPrimitiveEncode(missile2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doorOpenMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, e);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, missile1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, missile2);
     stateCodecIDArrayEncode(missileArray);
-    stateCodecPrimitiveEncode(missileCol);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, missileCol);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    closeBlastDoors = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    closeBlastDoors = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     cooldownTimer = stateCodecPrimitiveDecode();
-    doorOpenMax = stateCodecPrimitiveDecode();
-    e = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    missile1 = stateCodecPrimitiveDecode();
-    missile2 = stateCodecPrimitiveDecode();
+    doorOpenMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    e = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    missile1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    missile2 = buffer_read(global.stateCodecBuffer, buffer_f32);
     missileArray = stateCodecIDArrayDecode();
-    missileCol = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    missileCol = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

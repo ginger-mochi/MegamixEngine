@@ -195,35 +195,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(at);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(high_shot_yspeed);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(init_time);
-    stateCodecPrimitiveEncode(low_shot_yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, at);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, high_shot_yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, low_shot_yspeed);
     stateCodecPrimitiveEncode(obj);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shoot_time);
-    stateCodecPrimitiveEncode(shot_xspeed);
-    stateCodecPrimitiveEncode(volley_n);
-    stateCodecPrimitiveEncode(wait_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shoot_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shot_xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, volley_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait_time);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    at = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    high_shot_yspeed = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    init_time = stateCodecPrimitiveDecode();
-    low_shot_yspeed = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    at = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    high_shot_yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    low_shot_yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     obj = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shoot_time = stateCodecPrimitiveDecode();
-    shot_xspeed = stateCodecPrimitiveDecode();
-    volley_n = stateCodecPrimitiveDecode();
-    wait_time = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shoot_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shot_xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    volley_n = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait_time = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

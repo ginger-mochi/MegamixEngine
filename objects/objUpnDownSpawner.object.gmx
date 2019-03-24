@@ -125,13 +125,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

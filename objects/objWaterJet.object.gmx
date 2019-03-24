@@ -232,29 +232,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activeTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(length);
-    stateCodecPrimitiveEncode(mode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode);
     stateCodecIDEncode(plat);
-    stateCodecPrimitiveEncode(startTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startTimer);
     stateCodecIDEncode(that);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
 }
 else
 {
-    activeTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    length = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
+    activeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode = buffer_read(global.stateCodecBuffer, buffer_f32);
     plat = stateCodecIDDecode();
-    startTimer = stateCodecPrimitiveDecode();
+    startTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     that = stateCodecIDDecode();
-    timer = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

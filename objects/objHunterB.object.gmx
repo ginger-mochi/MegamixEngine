@@ -481,35 +481,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecIDEncode(clone);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(getAngle);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(horVer);
-    stateCodecPrimitiveEncode(onOrOff);
-    stateCodecPrimitiveEncode(partnerItemDrop);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_string, horVer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onOrOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, partnerItemDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(storeY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeY);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     clone = stateCodecIDDecode();
-    delay = stateCodecPrimitiveDecode();
-    getAngle = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    horVer = stateCodecPrimitiveDecode();
-    onOrOff = stateCodecPrimitiveDecode();
-    partnerItemDrop = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    getAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horVer = buffer_read(global.stateCodecBuffer, buffer_string);
+    onOrOff = buffer_read(global.stateCodecBuffer, buffer_f32);
+    partnerItemDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    storeY = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

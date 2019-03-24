@@ -153,19 +153,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(count);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, count);
     stateCodecIDEncode(i);
     stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    count = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    count = buffer_read(global.stateCodecBuffer, buffer_f32);
     i = stateCodecIDDecode();
     startWait = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

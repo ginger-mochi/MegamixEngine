@@ -62,11 +62,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dead);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dead);
 }
 else
 {
-    dead = stateCodecPrimitiveDecode();
+    dead = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

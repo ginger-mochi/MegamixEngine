@@ -146,15 +146,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ignoreCollision);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ignoreCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    ignoreCollision = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    ignoreCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

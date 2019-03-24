@@ -145,15 +145,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(beingKilled);
-    stateCodecPrimitiveEncode(killTimer);
-    stateCodecPrimitiveEncode(norespawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, beingKilled);
+    buffer_write(global.stateCodecBuffer, buffer_f32, killTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, norespawn);
 }
 else
 {
-    beingKilled = stateCodecPrimitiveDecode();
-    killTimer = stateCodecPrimitiveDecode();
-    norespawn = stateCodecPrimitiveDecode();
+    beingKilled = buffer_read(global.stateCodecBuffer, buffer_f32);
+    killTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    norespawn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

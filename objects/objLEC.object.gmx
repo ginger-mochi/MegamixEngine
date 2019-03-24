@@ -156,23 +156,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animMax);
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecIDEncode(bubble);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(shotMax);
-    stateCodecPrimitiveEncode(shotTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotTimer);
 }
 else
 {
-    animMax = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    animMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     bubble = stateCodecIDDecode();
-    img = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    shotMax = stateCodecPrimitiveDecode();
-    shotTimer = stateCodecPrimitiveDecode();
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

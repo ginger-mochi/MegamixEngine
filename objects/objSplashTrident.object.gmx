@@ -127,11 +127,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canStep);
 }
 else
 {
-    canStep = stateCodecPrimitiveDecode();
+    canStep = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

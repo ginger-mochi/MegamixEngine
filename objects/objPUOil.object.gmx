@@ -188,27 +188,27 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blockCollision);
-    stateCodecPrimitiveEncode(bubbleTimer);
-    stateCodecPrimitiveEncode(canHit);
-    stateCodecPrimitiveEncode(despawnRange);
-    stateCodecPrimitiveEncode(fire);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blockCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bubbleTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canHit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, despawnRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fire);
     stateCodecPrimitiveEncode(fireSource);
-    stateCodecPrimitiveEncode(grav);
-    stateCodecPrimitiveEncode(respawnRange);
-    stateCodecPrimitiveEncode(shiftVisible);
+    buffer_write(global.stateCodecBuffer, buffer_f32, grav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, respawnRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shiftVisible);
 }
 else
 {
-    blockCollision = stateCodecPrimitiveDecode();
-    bubbleTimer = stateCodecPrimitiveDecode();
-    canHit = stateCodecPrimitiveDecode();
-    despawnRange = stateCodecPrimitiveDecode();
-    fire = stateCodecPrimitiveDecode();
+    blockCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bubbleTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canHit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    despawnRange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fire = buffer_read(global.stateCodecBuffer, buffer_f32);
     fireSource = stateCodecPrimitiveDecode();
-    grav = stateCodecPrimitiveDecode();
-    respawnRange = stateCodecPrimitiveDecode();
-    shiftVisible = stateCodecPrimitiveDecode();
+    grav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    respawnRange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shiftVisible = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

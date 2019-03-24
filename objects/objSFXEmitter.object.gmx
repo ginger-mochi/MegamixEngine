@@ -153,17 +153,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(interval);
-    stateCodecPrimitiveEncode(play);
+    buffer_write(global.stateCodecBuffer, buffer_f32, interval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, play);
     stateCodecPrimitiveEncode(sfx);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    interval = stateCodecPrimitiveDecode();
-    play = stateCodecPrimitiveDecode();
+    interval = buffer_read(global.stateCodecBuffer, buffer_f32);
+    play = buffer_read(global.stateCodecBuffer, buffer_f32);
     sfx = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

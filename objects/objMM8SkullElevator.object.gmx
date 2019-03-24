@@ -189,29 +189,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(X);
-    stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(exitTimer);
-    stateCodecPrimitiveEncode(exitType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, X);
+    buffer_write(global.stateCodecBuffer, buffer_f32, Y);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, exitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, exitType);
     stateCodecIDEncode(mask);
-    stateCodecPrimitiveEncode(myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
     stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(respawnAnimation);
-    stateCodecPrimitiveEncode(travel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, respawnAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, travel);
 }
 else
 {
-    X = stateCodecPrimitiveDecode();
-    Y = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
-    exitTimer = stateCodecPrimitiveDecode();
-    exitType = stateCodecPrimitiveDecode();
+    X = buffer_read(global.stateCodecBuffer, buffer_f32);
+    Y = buffer_read(global.stateCodecBuffer, buffer_f32);
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    exitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    exitType = buffer_read(global.stateCodecBuffer, buffer_f32);
     mask = stateCodecIDDecode();
-    myFlag = stateCodecPrimitiveDecode();
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
     myRoom = stateCodecPrimitiveDecode();
-    respawnAnimation = stateCodecPrimitiveDecode();
-    travel = stateCodecPrimitiveDecode();
+    respawnAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    travel = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

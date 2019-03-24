@@ -5188,6 +5188,8 @@
       <script>scripts\stateCodecInit.gml</script>
       <script>scripts\stateCodecFull.gml</script>
       <script>scripts\stateCodecGlobals.gml</script>
+      <script>scripts\stateCodecBuiltIn.gml</script>
+      <script>scripts\stateCodecGlobalsInit.gml</script>
       <script>scripts\stateCodecInstance.gml</script>
       <script>scripts\stateCodecPrimitiveEncode.gml</script>
       <script>scripts\stateCodecPrimitiveDecode.gml</script>

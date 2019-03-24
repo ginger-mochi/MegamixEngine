@@ -353,23 +353,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(catchTimes);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(collapseTimer);
-    stateCodecPrimitiveEncode(collapsed);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, catchTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, collapseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, collapsed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
 }
 else
 {
-    calibrated = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
-    catchTimes = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    collapseTimer = stateCodecPrimitiveDecode();
-    collapsed = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    catchTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    collapseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    collapsed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

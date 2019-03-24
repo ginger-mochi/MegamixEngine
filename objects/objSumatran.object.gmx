@@ -243,29 +243,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animStorage);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(doubleJump);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(xJump);
-    stateCodecPrimitiveEncode(yJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animStorage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doubleJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yJump);
 }
 else
 {
-    animStorage = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    doubleJump = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    xJump = stateCodecPrimitiveDecode();
-    yJump = stateCodecPrimitiveDecode();
+    animStorage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doubleJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yJump = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

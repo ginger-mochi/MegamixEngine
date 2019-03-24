@@ -170,19 +170,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(followWood);
-    stateCodecPrimitiveEncode(myObject);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(rotationTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, followWood);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myObject);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotationTimer);
     stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
-    followWood = stateCodecPrimitiveDecode();
-    myObject = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    rotationTimer = stateCodecPrimitiveDecode();
+    followWood = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myObject = buffer_read(global.stateCodecBuffer, buffer_f32);
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotationTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     xs = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }

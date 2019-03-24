@@ -381,41 +381,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(counter);
-    stateCodecPrimitiveEncode(directionPersist);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, counter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, directionPersist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
     stateCodecPrimitiveEncode(launchX);
     stateCodecPrimitiveEncode(launchY);
-    stateCodecPrimitiveEncode(mainShot);
-    stateCodecPrimitiveEncode(moveCounter);
-    stateCodecPrimitiveEncode(moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mainShot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
     stateCodecPrimitiveEncode(moveTime);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(tail0Length);
-    stateCodecPrimitiveEncode(tail30Length);
-    stateCodecPrimitiveEncode(tail45Length);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tail0Length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tail30Length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tail45Length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    counter = stateCodecPrimitiveDecode();
-    directionPersist = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    counter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    directionPersist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
     launchX = stateCodecPrimitiveDecode();
     launchY = stateCodecPrimitiveDecode();
-    mainShot = stateCodecPrimitiveDecode();
-    moveCounter = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
+    mainShot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveTime = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    tail0Length = stateCodecPrimitiveDecode();
-    tail30Length = stateCodecPrimitiveDecode();
-    tail45Length = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tail0Length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tail30Length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tail45Length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

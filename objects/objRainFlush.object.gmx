@@ -241,13 +241,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(raining);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, raining);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    raining = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    raining = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

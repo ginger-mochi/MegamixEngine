@@ -118,23 +118,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(grv);
-    stateCodecPrimitiveEncode(loops);
-    stateCodecPrimitiveEncode(noFlicker);
+    buffer_write(global.stateCodecBuffer, buffer_f32, grv);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, noFlicker);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(yend);
-    stateCodecPrimitiveEncode(yspd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yend);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspd);
 }
 else
 {
-    grv = stateCodecPrimitiveDecode();
-    loops = stateCodecPrimitiveDecode();
-    noFlicker = stateCodecPrimitiveDecode();
+    grv = buffer_read(global.stateCodecBuffer, buffer_f32);
+    loops = buffer_read(global.stateCodecBuffer, buffer_f32);
+    noFlicker = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    yend = stateCodecPrimitiveDecode();
-    yspd = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yend = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

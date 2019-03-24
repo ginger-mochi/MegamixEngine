@@ -174,17 +174,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(shootTimer1);
-    stateCodecPrimitiveEncode(shootTimer2);
-    stateCodecPrimitiveEncode(shooting2);
-    stateCodecPrimitiveEncode(spriteTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteTimer);
 }
 else
 {
-    shootTimer1 = stateCodecPrimitiveDecode();
-    shootTimer2 = stateCodecPrimitiveDecode();
-    shooting2 = stateCodecPrimitiveDecode();
-    spriteTimer = stateCodecPrimitiveDecode();
+    shootTimer1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -172,31 +172,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(destroyTimer);
-    stateCodecPrimitiveEncode(hasSpawned);
-    stateCodecPrimitiveEncode(length);
-    stateCodecPrimitiveEncode(pieceGap);
-    stateCodecPrimitiveEncode(triggerDestroy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasSpawned);
+    buffer_write(global.stateCodecBuffer, buffer_f32, length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pieceGap);
+    buffer_write(global.stateCodecBuffer, buffer_f32, triggerDestroy);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    addAngle = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    destroyTimer = stateCodecPrimitiveDecode();
-    hasSpawned = stateCodecPrimitiveDecode();
-    length = stateCodecPrimitiveDecode();
-    pieceGap = stateCodecPrimitiveDecode();
-    triggerDestroy = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasSpawned = buffer_read(global.stateCodecBuffer, buffer_f32);
+    length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pieceGap = buffer_read(global.stateCodecBuffer, buffer_f32);
+    triggerDestroy = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

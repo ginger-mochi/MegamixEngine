@@ -182,31 +182,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(flameImg);
-    stateCodecPrimitiveEncode(imgOffset);
-    stateCodecPrimitiveEncode(propellerStatus);
-    stateCodecPrimitiveEncode(propellerTimer);
-    stateCodecPrimitiveEncode(resetAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameImg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, propellerStatus);
+    buffer_write(global.stateCodecBuffer, buffer_f32, propellerTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetAngle);
     stateCodecPrimitiveEncode(resetY);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    addAngle = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    flameImg = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
-    propellerStatus = stateCodecPrimitiveDecode();
-    propellerTimer = stateCodecPrimitiveDecode();
-    resetAngle = stateCodecPrimitiveDecode();
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameImg = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    propellerStatus = buffer_read(global.stateCodecBuffer, buffer_f32);
+    propellerTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
     resetY = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

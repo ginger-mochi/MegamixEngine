@@ -230,33 +230,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aimTimer);
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(canAim);
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aimTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canAim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
     stateCodecPrimitiveEncode(deathTimer);
-    stateCodecPrimitiveEncode(newAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newAngle);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timescale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timescale);
 }
 else
 {
-    aimTimer = stateCodecPrimitiveDecode();
-    angle = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    canAim = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    aimTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canAim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
     deathTimer = stateCodecPrimitiveDecode();
-    newAngle = stateCodecPrimitiveDecode();
+    newAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timescale = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timescale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -66,15 +66,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sp);
     stateCodecPrimitiveEncode(sq);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    sp = stateCodecPrimitiveDecode();
+    sp = buffer_read(global.stateCodecBuffer, buffer_f32);
     sq = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

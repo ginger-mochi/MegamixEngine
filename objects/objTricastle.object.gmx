@@ -318,33 +318,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
     stateCodecIDEncode(center);
-    stateCodecPrimitiveEncode(flagImage);
-    stateCodecPrimitiveEncode(flagYO);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flagImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flagYO);
     stateCodecIDEncode(leftTower);
-    stateCodecPrimitiveEncode(masterTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(platHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, masterTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, platHeight);
     stateCodecIDEncode(rightTower);
     stateCodecPrimitiveEncode(shooter);
-    stateCodecPrimitiveEncode(startTime);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
     center = stateCodecIDDecode();
-    flagImage = stateCodecPrimitiveDecode();
-    flagYO = stateCodecPrimitiveDecode();
+    flagImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flagYO = buffer_read(global.stateCodecBuffer, buffer_f32);
     leftTower = stateCodecIDDecode();
-    masterTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    platHeight = stateCodecPrimitiveDecode();
+    masterTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    platHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
     rightTower = stateCodecIDDecode();
     shooter = stateCodecPrimitiveDecode();
-    startTime = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    startTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

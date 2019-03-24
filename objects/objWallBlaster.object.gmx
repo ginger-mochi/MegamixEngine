@@ -303,31 +303,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animImage);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(currentAngle);
-    stateCodecPrimitiveEncode(currentShootCount);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(shootImage);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shootTimerMax);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentShootCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animImage = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    currentAngle = stateCodecPrimitiveDecode();
-    currentShootCount = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shootCount = stateCodecPrimitiveDecode();
-    shootImage = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shootTimerMax = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentShootCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

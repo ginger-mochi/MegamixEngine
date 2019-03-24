@@ -229,25 +229,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(flag);
-    stateCodecPrimitiveEncode(gravStr);
-    stateCodecPrimitiveEncode(hasGravity);
-    stateCodecPrimitiveEncode(imageMax);
-    stateCodecPrimitiveEncode(imageReset);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(spreadAttack);
-    stateCodecPrimitiveEncode(toWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravStr);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasGravity);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageReset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spreadAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, toWall);
 }
 else
 {
-    flag = stateCodecPrimitiveDecode();
-    gravStr = stateCodecPrimitiveDecode();
-    hasGravity = stateCodecPrimitiveDecode();
-    imageMax = stateCodecPrimitiveDecode();
-    imageReset = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    spreadAttack = stateCodecPrimitiveDecode();
-    toWall = stateCodecPrimitiveDecode();
+    flag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gravStr = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasGravity = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageReset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spreadAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    toWall = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

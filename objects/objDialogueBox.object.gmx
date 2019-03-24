@@ -281,55 +281,55 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_im);
-    stateCodecPrimitiveEncode(boxOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _im);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boxOffset);
     stateCodecPrimitiveEncode(dialogueLock);
-    stateCodecPrimitiveEncode(itext);
-    stateCodecPrimitiveEncode(mugshotIndex);
-    stateCodecPrimitiveEncode(mugshotIndexEnd);
-    stateCodecPrimitiveEncode(mugshotIndexStart);
-    stateCodecPrimitiveEncode(mugshotSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_string, itext);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mugshotIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mugshotIndexEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mugshotIndexStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mugshotSpeed);
     stateCodecPrimitiveEncode(name);
     stateCodecPrimitiveEncode(nameCol);
-    stateCodecPrimitiveEncode(o_event);
-    stateCodecPrimitiveEncode(offset);
-    stateCodecPrimitiveEncode(optionCount);
-    stateCodecPrimitiveEncode(optionPos);
+    buffer_write(global.stateCodecBuffer, buffer_f32, o_event);
+    buffer_write(global.stateCodecBuffer, buffer_f32, offset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, optionCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, optionPos);
     stateCodecPrimitiveEncode(optionText);
-    stateCodecPrimitiveEncode(origin);
-    stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pos);
-    stateCodecPrimitiveEncode(showtext);
+    buffer_write(global.stateCodecBuffer, buffer_f32, origin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, parent);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pos);
+    buffer_write(global.stateCodecBuffer, buffer_f32, showtext);
     stateCodecDSEncode(text, ds_type_list);
-    stateCodecPrimitiveEncode(textLength);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, textLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    _im = stateCodecPrimitiveDecode();
-    boxOffset = stateCodecPrimitiveDecode();
+    _im = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boxOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     dialogueLock = stateCodecPrimitiveDecode();
-    itext = stateCodecPrimitiveDecode();
-    mugshotIndex = stateCodecPrimitiveDecode();
-    mugshotIndexEnd = stateCodecPrimitiveDecode();
-    mugshotIndexStart = stateCodecPrimitiveDecode();
-    mugshotSpeed = stateCodecPrimitiveDecode();
+    itext = buffer_read(global.stateCodecBuffer, buffer_string);
+    mugshotIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mugshotIndexEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mugshotIndexStart = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mugshotSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     name = stateCodecPrimitiveDecode();
     nameCol = stateCodecPrimitiveDecode();
-    o_event = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
-    optionCount = stateCodecPrimitiveDecode();
-    optionPos = stateCodecPrimitiveDecode();
+    o_event = buffer_read(global.stateCodecBuffer, buffer_f32);
+    offset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    optionCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    optionPos = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionText = stateCodecPrimitiveDecode();
-    origin = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    pos = stateCodecPrimitiveDecode();
-    showtext = stateCodecPrimitiveDecode();
+    origin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    parent = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pos = buffer_read(global.stateCodecBuffer, buffer_f32);
+    showtext = buffer_read(global.stateCodecBuffer, buffer_f32);
     text = stateCodecDSDecode(ds_type_list);
-    textLength = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    textLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

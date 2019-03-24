@@ -251,21 +251,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bullet);
-    stateCodecPrimitiveEncode(jumpDistance);
-    stateCodecPrimitiveEncode(jumpsIn);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shootAmountMax);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bullet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpsIn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAmountMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    bullet = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
-    jumpsIn = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shootAmountMax = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    bullet = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpsIn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAmountMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

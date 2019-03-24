@@ -143,19 +143,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(blockCollision);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blockCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
     stateCodecPrimitiveEncode(platformSprite);
     stateCodecPrimitiveEncode(startLen);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    blockCollision = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blockCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     platformSprite = stateCodecPrimitiveDecode();
     startLen = stateCodecPrimitiveDecode();
 }

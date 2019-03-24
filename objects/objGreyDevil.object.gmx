@@ -348,29 +348,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(lookFired);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageNoMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lookFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    lookFired = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageNoMin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lookFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

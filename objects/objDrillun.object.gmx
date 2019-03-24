@@ -151,12 +151,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmStop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmStop);
     stateCodecPrimitiveEncode(contactStart);
 }
 else
 {
-    alarmStop = stateCodecPrimitiveDecode();
+    alarmStop = buffer_read(global.stateCodecBuffer, buffer_f32);
     contactStart = stateCodecPrimitiveDecode();
 }
 </string>

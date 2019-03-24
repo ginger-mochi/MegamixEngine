@@ -96,11 +96,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

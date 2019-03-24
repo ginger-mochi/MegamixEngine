@@ -140,13 +140,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(didit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, didit);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    didit = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    didit = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

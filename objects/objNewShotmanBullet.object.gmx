@@ -151,17 +151,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canStep);
-    stateCodecPrimitiveEncode(destX);
-    stateCodecPrimitiveEncode(destY);
-    stateCodecPrimitiveEncode(stopAtSolid);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopAtSolid);
 }
 else
 {
-    canStep = stateCodecPrimitiveDecode();
-    destX = stateCodecPrimitiveDecode();
-    destY = stateCodecPrimitiveDecode();
-    stopAtSolid = stateCodecPrimitiveDecode();
+    canStep = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopAtSolid = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

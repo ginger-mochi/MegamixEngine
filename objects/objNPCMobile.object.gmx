@@ -336,41 +336,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(avoidsPits);
-    stateCodecPrimitiveEncode(behaviour);
-    stateCodecPrimitiveEncode(ignores_pits);
-    stateCodecPrimitiveEncode(jump_speed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, avoidsPits);
+    buffer_write(global.stateCodecBuffer, buffer_string, behaviour);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ignores_pits);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jump_speed);
     stateCodecPrimitiveEncode(jump_sprite);
-    stateCodecPrimitiveEncode(jump_start);
-    stateCodecPrimitiveEncode(jumps_pits);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(mode_timer);
-    stateCodecPrimitiveEncode(mode_timer_end);
-    stateCodecPrimitiveEncode(move_speed);
-    stateCodecPrimitiveEncode(only_jumps);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jump_start);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumps_pits);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode_timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode_timer_end);
+    buffer_write(global.stateCodecBuffer, buffer_f32, move_speed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, only_jumps);
     stateCodecPrimitiveEncode(walk_end);
     stateCodecPrimitiveEncode(walk_speed);
     stateCodecPrimitiveEncode(walk_sprite);
-    stateCodecPrimitiveEncode(walk_start);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walk_start);
 }
 else
 {
-    avoidsPits = stateCodecPrimitiveDecode();
-    behaviour = stateCodecPrimitiveDecode();
-    ignores_pits = stateCodecPrimitiveDecode();
-    jump_speed = stateCodecPrimitiveDecode();
+    avoidsPits = buffer_read(global.stateCodecBuffer, buffer_f32);
+    behaviour = buffer_read(global.stateCodecBuffer, buffer_string);
+    ignores_pits = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jump_speed = buffer_read(global.stateCodecBuffer, buffer_f32);
     jump_sprite = stateCodecPrimitiveDecode();
-    jump_start = stateCodecPrimitiveDecode();
-    jumps_pits = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
-    mode_timer = stateCodecPrimitiveDecode();
-    mode_timer_end = stateCodecPrimitiveDecode();
-    move_speed = stateCodecPrimitiveDecode();
-    only_jumps = stateCodecPrimitiveDecode();
+    jump_start = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumps_pits = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode_timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode_timer_end = buffer_read(global.stateCodecBuffer, buffer_f32);
+    move_speed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    only_jumps = buffer_read(global.stateCodecBuffer, buffer_f32);
     walk_end = stateCodecPrimitiveDecode();
     walk_speed = stateCodecPrimitiveDecode();
     walk_sprite = stateCodecPrimitiveDecode();
-    walk_start = stateCodecPrimitiveDecode();
+    walk_start = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

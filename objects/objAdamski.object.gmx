@@ -162,17 +162,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(playUFOSounds);
-    stateCodecPrimitiveEncode(sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playUFOSounds);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    playUFOSounds = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playUFOSounds = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

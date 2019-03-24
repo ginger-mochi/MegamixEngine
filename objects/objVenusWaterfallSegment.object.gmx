@@ -211,15 +211,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(myLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myLock);
     stateCodecPrimitiveEncode(parent);
     stateCodecPrimitiveEncode(sectionBottom);
 }
 else
 {
-    moveTimer = stateCodecPrimitiveDecode();
-    myLock = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myLock = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
     sectionBottom = stateCodecPrimitiveDecode();
 }

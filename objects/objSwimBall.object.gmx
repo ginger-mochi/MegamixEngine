@@ -205,21 +205,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(decel);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(targY);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    decel = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    targY = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    decel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

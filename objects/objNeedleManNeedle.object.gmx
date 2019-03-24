@@ -205,17 +205,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(initialDelay);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initialDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    initialDelay = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    initialDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -222,23 +222,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmRise);
-    stateCodecPrimitiveEncode(freezeTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(preImgSpeed);
-    stateCodecPrimitiveEncode(rise);
-    stateCodecPrimitiveEncode(spriteHeight);
-    stateCodecPrimitiveEncode(spriteWidth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmRise);
+    buffer_write(global.stateCodecBuffer, buffer_f32, freezeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rise);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteWidth);
 }
 else
 {
-    alarmRise = stateCodecPrimitiveDecode();
-    freezeTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    preImgSpeed = stateCodecPrimitiveDecode();
-    rise = stateCodecPrimitiveDecode();
-    spriteHeight = stateCodecPrimitiveDecode();
-    spriteWidth = stateCodecPrimitiveDecode();
+    alarmRise = buffer_read(global.stateCodecBuffer, buffer_f32);
+    freezeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rise = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteWidth = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -244,29 +244,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animIter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animIter);
     stateCodecPrimitiveEncode(animTable);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(jumpDistance);
     stateCodecPrimitiveEncode(jumpHeight);
-    stateCodecPrimitiveEncode(jumpTypes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTypes);
     stateCodecPrimitiveEncode(msk);
-    stateCodecPrimitiveEncode(rotationTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotationTimer);
 }
 else
 {
-    animIter = stateCodecPrimitiveDecode();
+    animIter = buffer_read(global.stateCodecBuffer, buffer_f32);
     animTable = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     jumpDistance = stateCodecPrimitiveDecode();
     jumpHeight = stateCodecPrimitiveDecode();
-    jumpTypes = stateCodecPrimitiveDecode();
+    jumpTypes = buffer_read(global.stateCodecBuffer, buffer_f32);
     msk = stateCodecPrimitiveDecode();
-    rotationTimer = stateCodecPrimitiveDecode();
+    rotationTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -862,49 +862,49 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(arrowBlinkTimer);
-    stateCodecPrimitiveEncode(buffer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, arrowBlinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer);
     stateCodecPrimitiveEncode(current);
     stateCodecPrimitiveEncode(currentKeys);
-    stateCodecPrimitiveEncode(cursorImgIndex);
-    stateCodecPrimitiveEncode(cursorImgSpd);
-    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
-    stateCodecPrimitiveEncode(key);
-    stateCodecPrimitiveEncode(keyID);
-    stateCodecPrimitiveEncode(newControls);
-    stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(optionOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, horizontalQuickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, key);
+    buffer_write(global.stateCodecBuffer, buffer_f32, keyID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newControls);
+    buffer_write(global.stateCodecBuffer, buffer_f32, option);
+    buffer_write(global.stateCodecBuffer, buffer_f32, optionOffset);
     stateCodecPrimitiveEncode(optionText);
-    stateCodecPrimitiveEncode(pID);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(press);
-    stateCodecPrimitiveEncode(selected);
-    stateCodecPrimitiveEncode(showArrow);
-    stateCodecPrimitiveEncode(verticalQuickScrollTimer);
-    stateCodecPrimitiveEncode(visibleOptions);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, press);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selected);
+    buffer_write(global.stateCodecBuffer, buffer_f32, showArrow);
+    buffer_write(global.stateCodecBuffer, buffer_f32, verticalQuickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, visibleOptions);
 }
 else
 {
-    arrowBlinkTimer = stateCodecPrimitiveDecode();
-    buffer = stateCodecPrimitiveDecode();
+    arrowBlinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buffer = buffer_read(global.stateCodecBuffer, buffer_f32);
     current = stateCodecPrimitiveDecode();
     currentKeys = stateCodecPrimitiveDecode();
-    cursorImgIndex = stateCodecPrimitiveDecode();
-    cursorImgSpd = stateCodecPrimitiveDecode();
-    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
-    key = stateCodecPrimitiveDecode();
-    keyID = stateCodecPrimitiveDecode();
-    newControls = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
-    optionOffset = stateCodecPrimitiveDecode();
+    cursorImgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cursorImgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horizontalQuickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    key = buffer_read(global.stateCodecBuffer, buffer_f32);
+    keyID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newControls = buffer_read(global.stateCodecBuffer, buffer_f32);
+    option = buffer_read(global.stateCodecBuffer, buffer_f32);
+    optionOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionText = stateCodecPrimitiveDecode();
-    pID = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    press = stateCodecPrimitiveDecode();
-    selected = stateCodecPrimitiveDecode();
-    showArrow = stateCodecPrimitiveDecode();
-    verticalQuickScrollTimer = stateCodecPrimitiveDecode();
-    visibleOptions = stateCodecPrimitiveDecode();
+    pID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    press = buffer_read(global.stateCodecBuffer, buffer_f32);
+    selected = buffer_read(global.stateCodecBuffer, buffer_f32);
+    showArrow = buffer_read(global.stateCodecBuffer, buffer_f32);
+    verticalQuickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    visibleOptions = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

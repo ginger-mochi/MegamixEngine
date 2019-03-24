@@ -335,26 +335,26 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(count);
-    stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(isMaster);
+    buffer_write(global.stateCodecBuffer, buffer_f32, count);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isMaster);
     stateCodecPrimitiveEncode(rotationSpeed);
     stateCodecPrimitiveEncode(spawnAfter);
     stateCodecPrimitiveEncode(spawnOffset);
-    stateCodecPrimitiveEncode(total);
-    stateCodecPrimitiveEncode(velocity);
+    buffer_write(global.stateCodecBuffer, buffer_f32, total);
+    buffer_write(global.stateCodecBuffer, buffer_f32, velocity);
 }
 else
 {
     angle = stateCodecPrimitiveDecode();
-    count = stateCodecPrimitiveDecode();
-    distance = stateCodecPrimitiveDecode();
-    isMaster = stateCodecPrimitiveDecode();
+    count = buffer_read(global.stateCodecBuffer, buffer_f32);
+    distance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isMaster = buffer_read(global.stateCodecBuffer, buffer_f32);
     rotationSpeed = stateCodecPrimitiveDecode();
     spawnAfter = stateCodecPrimitiveDecode();
     spawnOffset = stateCodecPrimitiveDecode();
-    total = stateCodecPrimitiveDecode();
-    velocity = stateCodecPrimitiveDecode();
+    total = buffer_read(global.stateCodecBuffer, buffer_f32);
+    velocity = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

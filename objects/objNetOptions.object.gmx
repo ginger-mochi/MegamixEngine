@@ -369,17 +369,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(enabled);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(opt_n);
-    stateCodecPrimitiveEncode(sel_y);
+    buffer_write(global.stateCodecBuffer, buffer_f32, enabled);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, opt_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sel_y);
 }
 else
 {
-    enabled = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
-    opt_n = stateCodecPrimitiveDecode();
-    sel_y = stateCodecPrimitiveDecode();
+    enabled = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode = buffer_read(global.stateCodecBuffer, buffer_f32);
+    opt_n = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sel_y = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -225,27 +225,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(trackStop);
-    stateCodecPrimitiveEncode(turn);
-    stateCodecPrimitiveEncode(turnRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trackStop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnRange);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    trackStop = stateCodecPrimitiveDecode();
-    turn = stateCodecPrimitiveDecode();
-    turnRange = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trackStop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnRange = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

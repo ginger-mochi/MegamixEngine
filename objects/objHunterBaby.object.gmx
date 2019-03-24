@@ -157,15 +157,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canflash);
-    stateCodecPrimitiveEncode(storeY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canflash);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeY);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    canflash = stateCodecPrimitiveDecode();
-    storeY = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canflash = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

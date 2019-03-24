@@ -103,13 +103,13 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(half);
     stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
     half = stateCodecPrimitiveDecode();
     xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

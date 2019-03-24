@@ -136,15 +136,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(limit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, action);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, limit);
 }
 else
 {
-    action = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    limit = stateCodecPrimitiveDecode();
+    action = buffer_read(global.stateCodecBuffer, buffer_f32);
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    limit = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

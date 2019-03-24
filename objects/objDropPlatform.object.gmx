@@ -169,19 +169,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(dropTimerMax);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rebuildTimerMax);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rebuildTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    canDrop = stateCodecPrimitiveDecode();
-    dropTimerMax = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rebuildTimerMax = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    canDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rebuildTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

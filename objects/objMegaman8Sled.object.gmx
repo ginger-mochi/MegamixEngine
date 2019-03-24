@@ -331,35 +331,35 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(dead);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dead);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
     stateCodecDSEncode(playerProjectiles, ds_type_list);
     stateCodecIDEncode(rider);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(roundAlt);
-    stateCodecPrimitiveEncode(shootYOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, riderPhysicsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, roundAlt);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootYOffset);
     stateCodecPrimitiveEncode(viewX);
-    stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weaponsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    dead = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dead = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     playerProjectiles = stateCodecDSDecode(ds_type_list);
     rider = stateCodecIDDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    roundAlt = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
+    riderPhysicsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    roundAlt = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootYOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     viewX = stateCodecPrimitiveDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    weaponsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

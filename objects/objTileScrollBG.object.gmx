@@ -219,34 +219,34 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(_sl);
-    stateCodecPrimitiveEncode(drawInit);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawInit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecPrimitiveEncode(sr);
-    stateCodecPrimitiveEncode(stepInit);
-    stateCodecPrimitiveEncode(tT);
-    stateCodecPrimitiveEncode(tb);
-    stateCodecPrimitiveEncode(th);
-    stateCodecPrimitiveEncode(tile);
-    stateCodecPrimitiveEncode(tileID);
-    stateCodecPrimitiveEncode(tl);
-    stateCodecPrimitiveEncode(tw);
-    stateCodecPrimitiveEncode(xshift);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stepInit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tT);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tb);
+    buffer_write(global.stateCodecBuffer, buffer_f32, th);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tl);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tw);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xshift);
 }
 else
 {
     _sl = stateCodecPrimitiveDecode();
-    drawInit = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    drawInit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     sr = stateCodecPrimitiveDecode();
-    stepInit = stateCodecPrimitiveDecode();
-    tT = stateCodecPrimitiveDecode();
-    tb = stateCodecPrimitiveDecode();
-    th = stateCodecPrimitiveDecode();
-    tile = stateCodecPrimitiveDecode();
-    tileID = stateCodecPrimitiveDecode();
-    tl = stateCodecPrimitiveDecode();
-    tw = stateCodecPrimitiveDecode();
-    xshift = stateCodecPrimitiveDecode();
+    stepInit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tT = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tb = buffer_read(global.stateCodecBuffer, buffer_f32);
+    th = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tl = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tw = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xshift = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

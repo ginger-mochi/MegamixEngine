@@ -162,19 +162,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmAttack);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(sx);
-    stateCodecPrimitiveEncode(waitLength);
-    stateCodecPrimitiveEncode(zapLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, zapLength);
 }
 else
 {
-    alarmAttack = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    sx = stateCodecPrimitiveDecode();
-    waitLength = stateCodecPrimitiveDecode();
-    zapLength = stateCodecPrimitiveDecode();
+    alarmAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    zapLength = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

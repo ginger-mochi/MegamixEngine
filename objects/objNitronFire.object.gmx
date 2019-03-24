@@ -186,24 +186,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
     stateCodecIDEncode(explosion);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(ogContactDamage);
-    stateCodecPrimitiveEncode(peakTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ogContactDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, peakTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(sprites);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
     explosion = stateCodecIDDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    ogContactDamage = stateCodecPrimitiveDecode();
-    peakTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ogContactDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    peakTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     sprites = stateCodecPrimitiveDecode();
 }
 </string>

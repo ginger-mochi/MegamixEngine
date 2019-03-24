@@ -287,25 +287,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(doQuake);
-    stateCodecPrimitiveEncode(findYSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(storeXScale);
-    stateCodecPrimitiveEncode(turnTrigger);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doQuake);
+    buffer_write(global.stateCodecBuffer, buffer_f32, findYSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTrigger);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    doQuake = stateCodecPrimitiveDecode();
-    findYSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    storeXScale = stateCodecPrimitiveDecode();
-    turnTrigger = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doQuake = buffer_read(global.stateCodecBuffer, buffer_f32);
+    findYSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnTrigger = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

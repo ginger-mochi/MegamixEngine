@@ -499,35 +499,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimerMouth);
-    stateCodecPrimitiveEncode(animTimerTreads);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimerMouth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimerTreads);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(dstX);
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(isDying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dstX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDying);
     stateCodecPrimitiveEncode(moveSpeed);
     stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(playerOnTank);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playerOnTank);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
 }
 else
 {
-    animTimerMouth = stateCodecPrimitiveDecode();
-    animTimerTreads = stateCodecPrimitiveDecode();
+    animTimerMouth = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimerTreads = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    dstX = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
+    dstX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDying = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveSpeed = stateCodecPrimitiveDecode();
     mySolid = stateCodecIDDecode();
-    playerOnTank = stateCodecPrimitiveDecode();
+    playerOnTank = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

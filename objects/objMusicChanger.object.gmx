@@ -109,21 +109,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fileName);
-    stateCodecPrimitiveEncode(loopPoint);
-    stateCodecPrimitiveEncode(musicType);
-    stateCodecPrimitiveEncode(songLength);
-    stateCodecPrimitiveEncode(songVolume);
-    stateCodecPrimitiveEncode(trackNumber);
+    buffer_write(global.stateCodecBuffer, buffer_string, fileName);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loopPoint);
+    buffer_write(global.stateCodecBuffer, buffer_string, musicType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, songLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, songVolume);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trackNumber);
 }
 else
 {
-    fileName = stateCodecPrimitiveDecode();
-    loopPoint = stateCodecPrimitiveDecode();
-    musicType = stateCodecPrimitiveDecode();
-    songLength = stateCodecPrimitiveDecode();
-    songVolume = stateCodecPrimitiveDecode();
-    trackNumber = stateCodecPrimitiveDecode();
+    fileName = buffer_read(global.stateCodecBuffer, buffer_string);
+    loopPoint = buffer_read(global.stateCodecBuffer, buffer_f32);
+    musicType = buffer_read(global.stateCodecBuffer, buffer_string);
+    songLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    songVolume = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trackNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

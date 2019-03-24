@@ -335,27 +335,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(getAngle);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(storeY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeY);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    getAngle = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    getAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    storeY = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

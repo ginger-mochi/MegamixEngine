@@ -238,13 +238,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(liftAccel);
-    stateCodecPrimitiveEncode(liftSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, liftAccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, liftSpeed);
 }
 else
 {
-    liftAccel = stateCodecPrimitiveDecode();
-    liftSpeed = stateCodecPrimitiveDecode();
+    liftAccel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    liftSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

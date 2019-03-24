@@ -223,19 +223,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(iphase);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timeri);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, iphase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeri);
 }
 else
 {
-    canDrop = stateCodecPrimitiveDecode();
-    iphase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
+    canDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    iphase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeri = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -277,19 +277,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(begunMove);
-    stateCodecPrimitiveEncode(damageOffset);
-    stateCodecPrimitiveEncode(has_honked);
-    stateCodecPrimitiveEncode(slowdeath_timer);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, begunMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, damageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, has_honked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slowdeath_timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    begunMove = stateCodecPrimitiveDecode();
-    damageOffset = stateCodecPrimitiveDecode();
-    has_honked = stateCodecPrimitiveDecode();
-    slowdeath_timer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    begunMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    damageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    has_honked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    slowdeath_timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -183,27 +183,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(imgsp);
-    stateCodecPrimitiveEncode(noRain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgsp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, noRain);
     stateCodecIDEncode(sand);
     stateCodecPrimitiveEncode(sandWidth);
-    stateCodecPrimitiveEncode(stopXScale);
-    stateCodecPrimitiveEncode(stopYScale);
-    stateCodecPrimitiveEncode(stretchX);
-    stateCodecPrimitiveEncode(stretchY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopYScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stretchX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stretchY);
 }
 else
 {
-    i = stateCodecPrimitiveDecode();
-    imgsp = stateCodecPrimitiveDecode();
-    noRain = stateCodecPrimitiveDecode();
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgsp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    noRain = buffer_read(global.stateCodecBuffer, buffer_f32);
     sand = stateCodecIDDecode();
     sandWidth = stateCodecPrimitiveDecode();
-    stopXScale = stateCodecPrimitiveDecode();
-    stopYScale = stateCodecPrimitiveDecode();
-    stretchX = stateCodecPrimitiveDecode();
-    stretchY = stateCodecPrimitiveDecode();
+    stopXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopYScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stretchX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stretchY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

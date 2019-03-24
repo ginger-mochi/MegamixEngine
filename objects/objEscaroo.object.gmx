@@ -225,17 +225,17 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
     stateCodecIDEncode(eye);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(introDone);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, introDone);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
     eye = stateCodecIDDecode();
-    init = stateCodecPrimitiveDecode();
-    introDone = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    introDone = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

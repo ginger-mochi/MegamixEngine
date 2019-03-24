@@ -109,17 +109,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(deathTimer);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deathTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
-    deathTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    deathTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -148,23 +148,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(a);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(h);
-    stateCodecPrimitiveEncode(homing);
-    stateCodecPrimitiveEncode(ix);
-    stateCodecPrimitiveEncode(k);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, a);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, h);
+    buffer_write(global.stateCodecBuffer, buffer_f32, homing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ix);
+    buffer_write(global.stateCodecBuffer, buffer_f32, k);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    a = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    h = stateCodecPrimitiveDecode();
-    homing = stateCodecPrimitiveDecode();
-    ix = stateCodecPrimitiveDecode();
-    k = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    a = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    h = buffer_read(global.stateCodecBuffer, buffer_f32);
+    homing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ix = buffer_read(global.stateCodecBuffer, buffer_f32);
+    k = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

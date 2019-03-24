@@ -210,21 +210,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(imgsp);
-    stateCodecPrimitiveEncode(imgspalarm);
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgsp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgspalarm);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    imgsp = stateCodecPrimitiveDecode();
-    imgspalarm = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgsp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgspalarm = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

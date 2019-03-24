@@ -190,13 +190,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(hasTurned);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTurned);
 }
 else
 {
-    canTurn = stateCodecPrimitiveDecode();
-    hasTurned = stateCodecPrimitiveDecode();
+    canTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTurned = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -90,13 +90,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(order);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, order);
 }
 else
 {
-    myFlag = stateCodecPrimitiveDecode();
-    order = stateCodecPrimitiveDecode();
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    order = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

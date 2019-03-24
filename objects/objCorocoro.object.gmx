@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(fallen);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(jumped);
-    stateCodecPrimitiveEncode(timeToJump);
-    stateCodecPrimitiveEncode(turnAroundDelay);
-    stateCodecPrimitiveEncode(walkX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeToJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnAroundDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkX);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    fallen = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    jumped = stateCodecPrimitiveDecode();
-    timeToJump = stateCodecPrimitiveDecode();
-    turnAroundDelay = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fallen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeToJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnAroundDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

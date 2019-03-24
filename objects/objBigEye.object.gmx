@@ -223,21 +223,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(repeatAmount);
-    stateCodecPrimitiveEncode(repeatIsHigh);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, repeatAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, repeatIsHigh);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    repeatAmount = stateCodecPrimitiveDecode();
-    repeatIsHigh = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    repeatAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    repeatIsHigh = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

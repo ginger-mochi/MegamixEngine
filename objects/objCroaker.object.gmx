@@ -192,21 +192,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(childLimit);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(spitSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, childLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spitSpeed);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    childLimit = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    spitSpeed = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    childLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spitSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

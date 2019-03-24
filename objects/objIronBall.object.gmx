@@ -510,26 +510,26 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(laserSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, laserSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecPrimitiveEncode(yStore);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bounces = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    laserSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    laserSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     yStore = stateCodecPrimitiveDecode();
 }
 </string>

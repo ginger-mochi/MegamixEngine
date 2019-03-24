@@ -109,20 +109,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(order);
-    stateCodecPrimitiveEncode(path_speed);
-    stateCodecPrimitiveEncode(reflectable);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, order);
+    buffer_write(global.stateCodecBuffer, buffer_f32, path_speed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reflectable);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecPrimitiveEncode(turnAfter);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    order = stateCodecPrimitiveDecode();
-    path_speed = stateCodecPrimitiveDecode();
-    reflectable = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    order = buffer_read(global.stateCodecBuffer, buffer_f32);
+    path_speed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    reflectable = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     turnAfter = stateCodecPrimitiveDecode();
 }
 </string>

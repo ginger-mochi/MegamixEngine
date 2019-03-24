@@ -112,15 +112,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(reflectable);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reflectable);
 }
 else
 {
-    imgSpeed = stateCodecPrimitiveDecode();
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    reflectable = stateCodecPrimitiveDecode();
+    reflectable = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -88,19 +88,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(tile_bg);
-    stateCodecPrimitiveEncode(tile_h);
-    stateCodecPrimitiveEncode(tile_left);
-    stateCodecPrimitiveEncode(tile_top);
-    stateCodecPrimitiveEncode(tile_w);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_bg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_h);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_left);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_top);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_w);
 }
 else
 {
-    tile_bg = stateCodecPrimitiveDecode();
-    tile_h = stateCodecPrimitiveDecode();
-    tile_left = stateCodecPrimitiveDecode();
-    tile_top = stateCodecPrimitiveDecode();
-    tile_w = stateCodecPrimitiveDecode();
+    tile_bg = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile_h = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile_left = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile_top = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile_w = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

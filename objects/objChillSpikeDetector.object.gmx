@@ -216,26 +216,26 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aimAtMegaman);
-    stateCodecPrimitiveEncode(center);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hitFloor);
-    stateCodecPrimitiveEncode(hitWall);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(shuntedIntoRoof);
-    stateCodecPrimitiveEncode(spreadAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aimAtMegaman);
+    buffer_write(global.stateCodecBuffer, buffer_f32, center);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitFloor);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shuntedIntoRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spreadAttack);
     stateCodecPrimitiveEncode(target);
 }
 else
 {
-    aimAtMegaman = stateCodecPrimitiveDecode();
-    center = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    hitFloor = stateCodecPrimitiveDecode();
-    hitWall = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    shuntedIntoRoof = stateCodecPrimitiveDecode();
-    spreadAttack = stateCodecPrimitiveDecode();
+    aimAtMegaman = buffer_read(global.stateCodecBuffer, buffer_f32);
+    center = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hitFloor = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hitWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shuntedIntoRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spreadAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
     target = stateCodecPrimitiveDecode();
 }
 </string>

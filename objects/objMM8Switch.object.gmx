@@ -118,13 +118,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(inverse);
-    stateCodecPrimitiveEncode(myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inverse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
 }
 else
 {
-    inverse = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
+    inverse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

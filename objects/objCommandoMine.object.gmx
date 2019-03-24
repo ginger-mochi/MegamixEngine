@@ -252,20 +252,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(inst_restore);
-    stateCodecPrimitiveEncode(inst_restore_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inst_restore_n);
     stateCodecPrimitiveEncode(obj_embed);
-    stateCodecPrimitiveEncode(obj_embed_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, obj_embed_n);
     stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(tile_layer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_layer);
 }
 else
 {
     inst_restore = stateCodecPrimitiveDecode();
-    inst_restore_n = stateCodecPrimitiveDecode();
+    inst_restore_n = buffer_read(global.stateCodecBuffer, buffer_f32);
     obj_embed = stateCodecPrimitiveDecode();
-    obj_embed_n = stateCodecPrimitiveDecode();
+    obj_embed_n = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
-    tile_layer = stateCodecPrimitiveDecode();
+    tile_layer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

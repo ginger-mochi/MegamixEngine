@@ -272,23 +272,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecIDEncode(chosenPipe);
-    stateCodecPrimitiveEncode(delayPipe);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayPipe);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     chosenPipe = stateCodecIDDecode();
-    delayPipe = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    delayPipe = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -228,20 +228,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(elecDirec);
-    stateCodecPrimitiveEncode(imageCountDir);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageCountDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(powerSource);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
     elecDirec = stateCodecIDDecode();
-    imageCountDir = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    imageCountDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     powerSource = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

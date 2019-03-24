@@ -120,24 +120,24 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destroyIfUnlocked);
-    stateCodecPrimitiveEncode(infiniteEnergy);
-    stateCodecPrimitiveEncode(levelReward);
-    stateCodecPrimitiveEncode(lockBuster);
-    stateCodecPrimitiveEncode(lockToWeapon);
-    stateCodecPrimitiveEncode(lockWeapon);
-    stateCodecPrimitiveEncode(weapon);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyIfUnlocked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, infiniteEnergy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, levelReward);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockBuster);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockToWeapon);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockWeapon);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weapon);
     stateCodecPrimitiveEncode(weaponID);
 }
 else
 {
-    destroyIfUnlocked = stateCodecPrimitiveDecode();
-    infiniteEnergy = stateCodecPrimitiveDecode();
-    levelReward = stateCodecPrimitiveDecode();
-    lockBuster = stateCodecPrimitiveDecode();
-    lockToWeapon = stateCodecPrimitiveDecode();
-    lockWeapon = stateCodecPrimitiveDecode();
-    weapon = stateCodecPrimitiveDecode();
+    destroyIfUnlocked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    infiniteEnergy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    levelReward = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockBuster = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockToWeapon = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockWeapon = buffer_read(global.stateCodecBuffer, buffer_f32);
+    weapon = buffer_read(global.stateCodecBuffer, buffer_f32);
     weaponID = stateCodecPrimitiveDecode();
 }
 </string>

@@ -184,16 +184,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDArrayEncode(block);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
 }
 else
 {
     block = stateCodecIDArrayDecode();
-    i = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

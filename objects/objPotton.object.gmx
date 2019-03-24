@@ -163,21 +163,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(isDrop);
-    stateCodecPrimitiveEncode(isDropTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDropTimer);
 }
 else
 {
-    canDrop = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    isDrop = stateCodecPrimitiveDecode();
-    isDropTimer = stateCodecPrimitiveDecode();
+    canDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDropTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

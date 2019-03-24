@@ -259,31 +259,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(jumpSpd);
-    stateCodecPrimitiveEncode(landingWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landingWait);
     stateCodecPrimitiveEncode(landingWaitTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(runCycleBack);
-    stateCodecPrimitiveEncode(runSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runCycleBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runSpd);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    jumpSpd = stateCodecPrimitiveDecode();
-    landingWait = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landingWait = buffer_read(global.stateCodecBuffer, buffer_f32);
     landingWaitTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    runCycleBack = stateCodecPrimitiveDecode();
-    runSpd = stateCodecPrimitiveDecode();
+    runCycleBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    runSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -238,18 +238,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(caughtPlayer);
-    stateCodecPrimitiveEncode(caughtTimer);
-    stateCodecPrimitiveEncode(caughtXScalePrev);
-    stateCodecPrimitiveEncode(despawnTimer);
-    stateCodecPrimitiveEncode(honeyLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, caughtTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, caughtXScalePrev);
+    buffer_write(global.stateCodecBuffer, buffer_f32, despawnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, honeyLock);
 }
 else
 {
     caughtPlayer = stateCodecIDDecode();
-    caughtTimer = stateCodecPrimitiveDecode();
-    caughtXScalePrev = stateCodecPrimitiveDecode();
-    despawnTimer = stateCodecPrimitiveDecode();
-    honeyLock = stateCodecPrimitiveDecode();
+    caughtTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    caughtXScalePrev = buffer_read(global.stateCodecBuffer, buffer_f32);
+    despawnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    honeyLock = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

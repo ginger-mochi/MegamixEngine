@@ -363,29 +363,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bobAround);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(skewerPhase);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bobAround);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, skewerPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bobAround = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    skewerPhase = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bobAround = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    skewerPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

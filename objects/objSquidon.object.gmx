@@ -286,23 +286,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
     stateCodecPrimitiveEncode(missle);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(place);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, place);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
     missle = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    place = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    place = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

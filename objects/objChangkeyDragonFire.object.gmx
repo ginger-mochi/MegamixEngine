@@ -255,25 +255,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(burnOut);
-    stateCodecPrimitiveEncode(canFlip);
-    stateCodecPrimitiveEncode(fireExists);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(isOnGround);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(tackleFire);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, burnOut);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canFlip);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fireExists);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isOnGround);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tackleFire);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    burnOut = stateCodecPrimitiveDecode();
-    canFlip = stateCodecPrimitiveDecode();
-    fireExists = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    isOnGround = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    tackleFire = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    burnOut = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canFlip = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fireExists = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isOnGround = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tackleFire = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

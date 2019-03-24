@@ -203,28 +203,28 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(_dir);
-    stateCodecPrimitiveEncode(_groundDir);
-    stateCodecPrimitiveEncode(_prevCollision);
-    stateCodecPrimitiveEncode(_velX);
-    stateCodecPrimitiveEncode(_velY);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(db);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(sp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _groundDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _prevCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _velX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _velY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, db);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sp);
 }
 else
 {
     _dir = stateCodecPrimitiveDecode();
-    _groundDir = stateCodecPrimitiveDecode();
-    _prevCollision = stateCodecPrimitiveDecode();
-    _velX = stateCodecPrimitiveDecode();
-    _velY = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    db = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    sp = stateCodecPrimitiveDecode();
+    _groundDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _prevCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _velX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    _velY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    db = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

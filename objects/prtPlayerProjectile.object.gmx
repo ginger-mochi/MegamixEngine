@@ -174,17 +174,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bulletLimitCost);
-    stateCodecPrimitiveEncode(costumeID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bulletLimitCost);
+    buffer_write(global.stateCodecBuffer, buffer_f32, costumeID);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(playerID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playerID);
 }
 else
 {
-    bulletLimitCost = stateCodecPrimitiveDecode();
-    costumeID = stateCodecPrimitiveDecode();
+    bulletLimitCost = buffer_read(global.stateCodecBuffer, buffer_f32);
+    costumeID = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    playerID = stateCodecPrimitiveDecode();
+    playerID = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

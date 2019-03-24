@@ -196,25 +196,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(chgPhases);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(lockMovement);
-    stateCodecPrimitiveEncode(toggle);
-    stateCodecPrimitiveEncode(xCont);
-    stateCodecPrimitiveEncode(xLock);
-    stateCodecPrimitiveEncode(yCont);
-    stateCodecPrimitiveEncode(yLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chgPhases);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockMovement);
+    buffer_write(global.stateCodecBuffer, buffer_f32, toggle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xCont);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yCont);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yLock);
 }
 else
 {
-    chgPhases = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    lockMovement = stateCodecPrimitiveDecode();
-    toggle = stateCodecPrimitiveDecode();
-    xCont = stateCodecPrimitiveDecode();
-    xLock = stateCodecPrimitiveDecode();
-    yCont = stateCodecPrimitiveDecode();
-    yLock = stateCodecPrimitiveDecode();
+    chgPhases = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockMovement = buffer_read(global.stateCodecBuffer, buffer_f32);
+    toggle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xCont = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yCont = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yLock = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

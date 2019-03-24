@@ -314,12 +314,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(slashLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slashLock);
     stateCodecPrimitiveEncode(xst);
 }
 else
 {
-    slashLock = stateCodecPrimitiveDecode();
+    slashLock = buffer_read(global.stateCodecBuffer, buffer_f32);
     xst = stateCodecPrimitiveDecode();
 }
 </string>

@@ -205,31 +205,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(fallSpeed);
-    stateCodecPrimitiveEncode(isFalling);
-    stateCodecPrimitiveEncode(jumpDistance);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(moveDeceleration);
-    stateCodecPrimitiveEncode(moveDistance);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(rightLimit);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isFalling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leftLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDeceleration);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rightLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    fallSpeed = stateCodecPrimitiveDecode();
-    isFalling = stateCodecPrimitiveDecode();
-    jumpDistance = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    leftLimit = stateCodecPrimitiveDecode();
-    moveDeceleration = stateCodecPrimitiveDecode();
-    moveDistance = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fallSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isFalling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leftLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDeceleration = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rightLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

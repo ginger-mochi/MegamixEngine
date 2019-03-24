@@ -454,18 +454,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
     stateCodecPrimitiveEncode(clearSource);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
     stateCodecPrimitiveEncode(snowSource);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     clearSource = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
     snowSource = stateCodecPrimitiveDecode();
 }
 </string>

@@ -336,33 +336,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecPrimitiveEncode(capture);
-    stateCodecPrimitiveEncode(dmg);
-    stateCodecPrimitiveEncode(dmgMax);
-    stateCodecPrimitiveEncode(dmgTimer);
-    stateCodecPrimitiveEncode(fire);
-    stateCodecPrimitiveEncode(gloopLock);
-    stateCodecPrimitiveEncode(hurtMega);
-    stateCodecPrimitiveEncode(movementLock);
-    stateCodecPrimitiveEncode(pop);
-    stateCodecPrimitiveEncode(setMega);
-    stateCodecPrimitiveEncode(walkStore);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dmg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dmgMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dmgTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fire);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gloopLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hurtMega);
+    buffer_write(global.stateCodecBuffer, buffer_f32, movementLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setMega);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkStore);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     capture = stateCodecPrimitiveDecode();
-    dmg = stateCodecPrimitiveDecode();
-    dmgMax = stateCodecPrimitiveDecode();
-    dmgTimer = stateCodecPrimitiveDecode();
-    fire = stateCodecPrimitiveDecode();
-    gloopLock = stateCodecPrimitiveDecode();
-    hurtMega = stateCodecPrimitiveDecode();
-    movementLock = stateCodecPrimitiveDecode();
-    pop = stateCodecPrimitiveDecode();
-    setMega = stateCodecPrimitiveDecode();
-    walkStore = stateCodecPrimitiveDecode();
+    dmg = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dmgMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dmgTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fire = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gloopLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hurtMega = buffer_read(global.stateCodecBuffer, buffer_f32);
+    movementLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setMega = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkStore = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

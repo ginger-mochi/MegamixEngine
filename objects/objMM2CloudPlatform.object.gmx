@@ -125,14 +125,14 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
     stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(sinc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinc);
     stateCodecPrimitiveEncode(xs);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
     sinCounter = stateCodecPrimitiveDecode();
-    sinc = stateCodecPrimitiveDecode();
+    sinc = buffer_read(global.stateCodecBuffer, buffer_f32);
     xs = stateCodecPrimitiveDecode();
 }
 </string>

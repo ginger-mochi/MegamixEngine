@@ -506,51 +506,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(collapsePhase);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(setX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, collapsePhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayUse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setX);
     stateCodecPrimitiveEncode(strMMX);
     stateCodecPrimitiveEncode(strMMY);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmDeathOnDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashInterval);
     stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashTimer);
     stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmSquirmTimer);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmSquirmTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmThrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    collapsePhase = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    collapsePhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayUse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setX = buffer_read(global.stateCodecBuffer, buffer_f32);
     strMMX = stateCodecPrimitiveDecode();
     strMMY = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
+    superArmDeathOnDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmFlashInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmFlashOwner = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmFlashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmSquirmTimer = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    superArmSquirmTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmThrown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

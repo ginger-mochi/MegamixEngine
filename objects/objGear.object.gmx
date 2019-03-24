@@ -147,13 +147,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(alarmPop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmPop);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    alarmPop = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    alarmPop = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -219,23 +219,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(flySpeed);
-    stateCodecPrimitiveEncode(goHere);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, goHere);
     stateCodecIDEncode(missile);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    flySpeed = stateCodecPrimitiveDecode();
-    goHere = stateCodecPrimitiveDecode();
+    flySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    goHere = buffer_read(global.stateCodecBuffer, buffer_f32);
     missile = stateCodecIDDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

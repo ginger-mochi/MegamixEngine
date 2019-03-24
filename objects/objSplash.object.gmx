@@ -116,20 +116,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(blockCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blockCollision);
     stateCodecIDEncode(sfc);
-    stateCodecPrimitiveEncode(sfcx);
-    stateCodecPrimitiveEncode(sfcy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sfcx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sfcy);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    blockCollision = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blockCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
     sfc = stateCodecIDDecode();
-    sfcx = stateCodecPrimitiveDecode();
-    sfcy = stateCodecPrimitiveDecode();
+    sfcx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sfcy = buffer_read(global.stateCodecBuffer, buffer_f32);
     timer = stateCodecPrimitiveDecode();
 }
 </string>

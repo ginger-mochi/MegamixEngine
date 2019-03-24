@@ -183,12 +183,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hitByBear);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitByBear);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    hitByBear = stateCodecPrimitiveDecode();
+    hitByBear = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

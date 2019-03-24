@@ -144,13 +144,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(triggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, triggered);
 }
 else
 {
-    maxSpeed = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    triggered = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

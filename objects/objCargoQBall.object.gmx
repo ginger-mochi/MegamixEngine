@@ -162,23 +162,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(type);
-    stateCodecPrimitiveEncode(xspeed1);
-    stateCodecPrimitiveEncode(xspeed2);
-    stateCodecPrimitiveEncode(yspeed1);
-    stateCodecPrimitiveEncode(yspeed2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed2);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     jumpCount = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
-    xspeed1 = stateCodecPrimitiveDecode();
-    xspeed2 = stateCodecPrimitiveDecode();
-    yspeed1 = stateCodecPrimitiveDecode();
-    yspeed2 = stateCodecPrimitiveDecode();
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed2 = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

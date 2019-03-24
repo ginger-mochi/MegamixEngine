@@ -139,13 +139,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(collectMe);
-    stateCodecPrimitiveEncode(setX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, collectMe);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setX);
 }
 else
 {
-    collectMe = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
+    collectMe = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

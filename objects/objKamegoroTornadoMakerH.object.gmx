@@ -128,16 +128,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(kamegoroDead);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, kamegoroDead);
     stateCodecPrimitiveEncode(tornado);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    kamegoroDead = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    kamegoroDead = buffer_read(global.stateCodecBuffer, buffer_f32);
     tornado = stateCodecPrimitiveDecode();
 }
 </string>

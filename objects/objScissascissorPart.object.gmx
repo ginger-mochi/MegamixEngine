@@ -217,17 +217,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
     stateCodecPrimitiveEncode(contactStart);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(splitWithSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, splitWithSpawn);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     contactStart = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
-    splitWithSpawn = stateCodecPrimitiveDecode();
+    splitWithSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

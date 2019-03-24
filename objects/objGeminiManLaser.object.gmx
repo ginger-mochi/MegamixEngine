@@ -140,15 +140,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(savedXspeed);
-    stateCodecPrimitiveEncode(savedYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, savedXspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, savedYspeed);
 }
 else
 {
-    bounces = stateCodecPrimitiveDecode();
-    savedXspeed = stateCodecPrimitiveDecode();
-    savedYspeed = stateCodecPrimitiveDecode();
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    savedXspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    savedYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

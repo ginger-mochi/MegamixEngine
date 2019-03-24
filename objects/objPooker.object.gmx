@@ -411,24 +411,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(getY);
-    stateCodecPrimitiveEncode(lock);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(platTarget);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
     contactStart = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     getY = stateCodecPrimitiveDecode();
-    lock = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    lock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     platTarget = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

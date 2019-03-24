@@ -280,29 +280,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecIDEncode(child);
     stateCodecPrimitiveEncode(partner);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(strMMY);
-    stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(xMax);
-    stateCodecPrimitiveEncode(xMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variant);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xMin);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
     partner = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    strMMY = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
-    xMax = stateCodecPrimitiveDecode();
-    xMin = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variant = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xMin = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

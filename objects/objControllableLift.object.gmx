@@ -226,28 +226,28 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(deltaY);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(lockPool);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(resetMe);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(yMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deltaY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockPool);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetMe);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMax);
     stateCodecPrimitiveEncode(yMin);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    deltaY = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    lockPool = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    resetMe = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
+    deltaY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockPool = buffer_read(global.stateCodecBuffer, buffer_f32);
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetMe = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     yMin = stateCodecPrimitiveDecode();
 }
 </string>

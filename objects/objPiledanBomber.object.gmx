@@ -255,23 +255,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
     stateCodecPrimitiveEncode(myPiledan);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(subPhase);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
     myPiledan = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
-    subPhase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    subPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

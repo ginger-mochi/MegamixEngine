@@ -153,19 +153,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmAnimation);
-    stateCodecPrimitiveEncode(alarmGenerate);
-    stateCodecPrimitiveEncode(alarmRise);
-    stateCodecPrimitiveEncode(generated);
-    stateCodecPrimitiveEncode(gremlinDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmGenerate);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmRise);
+    buffer_write(global.stateCodecBuffer, buffer_f32, generated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gremlinDir);
 }
 else
 {
-    alarmAnimation = stateCodecPrimitiveDecode();
-    alarmGenerate = stateCodecPrimitiveDecode();
-    alarmRise = stateCodecPrimitiveDecode();
-    generated = stateCodecPrimitiveDecode();
-    gremlinDir = stateCodecPrimitiveDecode();
+    alarmAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    alarmGenerate = buffer_read(global.stateCodecBuffer, buffer_f32);
+    alarmRise = buffer_read(global.stateCodecBuffer, buffer_f32);
+    generated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gremlinDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

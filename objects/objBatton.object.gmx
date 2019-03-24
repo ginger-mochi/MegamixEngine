@@ -214,15 +214,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmChange);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(started);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, started);
 }
 else
 {
-    alarmChange = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    started = stateCodecPrimitiveDecode();
+    alarmChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    started = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

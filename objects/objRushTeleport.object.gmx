@@ -329,11 +329,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canNeverLand);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canNeverLand);
     stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(teleportTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportTimer);
     stateCodecPrimitiveEncode(type);
     stateCodecPrimitiveEncode(upordown);
     stateCodecPrimitiveEncode(warpInSFX);
@@ -341,11 +341,11 @@ if (global.stateCodecEncode)
 }
 else
 {
-    canNeverLand = stateCodecPrimitiveDecode();
+    canNeverLand = buffer_read(global.stateCodecBuffer, buffer_f32);
     col = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    teleportTimer = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     type = stateCodecPrimitiveDecode();
     upordown = stateCodecPrimitiveDecode();
     warpInSFX = stateCodecPrimitiveDecode();

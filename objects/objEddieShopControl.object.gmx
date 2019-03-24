@@ -651,11 +651,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cursorImageIndex);
-    stateCodecPrimitiveEncode(cursorImageTimer);
-    stateCodecPrimitiveEncode(inShop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImageIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inShop);
     stateCodecPrimitiveEncode(myBolts);
-    stateCodecPrimitiveEncode(option);
+    buffer_write(global.stateCodecBuffer, buffer_f32, option);
     stateCodecPrimitiveEncode(optionTableDescription);
     stateCodecPrimitiveEncode(optionTableImageBought);
     stateCodecPrimitiveEncode(optionTableImageInStock);
@@ -669,11 +669,11 @@ if (global.stateCodecEncode)
 }
 else
 {
-    cursorImageIndex = stateCodecPrimitiveDecode();
-    cursorImageTimer = stateCodecPrimitiveDecode();
-    inShop = stateCodecPrimitiveDecode();
+    cursorImageIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cursorImageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    inShop = buffer_read(global.stateCodecBuffer, buffer_f32);
     myBolts = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
+    option = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionTableDescription = stateCodecPrimitiveDecode();
     optionTableImageBought = stateCodecPrimitiveDecode();
     optionTableImageInStock = stateCodecPrimitiveDecode();

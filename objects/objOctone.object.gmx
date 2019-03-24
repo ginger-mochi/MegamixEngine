@@ -223,17 +223,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

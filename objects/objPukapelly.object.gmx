@@ -233,35 +233,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
     stateCodecPrimitiveEncode(cY);
-    stateCodecPrimitiveEncode(chgPhases);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(lockMovement);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(toggle);
-    stateCodecPrimitiveEncode(xCont);
-    stateCodecPrimitiveEncode(xLock);
-    stateCodecPrimitiveEncode(yCont);
-    stateCodecPrimitiveEncode(yLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chgPhases);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockMovement);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, toggle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xCont);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yCont);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yLock);
 }
 else
 {
-    addAngle = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
     cY = stateCodecPrimitiveDecode();
-    chgPhases = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    lockMovement = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    toggle = stateCodecPrimitiveDecode();
-    xCont = stateCodecPrimitiveDecode();
-    xLock = stateCodecPrimitiveDecode();
-    yCont = stateCodecPrimitiveDecode();
-    yLock = stateCodecPrimitiveDecode();
+    chgPhases = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockMovement = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    toggle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xCont = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yCont = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yLock = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

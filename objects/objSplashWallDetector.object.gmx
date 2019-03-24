@@ -104,13 +104,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hitWall);
-    stateCodecPrimitiveEncode(i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
 }
 else
 {
-    hitWall = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
+    hitWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

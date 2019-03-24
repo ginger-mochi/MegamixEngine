@@ -298,21 +298,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attack);
     stateCodecPrimitiveEncode(dir);
     stateCodecIDEncode(hand);
-    stateCodecPrimitiveEncode(recoil);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, recoil);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attack = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attack = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
     hand = stateCodecIDDecode();
-    recoil = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    recoil = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

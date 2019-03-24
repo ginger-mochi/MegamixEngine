@@ -183,19 +183,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecIDEncode(chunco);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotLimit);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     chunco = stateCodecIDDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotLimit = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

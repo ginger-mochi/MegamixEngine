@@ -160,11 +160,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmMove);
 }
 else
 {
-    alarmMove = stateCodecPrimitiveDecode();
+    alarmMove = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

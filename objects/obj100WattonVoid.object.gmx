@@ -117,14 +117,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(autoDieTime);
-    stateCodecPrimitiveEncode(autoDieTimer);
-    stateCodecPrimitiveEncode(fadephase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, autoDieTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fadephase);
 }
 else
 {
     autoDieTime = stateCodecPrimitiveDecode();
-    autoDieTimer = stateCodecPrimitiveDecode();
-    fadephase = stateCodecPrimitiveDecode();
+    autoDieTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fadephase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

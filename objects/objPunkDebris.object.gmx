@@ -105,11 +105,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

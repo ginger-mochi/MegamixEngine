@@ -334,33 +334,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(drawTimer);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(targY);
-    stateCodecPrimitiveEncode(toxin);
-    stateCodecPrimitiveEncode(toxinTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, toxin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, toxinTimer);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    drawTimer = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    targX = stateCodecPrimitiveDecode();
-    targY = stateCodecPrimitiveDecode();
-    toxin = stateCodecPrimitiveDecode();
-    toxinTimer = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    toxin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    toxinTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -378,41 +378,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aiTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aiTurn);
     stateCodecPrimitiveEncode(birdInstanceStore);
-    stateCodecPrimitiveEncode(delayMove);
-    stateCodecPrimitiveEncode(delayOriginalBird);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayOriginalBird);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(extraBirdTurn);
-    stateCodecPrimitiveEncode(extraBirds);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveSpeedX);
-    stateCodecPrimitiveEncode(moveSpeedY);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, extraBirds);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeedX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeedY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
     stateCodecPrimitiveEncode(resetExtraBirds);
-    stateCodecPrimitiveEncode(turnDelay);
-    stateCodecPrimitiveEncode(turningFrames);
-    stateCodecPrimitiveEncode(xSpeed);
-    stateCodecPrimitiveEncode(ySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turningFrames);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySpeed);
 }
 else
 {
-    aiTurn = stateCodecPrimitiveDecode();
+    aiTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
     birdInstanceStore = stateCodecPrimitiveDecode();
-    delayMove = stateCodecPrimitiveDecode();
-    delayOriginalBird = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    delayMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayOriginalBird = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     extraBirdTurn = stateCodecPrimitiveDecode();
-    extraBirds = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveSpeedX = stateCodecPrimitiveDecode();
-    moveSpeedY = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    extraBirds = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeedX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeedY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
     resetExtraBirds = stateCodecPrimitiveDecode();
-    turnDelay = stateCodecPrimitiveDecode();
-    turningFrames = stateCodecPrimitiveDecode();
-    xSpeed = stateCodecPrimitiveDecode();
-    ySpeed = stateCodecPrimitiveDecode();
+    turnDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turningFrames = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

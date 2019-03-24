@@ -402,31 +402,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
     stateCodecIDArrayEncode(child);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(resetGrav);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(stunLock);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stunLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDArrayDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    resetGrav = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    stunLock = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stunLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

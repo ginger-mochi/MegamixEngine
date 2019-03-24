@@ -156,15 +156,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(loadTimer);
-    stateCodecPrimitiveEncode(springTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loadTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, springTimer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    loadTimer = stateCodecPrimitiveDecode();
-    springTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    loadTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    springTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

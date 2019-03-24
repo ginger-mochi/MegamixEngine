@@ -155,15 +155,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(raiseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, raiseTimer);
     stateCodecIDArrayEncode(spawnFire);
-    stateCodecPrimitiveEncode(style);
+    buffer_write(global.stateCodecBuffer, buffer_f32, style);
 }
 else
 {
-    raiseTimer = stateCodecPrimitiveDecode();
+    raiseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     spawnFire = stateCodecIDArrayDecode();
-    style = stateCodecPrimitiveDecode();
+    style = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -162,17 +162,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(resetCooldown);
-    stateCodecPrimitiveEncode(shootAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAngle);
 }
 else
 {
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    resetCooldown = stateCodecPrimitiveDecode();
-    shootAngle = stateCodecPrimitiveDecode();
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

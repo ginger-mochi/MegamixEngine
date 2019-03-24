@@ -306,27 +306,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownImageMax);
-    stateCodecPrimitiveEncode(cooldownImageTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(popUporDown);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(turnAroundBrightEyes);
-    stateCodecPrimitiveEncode(turnAroundOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popUporDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnAroundBrightEyes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnAroundOffset);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownImageMax = stateCodecPrimitiveDecode();
-    cooldownImageTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    popUporDown = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    turnAroundBrightEyes = stateCodecPrimitiveDecode();
-    turnAroundOffset = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    popUporDown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnAroundBrightEyes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnAroundOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

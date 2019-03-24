@@ -159,17 +159,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canFall);
-    stateCodecPrimitiveEncode(fallTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    canFall = stateCodecPrimitiveDecode();
-    fallTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    canFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fallTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

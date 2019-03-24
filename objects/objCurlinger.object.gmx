@@ -220,19 +220,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(acceleration);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(keptXSpd);
-    stateCodecPrimitiveEncode(knocked);
-    stateCodecPrimitiveEncode(maxXSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, acceleration);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, keptXSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, knocked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxXSpd);
 }
 else
 {
-    acceleration = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    keptXSpd = stateCodecPrimitiveDecode();
-    knocked = stateCodecPrimitiveDecode();
-    maxXSpd = stateCodecPrimitiveDecode();
+    acceleration = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    keptXSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    knocked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxXSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

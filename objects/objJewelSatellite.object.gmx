@@ -528,31 +528,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ID);
-    stateCodecPrimitiveEncode(delete);
-    stateCodecPrimitiveEncode(dirdir);
-    stateCodecPrimitiveEncode(dirphase);
-    stateCodecPrimitiveEncode(endInitTimer);
-    stateCodecPrimitiveEncode(followPlayer);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(num);
-    stateCodecPrimitiveEncode(range);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delete);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dirdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dirphase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endInitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, followPlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, num);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecPrimitiveEncode(xs);
     stateCodecPrimitiveEncode(ys);
 }
 else
 {
-    ID = stateCodecPrimitiveDecode();
-    delete = stateCodecPrimitiveDecode();
-    dirdir = stateCodecPrimitiveDecode();
-    dirphase = stateCodecPrimitiveDecode();
-    endInitTimer = stateCodecPrimitiveDecode();
-    followPlayer = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    ID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delete = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dirdir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dirphase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    endInitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    followPlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    num = buffer_read(global.stateCodecBuffer, buffer_f32);
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     xs = stateCodecPrimitiveDecode();
     ys = stateCodecPrimitiveDecode();
 }

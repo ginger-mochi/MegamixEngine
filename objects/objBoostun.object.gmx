@@ -362,29 +362,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(flyTimer);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
     stateCodecIDEncode(missile);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    animBack = stateCodecPrimitiveDecode();
-    flyTimer = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
     missile = stateCodecIDDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

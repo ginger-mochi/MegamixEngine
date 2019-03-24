@@ -237,39 +237,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(countOwn);
-    stateCodecPrimitiveEncode(limit);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, countOwn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, limit);
     stateCodecPrimitiveEncode(object);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(scriptArgC);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scriptArgC);
     stateCodecPrimitiveEncode(scriptArgV);
-    stateCodecPrimitiveEncode(shiftEdgeHorizontal);
-    stateCodecPrimitiveEncode(shiftEdgeVertical);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shiftEdgeHorizontal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shiftEdgeVertical);
     stateCodecPrimitiveEncode(spawnList);
-    stateCodecPrimitiveEncode(spawnN);
-    stateCodecPrimitiveEncode(spawnWait);
-    stateCodecPrimitiveEncode(spawnedCount);
-    stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnedCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    code = stateCodecPrimitiveDecode();
-    countOwn = stateCodecPrimitiveDecode();
-    limit = stateCodecPrimitiveDecode();
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
+    countOwn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    limit = buffer_read(global.stateCodecBuffer, buffer_f32);
     object = stateCodecPrimitiveDecode();
     script = stateCodecPrimitiveDecode();
-    scriptArgC = stateCodecPrimitiveDecode();
+    scriptArgC = buffer_read(global.stateCodecBuffer, buffer_f32);
     scriptArgV = stateCodecPrimitiveDecode();
-    shiftEdgeHorizontal = stateCodecPrimitiveDecode();
-    shiftEdgeVertical = stateCodecPrimitiveDecode();
+    shiftEdgeHorizontal = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shiftEdgeVertical = buffer_read(global.stateCodecBuffer, buffer_f32);
     spawnList = stateCodecPrimitiveDecode();
-    spawnN = stateCodecPrimitiveDecode();
-    spawnWait = stateCodecPrimitiveDecode();
-    spawnedCount = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    spawnN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnedCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

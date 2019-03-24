@@ -562,45 +562,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canJump);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hasCentaurFlashed);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(oldPhase);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasCentaurFlashed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageNoMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oldPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(randomSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, randomSpawn);
     stateCodecPrimitiveEncode(randomiser);
-    stateCodecPrimitiveEncode(timeStopLock);
-    stateCodecPrimitiveEncode(walkSound);
-    stateCodecPrimitiveEncode(walkX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeStopLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkSound);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkX);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    canJump = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    hasCentaurFlashed = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    oldPhase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasCentaurFlashed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageNoMin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oldPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    randomSpawn = stateCodecPrimitiveDecode();
+    randomSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
     randomiser = stateCodecPrimitiveDecode();
-    timeStopLock = stateCodecPrimitiveDecode();
-    walkSound = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
+    timeStopLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkSound = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

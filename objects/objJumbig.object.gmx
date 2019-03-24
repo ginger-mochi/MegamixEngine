@@ -154,15 +154,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(dummyTimer);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dummyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    dummyTimer = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dummyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

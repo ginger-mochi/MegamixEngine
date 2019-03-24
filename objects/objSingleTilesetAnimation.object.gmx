@@ -323,46 +323,46 @@ if (global.stateCodecEncode)
     stateCodecPrimitiveEncode(animBackgrounds);
     stateCodecPrimitiveEncode(animDelays);
     stateCodecPrimitiveEncode(animFrames);
-    stateCodecPrimitiveEncode(animLayer);
-    stateCodecPrimitiveEncode(animLayerOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animLayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animLayerOffset);
     stateCodecPrimitiveEncode(animLengths);
     stateCodecPrimitiveEncode(animSpeeds);
     stateCodecPrimitiveEncode(animTimers);
-    stateCodecPrimitiveEncode(animTotal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTotal);
     stateCodecPrimitiveEncode(animType);
-    stateCodecPrimitiveEncode(animateOnTransition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animateOnTransition);
     stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(deleteOriginals);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deleteOriginals);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(regionHeight);
     stateCodecPrimitiveEncode(regionLeft);
     stateCodecPrimitiveEncode(regionTop);
     stateCodecPrimitiveEncode(regionWidth);
     stateCodecPrimitiveEncode(reverse);
-    stateCodecPrimitiveEncode(stopOnFlash);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopOnFlash);
 }
 else
 {
     animBackgrounds = stateCodecPrimitiveDecode();
     animDelays = stateCodecPrimitiveDecode();
     animFrames = stateCodecPrimitiveDecode();
-    animLayer = stateCodecPrimitiveDecode();
-    animLayerOffset = stateCodecPrimitiveDecode();
+    animLayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animLayerOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     animLengths = stateCodecPrimitiveDecode();
     animSpeeds = stateCodecPrimitiveDecode();
     animTimers = stateCodecPrimitiveDecode();
-    animTotal = stateCodecPrimitiveDecode();
+    animTotal = buffer_read(global.stateCodecBuffer, buffer_f32);
     animType = stateCodecPrimitiveDecode();
-    animateOnTransition = stateCodecPrimitiveDecode();
+    animateOnTransition = buffer_read(global.stateCodecBuffer, buffer_f32);
     delayTimer = stateCodecPrimitiveDecode();
-    deleteOriginals = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    deleteOriginals = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     regionHeight = stateCodecPrimitiveDecode();
     regionLeft = stateCodecPrimitiveDecode();
     regionTop = stateCodecPrimitiveDecode();
     regionWidth = stateCodecPrimitiveDecode();
     reverse = stateCodecPrimitiveDecode();
-    stopOnFlash = stateCodecPrimitiveDecode();
+    stopOnFlash = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

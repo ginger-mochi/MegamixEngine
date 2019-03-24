@@ -145,11 +145,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
 }
 else
 {
-    sinCounter = stateCodecPrimitiveDecode();
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

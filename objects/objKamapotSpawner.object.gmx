@@ -115,14 +115,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(kamapot);
-    stateCodecPrimitiveEncode(kamapotDelay);
-    stateCodecPrimitiveEncode(kamapotSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, kamapotDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, kamapotSpeed);
 }
 else
 {
     kamapot = stateCodecIDDecode();
-    kamapotDelay = stateCodecPrimitiveDecode();
-    kamapotSpeed = stateCodecPrimitiveDecode();
+    kamapotDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    kamapotSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

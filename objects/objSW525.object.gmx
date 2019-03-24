@@ -232,27 +232,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(explodeWait);
-    stateCodecPrimitiveEncode(explodeWaitExtra);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeWaitExtra);
     stateCodecPrimitiveEncode(gravityDir);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(trackRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trackRange);
 }
 else
 {
-    explodeTimer = stateCodecPrimitiveDecode();
-    explodeWait = stateCodecPrimitiveDecode();
-    explodeWaitExtra = stateCodecPrimitiveDecode();
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeWaitExtra = buffer_read(global.stateCodecBuffer, buffer_f32);
     gravityDir = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    trackRange = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trackRange = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

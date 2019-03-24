@@ -188,17 +188,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(startSpeed);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    bounces = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    startSpeed = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

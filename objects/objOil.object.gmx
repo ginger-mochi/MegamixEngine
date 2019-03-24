@@ -199,13 +199,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fire);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fire);
     stateCodecPrimitiveEncode(fireSource);
     stateCodecPrimitiveEncode(oil);
 }
 else
 {
-    fire = stateCodecPrimitiveDecode();
+    fire = buffer_read(global.stateCodecBuffer, buffer_f32);
     fireSource = stateCodecPrimitiveDecode();
     oil = stateCodecPrimitiveDecode();
 }

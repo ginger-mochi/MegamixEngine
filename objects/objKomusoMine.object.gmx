@@ -145,21 +145,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
     stateCodecPrimitiveEncode(countTimer);
-    stateCodecPrimitiveEncode(explode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explode);
     stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(soundEffect);
-    stateCodecPrimitiveEncode(timerReset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, soundEffect);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerReset);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
     countTimer = stateCodecPrimitiveDecode();
-    explode = stateCodecPrimitiveDecode();
+    explode = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
-    soundEffect = stateCodecPrimitiveDecode();
-    timerReset = stateCodecPrimitiveDecode();
+    soundEffect = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timerReset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

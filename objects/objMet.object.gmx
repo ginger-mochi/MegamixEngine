@@ -213,16 +213,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
     stateCodecPrimitiveEncode(radius);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    canShoot = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
 }
 </string>

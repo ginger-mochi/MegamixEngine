@@ -77,19 +77,19 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destroyEntities);
-    stateCodecPrimitiveEncode(destroyObjects);
-    stateCodecPrimitiveEncode(destroySolids);
-    stateCodecPrimitiveEncode(destroyTiles);
-    stateCodecPrimitiveEncode(destroyTilesDepth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyEntities);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyObjects);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroySolids);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTiles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTilesDepth);
 }
 else
 {
-    destroyEntities = stateCodecPrimitiveDecode();
-    destroyObjects = stateCodecPrimitiveDecode();
-    destroySolids = stateCodecPrimitiveDecode();
-    destroyTiles = stateCodecPrimitiveDecode();
-    destroyTilesDepth = stateCodecPrimitiveDecode();
+    destroyEntities = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyObjects = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroySolids = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTiles = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTilesDepth = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

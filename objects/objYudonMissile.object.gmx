@@ -262,37 +262,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(chaseTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(missileID);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotateChange);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(startWaitTimer);
-    stateCodecPrimitiveEncode(storeID);
-    stateCodecPrimitiveEncode(turnSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, missileID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotateChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnSpeed);
 }
 else
 {
-    chaseTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    missileID = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rotateChange = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
-    startWaitTimer = stateCodecPrimitiveDecode();
-    storeID = stateCodecPrimitiveDecode();
-    turnSpeed = stateCodecPrimitiveDecode();
+    chaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    missileID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotateChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

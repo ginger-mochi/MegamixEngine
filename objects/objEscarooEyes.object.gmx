@@ -261,21 +261,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(getX);
     stateCodecPrimitiveEncode(getY);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(spawnRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnRange);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     getX = stateCodecPrimitiveDecode();
     getY = stateCodecPrimitiveDecode();
     parent = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    spawnRange = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnRange = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

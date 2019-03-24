@@ -208,19 +208,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

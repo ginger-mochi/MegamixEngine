@@ -139,19 +139,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(explodeDelay);
-    stateCodecPrimitiveEncode(explodeRadius);
-    stateCodecPrimitiveEncode(isActive);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeRadius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isActive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    explodeDelay = stateCodecPrimitiveDecode();
-    explodeRadius = stateCodecPrimitiveDecode();
-    isActive = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeRadius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isActive = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

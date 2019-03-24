@@ -101,15 +101,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(respawnAnimation);
-    stateCodecPrimitiveEncode(showDuringReady);
+    buffer_write(global.stateCodecBuffer, buffer_f32, respawnAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, showDuringReady);
     stateCodecPrimitiveEncode(xx);
     stateCodecPrimitiveEncode(yy);
 }
 else
 {
-    respawnAnimation = stateCodecPrimitiveDecode();
-    showDuringReady = stateCodecPrimitiveDecode();
+    respawnAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    showDuringReady = buffer_read(global.stateCodecBuffer, buffer_f32);
     xx = stateCodecPrimitiveDecode();
     yy = stateCodecPrimitiveDecode();
 }

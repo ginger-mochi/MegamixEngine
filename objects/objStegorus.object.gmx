@@ -405,25 +405,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(leftLimit);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rightLimit);
-    stateCodecPrimitiveEncode(shotCount);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timescale);
-    stateCodecPrimitiveEncode(turn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leftLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rightLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timescale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turn);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    leftLimit = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
-    shotCount = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timescale = stateCodecPrimitiveDecode();
-    turn = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leftLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rightLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timescale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -230,17 +230,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(allButtons);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(buttonsToPress);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, allButtons);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buttonsToPress);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    allButtons = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    buttonsToPress = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    allButtons = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buttonsToPress = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -216,17 +216,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isBomb);
-    stateCodecPrimitiveEncode(isFlying);
-    stateCodecPrimitiveEncode(isWave);
-    stateCodecPrimitiveEncode(size);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isBomb);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isFlying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isWave);
+    buffer_write(global.stateCodecBuffer, buffer_f32, size);
 }
 else
 {
-    isBomb = stateCodecPrimitiveDecode();
-    isFlying = stateCodecPrimitiveDecode();
-    isWave = stateCodecPrimitiveDecode();
-    size = stateCodecPrimitiveDecode();
+    isBomb = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isFlying = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isWave = buffer_read(global.stateCodecBuffer, buffer_f32);
+    size = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -182,13 +182,13 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(crab);
     stateCodecPrimitiveEncode(obj);
-    stateCodecPrimitiveEncode(shoottimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shoottimer);
 }
 else
 {
     crab = stateCodecPrimitiveDecode();
     obj = stateCodecPrimitiveDecode();
-    shoottimer = stateCodecPrimitiveDecode();
+    shoottimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

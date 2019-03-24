@@ -226,11 +226,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

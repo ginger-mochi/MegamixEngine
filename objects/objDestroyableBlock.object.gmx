@@ -216,13 +216,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(weakness);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weakness);
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
-    weakness = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    weakness = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

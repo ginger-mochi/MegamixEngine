@@ -72,12 +72,12 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isGround);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isGround);
     stateCodecPrimitiveEncode(objectToStop);
 }
 else
 {
-    isGround = stateCodecPrimitiveDecode();
+    isGround = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectToStop = stateCodecPrimitiveDecode();
 }
 </string>

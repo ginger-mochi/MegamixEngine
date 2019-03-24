@@ -89,36 +89,36 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(X);
-    stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(cid);
-    stateCodecPrimitiveEncode(drawMe);
-    stateCodecPrimitiveEncode(externalRoomFilename);
-    stateCodecPrimitiveEncode(isExternal);
-    stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(newStage);
-    stateCodecPrimitiveEncode(pid);
-    stateCodecPrimitiveEncode(returnToHub);
-    stateCodecPrimitiveEncode(teleportLock);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, X);
+    buffer_write(global.stateCodecBuffer, buffer_f32, Y);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cid);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawMe);
+    buffer_write(global.stateCodecBuffer, buffer_string, externalRoomFilename);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isExternal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myRoom);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newStage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pid);
+    buffer_write(global.stateCodecBuffer, buffer_f32, returnToHub);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
     stateCodecPrimitiveEncode(warpOutSFX);
 }
 else
 {
-    X = stateCodecPrimitiveDecode();
-    Y = stateCodecPrimitiveDecode();
-    cid = stateCodecPrimitiveDecode();
-    drawMe = stateCodecPrimitiveDecode();
-    externalRoomFilename = stateCodecPrimitiveDecode();
-    isExternal = stateCodecPrimitiveDecode();
-    myRoom = stateCodecPrimitiveDecode();
-    newStage = stateCodecPrimitiveDecode();
-    pid = stateCodecPrimitiveDecode();
-    returnToHub = stateCodecPrimitiveDecode();
-    teleportLock = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
+    X = buffer_read(global.stateCodecBuffer, buffer_f32);
+    Y = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cid = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawMe = buffer_read(global.stateCodecBuffer, buffer_f32);
+    externalRoomFilename = buffer_read(global.stateCodecBuffer, buffer_string);
+    isExternal = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myRoom = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newStage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pid = buffer_read(global.stateCodecBuffer, buffer_f32);
+    returnToHub = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
     warpOutSFX = stateCodecPrimitiveDecode();
 }
 </string>

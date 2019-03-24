@@ -252,30 +252,30 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownSmashed);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(direct);
-    stateCodecPrimitiveEncode(falling);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownSmashed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, direct);
+    buffer_write(global.stateCodecBuffer, buffer_f32, falling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
     stateCodecPrimitiveEncode(startY);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownSmashed = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    direct = stateCodecPrimitiveDecode();
-    falling = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownSmashed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    direct = buffer_read(global.stateCodecBuffer, buffer_f32);
+    falling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
     startY = stateCodecPrimitiveDecode();
 }
 </string>

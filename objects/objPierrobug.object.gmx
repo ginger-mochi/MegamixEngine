@@ -272,25 +272,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(beginShoot);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, beginShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
     stateCodecPrimitiveEncode(objectThrown);
-    stateCodecPrimitiveEncode(timerAdd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerAdd);
 }
 else
 {
-    beginShoot = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
+    beginShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectThrown = stateCodecPrimitiveDecode();
-    timerAdd = stateCodecPrimitiveDecode();
+    timerAdd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

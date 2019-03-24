@@ -205,21 +205,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(waitTime);
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(ySpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySpd);
 }
 else
 {
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    waitTime = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

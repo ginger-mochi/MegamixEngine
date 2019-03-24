@@ -216,27 +216,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmDie);
-    stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(dieOnHit);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(explodeOnContact);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmDie);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dieOnHit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeOnContact);
     stateCodecPrimitiveEncode(explosionSFX);
-    stateCodecPrimitiveEncode(imageSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageSpeed);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    alarmDie = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
-    dieOnHit = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    explodeOnContact = stateCodecPrimitiveDecode();
+    alarmDie = buffer_read(global.stateCodecBuffer, buffer_f32);
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
+    dieOnHit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeOnContact = buffer_read(global.stateCodecBuffer, buffer_f32);
     explosionSFX = stateCodecPrimitiveDecode();
-    imageSpeed = stateCodecPrimitiveDecode();
+    imageSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

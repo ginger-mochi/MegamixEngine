@@ -158,18 +158,18 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(allButtons);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(buttonsToPress);
-    stateCodecPrimitiveEncode(destroyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, allButtons);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buttonsToPress);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTimer);
     stateCodecIDEncode(mySolid);
 }
 else
 {
-    allButtons = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    buttonsToPress = stateCodecPrimitiveDecode();
-    destroyTimer = stateCodecPrimitiveDecode();
+    allButtons = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buttonsToPress = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     mySolid = stateCodecIDDecode();
 }
 </string>

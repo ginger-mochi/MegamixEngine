@@ -528,23 +528,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
     stateCodecPrimitiveEncode(controllerTargets);
     stateCodecPrimitiveEncode(crosshairFrame);
-    stateCodecPrimitiveEncode(isController);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isController);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
     controllerTargets = stateCodecPrimitiveDecode();
     crosshairFrame = stateCodecPrimitiveDecode();
-    isController = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    isController = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

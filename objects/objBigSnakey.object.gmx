@@ -163,23 +163,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blink);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
     stateCodecIDEncode(bodySolid);
-    stateCodecPrimitiveEncode(endTimer);
-    stateCodecPrimitiveEncode(length);
-    stateCodecPrimitiveEncode(shootCounter);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
-    blink = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
+    blink = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     bodySolid = stateCodecIDDecode();
-    endTimer = stateCodecPrimitiveDecode();
-    length = stateCodecPrimitiveDecode();
-    shootCounter = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    endTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

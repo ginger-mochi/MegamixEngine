@@ -240,20 +240,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(ball);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(suckTimer);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, suckTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
 }
 else
 {
     ball = stateCodecIDDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    suckTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    suckTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

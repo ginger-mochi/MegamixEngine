@@ -174,17 +174,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(inst_restore_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inst_restore_n);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(restore_tile_n);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, restore_tile_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    inst_restore_n = stateCodecPrimitiveDecode();
+    inst_restore_n = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    restore_tile_n = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    restore_tile_n = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -130,16 +130,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
     stateCodecIDEncode(myBoulder);
     stateCodecPrimitiveEncode(objectDrop);
     stateCodecPrimitiveEncode(particleDrop);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
     myBoulder = stateCodecIDDecode();
     objectDrop = stateCodecPrimitiveDecode();
     particleDrop = stateCodecPrimitiveDecode();

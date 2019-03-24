@@ -195,23 +195,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
     stateCodecPrimitiveEncode(colourBlock);
-    stateCodecPrimitiveEncode(disappearTimer);
-    stateCodecPrimitiveEncode(recurseDepth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, disappearTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, recurseDepth);
     stateCodecPrimitiveEncode(spawn);
     stateCodecIDEncode(spawnID);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
     colourBlock = stateCodecPrimitiveDecode();
-    disappearTimer = stateCodecPrimitiveDecode();
-    recurseDepth = stateCodecPrimitiveDecode();
+    disappearTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    recurseDepth = buffer_read(global.stateCodecBuffer, buffer_f32);
     spawn = stateCodecPrimitiveDecode();
     spawnID = stateCodecIDDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

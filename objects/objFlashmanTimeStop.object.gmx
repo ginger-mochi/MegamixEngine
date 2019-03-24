@@ -132,12 +132,12 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animationTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animationTimer);
     stateCodecPrimitiveEncode(timeStopLock);
 }
 else
 {
-    animationTimer = stateCodecPrimitiveDecode();
+    animationTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     timeStopLock = stateCodecPrimitiveDecode();
 }
 </string>

@@ -330,33 +330,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmStop);
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(boost);
-    stateCodecPrimitiveEncode(boostSpd);
-    stateCodecPrimitiveEncode(cooldown);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(normalSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(stopped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmStop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boost);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boostSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, normalSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopped);
 }
 else
 {
-    alarmStop = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
-    boost = stateCodecPrimitiveDecode();
-    boostSpd = stateCodecPrimitiveDecode();
-    cooldown = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    normalSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    stopped = stateCodecPrimitiveDecode();
+    alarmStop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boost = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boostSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    normalSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopped = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

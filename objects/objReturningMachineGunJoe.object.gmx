@@ -321,29 +321,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(color);
-    stateCodecPrimitiveEncode(dpsTimer);
-    stateCodecPrimitiveEncode(hasShield);
-    stateCodecPrimitiveEncode(isBouncy);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shieldDPS);
-    stateCodecPrimitiveEncode(shieldDamageCount);
-    stateCodecPrimitiveEncode(shotCount);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, color);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dpsTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasShield);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isBouncy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shieldDPS);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shieldDamageCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    color = stateCodecPrimitiveDecode();
-    dpsTimer = stateCodecPrimitiveDecode();
-    hasShield = stateCodecPrimitiveDecode();
-    isBouncy = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shieldDPS = stateCodecPrimitiveDecode();
-    shieldDamageCount = stateCodecPrimitiveDecode();
-    shotCount = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    color = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dpsTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasShield = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isBouncy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shieldDPS = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shieldDamageCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

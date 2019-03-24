@@ -184,19 +184,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotateChange);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(startWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotateChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWaitTimer);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
-    rotateChange = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
-    startWaitTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotateChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -245,25 +245,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecIDArrayEncode(bullet);
-    stateCodecPrimitiveEncode(lightImg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightImg);
     stateCodecPrimitiveEncode(lightOffset);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(storeXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeXScale);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     bullet = stateCodecIDArrayDecode();
-    lightImg = stateCodecPrimitiveDecode();
+    lightImg = buffer_read(global.stateCodecBuffer, buffer_f32);
     lightOffset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    storeXScale = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

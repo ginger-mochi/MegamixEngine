@@ -271,29 +271,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(initialPattern);
-    stateCodecPrimitiveEncode(nextX);
-    stateCodecPrimitiveEncode(nextY);
-    stateCodecPrimitiveEncode(pattern);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(prevX);
-    stateCodecPrimitiveEncode(prevY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(vdir);
-    stateCodecPrimitiveEncode(windowDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initialPattern);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nextX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nextY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pattern);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, vdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, windowDir);
 }
 else
 {
-    initialPattern = stateCodecPrimitiveDecode();
-    nextX = stateCodecPrimitiveDecode();
-    nextY = stateCodecPrimitiveDecode();
-    pattern = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    prevX = stateCodecPrimitiveDecode();
-    prevY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    vdir = stateCodecPrimitiveDecode();
-    windowDir = stateCodecPrimitiveDecode();
+    initialPattern = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nextX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nextY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pattern = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    vdir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    windowDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -89,11 +89,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(yStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yStart);
 }
 else
 {
-    yStart = stateCodecPrimitiveDecode();
+    yStart = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -135,13 +135,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(canStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canStep);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    canStep = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canStep = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

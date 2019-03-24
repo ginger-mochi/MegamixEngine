@@ -380,27 +380,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(jumpsMade);
-    stateCodecPrimitiveEncode(jumpsMax);
-    stateCodecPrimitiveEncode(myGrav);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpsMade);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpsMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(redetectRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, redetectRoof);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     attackTimerMax = stateCodecPrimitiveDecode();
-    jumpsMade = stateCodecPrimitiveDecode();
-    jumpsMax = stateCodecPrimitiveDecode();
-    myGrav = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    jumpsMade = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpsMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    redetectRoof = stateCodecPrimitiveDecode();
+    redetectRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -133,16 +133,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(layer);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, layer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmDeathOnDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashInterval);
     stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashTimer);
     stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmThrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmThrown);
     stateCodecPrimitiveEncode(tileHeight);
     stateCodecPrimitiveEncode(tileLeft);
-    stateCodecPrimitiveEncode(tileN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileN);
     stateCodecPrimitiveEncode(tileOffsetX);
     stateCodecPrimitiveEncode(tileOffsetY);
     stateCodecPrimitiveEncode(tileTop);
@@ -151,16 +151,16 @@ if (global.stateCodecEncode)
 }
 else
 {
-    layer = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
+    layer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmDeathOnDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmFlashInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmFlashOwner = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmFlashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
+    superArmThrown = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileHeight = stateCodecPrimitiveDecode();
     tileLeft = stateCodecPrimitiveDecode();
-    tileN = stateCodecPrimitiveDecode();
+    tileN = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileOffsetX = stateCodecPrimitiveDecode();
     tileOffsetY = stateCodecPrimitiveDecode();
     tileTop = stateCodecPrimitiveDecode();

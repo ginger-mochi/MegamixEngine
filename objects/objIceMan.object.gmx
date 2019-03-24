@@ -395,29 +395,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(origY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(scaleWall);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(shotLimit);
-    stateCodecPrimitiveEncode(yCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, origY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scaleWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yCount);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    origY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    scaleWall = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    shotLimit = stateCodecPrimitiveDecode();
-    yCount = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    origY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    scaleWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yCount = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

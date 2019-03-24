@@ -178,7 +178,7 @@ if (global.stateCodecEncode)
     stateCodecIDEncode(met);
     stateCodecPrimitiveEncode(met1);
     stateCodecPrimitiveEncode(met2);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
@@ -186,7 +186,7 @@ else
     met = stateCodecIDDecode();
     met1 = stateCodecPrimitiveDecode();
     met2 = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

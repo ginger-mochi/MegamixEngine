@@ -212,17 +212,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phasetimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phasetimer);
 }
 else
 {
-    blinkTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phasetimer = stateCodecPrimitiveDecode();
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phasetimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

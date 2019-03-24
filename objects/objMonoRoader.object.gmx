@@ -251,23 +251,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(inShell);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shellTimer);
-    stateCodecPrimitiveEncode(waitTimer);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inShell);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shellTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    inShell = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shellTimer = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    inShell = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shellTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

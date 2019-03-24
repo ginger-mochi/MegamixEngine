@@ -170,23 +170,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, anim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    anim = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

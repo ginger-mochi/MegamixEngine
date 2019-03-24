@@ -206,17 +206,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(charge);
-    stateCodecPrimitiveEncode(chargeSpeed);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, charge);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chargeSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
 }
 else
 {
-    charge = stateCodecPrimitiveDecode();
-    chargeSpeed = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    charge = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chargeSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

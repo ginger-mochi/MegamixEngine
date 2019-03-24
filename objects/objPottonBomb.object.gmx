@@ -115,11 +115,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
 }
 else
 {
-    moveTimer = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

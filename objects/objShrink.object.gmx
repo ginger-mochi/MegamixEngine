@@ -200,23 +200,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(chaseTimer);
-    stateCodecPrimitiveEncode(preDir);
-    stateCodecPrimitiveEncode(preSpeed);
-    stateCodecPrimitiveEncode(targetX);
-    stateCodecPrimitiveEncode(targetY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, preSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetY);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    chaseTimer = stateCodecPrimitiveDecode();
-    preDir = stateCodecPrimitiveDecode();
-    preSpeed = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
-    targetY = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    preSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

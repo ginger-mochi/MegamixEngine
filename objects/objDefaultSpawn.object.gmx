@@ -77,13 +77,13 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(respawnAnimation);
-    stateCodecPrimitiveEncode(showDuringReady);
+    buffer_write(global.stateCodecBuffer, buffer_f32, respawnAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, showDuringReady);
 }
 else
 {
-    respawnAnimation = stateCodecPrimitiveDecode();
-    showDuringReady = stateCodecPrimitiveDecode();
+    respawnAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    showDuringReady = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -186,18 +186,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(stopRange);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(xOffset);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    stopRange = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopRange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     xOffset = stateCodecPrimitiveDecode();
 }
 </string>

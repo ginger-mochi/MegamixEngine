@@ -391,31 +391,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bumped);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(fallMomentum);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bumped);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallMomentum);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecIDEncode(lastRail);
-    stateCodecPrimitiveEncode(mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
     stateCodecPrimitiveEncode(prevRail);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(startingDirection);
-    stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_string, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startingDirection);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
-    bumped = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    fallMomentum = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    bumped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    fallMomentum = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     lastRail = stateCodecIDDecode();
-    mySpeed = stateCodecPrimitiveDecode();
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevRail = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    startingDirection = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    startDir = buffer_read(global.stateCodecBuffer, buffer_string);
+    startingDirection = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

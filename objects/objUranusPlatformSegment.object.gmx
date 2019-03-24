@@ -169,21 +169,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(gravDir);
-    stateCodecPrimitiveEncode(moveAmount);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(range);
+    buffer_write(global.stateCodecBuffer, buffer_f32, range);
 }
 else
 {
-    gravDir = stateCodecPrimitiveDecode();
-    moveAmount = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    gravDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    range = stateCodecPrimitiveDecode();
+    range = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

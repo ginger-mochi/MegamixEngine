@@ -148,22 +148,22 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bubbleCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bubbleCount);
     stateCodecPrimitiveEncode(bubbleInterval);
-    stateCodecPrimitiveEncode(bubblesPerInterval);
-    stateCodecPrimitiveEncode(isSmall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bubblesPerInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isSmall);
     stateCodecPrimitiveEncode(smallBubbleTimer);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(totalTimer);
 }
 else
 {
-    bubbleCount = stateCodecPrimitiveDecode();
+    bubbleCount = buffer_read(global.stateCodecBuffer, buffer_f32);
     bubbleInterval = stateCodecPrimitiveDecode();
-    bubblesPerInterval = stateCodecPrimitiveDecode();
-    isSmall = stateCodecPrimitiveDecode();
+    bubblesPerInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isSmall = buffer_read(global.stateCodecBuffer, buffer_f32);
     smallBubbleTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     totalTimer = stateCodecPrimitiveDecode();
 }
 </string>

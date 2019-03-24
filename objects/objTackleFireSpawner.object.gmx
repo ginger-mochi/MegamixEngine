@@ -156,21 +156,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmDrop);
-    stateCodecPrimitiveEncode(num);
-    stateCodecPrimitiveEncode(spacing);
-    stateCodecPrimitiveEncode(spawnWait);
-    stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, num);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spacing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    alarmDrop = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
-    spacing = stateCodecPrimitiveDecode();
-    spawnWait = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    alarmDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    num = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spacing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

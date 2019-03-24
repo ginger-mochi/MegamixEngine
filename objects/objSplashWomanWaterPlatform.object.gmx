@@ -211,27 +211,27 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(ID);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(getX);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startup);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startup);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(totalTimer);
 }
 else
 {
     ID = stateCodecIDDecode();
-    active = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     getX = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startup = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startup = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     totalTimer = stateCodecPrimitiveDecode();
 }
 </string>

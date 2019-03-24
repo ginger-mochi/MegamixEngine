@@ -209,19 +209,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(yDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yDir);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    yDir = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

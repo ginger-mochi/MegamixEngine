@@ -208,29 +208,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alreadyCollected);
-    stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(energyElementLock);
-    stateCodecPrimitiveEncode(jumped);
-    stateCodecPrimitiveEncode(name);
-    stateCodecPrimitiveEncode(primarycol);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alreadyCollected);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, energyElementLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumped);
+    buffer_write(global.stateCodecBuffer, buffer_string, name);
+    buffer_write(global.stateCodecBuffer, buffer_f32, primarycol);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(secondarycol);
-    stateCodecPrimitiveEncode(sparkletimer);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, secondarycol);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sparkletimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    alreadyCollected = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
-    energyElementLock = stateCodecPrimitiveDecode();
-    jumped = stateCodecPrimitiveDecode();
-    name = stateCodecPrimitiveDecode();
-    primarycol = stateCodecPrimitiveDecode();
+    alreadyCollected = buffer_read(global.stateCodecBuffer, buffer_f32);
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
+    energyElementLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    name = buffer_read(global.stateCodecBuffer, buffer_string);
+    primarycol = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
-    secondarycol = stateCodecPrimitiveDecode();
-    sparkletimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    secondarycol = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sparkletimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

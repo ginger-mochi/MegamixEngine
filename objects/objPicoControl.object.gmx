@@ -155,16 +155,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(puyoBrickIndex);
-    stateCodecPrimitiveEncode(puyoBrickN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, puyoBrickIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, puyoBrickN);
 }
 else
 {
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    puyoBrickIndex = stateCodecPrimitiveDecode();
-    puyoBrickN = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    puyoBrickIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    puyoBrickN = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

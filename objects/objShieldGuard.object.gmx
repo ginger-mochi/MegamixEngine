@@ -215,11 +215,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasShield);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasShield);
 }
 else
 {
-    hasShield = stateCodecPrimitiveDecode();
+    hasShield = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

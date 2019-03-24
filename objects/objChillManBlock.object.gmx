@@ -426,55 +426,55 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alpha);
-    stateCodecPrimitiveEncode(breakTimer);
-    stateCodecPrimitiveEncode(code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alpha);
+    buffer_write(global.stateCodecBuffer, buffer_f32, breakTimer);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
     stateCodecPrimitiveEncode(color);
-    stateCodecPrimitiveEncode(drawItem);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(itemDrawOffsetX);
-    stateCodecPrimitiveEncode(itemDrawOffsetY);
-    stateCodecPrimitiveEncode(itemSpawnOffsetX);
-    stateCodecPrimitiveEncode(itemSpawnOffsetY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawItem);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, itemDrawOffsetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, itemDrawOffsetY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, itemSpawnOffsetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, itemSpawnOffsetY);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(spawnAlpha);
-    stateCodecPrimitiveEncode(sprite);
-    stateCodecPrimitiveEncode(subimage);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnAlpha);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sprite);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subimage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmDeathOnDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashInterval);
     stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashTimer);
     stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(xscale);
-    stateCodecPrimitiveEncode(yscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmThrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, width);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yscale);
 }
 else
 {
-    alpha = stateCodecPrimitiveDecode();
-    breakTimer = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
+    alpha = buffer_read(global.stateCodecBuffer, buffer_f32);
+    breakTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
     color = stateCodecPrimitiveDecode();
-    drawItem = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    itemDrawOffsetX = stateCodecPrimitiveDecode();
-    itemDrawOffsetY = stateCodecPrimitiveDecode();
-    itemSpawnOffsetX = stateCodecPrimitiveDecode();
-    itemSpawnOffsetY = stateCodecPrimitiveDecode();
+    drawItem = buffer_read(global.stateCodecBuffer, buffer_f32);
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    itemDrawOffsetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    itemDrawOffsetY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    itemSpawnOffsetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    itemSpawnOffsetY = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
-    spawnAlpha = stateCodecPrimitiveDecode();
-    sprite = stateCodecPrimitiveDecode();
-    subimage = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
+    spawnAlpha = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sprite = buffer_read(global.stateCodecBuffer, buffer_f32);
+    subimage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmDeathOnDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmFlashInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmFlashOwner = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmFlashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    width = stateCodecPrimitiveDecode();
-    xscale = stateCodecPrimitiveDecode();
-    yscale = stateCodecPrimitiveDecode();
+    superArmThrown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    width = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xscale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yscale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

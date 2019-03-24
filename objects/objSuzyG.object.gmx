@@ -178,25 +178,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(cooldownTimerMax);
-    stateCodecPrimitiveEncode(flipOverTimer);
-    stateCodecPrimitiveEncode(gravityFlip);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(myGrav);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flipOverTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravityFlip);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
-    cooldownTimerMax = stateCodecPrimitiveDecode();
-    flipOverTimer = stateCodecPrimitiveDecode();
-    gravityFlip = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    myGrav = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flipOverTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gravityFlip = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -177,18 +177,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(damage);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(myLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, damage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myLock);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    damage = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    myLock = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    damage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myLock = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

@@ -237,29 +237,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(cosCounter);
-    stateCodecPrimitiveEncode(dives);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cosCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dives);
     stateCodecIDEncode(missile);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(safety);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(ySpePrev);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, safety);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySpePrev);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    cosCounter = stateCodecPrimitiveDecode();
-    dives = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cosCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dives = buffer_read(global.stateCodecBuffer, buffer_f32);
     missile = stateCodecIDDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    safety = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
-    ySpePrev = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    safety = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySpePrev = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

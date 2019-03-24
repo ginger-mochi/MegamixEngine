@@ -266,39 +266,39 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(buf);
     stateCodecPrimitiveEncode(bufPointer);
-    stateCodecPrimitiveEncode(buffer_count);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_count);
     stateCodecPrimitiveEncode(buffer_gme);
-    stateCodecPrimitiveEncode(buffer_gme_address);
-    stateCodecPrimitiveEncode(buffer_gme_size);
-    stateCodecPrimitiveEncode(buffer_index);
-    stateCodecPrimitiveEncode(buffer_size);
-    stateCodecPrimitiveEncode(endReached);
-    stateCodecPrimitiveEncode(forceReset);
-    stateCodecPrimitiveEncode(playing);
-    stateCodecPrimitiveEncode(sample_rate);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_gme_address);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_gme_size);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_index);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer_size);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endReached);
+    buffer_write(global.stateCodecBuffer, buffer_f32, forceReset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sample_rate);
     stateCodecPrimitiveEncode(snd_queue);
     stateCodecPrimitiveEncode(sound_index);
-    stateCodecPrimitiveEncode(trackNumber);
-    stateCodecPrimitiveEncode(track_number);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trackNumber);
+    buffer_write(global.stateCodecBuffer, buffer_f32, track_number);
 }
 else
 {
     buf = stateCodecPrimitiveDecode();
     bufPointer = stateCodecPrimitiveDecode();
-    buffer_count = stateCodecPrimitiveDecode();
+    buffer_count = buffer_read(global.stateCodecBuffer, buffer_f32);
     buffer_gme = stateCodecPrimitiveDecode();
-    buffer_gme_address = stateCodecPrimitiveDecode();
-    buffer_gme_size = stateCodecPrimitiveDecode();
-    buffer_index = stateCodecPrimitiveDecode();
-    buffer_size = stateCodecPrimitiveDecode();
-    endReached = stateCodecPrimitiveDecode();
-    forceReset = stateCodecPrimitiveDecode();
-    playing = stateCodecPrimitiveDecode();
-    sample_rate = stateCodecPrimitiveDecode();
+    buffer_gme_address = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buffer_gme_size = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buffer_index = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buffer_size = buffer_read(global.stateCodecBuffer, buffer_f32);
+    endReached = buffer_read(global.stateCodecBuffer, buffer_f32);
+    forceReset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sample_rate = buffer_read(global.stateCodecBuffer, buffer_f32);
     snd_queue = stateCodecPrimitiveDecode();
     sound_index = stateCodecPrimitiveDecode();
-    trackNumber = stateCodecPrimitiveDecode();
-    track_number = stateCodecPrimitiveDecode();
+    trackNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
+    track_number = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

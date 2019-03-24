@@ -165,20 +165,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
     stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(size);
+    buffer_write(global.stateCodecBuffer, buffer_f32, size);
     stateCodecPrimitiveEncode(stormdelay);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
-    size = stateCodecPrimitiveDecode();
+    size = buffer_read(global.stateCodecBuffer, buffer_f32);
     stormdelay = stateCodecPrimitiveDecode();
 }
 </string>

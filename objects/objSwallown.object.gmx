@@ -162,11 +162,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(spawnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnTimer);
 }
 else
 {
-    spawnTimer = stateCodecPrimitiveDecode();
+    spawnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

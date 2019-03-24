@@ -292,33 +292,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(animLoop);
-    stateCodecPrimitiveEncode(dropTime);
-    stateCodecPrimitiveEncode(explodeOnDeath);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(lastDrop);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(myLock);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animLoop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeOnDeath);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecIDEncode(rock);
-    stateCodecPrimitiveEncode(selectTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selectTime);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    animLoop = stateCodecPrimitiveDecode();
-    dropTime = stateCodecPrimitiveDecode();
-    explodeOnDeath = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    lastDrop = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    myLock = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animLoop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeOnDeath = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     rock = stateCodecIDDecode();
-    selectTime = stateCodecPrimitiveDecode();
+    selectTime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

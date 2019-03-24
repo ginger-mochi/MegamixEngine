@@ -314,21 +314,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cannonIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cannonIndex);
     stateCodecPrimitiveEncode(headShark);
-    stateCodecPrimitiveEncode(hitInvun);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitInvun);
     stateCodecPrimitiveEncode(leftShark);
-    stateCodecPrimitiveEncode(phaseMultiple);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseMultiple);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    cannonIndex = stateCodecPrimitiveDecode();
+    cannonIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
     headShark = stateCodecPrimitiveDecode();
-    hitInvun = stateCodecPrimitiveDecode();
+    hitInvun = buffer_read(global.stateCodecBuffer, buffer_f32);
     leftShark = stateCodecPrimitiveDecode();
-    phaseMultiple = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phaseMultiple = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

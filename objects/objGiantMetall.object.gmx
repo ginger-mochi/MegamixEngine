@@ -227,29 +227,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blink);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
     stateCodecPrimitiveEncode(blinkWait);
     stateCodecPrimitiveEncode(checkRange);
-    stateCodecPrimitiveEncode(coolDown);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(metallTimer);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(yCutoff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, coolDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, metallTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yCutoff);
 }
 else
 {
-    blink = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
+    blink = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     blinkWait = stateCodecPrimitiveDecode();
     checkRange = stateCodecPrimitiveDecode();
-    coolDown = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    metallTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    yCutoff = stateCodecPrimitiveDecode();
+    coolDown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    metallTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yCutoff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

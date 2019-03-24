@@ -205,19 +205,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(flyAwayTimer);
-    stateCodecPrimitiveEncode(hasBomb);
-    stateCodecPrimitiveEncode(imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flyAwayTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasBomb);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    flyAwayTimer = stateCodecPrimitiveDecode();
-    hasBomb = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flyAwayTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasBomb = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

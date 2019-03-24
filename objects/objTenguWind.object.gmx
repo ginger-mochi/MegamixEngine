@@ -224,25 +224,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(leafTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leafTimer);
     stateCodecPrimitiveEncode(maxWindSpeed);
     stateCodecPrimitiveEncode(objectDrop);
     stateCodecPrimitiveEncode(startWindAccel);
     stateCodecPrimitiveEncode(startWindSpeed);
-    stateCodecPrimitiveEncode(windAccel);
-    stateCodecPrimitiveEncode(windSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, windAccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, windSpeed);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    leafTimer = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leafTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     maxWindSpeed = stateCodecPrimitiveDecode();
     objectDrop = stateCodecPrimitiveDecode();
     startWindAccel = stateCodecPrimitiveDecode();
     startWindSpeed = stateCodecPrimitiveDecode();
-    windAccel = stateCodecPrimitiveDecode();
-    windSpeed = stateCodecPrimitiveDecode();
+    windAccel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    windSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

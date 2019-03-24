@@ -94,11 +94,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(maxYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxYspeed);
 }
 else
 {
-    maxYspeed = stateCodecPrimitiveDecode();
+    maxYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

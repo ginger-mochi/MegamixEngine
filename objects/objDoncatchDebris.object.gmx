@@ -124,16 +124,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(lowGrav);
-    stateCodecPrimitiveEncode(version);
-    stateCodecPrimitiveEncode(xtravel);
-    stateCodecPrimitiveEncode(ytravel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, version);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xtravel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ytravel);
 }
 else
 {
     lowGrav = stateCodecPrimitiveDecode();
-    version = stateCodecPrimitiveDecode();
-    xtravel = stateCodecPrimitiveDecode();
-    ytravel = stateCodecPrimitiveDecode();
+    version = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xtravel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ytravel = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

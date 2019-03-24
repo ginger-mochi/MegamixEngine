@@ -366,56 +366,56 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(DEFAULT_SPAWN_LIST);
-    stateCodecPrimitiveEncode(dropInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropInterval);
     stateCodecPrimitiveEncode(entityHeight);
-    stateCodecPrimitiveEncode(entityN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, entityN);
     stateCodecPrimitiveEncode(entityObject);
     stateCodecPrimitiveEncode(entityPop);
     stateCodecPrimitiveEncode(entitySprite);
     stateCodecPrimitiveEncode(entityWidth);
     stateCodecPrimitiveEncode(entityX);
     stateCodecPrimitiveEncode(entityXScale);
-    stateCodecPrimitiveEncode(entityXSpeed);
-    stateCodecPrimitiveEncode(entityYSpeed);
-    stateCodecPrimitiveEncode(firstFrame);
-    stateCodecPrimitiveEncode(isMaster);
+    buffer_write(global.stateCodecBuffer, buffer_f32, entityXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, entityYSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, firstFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isMaster);
     stateCodecIDEncode(master);
-    stateCodecPrimitiveEncode(minDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, minDist);
     stateCodecPrimitiveEncode(popList);
-    stateCodecPrimitiveEncode(popN);
-    stateCodecPrimitiveEncode(rippleAnimationInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rippleAnimationInterval);
     stateCodecPrimitiveEncode(rippleAnimationSprite);
-    stateCodecPrimitiveEncode(rippleN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rippleN);
     stateCodecPrimitiveEncode(spawnDensity);
     stateCodecPrimitiveEncode(spawnList);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
     DEFAULT_SPAWN_LIST = stateCodecPrimitiveDecode();
-    dropInterval = stateCodecPrimitiveDecode();
+    dropInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     entityHeight = stateCodecPrimitiveDecode();
-    entityN = stateCodecPrimitiveDecode();
+    entityN = buffer_read(global.stateCodecBuffer, buffer_f32);
     entityObject = stateCodecPrimitiveDecode();
     entityPop = stateCodecPrimitiveDecode();
     entitySprite = stateCodecPrimitiveDecode();
     entityWidth = stateCodecPrimitiveDecode();
     entityX = stateCodecPrimitiveDecode();
     entityXScale = stateCodecPrimitiveDecode();
-    entityXSpeed = stateCodecPrimitiveDecode();
-    entityYSpeed = stateCodecPrimitiveDecode();
-    firstFrame = stateCodecPrimitiveDecode();
-    isMaster = stateCodecPrimitiveDecode();
+    entityXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    entityYSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    firstFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isMaster = buffer_read(global.stateCodecBuffer, buffer_f32);
     master = stateCodecIDDecode();
-    minDist = stateCodecPrimitiveDecode();
+    minDist = buffer_read(global.stateCodecBuffer, buffer_f32);
     popList = stateCodecPrimitiveDecode();
-    popN = stateCodecPrimitiveDecode();
-    rippleAnimationInterval = stateCodecPrimitiveDecode();
+    popN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rippleAnimationInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     rippleAnimationSprite = stateCodecPrimitiveDecode();
-    rippleN = stateCodecPrimitiveDecode();
+    rippleN = buffer_read(global.stateCodecBuffer, buffer_f32);
     spawnDensity = stateCodecPrimitiveDecode();
     spawnList = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

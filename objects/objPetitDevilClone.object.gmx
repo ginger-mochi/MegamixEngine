@@ -175,21 +175,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(absSpeed);
-    stateCodecPrimitiveEncode(canStep);
-    stateCodecPrimitiveEncode(floatTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(refY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, absSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canStep);
+    buffer_write(global.stateCodecBuffer, buffer_f32, floatTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, refY);
 }
 else
 {
-    absSpeed = stateCodecPrimitiveDecode();
-    canStep = stateCodecPrimitiveDecode();
-    floatTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    refY = stateCodecPrimitiveDecode();
+    absSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canStep = buffer_read(global.stateCodecBuffer, buffer_f32);
+    floatTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    refY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

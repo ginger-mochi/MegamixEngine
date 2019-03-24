@@ -484,29 +484,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(setY);
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
     stateCodecPrimitiveEncode(storeY);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    setY = stateCodecPrimitiveDecode();
-    shakeTimer = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shakeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
     storeY = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -442,33 +442,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(hasTriggeredQuake);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(yMoveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredQuake);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMoveDir);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    hasTriggeredQuake = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shakeTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    yMoveDir = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredQuake = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shakeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yMoveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -419,39 +419,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackRandomiser);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(findWall);
-    stateCodecPrimitiveEncode(form);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(initialAttack);
-    stateCodecPrimitiveEncode(jumpToWall);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(oldAttack);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackRandomiser);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, findWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, form);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initialAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpToWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oldAttack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecIDEncode(sd);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
 }
 else
 {
-    attackRandomiser = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    findWall = stateCodecPrimitiveDecode();
-    form = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    initialAttack = stateCodecPrimitiveDecode();
-    jumpToWall = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    oldAttack = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackRandomiser = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    findWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    form = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    initialAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpToWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oldAttack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     sd = stateCodecIDDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

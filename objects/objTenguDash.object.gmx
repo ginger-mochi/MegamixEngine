@@ -244,17 +244,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(flashOffset);
-    stateCodecPrimitiveEncode(flashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashTimer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    flashOffset = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flashOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

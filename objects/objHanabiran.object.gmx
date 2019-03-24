@@ -280,33 +280,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngle);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
     stateCodecPrimitiveEncode(cLocation);
-    stateCodecPrimitiveEncode(destroyClockArm);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyClockArm);
     stateCodecPrimitiveEncode(headX);
     stateCodecIDEncode(oldLocation);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
 }
 else
 {
-    addAngle = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    cAngle = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
     cLocation = stateCodecPrimitiveDecode();
-    destroyClockArm = stateCodecPrimitiveDecode();
+    destroyClockArm = buffer_read(global.stateCodecBuffer, buffer_f32);
     headX = stateCodecPrimitiveDecode();
     oldLocation = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

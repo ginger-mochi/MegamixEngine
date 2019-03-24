@@ -186,18 +186,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, action);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(yend);
 }
 else
 {
-    action = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    action = buffer_read(global.stateCodecBuffer, buffer_f32);
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     yend = stateCodecPrimitiveDecode();
 }
 </string>

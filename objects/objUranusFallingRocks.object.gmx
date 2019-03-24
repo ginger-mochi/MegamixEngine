@@ -264,34 +264,34 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destroyTimer);
-    stateCodecPrimitiveEncode(f);
-    stateCodecPrimitiveEncode(killMega);
-    stateCodecPrimitiveEncode(resetDepth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, f);
+    buffer_write(global.stateCodecBuffer, buffer_f32, killMega);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetDepth);
     stateCodecIDEncode(solidBlock);
-    stateCodecPrimitiveEncode(startingY);
-    stateCodecPrimitiveEncode(subGroup);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startingY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, subGroup);
     stateCodecPrimitiveEncode(tileBG);
     stateCodecPrimitiveEncode(tileHeight);
     stateCodecPrimitiveEncode(tileLeft);
-    stateCodecPrimitiveEncode(tileNumber);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileNumber);
     stateCodecPrimitiveEncode(tileTop);
     stateCodecPrimitiveEncode(tileWidth);
     stateCodecPrimitiveEncode(tileX);
 }
 else
 {
-    destroyTimer = stateCodecPrimitiveDecode();
-    f = stateCodecPrimitiveDecode();
-    killMega = stateCodecPrimitiveDecode();
-    resetDepth = stateCodecPrimitiveDecode();
+    destroyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    f = buffer_read(global.stateCodecBuffer, buffer_f32);
+    killMega = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetDepth = buffer_read(global.stateCodecBuffer, buffer_f32);
     solidBlock = stateCodecIDDecode();
-    startingY = stateCodecPrimitiveDecode();
-    subGroup = stateCodecPrimitiveDecode();
+    startingY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    subGroup = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileBG = stateCodecPrimitiveDecode();
     tileHeight = stateCodecPrimitiveDecode();
     tileLeft = stateCodecPrimitiveDecode();
-    tileNumber = stateCodecPrimitiveDecode();
+    tileNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileTop = stateCodecPrimitiveDecode();
     tileWidth = stateCodecPrimitiveDecode();
     tileX = stateCodecPrimitiveDecode();

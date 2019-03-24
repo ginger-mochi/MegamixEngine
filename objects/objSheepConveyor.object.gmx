@@ -157,14 +157,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
     stateCodecPrimitiveEncode(sprite);
 }
 else
 {
-    imgSpeed = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
     sprite = stateCodecPrimitiveDecode();
 }
 </string>

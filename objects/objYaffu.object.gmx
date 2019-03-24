@@ -203,27 +203,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pullDir);
-    stateCodecPrimitiveEncode(pullDuration);
-    stateCodecPrimitiveEncode(pullDurationExtra);
-    stateCodecPrimitiveEncode(pullSpd);
-    stateCodecPrimitiveEncode(pullTimer);
-    stateCodecPrimitiveEncode(turnSet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pullDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pullDuration);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pullDurationExtra);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pullSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pullTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnSet);
 }
 else
 {
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    pullDir = stateCodecPrimitiveDecode();
-    pullDuration = stateCodecPrimitiveDecode();
-    pullDurationExtra = stateCodecPrimitiveDecode();
-    pullSpd = stateCodecPrimitiveDecode();
-    pullTimer = stateCodecPrimitiveDecode();
-    turnSet = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pullDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pullDuration = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pullDurationExtra = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pullSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pullTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnSet = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

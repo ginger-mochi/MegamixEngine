@@ -410,33 +410,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinks);
-    stateCodecPrimitiveEncode(col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinks);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
     stateCodecDSEncode(electricityList, ds_type_list);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecIDEncode(partner);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shootWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootWait);
     stateCodecPrimitiveEncode(shootWaitTimer);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    blinks = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
+    blinks = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
     electricityList = stateCodecDSDecode(ds_type_list);
-    height = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     partner = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    shootWait = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootWait = buffer_read(global.stateCodecBuffer, buffer_f32);
     shootWaitTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

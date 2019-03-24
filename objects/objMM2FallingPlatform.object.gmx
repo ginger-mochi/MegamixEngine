@@ -137,27 +137,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(droptimer);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, droptimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmDeathOnDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashInterval);
     stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashTimer);
     stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmThrown);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmThrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    droptimer = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    droptimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmDeathOnDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmFlashInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmFlashOwner = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmFlashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    superArmThrown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -391,35 +391,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(beginAttackTimer);
-    stateCodecPrimitiveEncode(doFlash);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, beginAttackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doFlash);
     stateCodecPrimitiveEncode(flashInterval);
-    stateCodecPrimitiveEncode(flashTimer);
-    stateCodecPrimitiveEncode(isHard);
-    stateCodecPrimitiveEncode(jumpHeight);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isHard);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(shootTime);
-    stateCodecPrimitiveEncode(walkSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkSpeed);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    beginAttackTimer = stateCodecPrimitiveDecode();
-    doFlash = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    beginAttackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doFlash = buffer_read(global.stateCodecBuffer, buffer_f32);
     flashInterval = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
-    isHard = stateCodecPrimitiveDecode();
-    jumpHeight = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
+    flashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isHard = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    shootTime = stateCodecPrimitiveDecode();
-    walkSpeed = stateCodecPrimitiveDecode();
+    shootTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

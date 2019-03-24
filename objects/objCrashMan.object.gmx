@@ -362,39 +362,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(beginAttackTimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(imageNoMin);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(infiniteCrashBombs);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, beginAttackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageNoMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, infiniteCrashBombs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(randomiser);
-    stateCodecPrimitiveEncode(walkX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, randomiser);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkX);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    beginAttackTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    imageNoMin = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    infiniteCrashBombs = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    beginAttackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageNoMin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    infiniteCrashBombs = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    randomiser = stateCodecPrimitiveDecode();
-    walkX = stateCodecPrimitiveDecode();
+    randomiser = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

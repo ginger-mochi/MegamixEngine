@@ -338,41 +338,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(acc);
-    stateCodecPrimitiveEncode(accelSpeed);
-    stateCodecPrimitiveEncode(accelTime);
-    stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(ascendDist);
-    stateCodecPrimitiveEncode(ascendSpeed);
-    stateCodecPrimitiveEncode(descendGrav);
-    stateCodecPrimitiveEncode(descendSpeed);
-    stateCodecPrimitiveEncode(guardCancel);
-    stateCodecPrimitiveEncode(holdTime);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, acc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accelSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accelTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, anim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ascendDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ascendSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, descendGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, descendSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, guardCancel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, holdTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(sy);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    acc = stateCodecPrimitiveDecode();
-    accelSpeed = stateCodecPrimitiveDecode();
-    accelTime = stateCodecPrimitiveDecode();
-    anim = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    ascendDist = stateCodecPrimitiveDecode();
-    ascendSpeed = stateCodecPrimitiveDecode();
-    descendGrav = stateCodecPrimitiveDecode();
-    descendSpeed = stateCodecPrimitiveDecode();
-    guardCancel = stateCodecPrimitiveDecode();
-    holdTime = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    acc = buffer_read(global.stateCodecBuffer, buffer_f32);
+    accelSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    accelTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ascendDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ascendSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    descendGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    descendSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    guardCancel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    holdTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     sy = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

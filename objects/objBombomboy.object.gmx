@@ -215,25 +215,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(attackTime);
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecPrimitiveEncode(bullets);
-    stateCodecPrimitiveEncode(canShoot);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(prevYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevYspeed);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    attackTime = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     bullets = stateCodecPrimitiveDecode();
-    canShoot = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    prevYspeed = stateCodecPrimitiveDecode();
+    canShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

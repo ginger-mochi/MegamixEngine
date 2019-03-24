@@ -305,39 +305,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(displayMessage);
-    stateCodecPrimitiveEncode(displayResults);
+    buffer_write(global.stateCodecBuffer, buffer_f32, displayMessage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, displayResults);
     stateCodecPrimitiveEncode(fullTestSuiteSet);
-    stateCodecPrimitiveEncode(message);
-    stateCodecPrimitiveEncode(runTests);
-    stateCodecPrimitiveEncode(scroll);
-    stateCodecPrimitiveEncode(scrollX);
-    stateCodecPrimitiveEncode(suiteBegin);
-    stateCodecPrimitiveEncode(testResultsFile);
-    stateCodecPrimitiveEncode(testSuiteCurrent);
+    buffer_write(global.stateCodecBuffer, buffer_string, message);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runTests);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scroll);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scrollX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, suiteBegin);
+    buffer_write(global.stateCodecBuffer, buffer_string, testResultsFile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, testSuiteCurrent);
     stateCodecPrimitiveEncode(testSuiteN);
     stateCodecPrimitiveEncode(testSuiteSet);
-    stateCodecPrimitiveEncode(testingBegin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, testingBegin);
     stateCodecDSEncode(unitTestFullResults, ds_type_list);
-    stateCodecPrimitiveEncode(writeToFile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, writeToFile);
 }
 else
 {
-    displayMessage = stateCodecPrimitiveDecode();
-    displayResults = stateCodecPrimitiveDecode();
+    displayMessage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    displayResults = buffer_read(global.stateCodecBuffer, buffer_f32);
     fullTestSuiteSet = stateCodecPrimitiveDecode();
-    message = stateCodecPrimitiveDecode();
-    runTests = stateCodecPrimitiveDecode();
-    scroll = stateCodecPrimitiveDecode();
-    scrollX = stateCodecPrimitiveDecode();
-    suiteBegin = stateCodecPrimitiveDecode();
-    testResultsFile = stateCodecPrimitiveDecode();
-    testSuiteCurrent = stateCodecPrimitiveDecode();
+    message = buffer_read(global.stateCodecBuffer, buffer_string);
+    runTests = buffer_read(global.stateCodecBuffer, buffer_f32);
+    scroll = buffer_read(global.stateCodecBuffer, buffer_f32);
+    scrollX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    suiteBegin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    testResultsFile = buffer_read(global.stateCodecBuffer, buffer_string);
+    testSuiteCurrent = buffer_read(global.stateCodecBuffer, buffer_f32);
     testSuiteN = stateCodecPrimitiveDecode();
     testSuiteSet = stateCodecPrimitiveDecode();
-    testingBegin = stateCodecPrimitiveDecode();
+    testingBegin = buffer_read(global.stateCodecBuffer, buffer_f32);
     unitTestFullResults = stateCodecDSDecode(ds_type_list);
-    writeToFile = stateCodecPrimitiveDecode();
+    writeToFile = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

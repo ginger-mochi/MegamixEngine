@@ -353,39 +353,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(cutterFrame);
-    stateCodecPrimitiveEncode(doQuake);
-    stateCodecPrimitiveEncode(hasCutter);
-    stateCodecPrimitiveEncode(jitterFrame);
-    stateCodecPrimitiveEncode(mouthOpen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cutterFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doQuake);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasCutter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jitterFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mouthOpen);
     stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rollerFrame);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(turnTrigger);
-    stateCodecPrimitiveEncode(variant);
-    stateCodecPrimitiveEncode(wheelFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rollerFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTrigger);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variant);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wheelFrame);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    cutterFrame = stateCodecPrimitiveDecode();
-    doQuake = stateCodecPrimitiveDecode();
-    hasCutter = stateCodecPrimitiveDecode();
-    jitterFrame = stateCodecPrimitiveDecode();
-    mouthOpen = stateCodecPrimitiveDecode();
+    cutterFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doQuake = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasCutter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jitterFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mouthOpen = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveDir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rollerFrame = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    turnTrigger = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
-    wheelFrame = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rollerFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnTrigger = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variant = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wheelFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

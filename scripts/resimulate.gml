@@ -3,8 +3,8 @@
 /// eventPhase is the phase to start resimulating on and to end just before resimulating.
 /// it can be ev_step_begin, ev_step_end, ev_step_normal
 
-var n = argument0;
-var eventPhase = argument1;
+var n = argument[0];
+var eventPhase = argument[1];
 
 switch (eventPhase)
 {

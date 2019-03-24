@@ -257,25 +257,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(imgdelay);
-    stateCodecPrimitiveEncode(origin);
-    stateCodecPrimitiveEncode(spawndelay);
-    stateCodecPrimitiveEncode(trainlength);
-    stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(yy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, action);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgdelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, origin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawndelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trainlength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yy);
 }
 else
 {
-    action = stateCodecPrimitiveDecode();
-    actionTimer = stateCodecPrimitiveDecode();
-    imgdelay = stateCodecPrimitiveDecode();
-    origin = stateCodecPrimitiveDecode();
-    spawndelay = stateCodecPrimitiveDecode();
-    trainlength = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
-    yy = stateCodecPrimitiveDecode();
+    action = buffer_read(global.stateCodecBuffer, buffer_f32);
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgdelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    origin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawndelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trainlength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yy = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -171,20 +171,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(popDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popDelay);
     stateCodecPrimitiveEncode(popDelayStart);
-    stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(sineWave);
-    stateCodecPrimitiveEncode(startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sineWave);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
 }
 else
 {
     contactStart = stateCodecPrimitiveDecode();
-    popDelay = stateCodecPrimitiveDecode();
+    popDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
     popDelayStart = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
-    sineWave = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sineWave = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

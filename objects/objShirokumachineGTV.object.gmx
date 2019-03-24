@@ -276,23 +276,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecPrimitiveEncode(bullet);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shardsCreated);
-    stateCodecPrimitiveEncode(storeXScale);
-    stateCodecPrimitiveEncode(variant);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shardsCreated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variant);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     bullet = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shardsCreated = stateCodecPrimitiveDecode();
-    storeXScale = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shardsCreated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variant = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

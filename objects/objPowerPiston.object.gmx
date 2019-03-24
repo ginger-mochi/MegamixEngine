@@ -459,47 +459,47 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bodyFrame);
-    stateCodecPrimitiveEncode(cTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bodyFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cTurn);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(delayMove);
-    stateCodecPrimitiveEncode(delayRock);
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(isDying);
-    stateCodecPrimitiveEncode(lightFrame);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shootAngle);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(startCheck);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayRock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startCheck);
     stateCodecPrimitiveEncode(turnCheck);
-    stateCodecPrimitiveEncode(turnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTimer);
     stateCodecPrimitiveEncode(yMax);
-    stateCodecPrimitiveEncode(yMin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMin);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    bodyFrame = stateCodecPrimitiveDecode();
-    cTurn = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bodyFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    delayMove = stateCodecPrimitiveDecode();
-    delayRock = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
-    lightFrame = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shootAngle = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    startCheck = stateCodecPrimitiveDecode();
+    delayMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayRock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDying = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startCheck = buffer_read(global.stateCodecBuffer, buffer_f32);
     turnCheck = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
+    turnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     yMax = stateCodecPrimitiveDecode();
-    yMin = stateCodecPrimitiveDecode();
+    yMin = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

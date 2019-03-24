@@ -300,13 +300,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(firstFrame);
-    stateCodecPrimitiveEncode(penetrateNoDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, firstFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, penetrateNoDamage);
 }
 else
 {
-    firstFrame = stateCodecPrimitiveDecode();
-    penetrateNoDamage = stateCodecPrimitiveDecode();
+    firstFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    penetrateNoDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

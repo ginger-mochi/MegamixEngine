@@ -64,11 +64,11 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(image_sped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, image_sped);
 }
 else
 {
-    image_sped = stateCodecPrimitiveDecode();
+    image_sped = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

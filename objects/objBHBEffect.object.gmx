@@ -109,13 +109,13 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(targetX);
     stateCodecPrimitiveEncode(targetY);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
     targetX = stateCodecPrimitiveDecode();
     targetY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -269,25 +269,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canDrop);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(iphase);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timeri);
-    stateCodecPrimitiveEncode(touched);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, iphase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeri);
+    buffer_write(global.stateCodecBuffer, buffer_f32, touched);
 }
 else
 {
-    canDrop = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    iphase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
-    touched = stateCodecPrimitiveDecode();
+    canDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    iphase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeri = buffer_read(global.stateCodecBuffer, buffer_f32);
+    touched = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

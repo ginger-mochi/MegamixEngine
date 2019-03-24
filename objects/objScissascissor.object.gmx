@@ -191,15 +191,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(splitWithSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, splitWithSpawn);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    splitWithSpawn = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    splitWithSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

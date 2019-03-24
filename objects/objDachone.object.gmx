@@ -295,29 +295,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(lockTransition);
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockTransition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    lockTransition = stateCodecPrimitiveDecode();
-    moveDelay = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockTransition = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

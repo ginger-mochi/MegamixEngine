@@ -277,26 +277,26 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(blinkSpeed);
-    stateCodecPrimitiveEncode(gravDir);
-    stateCodecPrimitiveEncode(hideWhileHanging);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hideWhileHanging);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(yscaleStart);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    animOffset = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    blinkSpeed = stateCodecPrimitiveDecode();
-    gravDir = stateCodecPrimitiveDecode();
-    hideWhileHanging = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gravDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hideWhileHanging = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     yscaleStart = stateCodecPrimitiveDecode();
 }
 </string>

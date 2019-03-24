@@ -162,21 +162,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(canMove);
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(destroy);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(setup);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setup);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    canMove = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
-    destroy = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    setup = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setup = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

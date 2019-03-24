@@ -159,18 +159,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(deactivationDistance);
-    stateCodecPrimitiveEncode(defaultSpeed);
-    stateCodecPrimitiveEncode(maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deactivationDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, defaultSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
     stateCodecPrimitiveEncode(viewPlayer);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    deactivationDistance = stateCodecPrimitiveDecode();
-    defaultSpeed = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deactivationDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    defaultSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     viewPlayer = stateCodecPrimitiveDecode();
 }
 </string>

@@ -144,19 +144,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(pop);
-    stateCodecPrimitiveEncode(popTime);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    img = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    pop = stateCodecPrimitiveDecode();
-    popTime = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    popTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

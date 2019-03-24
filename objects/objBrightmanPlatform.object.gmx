@@ -210,26 +210,26 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(offset);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, offset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(startDirection);
     stateCodecPrimitiveEncode(startDistance);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
     stateCodecPrimitiveEncode(waitMemory);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     distance = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    offset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     startDirection = stateCodecPrimitiveDecode();
     startDistance = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
     waitMemory = stateCodecPrimitiveDecode();
 }
 </string>

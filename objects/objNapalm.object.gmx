@@ -241,15 +241,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(dieTime);
-    stateCodecPrimitiveEncode(dying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dieTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dying);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    dieTime = stateCodecPrimitiveDecode();
-    dying = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dieTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dying = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

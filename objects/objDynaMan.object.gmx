@@ -416,37 +416,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bigJumpHeight);
-    stateCodecPrimitiveEncode(bombToThrow);
-    stateCodecPrimitiveEncode(bombX);
-    stateCodecPrimitiveEncode(bombY);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(fallTime);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(jumpCounter);
-    stateCodecPrimitiveEncode(smallJumpHeight);
-    stateCodecPrimitiveEncode(smallJumps);
-    stateCodecPrimitiveEncode(starterBomb);
-    stateCodecPrimitiveEncode(starterBombX);
-    stateCodecPrimitiveEncode(starterBombY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bigJumpHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bombToThrow);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bombX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bombY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, smallJumpHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, smallJumps);
+    buffer_write(global.stateCodecBuffer, buffer_f32, starterBomb);
+    buffer_write(global.stateCodecBuffer, buffer_f32, starterBombX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, starterBombY);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bigJumpHeight = stateCodecPrimitiveDecode();
-    bombToThrow = stateCodecPrimitiveDecode();
-    bombX = stateCodecPrimitiveDecode();
-    bombY = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    fallTime = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    jumpCounter = stateCodecPrimitiveDecode();
-    smallJumpHeight = stateCodecPrimitiveDecode();
-    smallJumps = stateCodecPrimitiveDecode();
-    starterBomb = stateCodecPrimitiveDecode();
-    starterBombX = stateCodecPrimitiveDecode();
-    starterBombY = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bigJumpHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bombToThrow = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bombX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bombY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fallTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    smallJumpHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    smallJumps = buffer_read(global.stateCodecBuffer, buffer_f32);
+    starterBomb = buffer_read(global.stateCodecBuffer, buffer_f32);
+    starterBombX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    starterBombY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

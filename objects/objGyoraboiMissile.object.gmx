@@ -116,11 +116,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canCollide);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canCollide);
 }
 else
 {
-    canCollide = stateCodecPrimitiveDecode();
+    canCollide = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

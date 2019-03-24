@@ -198,27 +198,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(jetTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotateSpd);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startWaitTimer);
-    stateCodecPrimitiveEncode(totalChange);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jetTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotateSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, totalChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    jetTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rotateSpd = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startWaitTimer = stateCodecPrimitiveDecode();
-    totalChange = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jetTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotateSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    totalChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

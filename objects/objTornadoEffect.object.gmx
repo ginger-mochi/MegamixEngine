@@ -162,16 +162,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(objectCopy);
-    stateCodecPrimitiveEncode(panicTimer);
-    stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, panicTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
     objectCopy = stateCodecPrimitiveDecode();
-    panicTimer = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    panicTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

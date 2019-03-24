@@ -117,13 +117,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(imgOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgOffset);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    imgOffset = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

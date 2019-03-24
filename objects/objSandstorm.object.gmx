@@ -164,21 +164,21 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(imgTimer);
-    stateCodecPrimitiveEncode(imgadd);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(size);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgadd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, size);
     stateCodecPrimitiveEncode(xs);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    imgTimer = stateCodecPrimitiveDecode();
-    imgadd = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    size = stateCodecPrimitiveDecode();
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgadd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    size = buffer_read(global.stateCodecBuffer, buffer_f32);
     xs = stateCodecPrimitiveDecode();
 }
 </string>

@@ -163,23 +163,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(minusX);
-    stateCodecPrimitiveEncode(passedTarget);
-    stateCodecPrimitiveEncode(targetX);
-    stateCodecPrimitiveEncode(targetY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, minusX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, passedTarget);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerMax);
 }
 else
 {
-    hasFired = stateCodecPrimitiveDecode();
-    minusX = stateCodecPrimitiveDecode();
-    passedTarget = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
-    targetY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    minusX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    passedTarget = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

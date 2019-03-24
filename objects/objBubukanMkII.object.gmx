@@ -265,25 +265,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(jumpSpd);
-    stateCodecPrimitiveEncode(landingWait);
-    stateCodecPrimitiveEncode(landingWaitTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landingWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landingWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(runCycleBack);
-    stateCodecPrimitiveEncode(runSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runCycleBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runSpd);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    jumpSpd = stateCodecPrimitiveDecode();
-    landingWait = stateCodecPrimitiveDecode();
-    landingWaitTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landingWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landingWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    runCycleBack = stateCodecPrimitiveDecode();
-    runSpd = stateCodecPrimitiveDecode();
+    runCycleBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    runSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

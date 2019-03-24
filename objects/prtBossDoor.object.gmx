@@ -306,30 +306,30 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canOpen);
-    stateCodecPrimitiveEncode(closing);
-    stateCodecPrimitiveEncode(destroyDelay);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(doorHeight);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(isTile);
-    stateCodecPrimitiveEncode(layer);
-    stateCodecPrimitiveEncode(opening);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canOpen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, closing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doorHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, layer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, opening);
     stateCodecPrimitiveEncode(type);
 }
 else
 {
-    canOpen = stateCodecPrimitiveDecode();
-    closing = stateCodecPrimitiveDecode();
-    destroyDelay = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    doorHeight = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    imgSpeed = stateCodecPrimitiveDecode();
-    isTile = stateCodecPrimitiveDecode();
-    layer = stateCodecPrimitiveDecode();
-    opening = stateCodecPrimitiveDecode();
+    canOpen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    closing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doorHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isTile = buffer_read(global.stateCodecBuffer, buffer_f32);
+    layer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    opening = buffer_read(global.stateCodecBuffer, buffer_f32);
     type = stateCodecPrimitiveDecode();
 }
 </string>

@@ -420,41 +420,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(carFrame);
-    stateCodecPrimitiveEncode(destroyTerrain);
-    stateCodecPrimitiveEncode(introType);
-    stateCodecPrimitiveEncode(joeFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, carFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTerrain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, introType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, joeFrame);
     stateCodecPrimitiveEncode(lockID);
     stateCodecPrimitiveEncode(moveDir);
     stateCodecPrimitiveEncode(overrideX);
     stateCodecPrimitiveEncode(overrideY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(spdB);
-    stateCodecPrimitiveEncode(spdF);
-    stateCodecPrimitiveEncode(strMMX);
-    stateCodecPrimitiveEncode(strMMY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spdB);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spdF);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMY);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    carFrame = stateCodecPrimitiveDecode();
-    destroyTerrain = stateCodecPrimitiveDecode();
-    introType = stateCodecPrimitiveDecode();
-    joeFrame = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    carFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTerrain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    introType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    joeFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
     lockID = stateCodecPrimitiveDecode();
     moveDir = stateCodecPrimitiveDecode();
     overrideX = stateCodecPrimitiveDecode();
     overrideY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    spdB = stateCodecPrimitiveDecode();
-    spdF = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
-    strMMY = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spdB = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spdF = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    strMMY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

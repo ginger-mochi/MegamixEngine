@@ -306,29 +306,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecPrimitiveEncode(birdInstanceStore);
-    stateCodecPrimitiveEncode(drawFlame);
-    stateCodecPrimitiveEncode(flameIndex);
-    stateCodecPrimitiveEncode(flameTimer);
-    stateCodecPrimitiveEncode(launchY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(release);
-    stateCodecPrimitiveEncode(soundPlay);
-    stateCodecPrimitiveEncode(targetLeft);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawFlame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, launchY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, release);
+    buffer_write(global.stateCodecBuffer, buffer_f32, soundPlay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetLeft);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     birdInstanceStore = stateCodecPrimitiveDecode();
-    drawFlame = stateCodecPrimitiveDecode();
-    flameIndex = stateCodecPrimitiveDecode();
-    flameTimer = stateCodecPrimitiveDecode();
-    launchY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    release = stateCodecPrimitiveDecode();
-    soundPlay = stateCodecPrimitiveDecode();
-    targetLeft = stateCodecPrimitiveDecode();
+    drawFlame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    launchY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    release = buffer_read(global.stateCodecBuffer, buffer_f32);
+    soundPlay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetLeft = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

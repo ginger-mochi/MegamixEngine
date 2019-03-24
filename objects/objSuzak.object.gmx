@@ -108,17 +108,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(category);
-    stateCodecPrimitiveEncode(high);
+    buffer_write(global.stateCodecBuffer, buffer_string, category);
+    buffer_write(global.stateCodecBuffer, buffer_f32, high);
     stateCodecIDEncode(i);
-    stateCodecPrimitiveEncode(lockTransition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockTransition);
 }
 else
 {
-    category = stateCodecPrimitiveDecode();
-    high = stateCodecPrimitiveDecode();
+    category = buffer_read(global.stateCodecBuffer, buffer_string);
+    high = buffer_read(global.stateCodecBuffer, buffer_f32);
     i = stateCodecIDDecode();
-    lockTransition = stateCodecPrimitiveDecode();
+    lockTransition = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

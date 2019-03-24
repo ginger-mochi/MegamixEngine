@@ -246,20 +246,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bg);
-    stateCodecPrimitiveEncode(blowSpeed);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(imgalarm);
-    stateCodecPrimitiveEncode(moving);
-    stateCodecPrimitiveEncode(mylayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blowSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgalarm);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moving);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mylayer);
 }
 else
 {
     bg = stateCodecPrimitiveDecode();
-    blowSpeed = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
-    moving = stateCodecPrimitiveDecode();
-    mylayer = stateCodecPrimitiveDecode();
+    blowSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgalarm = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moving = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mylayer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

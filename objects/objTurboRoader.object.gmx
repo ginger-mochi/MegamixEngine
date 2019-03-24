@@ -229,17 +229,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(loops);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(turn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turn);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    loops = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    turn = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    loops = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turn = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

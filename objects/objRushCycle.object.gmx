@@ -494,35 +494,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(animAdd);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(currentImg);
-    stateCodecPrimitiveEncode(dustTimer);
-    stateCodecPrimitiveEncode(physicsLock);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shootYOffset);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(trailTimer);
-    stateCodecPrimitiveEncode(turning);
-    stateCodecPrimitiveEncode(weaponsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animAdd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentImg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dustTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, physicsLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, riderPhysicsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootYOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trailTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turning);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weaponsAllowed);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    animAdd = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    currentImg = stateCodecPrimitiveDecode();
-    dustTimer = stateCodecPrimitiveDecode();
-    physicsLock = stateCodecPrimitiveDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    trailTimer = stateCodecPrimitiveDecode();
-    turning = stateCodecPrimitiveDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animAdd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentImg = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dustTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    physicsLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    riderPhysicsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootYOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trailTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turning = buffer_read(global.stateCodecBuffer, buffer_f32);
+    weaponsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

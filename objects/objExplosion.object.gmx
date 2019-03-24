@@ -94,16 +94,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(code);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
     stateCodecPrimitiveEncode(disappearTime);
-    stateCodecPrimitiveEncode(myItem);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myItem);
     stateCodecPrimitiveEncode(script);
 }
 else
 {
-    code = stateCodecPrimitiveDecode();
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
     disappearTime = stateCodecPrimitiveDecode();
-    myItem = stateCodecPrimitiveDecode();
+    myItem = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
 }
 </string>

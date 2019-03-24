@@ -197,33 +197,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(TILE_DEPTH_UNSET);
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(createTime);
-    stateCodecPrimitiveEncode(myTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, TILE_DEPTH_UNSET);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, createTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myTile);
     stateCodecPrimitiveEncode(myindex);
     stateCodecIDEncode(myinstance);
     stateCodecPrimitiveEncode(object);
     stateCodecPrimitiveEncode(otherstate);
     stateCodecPrimitiveEncode(otheruptag);
-    stateCodecPrimitiveEncode(propagated);
-    stateCodecPrimitiveEncode(tag);
-    stateCodecPrimitiveEncode(tile_depth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, propagated);
+    buffer_write(global.stateCodecBuffer, buffer_string, tag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_depth);
 }
 else
 {
-    TILE_DEPTH_UNSET = stateCodecPrimitiveDecode();
-    active = stateCodecPrimitiveDecode();
-    createTime = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
+    TILE_DEPTH_UNSET = buffer_read(global.stateCodecBuffer, buffer_f32);
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    createTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myTile = buffer_read(global.stateCodecBuffer, buffer_f32);
     myindex = stateCodecPrimitiveDecode();
     myinstance = stateCodecIDDecode();
     object = stateCodecPrimitiveDecode();
     otherstate = stateCodecPrimitiveDecode();
     otheruptag = stateCodecPrimitiveDecode();
-    propagated = stateCodecPrimitiveDecode();
-    tag = stateCodecPrimitiveDecode();
-    tile_depth = stateCodecPrimitiveDecode();
+    propagated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tag = buffer_read(global.stateCodecBuffer, buffer_string);
+    tile_depth = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

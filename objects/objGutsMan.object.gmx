@@ -551,43 +551,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecIDEncode(block);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(choosePhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, choosePhase);
     stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(isHard);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(lastPhase);
-    stateCodecPrimitiveEncode(myTileDepth);
-    stateCodecPrimitiveEncode(newX);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isHard);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myTileDepth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
     stateCodecPrimitiveEncode(prevDepth);
-    stateCodecPrimitiveEncode(shakeTimer);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     block = stateCodecIDDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    choosePhase = stateCodecPrimitiveDecode();
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    choosePhase = buffer_read(global.stateCodecBuffer, buffer_f32);
     getLastXspeed = stateCodecPrimitiveDecode();
-    isHard = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    lastPhase = stateCodecPrimitiveDecode();
-    myTileDepth = stateCodecPrimitiveDecode();
-    newX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    isHard = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myTileDepth = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevDepth = stateCodecPrimitiveDecode();
-    shakeTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    shakeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

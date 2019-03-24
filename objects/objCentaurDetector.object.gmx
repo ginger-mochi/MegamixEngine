@@ -133,17 +133,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(hitFloor);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(shuntedIntoRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitFloor);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shuntedIntoRoof);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    hitFloor = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    shuntedIntoRoof = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hitFloor = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shuntedIntoRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

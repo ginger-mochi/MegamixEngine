@@ -541,21 +541,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(absorbSFXTimer);
-    stateCodecPrimitiveEncode(charge);
-    stateCodecPrimitiveEncode(dstX);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(runSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, absorbSFXTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, charge);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dstX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, runSpeed);
 }
 else
 {
-    absorbSFXTimer = stateCodecPrimitiveDecode();
-    charge = stateCodecPrimitiveDecode();
-    dstX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    runSpeed = stateCodecPrimitiveDecode();
+    absorbSFXTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    charge = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dstX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    runSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

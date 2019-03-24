@@ -460,17 +460,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(bounce);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(weaponsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, riderPhysicsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weaponsAllowed);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    bounce = stateCodecPrimitiveDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    riderPhysicsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    weaponsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

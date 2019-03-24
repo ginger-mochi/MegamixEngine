@@ -93,12 +93,12 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(align);
-    stateCodecPrimitiveEncode(text);
+    buffer_write(global.stateCodecBuffer, buffer_string, text);
 }
 else
 {
     align = stateCodecPrimitiveDecode();
-    text = stateCodecPrimitiveDecode();
+    text = buffer_read(global.stateCodecBuffer, buffer_string);
 }
 </string>
           </argument>

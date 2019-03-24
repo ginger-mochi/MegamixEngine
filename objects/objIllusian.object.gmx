@@ -222,29 +222,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(lay_time);
-    stateCodecPrimitiveEncode(lay_timer);
-    stateCodecPrimitiveEncode(move_speed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lay_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lay_timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, move_speed);
     stateCodecPrimitiveEncode(route_combined);
-    stateCodecPrimitiveEncode(route_progress);
+    buffer_write(global.stateCodecBuffer, buffer_f32, route_progress);
     stateCodecPrimitiveEncode(route_tile);
-    stateCodecPrimitiveEncode(route_tile_n);
-    stateCodecPrimitiveEncode(tile_layer);
-    stateCodecPrimitiveEncode(y_route);
+    buffer_write(global.stateCodecBuffer, buffer_f32, route_tile_n);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tile_layer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, y_route);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    lay_time = stateCodecPrimitiveDecode();
-    lay_timer = stateCodecPrimitiveDecode();
-    move_speed = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lay_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lay_timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    move_speed = buffer_read(global.stateCodecBuffer, buffer_f32);
     route_combined = stateCodecPrimitiveDecode();
-    route_progress = stateCodecPrimitiveDecode();
+    route_progress = buffer_read(global.stateCodecBuffer, buffer_f32);
     route_tile = stateCodecPrimitiveDecode();
-    route_tile_n = stateCodecPrimitiveDecode();
-    tile_layer = stateCodecPrimitiveDecode();
-    y_route = stateCodecPrimitiveDecode();
+    route_tile_n = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tile_layer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    y_route = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

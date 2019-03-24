@@ -467,21 +467,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(resetSpriteChange);
-    stateCodecPrimitiveEncode(sfxloop);
-    stateCodecPrimitiveEncode(wireLock);
-    stateCodecPrimitiveEncode(xx);
-    stateCodecPrimitiveEncode(ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetSpriteChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sfxloop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wireLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
-    resetSpriteChange = stateCodecPrimitiveDecode();
-    sfxloop = stateCodecPrimitiveDecode();
-    wireLock = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetSpriteChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sfxloop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wireLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

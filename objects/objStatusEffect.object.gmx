@@ -166,33 +166,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(singleTrigger);
-    stateCodecPrimitiveEncode(statusCanClimb);
-    stateCodecPrimitiveEncode(statusCanJump);
-    stateCodecPrimitiveEncode(statusCanShoot);
-    stateCodecPrimitiveEncode(statusCanSlide);
-    stateCodecPrimitiveEncode(statusChangedJump);
-    stateCodecPrimitiveEncode(statusChangedWalk);
-    stateCodecPrimitiveEncode(statusJumpSpeed);
-    stateCodecPrimitiveEncode(statusOnIce);
-    stateCodecPrimitiveEncode(statusWalkSpeed);
-    stateCodecPrimitiveEncode(storeJumpSpeed);
-    stateCodecPrimitiveEncode(storeWalkSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, singleTrigger);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusCanClimb);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusCanJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusCanShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusCanSlide);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusChangedJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusChangedWalk);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusJumpSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusOnIce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, statusWalkSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeJumpSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeWalkSpeed);
 }
 else
 {
-    singleTrigger = stateCodecPrimitiveDecode();
-    statusCanClimb = stateCodecPrimitiveDecode();
-    statusCanJump = stateCodecPrimitiveDecode();
-    statusCanShoot = stateCodecPrimitiveDecode();
-    statusCanSlide = stateCodecPrimitiveDecode();
-    statusChangedJump = stateCodecPrimitiveDecode();
-    statusChangedWalk = stateCodecPrimitiveDecode();
-    statusJumpSpeed = stateCodecPrimitiveDecode();
-    statusOnIce = stateCodecPrimitiveDecode();
-    statusWalkSpeed = stateCodecPrimitiveDecode();
-    storeJumpSpeed = stateCodecPrimitiveDecode();
-    storeWalkSpeed = stateCodecPrimitiveDecode();
+    singleTrigger = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusCanClimb = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusCanJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusCanShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusCanSlide = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusChangedJump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusChangedWalk = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusJumpSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusOnIce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    statusWalkSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeJumpSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeWalkSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -256,53 +256,53 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(X);
-    stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(drawarrow);
-    stateCodecPrimitiveEncode(enemyLock);
-    stateCodecPrimitiveEncode(externalRoomFilename);
-    stateCodecPrimitiveEncode(isDoor);
-    stateCodecPrimitiveEncode(isExternal);
-    stateCodecPrimitiveEncode(keylock);
-    stateCodecPrimitiveEncode(light);
+    buffer_write(global.stateCodecBuffer, buffer_f32, X);
+    buffer_write(global.stateCodecBuffer, buffer_f32, Y);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawarrow);
+    buffer_write(global.stateCodecBuffer, buffer_f32, enemyLock);
+    buffer_write(global.stateCodecBuffer, buffer_string, externalRoomFilename);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDoor);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isExternal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, keylock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, light);
     stateCodecPrimitiveEncode(lightSprite);
     stateCodecPrimitiveEncode(lightsp);
-    stateCodecPrimitiveEncode(lightt);
-    stateCodecPrimitiveEncode(lightx);
-    stateCodecPrimitiveEncode(lighty);
-    stateCodecPrimitiveEncode(lock);
-    stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(newStage);
-    stateCodecPrimitiveEncode(permalock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightt);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lighty);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myRoom);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newStage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, permalock);
     stateCodecPrimitiveEncode(playerMet);
-    stateCodecPrimitiveEncode(pressUp);
-    stateCodecPrimitiveEncode(returnToHub);
-    stateCodecPrimitiveEncode(teleportOnce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pressUp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, returnToHub);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportOnce);
 }
 else
 {
-    X = stateCodecPrimitiveDecode();
-    Y = stateCodecPrimitiveDecode();
-    drawarrow = stateCodecPrimitiveDecode();
-    enemyLock = stateCodecPrimitiveDecode();
-    externalRoomFilename = stateCodecPrimitiveDecode();
-    isDoor = stateCodecPrimitiveDecode();
-    isExternal = stateCodecPrimitiveDecode();
-    keylock = stateCodecPrimitiveDecode();
-    light = stateCodecPrimitiveDecode();
+    X = buffer_read(global.stateCodecBuffer, buffer_f32);
+    Y = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawarrow = buffer_read(global.stateCodecBuffer, buffer_f32);
+    enemyLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    externalRoomFilename = buffer_read(global.stateCodecBuffer, buffer_string);
+    isDoor = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isExternal = buffer_read(global.stateCodecBuffer, buffer_f32);
+    keylock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    light = buffer_read(global.stateCodecBuffer, buffer_f32);
     lightSprite = stateCodecPrimitiveDecode();
     lightsp = stateCodecPrimitiveDecode();
-    lightt = stateCodecPrimitiveDecode();
-    lightx = stateCodecPrimitiveDecode();
-    lighty = stateCodecPrimitiveDecode();
-    lock = stateCodecPrimitiveDecode();
-    myRoom = stateCodecPrimitiveDecode();
-    newStage = stateCodecPrimitiveDecode();
-    permalock = stateCodecPrimitiveDecode();
+    lightt = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lighty = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myRoom = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newStage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    permalock = buffer_read(global.stateCodecBuffer, buffer_f32);
     playerMet = stateCodecPrimitiveDecode();
-    pressUp = stateCodecPrimitiveDecode();
-    returnToHub = stateCodecPrimitiveDecode();
-    teleportOnce = stateCodecPrimitiveDecode();
+    pressUp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    returnToHub = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportOnce = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -334,45 +334,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(fallMomentum);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(numberOfRounder);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallMomentum);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, numberOfRounder);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(startingDirection);
-    stateCodecPrimitiveEncode(totalHealth);
-    stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startingDirection);
+    buffer_write(global.stateCodecBuffer, buffer_f32, totalHealth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    fallMomentum = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    numberOfRounder = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    fallMomentum = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    numberOfRounder = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
     startDir = stateCodecPrimitiveDecode();
-    startingDirection = stateCodecPrimitiveDecode();
-    totalHealth = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    startingDirection = buffer_read(global.stateCodecBuffer, buffer_f32);
+    totalHealth = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

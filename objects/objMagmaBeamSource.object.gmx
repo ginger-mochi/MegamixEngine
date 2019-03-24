@@ -137,7 +137,7 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(timerInitial);
     stateCodecPrimitiveEncode(timerMax);
     stateCodecPrimitiveEncode(timerShoot);
@@ -145,7 +145,7 @@ if (global.stateCodecEncode)
 }
 else
 {
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     timerInitial = stateCodecPrimitiveDecode();
     timerMax = stateCodecPrimitiveDecode();
     timerShoot = stateCodecPrimitiveDecode();

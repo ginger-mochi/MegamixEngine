@@ -142,15 +142,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(trueX);
     stateCodecPrimitiveEncode(trueY);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     trueX = stateCodecPrimitiveDecode();
     trueY = stateCodecPrimitiveDecode();
 }

@@ -177,25 +177,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attack);
-    stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blink);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(flipDir);
-    stateCodecPrimitiveEncode(flipperIndex);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flipDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flipperIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
-    attack = stateCodecPrimitiveDecode();
-    blink = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
+    attack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blink = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    flipDir = stateCodecPrimitiveDecode();
-    flipperIndex = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    flipDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flipperIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

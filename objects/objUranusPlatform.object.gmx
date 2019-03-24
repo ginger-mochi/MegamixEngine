@@ -287,23 +287,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_gravDir);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(segmentCount);
-    stateCodecPrimitiveEncode(segmentLimit);
-    stateCodecPrimitiveEncode(segmentRange);
-    stateCodecPrimitiveEncode(style);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _gravDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, segmentCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, segmentLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, segmentRange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, style);
 }
 else
 {
-    _gravDir = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    segmentCount = stateCodecPrimitiveDecode();
-    segmentLimit = stateCodecPrimitiveDecode();
-    segmentRange = stateCodecPrimitiveDecode();
-    style = stateCodecPrimitiveDecode();
+    _gravDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    segmentCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    segmentLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    segmentRange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    style = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

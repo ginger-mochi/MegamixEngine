@@ -268,17 +268,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animIndex);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(myXSpeed);
-    stateCodecPrimitiveEncode(myYSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myYSpeed);
 }
 else
 {
-    animIndex = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    myXSpeed = stateCodecPrimitiveDecode();
-    myYSpeed = stateCodecPrimitiveDecode();
+    animIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myYSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

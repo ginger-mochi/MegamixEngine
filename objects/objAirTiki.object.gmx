@@ -290,23 +290,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecPrimitiveEncode(gremlinArray);
-    stateCodecPrimitiveEncode(gremlinDir);
-    stateCodecPrimitiveEncode(gremlinSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gremlinDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gremlinSpawn);
     stateCodecPrimitiveEncode(objectDrop);
-    stateCodecPrimitiveEncode(popped);
-    stateCodecPrimitiveEncode(triggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, triggered);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     gremlinArray = stateCodecPrimitiveDecode();
-    gremlinDir = stateCodecPrimitiveDecode();
-    gremlinSpawn = stateCodecPrimitiveDecode();
+    gremlinDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gremlinSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
-    popped = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
+    popped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    triggered = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

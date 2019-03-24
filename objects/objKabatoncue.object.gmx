@@ -155,25 +155,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canCreateMissiles);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canCreateMissiles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(earJiggle);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(missilesCreated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, earJiggle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, missilesCreated);
 }
 else
 {
-    canCreateMissiles = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    canCreateMissiles = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    earJiggle = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    missilesCreated = stateCodecPrimitiveDecode();
+    earJiggle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    missilesCreated = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

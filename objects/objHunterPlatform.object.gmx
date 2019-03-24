@@ -193,33 +193,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(forceMove);
-    stateCodecPrimitiveEncode(hasTriggered);
-    stateCodecPrimitiveEncode(isRandom);
-    stateCodecPrimitiveEncode(maxY);
-    stateCodecPrimitiveEncode(minY);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(oldYSet);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(startYSet);
-    stateCodecPrimitiveEncode(timerMax);
-    stateCodecPrimitiveEncode(timerN);
-    stateCodecPrimitiveEncode(ySet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, forceMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isRandom);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, minY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oldYSet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startYSet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySet);
 }
 else
 {
-    forceMove = stateCodecPrimitiveDecode();
-    hasTriggered = stateCodecPrimitiveDecode();
-    isRandom = stateCodecPrimitiveDecode();
-    maxY = stateCodecPrimitiveDecode();
-    minY = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    oldYSet = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    startYSet = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
-    timerN = stateCodecPrimitiveDecode();
-    ySet = stateCodecPrimitiveDecode();
+    forceMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isRandom = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    minY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oldYSet = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startYSet = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timerN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySet = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -263,23 +263,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(myDir);
-    stateCodecPrimitiveEncode(shootAmount);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shootTotal);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTotal);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
 }
 else
 {
-    jumpCount = stateCodecPrimitiveDecode();
-    myDir = stateCodecPrimitiveDecode();
-    shootAmount = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shootTotal = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
+    jumpCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTotal = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

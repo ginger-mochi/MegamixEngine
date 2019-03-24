@@ -218,19 +218,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasSwitch);
-    stateCodecPrimitiveEncode(magnetDir);
-    stateCodecPrimitiveEncode(magnetState);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasSwitch);
+    buffer_write(global.stateCodecBuffer, buffer_f32, magnetDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, magnetState);
     stateCodecPrimitiveEncode(myMagnet);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    hasSwitch = stateCodecPrimitiveDecode();
-    magnetDir = stateCodecPrimitiveDecode();
-    magnetState = stateCodecPrimitiveDecode();
+    hasSwitch = buffer_read(global.stateCodecBuffer, buffer_f32);
+    magnetDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    magnetState = buffer_read(global.stateCodecBuffer, buffer_f32);
     myMagnet = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

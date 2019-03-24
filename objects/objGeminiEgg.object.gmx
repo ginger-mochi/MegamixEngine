@@ -117,12 +117,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isSpawned);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isSpawned);
     stateCodecPrimitiveEncode(objectDrop);
 }
 else
 {
-    isSpawned = stateCodecPrimitiveDecode();
+    isSpawned = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
 }
 </string>

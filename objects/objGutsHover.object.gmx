@@ -195,23 +195,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activateTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(freeMove);
-    stateCodecPrimitiveEncode(myXSpeed);
-    stateCodecPrimitiveEncode(myYSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotorTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activateTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, freeMove);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myYSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotorTimer);
 }
 else
 {
-    activateTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    freeMove = stateCodecPrimitiveDecode();
-    myXSpeed = stateCodecPrimitiveDecode();
-    myYSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rotorTimer = stateCodecPrimitiveDecode();
+    activateTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    freeMove = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myYSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotorTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

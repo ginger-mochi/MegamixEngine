@@ -145,13 +145,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(countdown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, countdown);
 }
 else
 {
-    bounces = stateCodecPrimitiveDecode();
-    countdown = stateCodecPrimitiveDecode();
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    countdown = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

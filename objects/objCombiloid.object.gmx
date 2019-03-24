@@ -329,27 +329,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(findPartner);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, findPartner);
     stateCodecIDEncode(partner);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(storeXScale);
-    stateCodecPrimitiveEncode(wireY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wireY);
     stateCodecPrimitiveEncode(xMax);
     stateCodecPrimitiveEncode(xMin);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    findPartner = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    findPartner = buffer_read(global.stateCodecBuffer, buffer_f32);
     partner = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    storeXScale = stateCodecPrimitiveDecode();
-    wireY = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wireY = buffer_read(global.stateCodecBuffer, buffer_f32);
     xMax = stateCodecPrimitiveDecode();
     xMin = stateCodecPrimitiveDecode();
 }

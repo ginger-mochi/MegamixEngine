@@ -248,23 +248,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
 }
 else
 {
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    moveDelay = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -211,20 +211,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(breatheTimer);
-    stateCodecPrimitiveEncode(categories);
-    stateCodecPrimitiveEncode(jumpHeight);
-    stateCodecPrimitiveEncode(landTimer);
-    stateCodecPrimitiveEncode(throwTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, breatheTimer);
+    buffer_write(global.stateCodecBuffer, buffer_string, categories);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, throwTimer);
 }
 else
 {
     attackTimer = stateCodecPrimitiveDecode();
-    breatheTimer = stateCodecPrimitiveDecode();
-    categories = stateCodecPrimitiveDecode();
-    jumpHeight = stateCodecPrimitiveDecode();
-    landTimer = stateCodecPrimitiveDecode();
-    throwTimer = stateCodecPrimitiveDecode();
+    breatheTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    categories = buffer_read(global.stateCodecBuffer, buffer_string);
+    jumpHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    throwTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

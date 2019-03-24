@@ -101,17 +101,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(deathTimer);
-    stateCodecPrimitiveEncode(deathTimerMax);
-    stateCodecPrimitiveEncode(drawingPlayer);
-    stateCodecPrimitiveEncode(parent);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deathTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deathTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawingPlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, parent);
 }
 else
 {
-    deathTimer = stateCodecPrimitiveDecode();
-    deathTimerMax = stateCodecPrimitiveDecode();
-    drawingPlayer = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
+    deathTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deathTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawingPlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    parent = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

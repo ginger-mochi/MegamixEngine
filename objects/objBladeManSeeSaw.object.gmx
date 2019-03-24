@@ -446,43 +446,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animImage);
-    stateCodecPrimitiveEncode(backtrackTimer);
-    stateCodecPrimitiveEncode(backtrackTimerMax);
-    stateCodecPrimitiveEncode(canBacktrack);
-    stateCodecPrimitiveEncode(canDraw);
-    stateCodecPrimitiveEncode(changeDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, backtrackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, backtrackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canBacktrack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDraw);
+    buffer_write(global.stateCodecBuffer, buffer_f32, changeDir);
     stateCodecIDEncode(firstPlatform);
-    stateCodecPrimitiveEncode(initp);
-    stateCodecPrimitiveEncode(mySpeedMax);
-    stateCodecPrimitiveEncode(pdx);
-    stateCodecPrimitiveEncode(pdy);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pux);
-    stateCodecPrimitiveEncode(puy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeedMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pdx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pdy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pux);
+    buffer_write(global.stateCodecBuffer, buffer_f32, puy);
     stateCodecIDEncode(secondPlatform);
-    stateCodecPrimitiveEncode(startLeftPos);
-    stateCodecPrimitiveEncode(startRightPos);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startLeftPos);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startRightPos);
 }
 else
 {
-    animImage = stateCodecPrimitiveDecode();
-    backtrackTimer = stateCodecPrimitiveDecode();
-    backtrackTimerMax = stateCodecPrimitiveDecode();
-    canBacktrack = stateCodecPrimitiveDecode();
-    canDraw = stateCodecPrimitiveDecode();
-    changeDir = stateCodecPrimitiveDecode();
+    animImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    backtrackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    backtrackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canBacktrack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canDraw = buffer_read(global.stateCodecBuffer, buffer_f32);
+    changeDir = buffer_read(global.stateCodecBuffer, buffer_f32);
     firstPlatform = stateCodecIDDecode();
-    initp = stateCodecPrimitiveDecode();
-    mySpeedMax = stateCodecPrimitiveDecode();
-    pdx = stateCodecPrimitiveDecode();
-    pdy = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    pux = stateCodecPrimitiveDecode();
-    puy = stateCodecPrimitiveDecode();
+    initp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeedMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pdx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pdy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pux = buffer_read(global.stateCodecBuffer, buffer_f32);
+    puy = buffer_read(global.stateCodecBuffer, buffer_f32);
     secondPlatform = stateCodecIDDecode();
-    startLeftPos = stateCodecPrimitiveDecode();
-    startRightPos = stateCodecPrimitiveDecode();
+    startLeftPos = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startRightPos = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

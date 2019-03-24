@@ -333,17 +333,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(curSunLevel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, curSunLevel);
     stateCodecPrimitiveEncode(sunLevel);
-    stateCodecPrimitiveEncode(sunY);
-    stateCodecPrimitiveEncode(weakSun);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sunY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weakSun);
 }
 else
 {
-    curSunLevel = stateCodecPrimitiveDecode();
+    curSunLevel = buffer_read(global.stateCodecBuffer, buffer_f32);
     sunLevel = stateCodecPrimitiveDecode();
-    sunY = stateCodecPrimitiveDecode();
-    weakSun = stateCodecPrimitiveDecode();
+    sunY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    weakSun = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

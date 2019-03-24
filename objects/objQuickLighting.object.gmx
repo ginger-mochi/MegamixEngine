@@ -185,23 +185,23 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(lightSource);
     stateCodecPrimitiveEncode(lightingColor);
-    stateCodecPrimitiveEncode(lightingLevel);
-    stateCodecPrimitiveEncode(lightingRetain);
-    stateCodecPrimitiveEncode(lightingSemi);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightingLevel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightingRetain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lightingSemi);
     stateCodecPrimitiveEncode(lightingSwitchSpeed);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(roundedLightingLevel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, roundedLightingLevel);
 }
 else
 {
     lightSource = stateCodecPrimitiveDecode();
     lightingColor = stateCodecPrimitiveDecode();
-    lightingLevel = stateCodecPrimitiveDecode();
-    lightingRetain = stateCodecPrimitiveDecode();
-    lightingSemi = stateCodecPrimitiveDecode();
+    lightingLevel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightingRetain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lightingSemi = buffer_read(global.stateCodecBuffer, buffer_f32);
     lightingSwitchSpeed = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    roundedLightingLevel = stateCodecPrimitiveDecode();
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    roundedLightingLevel = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

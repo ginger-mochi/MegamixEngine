@@ -250,23 +250,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jetTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jetTimer);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotateChange);
-    stateCodecPrimitiveEncode(startWait);
-    stateCodecPrimitiveEncode(totalChange);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotateChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, totalChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    jetTimer = stateCodecPrimitiveDecode();
+    jetTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rotateChange = stateCodecPrimitiveDecode();
-    startWait = stateCodecPrimitiveDecode();
-    totalChange = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotateChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    totalChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -311,25 +311,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canJet);
-    stateCodecPrimitiveEncode(climbSlope);
-    stateCodecPrimitiveEncode(decreaseAmmoTimer);
-    stateCodecPrimitiveEncode(decreaseAmmoTimerMax);
-    stateCodecPrimitiveEncode(maxSpd);
-    stateCodecPrimitiveEncode(rushJetLock);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canJet);
+    buffer_write(global.stateCodecBuffer, buffer_f32, climbSlope);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decreaseAmmoTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decreaseAmmoTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rushJetLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    canJet = stateCodecPrimitiveDecode();
-    climbSlope = stateCodecPrimitiveDecode();
-    decreaseAmmoTimer = stateCodecPrimitiveDecode();
-    decreaseAmmoTimerMax = stateCodecPrimitiveDecode();
-    maxSpd = stateCodecPrimitiveDecode();
-    rushJetLock = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    canJet = buffer_read(global.stateCodecBuffer, buffer_f32);
+    climbSlope = buffer_read(global.stateCodecBuffer, buffer_f32);
+    decreaseAmmoTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    decreaseAmmoTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rushJetLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

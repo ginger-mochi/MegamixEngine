@@ -366,33 +366,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animCount);
-    stateCodecPrimitiveEncode(boostWait);
-    stateCodecPrimitiveEncode(bounced);
-    stateCodecPrimitiveEncode(decel);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(myX);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(prevXSpeed);
-    stateCodecPrimitiveEncode(theirX);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(xSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boostWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounced);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, theirX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpd);
 }
 else
 {
-    animCount = stateCodecPrimitiveDecode();
-    boostWait = stateCodecPrimitiveDecode();
-    bounced = stateCodecPrimitiveDecode();
-    decel = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    myX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    prevXSpeed = stateCodecPrimitiveDecode();
-    theirX = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
+    animCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boostWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounced = buffer_read(global.stateCodecBuffer, buffer_f32);
+    decel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    theirX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

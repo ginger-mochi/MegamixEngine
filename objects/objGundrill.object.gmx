@@ -408,35 +408,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(delayDisplay);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(offsetX);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(prepareCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayDisplay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, offsetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prepareCollision);
     stateCodecPrimitiveEncode(realX);
     stateCodecPrimitiveEncode(realY);
-    stateCodecPrimitiveEncode(setY);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(startMoving);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startMoving);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    delayDisplay = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    offsetX = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    prepareCollision = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayDisplay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    offsetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prepareCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
     realX = stateCodecPrimitiveDecode();
     realY = stateCodecPrimitiveDecode();
-    setY = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    startMoving = stateCodecPrimitiveDecode();
+    setY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startMoving = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

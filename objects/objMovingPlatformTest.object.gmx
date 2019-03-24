@@ -121,15 +121,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(type);
-    stateCodecPrimitiveEncode(ymem);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ymem);
 }
 else
 {
-    mySpeed = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
-    ymem = stateCodecPrimitiveDecode();
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ymem = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

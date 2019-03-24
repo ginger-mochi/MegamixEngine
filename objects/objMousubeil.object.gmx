@@ -204,29 +204,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boost);
-    stateCodecPrimitiveEncode(boostSpd);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldown);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(normalSpd);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boost);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boostSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, normalSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    boost = stateCodecPrimitiveDecode();
-    boostSpd = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    cooldown = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    normalSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    boost = buffer_read(global.stateCodecBuffer, buffer_f32);
+    boostSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    normalSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

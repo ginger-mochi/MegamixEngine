@@ -132,19 +132,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(ballImage);
-    stateCodecPrimitiveEncode(shootFrame);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ballImage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
 }
 else
 {
-    animSpeed = stateCodecPrimitiveDecode();
-    ballImage = stateCodecPrimitiveDecode();
-    shootFrame = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ballImage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

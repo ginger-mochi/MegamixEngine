@@ -220,29 +220,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dropIn);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropIn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(shootWait);
-    stateCodecPrimitiveEncode(shootWaitTimer);
-    stateCodecPrimitiveEncode(sinCounter);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootWaitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startY);
 }
 else
 {
-    dropIn = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    dropIn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    shootWait = stateCodecPrimitiveDecode();
-    shootWaitTimer = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startY = stateCodecPrimitiveDecode();
+    shootWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootWaitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

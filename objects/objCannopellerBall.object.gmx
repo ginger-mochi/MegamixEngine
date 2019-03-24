@@ -120,13 +120,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dropTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    dropTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    dropTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -504,31 +504,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animationTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(buttonAmount);
-    stateCodecPrimitiveEncode(buttonNoPressed);
-    stateCodecPrimitiveEncode(buttonPuzzle);
-    stateCodecPrimitiveEncode(currentRotation);
-    stateCodecPrimitiveEncode(doIt);
-    stateCodecPrimitiveEncode(hasInit);
-    stateCodecPrimitiveEncode(num);
-    stateCodecPrimitiveEncode(pressed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animationTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buttonAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buttonNoPressed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buttonPuzzle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentRotation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doIt);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasInit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, num);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pressed);
     stateCodecPrimitiveEncode(randomList);
     stateCodecPrimitiveEncode(storageObjID);
 }
 else
 {
-    animationTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    buttonAmount = stateCodecPrimitiveDecode();
-    buttonNoPressed = stateCodecPrimitiveDecode();
-    buttonPuzzle = stateCodecPrimitiveDecode();
-    currentRotation = stateCodecPrimitiveDecode();
-    doIt = stateCodecPrimitiveDecode();
-    hasInit = stateCodecPrimitiveDecode();
-    num = stateCodecPrimitiveDecode();
-    pressed = stateCodecPrimitiveDecode();
+    animationTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buttonAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buttonNoPressed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    buttonPuzzle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentRotation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    doIt = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasInit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    num = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pressed = buffer_read(global.stateCodecBuffer, buffer_f32);
     randomList = stateCodecPrimitiveDecode();
     storageObjID = stateCodecPrimitiveDecode();
 }

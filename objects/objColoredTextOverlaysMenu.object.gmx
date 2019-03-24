@@ -395,35 +395,35 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(buffer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, buffer);
     stateCodecPrimitiveEncode(current);
-    stateCodecPrimitiveEncode(cursorImgIndex);
-    stateCodecPrimitiveEncode(cursorImgSpd);
-    stateCodecPrimitiveEncode(dialogueBoxLightOffset);
-    stateCodecPrimitiveEncode(horizontalQuickScrollTimer);
-    stateCodecPrimitiveEncode(newControls);
-    stateCodecPrimitiveEncode(option);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorImgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dialogueBoxLightOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, horizontalQuickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newControls);
+    buffer_write(global.stateCodecBuffer, buffer_f32, option);
     stateCodecPrimitiveEncode(optionText);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(press);
-    stateCodecPrimitiveEncode(selected);
-    stateCodecPrimitiveEncode(verticalQuickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, press);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selected);
+    buffer_write(global.stateCodecBuffer, buffer_f32, verticalQuickScrollTimer);
 }
 else
 {
-    buffer = stateCodecPrimitiveDecode();
+    buffer = buffer_read(global.stateCodecBuffer, buffer_f32);
     current = stateCodecPrimitiveDecode();
-    cursorImgIndex = stateCodecPrimitiveDecode();
-    cursorImgSpd = stateCodecPrimitiveDecode();
-    dialogueBoxLightOffset = stateCodecPrimitiveDecode();
-    horizontalQuickScrollTimer = stateCodecPrimitiveDecode();
-    newControls = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
+    cursorImgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cursorImgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dialogueBoxLightOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horizontalQuickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newControls = buffer_read(global.stateCodecBuffer, buffer_f32);
+    option = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionText = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    press = stateCodecPrimitiveDecode();
-    selected = stateCodecPrimitiveDecode();
-    verticalQuickScrollTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    press = buffer_read(global.stateCodecBuffer, buffer_f32);
+    selected = buffer_read(global.stateCodecBuffer, buffer_f32);
+    verticalQuickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

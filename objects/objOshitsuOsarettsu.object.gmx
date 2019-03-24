@@ -321,37 +321,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(canTurn);
-    stateCodecPrimitiveEncode(chargeSpeed);
-    stateCodecPrimitiveEncode(deccel);
-    stateCodecPrimitiveEncode(isCharging);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chargeSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isCharging);
     stateCodecPrimitiveEncode(maxDist);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(retreatSpeed);
-    stateCodecPrimitiveEncode(startTime);
-    stateCodecPrimitiveEncode(startXscale);
-    stateCodecPrimitiveEncode(stunTime);
-    stateCodecPrimitiveEncode(stunTimer);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, retreatSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startXscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stunTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stunTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    canTurn = stateCodecPrimitiveDecode();
-    chargeSpeed = stateCodecPrimitiveDecode();
-    deccel = stateCodecPrimitiveDecode();
-    isCharging = stateCodecPrimitiveDecode();
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chargeSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    deccel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isCharging = buffer_read(global.stateCodecBuffer, buffer_f32);
     maxDist = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    retreatSpeed = stateCodecPrimitiveDecode();
-    startTime = stateCodecPrimitiveDecode();
-    startXscale = stateCodecPrimitiveDecode();
-    stunTime = stateCodecPrimitiveDecode();
-    stunTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    retreatSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startXscale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stunTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stunTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

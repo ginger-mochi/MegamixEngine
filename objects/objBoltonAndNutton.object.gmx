@@ -287,23 +287,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(first);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, first);
     stateCodecIDEncode(nutton);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(realContactDamage);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, realContactDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    blinkTimer = stateCodecPrimitiveDecode();
-    first = stateCodecPrimitiveDecode();
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    first = buffer_read(global.stateCodecBuffer, buffer_f32);
     nutton = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    realContactDamage = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    realContactDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

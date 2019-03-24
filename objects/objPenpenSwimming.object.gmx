@@ -135,13 +135,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(homing);
-    stateCodecPrimitiveEncode(sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, homing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
 }
 else
 {
-    homing = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
+    homing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

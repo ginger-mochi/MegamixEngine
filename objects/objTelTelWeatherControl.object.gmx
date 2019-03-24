@@ -142,17 +142,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(darkenAlpha);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, darkenAlpha);
     stateCodecPrimitiveEncode(weakToRain);
-    stateCodecPrimitiveEncode(weatherImg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weatherImg);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    darkenAlpha = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    darkenAlpha = buffer_read(global.stateCodecBuffer, buffer_f32);
     weakToRain = stateCodecPrimitiveDecode();
-    weatherImg = stateCodecPrimitiveDecode();
+    weatherImg = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

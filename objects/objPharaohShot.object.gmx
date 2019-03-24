@@ -339,15 +339,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(charging);
-    stateCodecPrimitiveEncode(extraDamage);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, charging);
+    buffer_write(global.stateCodecBuffer, buffer_f32, extraDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    charging = stateCodecPrimitiveDecode();
-    extraDamage = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    charging = buffer_read(global.stateCodecBuffer, buffer_f32);
+    extraDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

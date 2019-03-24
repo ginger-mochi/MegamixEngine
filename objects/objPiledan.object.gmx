@@ -185,28 +185,28 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(destY);
-    stateCodecPrimitiveEncode(fallSpeed);
-    stateCodecPrimitiveEncode(foundMachine);
-    stateCodecPrimitiveEncode(horSpeed);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(startY);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(waveSpeed);
-    stateCodecPrimitiveEncode(waveWidth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, foundMachine);
+    buffer_write(global.stateCodecBuffer, buffer_f32, horSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waveWidth);
     stateCodecPrimitiveEncode(xscaleStart);
 }
 else
 {
-    destY = stateCodecPrimitiveDecode();
-    fallSpeed = stateCodecPrimitiveDecode();
-    foundMachine = stateCodecPrimitiveDecode();
-    horSpeed = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    startY = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    waveSpeed = stateCodecPrimitiveDecode();
-    waveWidth = stateCodecPrimitiveDecode();
+    destY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fallSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    foundMachine = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waveWidth = buffer_read(global.stateCodecBuffer, buffer_f32);
     xscaleStart = stateCodecPrimitiveDecode();
 }
 </string>

@@ -211,29 +211,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
     stateCodecIDEncode(bullet);
-    stateCodecPrimitiveEncode(bx);
-    stateCodecPrimitiveEncode(bxspeed);
-    stateCodecPrimitiveEncode(by);
-    stateCodecPrimitiveEncode(newAngle);
-    stateCodecPrimitiveEncode(shoot);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bxspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, by);
+    buffer_write(global.stateCodecBuffer, buffer_f32, newAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     bullet = stateCodecIDDecode();
-    bx = stateCodecPrimitiveDecode();
-    bxspeed = stateCodecPrimitiveDecode();
-    by = stateCodecPrimitiveDecode();
-    newAngle = stateCodecPrimitiveDecode();
-    shoot = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    bx = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bxspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    by = buffer_read(global.stateCodecBuffer, buffer_f32);
+    newAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

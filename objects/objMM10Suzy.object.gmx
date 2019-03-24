@@ -216,22 +216,22 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(beginStartDir);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(firsttime);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(moving);
-    stateCodecPrimitiveEncode(startDir);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, firsttime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moving);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
 }
 else
 {
     beginStartDir = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    firsttime = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    moving = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    firsttime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moving = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

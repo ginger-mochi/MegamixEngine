@@ -188,17 +188,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(homingTimer);
-    stateCodecPrimitiveEncode(isHoming);
-    stateCodecPrimitiveEncode(sinx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, homingTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isHoming);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinx);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    homingTimer = stateCodecPrimitiveDecode();
-    isHoming = stateCodecPrimitiveDecode();
-    sinx = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    homingTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isHoming = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinx = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

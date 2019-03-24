@@ -176,13 +176,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounce);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
 }
 else
 {
-    bounce = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    bounce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

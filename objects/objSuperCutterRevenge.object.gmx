@@ -208,21 +208,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(period);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, period);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    period = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    period = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

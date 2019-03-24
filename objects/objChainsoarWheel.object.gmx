@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(bounceTimes);
-    stateCodecPrimitiveEncode(canLive);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(reflectable);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canLive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reflectable);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    bounceTimes = stateCodecPrimitiveDecode();
-    canLive = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    moveSpeed = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    reflectable = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounceTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canLive = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    reflectable = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

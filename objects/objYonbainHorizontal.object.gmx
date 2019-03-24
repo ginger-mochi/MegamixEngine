@@ -311,31 +311,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animDiv);
-    stateCodecPrimitiveEncode(color);
-    stateCodecPrimitiveEncode(exp_tol);
-    stateCodecPrimitiveEncode(max_alive);
-    stateCodecPrimitiveEncode(move_distance);
-    stateCodecPrimitiveEncode(move_time);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(split_dist);
-    stateCodecPrimitiveEncode(vertical);
-    stateCodecPrimitiveEncode(wait_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animDiv);
+    buffer_write(global.stateCodecBuffer, buffer_f32, color);
+    buffer_write(global.stateCodecBuffer, buffer_f32, exp_tol);
+    buffer_write(global.stateCodecBuffer, buffer_f32, max_alive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, move_distance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, move_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, split_dist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, vertical);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait_time);
 }
 else
 {
-    animDiv = stateCodecPrimitiveDecode();
-    color = stateCodecPrimitiveDecode();
-    exp_tol = stateCodecPrimitiveDecode();
-    max_alive = stateCodecPrimitiveDecode();
-    move_distance = stateCodecPrimitiveDecode();
-    move_time = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    split_dist = stateCodecPrimitiveDecode();
-    vertical = stateCodecPrimitiveDecode();
-    wait_time = stateCodecPrimitiveDecode();
+    animDiv = buffer_read(global.stateCodecBuffer, buffer_f32);
+    color = buffer_read(global.stateCodecBuffer, buffer_f32);
+    exp_tol = buffer_read(global.stateCodecBuffer, buffer_f32);
+    max_alive = buffer_read(global.stateCodecBuffer, buffer_f32);
+    move_distance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    move_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    split_dist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    vertical = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait_time = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

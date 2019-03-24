@@ -31,7 +31,7 @@
 stateCodecInit();
 
 // saves/loads when user presses 'I'
-m_userSnapshot = buffer_create(50000, buffer_grow, 1);
+m_userSnapshot = buffer_create(50000, buffer_grow, 4);
 
 m_resimBufferActive = false;
 
@@ -41,11 +41,12 @@ m_resimBufferLength = 32;
 // resimulation buffer
 for (var i = 0; i &lt; m_resimBufferLength; i++)
 {
-    m_resimBuffer[i] = buffer_create(50000, buffer_grow, 1);
+    m_resimBuffer[i] = buffer_create(50000, buffer_grow, 4);
 }
 
 m_continualResimulation = false;
-m_recordInterval = 1;
+m_recordInterval = 16;
+m_isResimulating = false;
 </string>
           </argument>
         </arguments>
@@ -70,7 +71,7 @@ m_recordInterval = 1;
             <kind>1</kind>
             <string>if (m_continualResimulation)
 {
-    if (global.gameTimer mod m_recordInterval == 0)
+    if (global.gameTimer mod m_recordInterval == 0 and m_isResimulating)
     {
         // save state at the end of each interval (even when resimulating)
         global.stateCodecBuffer = m_resimBuffer[global.gameTimer mod m_resimBufferLength];
@@ -159,12 +160,14 @@ if (m_continualResimulation)
 {
     // load state, then resimulate.
     var gameTimer = global.gameTimer;
-    var loadFrame = floorTo(global.gameTimer - 4, m_recordInterval);
+    var loadFrame = floorTo(global.gameTimer - m_recordInterval, m_recordInterval);
     global.stateCodecBuffer = m_resimBuffer[loadFrame mod m_resimBufferLength];
     buffer_seek(global.stateCodecBuffer, buffer_seek_start, 0);
     global.stateCodecEncode = false;
     stateCodecFull();
+    m_isResimulating = false;
     resimulate(gameTimer - loadFrame, ev_step_begin);
+    m_isResimulating = true;
 }
 else
 {

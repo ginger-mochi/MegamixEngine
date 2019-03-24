@@ -192,27 +192,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fric);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fric);
     stateCodecPrimitiveEncode(hingeX);
-    stateCodecPrimitiveEncode(initStepBoost);
-    stateCodecPrimitiveEncode(initStepBoostDir);
-    stateCodecPrimitiveEncode(playedSFX);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(tetherSpacing);
-    stateCodecPrimitiveEncode(trueGrav);
-    stateCodecPrimitiveEncode(walkAccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initStepBoost);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initStepBoostDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playedSFX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tetherSpacing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trueGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, walkAccel);
 }
 else
 {
-    fric = stateCodecPrimitiveDecode();
+    fric = buffer_read(global.stateCodecBuffer, buffer_f32);
     hingeX = stateCodecPrimitiveDecode();
-    initStepBoost = stateCodecPrimitiveDecode();
-    initStepBoostDir = stateCodecPrimitiveDecode();
-    playedSFX = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    tetherSpacing = stateCodecPrimitiveDecode();
-    trueGrav = stateCodecPrimitiveDecode();
-    walkAccel = stateCodecPrimitiveDecode();
+    initStepBoost = buffer_read(global.stateCodecBuffer, buffer_f32);
+    initStepBoostDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playedSFX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tetherSpacing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trueGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    walkAccel = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

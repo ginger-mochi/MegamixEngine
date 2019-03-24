@@ -243,17 +243,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(blinkTimer);
-    stateCodecPrimitiveEncode(outtaWaterTimer);
-    stateCodecPrimitiveEncode(sinCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blinkTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, outtaWaterTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinCounter);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    blinkTimer = stateCodecPrimitiveDecode();
-    outtaWaterTimer = stateCodecPrimitiveDecode();
-    sinCounter = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blinkTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    outtaWaterTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

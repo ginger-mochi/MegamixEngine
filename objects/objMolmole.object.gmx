@@ -168,27 +168,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(bottomBlock);
-    stateCodecPrimitiveEncode(cantDraw);
-    stateCodecPrimitiveEncode(centerBottomBlock);
-    stateCodecPrimitiveEncode(centerTopBlock);
-    stateCodecPrimitiveEncode(sparkindex);
-    stateCodecPrimitiveEncode(topblock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bottomBlock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cantDraw);
+    buffer_write(global.stateCodecBuffer, buffer_f32, centerBottomBlock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, centerTopBlock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sparkindex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, topblock);
     stateCodecPrimitiveEncode(touchblock);
-    stateCodecPrimitiveEncode(ysc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ysc);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    bottomBlock = stateCodecPrimitiveDecode();
-    cantDraw = stateCodecPrimitiveDecode();
-    centerBottomBlock = stateCodecPrimitiveDecode();
-    centerTopBlock = stateCodecPrimitiveDecode();
-    sparkindex = stateCodecPrimitiveDecode();
-    topblock = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bottomBlock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cantDraw = buffer_read(global.stateCodecBuffer, buffer_f32);
+    centerBottomBlock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    centerTopBlock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sparkindex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    topblock = buffer_read(global.stateCodecBuffer, buffer_f32);
     touchblock = stateCodecPrimitiveDecode();
-    ysc = stateCodecPrimitiveDecode();
+    ysc = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -176,11 +176,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmFish);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmFish);
 }
 else
 {
-    alarmFish = stateCodecPrimitiveDecode();
+    alarmFish = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

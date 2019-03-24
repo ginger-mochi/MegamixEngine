@@ -207,25 +207,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(fade_in_time);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(spriteX);
-    stateCodecPrimitiveEncode(spriteY);
-    stateCodecPrimitiveEncode(targetPID);
-    stateCodecPrimitiveEncode(triggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fade_in_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetPID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, triggered);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    fade_in_time = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    spriteX = stateCodecPrimitiveDecode();
-    spriteY = stateCodecPrimitiveDecode();
-    targetPID = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fade_in_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetPID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    triggered = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

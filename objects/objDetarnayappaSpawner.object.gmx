@@ -136,19 +136,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activationDistance);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(interval);
-    stateCodecPrimitiveEncode(spawnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activationDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, interval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnTimer);
 }
 else
 {
-    activationDistance = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    interval = stateCodecPrimitiveDecode();
-    spawnTimer = stateCodecPrimitiveDecode();
+    activationDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    interval = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

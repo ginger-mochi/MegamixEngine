@@ -138,17 +138,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
     stateCodecPrimitiveEncode(moveToY);
-    stateCodecPrimitiveEncode(strMMX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, strMMX);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveToY = stateCodecPrimitiveDecode();
-    strMMX = stateCodecPrimitiveDecode();
+    strMMX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

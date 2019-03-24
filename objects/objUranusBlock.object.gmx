@@ -224,17 +224,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(getX);
-    stateCodecPrimitiveEncode(getY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getY);
     stateCodecPrimitiveEncode(myTile);
-    stateCodecPrimitiveEncode(resetDepth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetDepth);
     stateCodecIDEncode(solidBlock);
-    stateCodecPrimitiveEncode(thrown);
-    stateCodecPrimitiveEncode(thrownSign);
+    buffer_write(global.stateCodecBuffer, buffer_f32, thrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, thrownSign);
     stateCodecPrimitiveEncode(tileBG);
     stateCodecPrimitiveEncode(tileHeight);
     stateCodecPrimitiveEncode(tileLeft);
-    stateCodecPrimitiveEncode(tileNumber);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileNumber);
     stateCodecPrimitiveEncode(tileTop);
     stateCodecPrimitiveEncode(tileWidth);
     stateCodecPrimitiveEncode(tileX);
@@ -242,17 +242,17 @@ if (global.stateCodecEncode)
 }
 else
 {
-    getX = stateCodecPrimitiveDecode();
-    getY = stateCodecPrimitiveDecode();
+    getX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    getY = buffer_read(global.stateCodecBuffer, buffer_f32);
     myTile = stateCodecPrimitiveDecode();
-    resetDepth = stateCodecPrimitiveDecode();
+    resetDepth = buffer_read(global.stateCodecBuffer, buffer_f32);
     solidBlock = stateCodecIDDecode();
-    thrown = stateCodecPrimitiveDecode();
-    thrownSign = stateCodecPrimitiveDecode();
+    thrown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    thrownSign = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileBG = stateCodecPrimitiveDecode();
     tileHeight = stateCodecPrimitiveDecode();
     tileLeft = stateCodecPrimitiveDecode();
-    tileNumber = stateCodecPrimitiveDecode();
+    tileNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
     tileTop = stateCodecPrimitiveDecode();
     tileWidth = stateCodecPrimitiveDecode();
     tileX = stateCodecPrimitiveDecode();

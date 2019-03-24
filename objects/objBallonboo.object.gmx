@@ -298,21 +298,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(bursted);
-    stateCodecPrimitiveEncode(sinTimer);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(vDir);
-    stateCodecPrimitiveEncode(yPivot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bursted);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sinTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, vDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yPivot);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    bursted = stateCodecPrimitiveDecode();
-    sinTimer = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    vDir = stateCodecPrimitiveDecode();
-    yPivot = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bursted = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sinTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    vDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yPivot = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

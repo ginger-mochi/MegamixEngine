@@ -346,25 +346,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(attached);
-    stateCodecPrimitiveEncode(bounceTimes);
-    stateCodecPrimitiveEncode(jumpSpeed);
-    stateCodecPrimitiveEncode(maxVspeed);
-    stateCodecPrimitiveEncode(stepend);
-    stateCodecPrimitiveEncode(wallwait);
-    stateCodecPrimitiveEncode(xx);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attached);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxVspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stepend);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wallwait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xx);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    attached = stateCodecPrimitiveDecode();
-    bounceTimes = stateCodecPrimitiveDecode();
-    jumpSpeed = stateCodecPrimitiveDecode();
-    maxVspeed = stateCodecPrimitiveDecode();
-    stepend = stateCodecPrimitiveDecode();
-    wallwait = stateCodecPrimitiveDecode();
-    xx = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attached = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounceTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxVspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stepend = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wallwait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xx = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

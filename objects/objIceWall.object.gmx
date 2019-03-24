@@ -362,19 +362,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(forming);
-    stateCodecPrimitiveEncode(isFree);
-    stateCodecPrimitiveEncode(pushed);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, forming);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isFree);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pushed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    forming = stateCodecPrimitiveDecode();
-    isFree = stateCodecPrimitiveDecode();
-    pushed = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    forming = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isFree = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pushed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -383,23 +383,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(distance);
-    stateCodecPrimitiveEncode(freeFalling);
-    stateCodecPrimitiveEncode(hasSwitch);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, freeFalling);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasSwitch);
     stateCodecPrimitiveEncode(magnetJunkTarget);
     stateCodecPrimitiveEncode(magnetPlayerTarget);
-    stateCodecPrimitiveEncode(magnetizing);
-    stateCodecPrimitiveEncode(myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, magnetizing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
 }
 else
 {
-    distance = stateCodecPrimitiveDecode();
-    freeFalling = stateCodecPrimitiveDecode();
-    hasSwitch = stateCodecPrimitiveDecode();
+    distance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    freeFalling = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasSwitch = buffer_read(global.stateCodecBuffer, buffer_f32);
     magnetJunkTarget = stateCodecPrimitiveDecode();
     magnetPlayerTarget = stateCodecPrimitiveDecode();
-    magnetizing = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
+    magnetizing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

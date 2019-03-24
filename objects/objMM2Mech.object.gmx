@@ -271,19 +271,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(doThing);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(repeatAmount);
-    stateCodecPrimitiveEncode(repeatIsHigh);
-    stateCodecPrimitiveEncode(shoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doThing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, repeatAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, repeatIsHigh);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shoot);
 }
 else
 {
-    doThing = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    repeatAmount = stateCodecPrimitiveDecode();
-    repeatIsHigh = stateCodecPrimitiveDecode();
-    shoot = stateCodecPrimitiveDecode();
+    doThing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    repeatAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    repeatIsHigh = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shoot = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

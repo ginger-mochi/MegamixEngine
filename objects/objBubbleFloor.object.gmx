@@ -218,18 +218,18 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounceForce);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(spriteFrame);
-    stateCodecPrimitiveEncode(spriteTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceForce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteTimer);
     stateCodecDSEncode(yspeed_map, ds_type_map);
 }
 else
 {
-    bounceForce = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    spriteFrame = stateCodecPrimitiveDecode();
-    spriteTimer = stateCodecPrimitiveDecode();
+    bounceForce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     yspeed_map = stateCodecDSDecode(ds_type_map);
 }
 </string>

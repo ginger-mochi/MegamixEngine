@@ -187,11 +187,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(normalSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, normalSpd);
 }
 else
 {
-    normalSpd = stateCodecPrimitiveDecode();
+    normalSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

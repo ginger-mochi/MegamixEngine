@@ -205,30 +205,30 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(checkAlive);
-    stateCodecPrimitiveEncode(layer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, checkAlive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, layer);
     stateCodecPrimitiveEncode(prevWeather);
     stateCodecPrimitiveEncode(radius);
     stateCodecPrimitiveEncode(revealers);
-    stateCodecPrimitiveEncode(revealersN);
-    stateCodecPrimitiveEncode(scanned);
-    stateCodecPrimitiveEncode(sectionSurface);
-    stateCodecPrimitiveEncode(sectionSurfaceMask);
-    stateCodecPrimitiveEncode(skipDraw);
+    buffer_write(global.stateCodecBuffer, buffer_f32, revealersN);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scanned);
+    stateCodecSurfaceEncode(sectionSurface);
+    stateCodecSurfaceEncode(sectionSurfaceMask);
+    buffer_write(global.stateCodecBuffer, buffer_f32, skipDraw);
     stateCodecPrimitiveEncode(tiles);
 }
 else
 {
-    checkAlive = stateCodecPrimitiveDecode();
-    layer = stateCodecPrimitiveDecode();
+    checkAlive = buffer_read(global.stateCodecBuffer, buffer_f32);
+    layer = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevWeather = stateCodecPrimitiveDecode();
     radius = stateCodecPrimitiveDecode();
     revealers = stateCodecPrimitiveDecode();
-    revealersN = stateCodecPrimitiveDecode();
-    scanned = stateCodecPrimitiveDecode();
-    sectionSurface = stateCodecPrimitiveDecode();
-    sectionSurfaceMask = stateCodecPrimitiveDecode();
-    skipDraw = stateCodecPrimitiveDecode();
+    revealersN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    scanned = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionSurface = stateCodecSurfaceDecode();
+    sectionSurfaceMask = stateCodecSurfaceDecode();
+    skipDraw = buffer_read(global.stateCodecBuffer, buffer_f32);
     tiles = stateCodecPrimitiveDecode();
 }
 </string>

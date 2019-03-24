@@ -96,17 +96,17 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(despawn);
-    stateCodecPrimitiveEncode(frozen);
-    stateCodecPrimitiveEncode(grav);
-    stateCodecPrimitiveEncode(noFlicker);
+    buffer_write(global.stateCodecBuffer, buffer_f32, despawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, frozen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, grav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, noFlicker);
 }
 else
 {
-    despawn = stateCodecPrimitiveDecode();
-    frozen = stateCodecPrimitiveDecode();
-    grav = stateCodecPrimitiveDecode();
-    noFlicker = stateCodecPrimitiveDecode();
+    despawn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    frozen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    grav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    noFlicker = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

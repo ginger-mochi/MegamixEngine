@@ -63,11 +63,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(contactDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, contactDamage);
 }
 else
 {
-    contactDamage = stateCodecPrimitiveDecode();
+    contactDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

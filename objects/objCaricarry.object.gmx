@@ -299,29 +299,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(acc);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(beginMoveTimer);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(globalDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, acc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, beginMoveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, globalDir);
     stateCodecPrimitiveEncode(prevHealth);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecPrimitiveEncode(turnTimer);
     stateCodecPrimitiveEncode(turnTimerStart);
 }
 else
 {
-    acc = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    beginMoveTimer = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    globalDir = stateCodecPrimitiveDecode();
+    acc = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    beginMoveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    globalDir = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevHealth = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     turnTimer = stateCodecPrimitiveDecode();
     turnTimerStart = stateCodecPrimitiveDecode();
 }

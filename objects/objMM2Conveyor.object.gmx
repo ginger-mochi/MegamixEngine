@@ -170,23 +170,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrames);
-    stateCodecPrimitiveEncode(animTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrames);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTime);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(hasBelt);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(imgalarm);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasBelt);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgalarm);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
 }
 else
 {
-    animFrames = stateCodecPrimitiveDecode();
-    animTime = stateCodecPrimitiveDecode();
+    animFrames = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTime = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    hasBelt = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    hasBelt = buffer_read(global.stateCodecBuffer, buffer_f32);
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgalarm = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

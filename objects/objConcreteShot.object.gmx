@@ -345,19 +345,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(destroyTimer);
-    stateCodecPrimitiveEncode(isBlock);
-    stateCodecPrimitiveEncode(nextgrav);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isBlock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nextgrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    destroyTimer = stateCodecPrimitiveDecode();
-    isBlock = stateCodecPrimitiveDecode();
-    nextgrav = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isBlock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nextgrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

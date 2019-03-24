@@ -155,12 +155,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canBounce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canBounce);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    canBounce = stateCodecPrimitiveDecode();
+    canBounce = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

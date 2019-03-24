@@ -173,19 +173,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(killTimer);
-    stateCodecPrimitiveEncode(variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, killTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    killTimer = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    killTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

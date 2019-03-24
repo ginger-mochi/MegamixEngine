@@ -158,13 +158,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(ysp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ysp);
 }
 else
 {
-    phase = stateCodecPrimitiveDecode();
-    ysp = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ysp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

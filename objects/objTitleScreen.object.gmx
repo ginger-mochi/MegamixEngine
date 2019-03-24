@@ -155,21 +155,21 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canProceed);
-    stateCodecPrimitiveEncode(demoTimer);
-    stateCodecPrimitiveEncode(drawtext);
-    stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(options);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canProceed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, demoTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawtext);
+    buffer_write(global.stateCodecBuffer, buffer_f32, option);
+    buffer_write(global.stateCodecBuffer, buffer_f32, options);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
 }
 else
 {
-    canProceed = stateCodecPrimitiveDecode();
-    demoTimer = stateCodecPrimitiveDecode();
-    drawtext = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
-    options = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    canProceed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    demoTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawtext = buffer_read(global.stateCodecBuffer, buffer_f32);
+    option = buffer_read(global.stateCodecBuffer, buffer_f32);
+    options = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

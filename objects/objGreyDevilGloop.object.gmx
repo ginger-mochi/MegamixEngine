@@ -150,11 +150,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(explod);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explod);
 }
 else
 {
-    explod = stateCodecPrimitiveDecode();
+    explod = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

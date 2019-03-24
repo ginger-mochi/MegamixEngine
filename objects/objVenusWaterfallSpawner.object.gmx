@@ -147,21 +147,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
     stateCodecIDEncode(start);
     stateCodecIDEncode(stop);
-    stateCodecPrimitiveEncode(waterDelay);
-    stateCodecPrimitiveEncode(waterTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waterDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waterTimer);
 }
 else
 {
-    init = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     start = stateCodecIDDecode();
     stop = stateCodecIDDecode();
-    waterDelay = stateCodecPrimitiveDecode();
-    waterTimer = stateCodecPrimitiveDecode();
+    waterDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waterTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

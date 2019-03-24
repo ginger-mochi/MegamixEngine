@@ -208,15 +208,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(centerX);
-    stateCodecPrimitiveEncode(centerY);
-    stateCodecPrimitiveEncode(dist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, centerX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, centerY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dist);
 }
 else
 {
-    centerX = stateCodecPrimitiveDecode();
-    centerY = stateCodecPrimitiveDecode();
-    dist = stateCodecPrimitiveDecode();
+    centerX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    centerY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dist = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -196,16 +196,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(action);
-    stateCodecPrimitiveEncode(maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, action);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
     stateCodecPrimitiveEncode(mode);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    action = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    action = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     mode = stateCodecPrimitiveDecode();
 }
 </string>

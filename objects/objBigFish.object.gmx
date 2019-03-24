@@ -180,15 +180,15 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(dropDown);
-    stateCodecPrimitiveEncode(popDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, popDelay);
     stateCodecPrimitiveEncode(popDelayStart);
 }
 else
 {
     contactStart = stateCodecPrimitiveDecode();
-    dropDown = stateCodecPrimitiveDecode();
-    popDelay = stateCodecPrimitiveDecode();
+    dropDown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    popDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
     popDelayStart = stateCodecPrimitiveDecode();
 }
 </string>

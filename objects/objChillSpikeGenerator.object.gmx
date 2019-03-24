@@ -184,15 +184,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(spike);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spike);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    spike = stateCodecPrimitiveDecode();
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spike = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

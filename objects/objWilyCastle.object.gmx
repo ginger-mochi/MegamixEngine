@@ -389,39 +389,39 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(counter);
-    stateCodecPrimitiveEncode(cutscene);
-    stateCodecPrimitiveEncode(dots);
-    stateCodecPrimitiveEncode(drawspath);
+    buffer_write(global.stateCodecBuffer, buffer_f32, counter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cutscene);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dots);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawspath);
     stateCodecPrimitiveEncode(level);
     stateCodecPrimitiveEncode(linem);
     stateCodecPrimitiveEncode(linex);
     stateCodecPrimitiveEncode(liney);
-    stateCodecPrimitiveEncode(path);
-    stateCodecPrimitiveEncode(setup);
-    stateCodecPrimitiveEncode(skipped);
-    stateCodecPrimitiveEncode(started);
+    buffer_write(global.stateCodecBuffer, buffer_f32, path);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setup);
+    buffer_write(global.stateCodecBuffer, buffer_f32, skipped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, started);
     stateCodecPrimitiveEncode(xm);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
 }
 else
 {
-    counter = stateCodecPrimitiveDecode();
-    cutscene = stateCodecPrimitiveDecode();
-    dots = stateCodecPrimitiveDecode();
-    drawspath = stateCodecPrimitiveDecode();
+    counter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cutscene = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dots = buffer_read(global.stateCodecBuffer, buffer_f32);
+    drawspath = buffer_read(global.stateCodecBuffer, buffer_f32);
     level = stateCodecPrimitiveDecode();
     linem = stateCodecPrimitiveDecode();
     linex = stateCodecPrimitiveDecode();
     liney = stateCodecPrimitiveDecode();
-    path = stateCodecPrimitiveDecode();
-    setup = stateCodecPrimitiveDecode();
-    skipped = stateCodecPrimitiveDecode();
-    started = stateCodecPrimitiveDecode();
+    path = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setup = buffer_read(global.stateCodecBuffer, buffer_f32);
+    skipped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    started = buffer_read(global.stateCodecBuffer, buffer_f32);
     xm = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

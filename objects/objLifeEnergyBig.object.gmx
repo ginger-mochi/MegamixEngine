@@ -98,13 +98,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hlth);
-    stateCodecPrimitiveEncode(is1Up);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hlth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, is1Up);
 }
 else
 {
-    hlth = stateCodecPrimitiveDecode();
-    is1Up = stateCodecPrimitiveDecode();
+    hlth = buffer_read(global.stateCodecBuffer, buffer_f32);
+    is1Up = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

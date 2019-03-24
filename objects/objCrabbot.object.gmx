@@ -185,15 +185,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(calibrated);
-    stateCodecPrimitiveEncode(hasShell);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, calibrated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasShell);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    calibrated = stateCodecPrimitiveDecode();
-    hasShell = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    calibrated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasShell = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

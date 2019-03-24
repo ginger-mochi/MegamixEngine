@@ -159,17 +159,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(distance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distance);
     stateCodecPrimitiveEncode(offset);
-    stateCodecPrimitiveEncode(rangeActive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rangeActive);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    distance = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    distance = buffer_read(global.stateCodecBuffer, buffer_f32);
     offset = stateCodecPrimitiveDecode();
-    rangeActive = stateCodecPrimitiveDecode();
+    rangeActive = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

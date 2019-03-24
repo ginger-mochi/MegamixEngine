@@ -219,25 +219,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(deadlyShadowClones);
-    stateCodecPrimitiveEncode(debugABSX);
-    stateCodecPrimitiveEncode(debugABSY);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(locationX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, deadlyShadowClones);
+    buffer_write(global.stateCodecBuffer, buffer_f32, debugABSX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, debugABSY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, locationX);
     stateCodecPrimitiveEncode(locationY);
-    stateCodecPrimitiveEncode(moveToLocation);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveToLocation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
 }
 else
 {
-    deadlyShadowClones = stateCodecPrimitiveDecode();
-    debugABSX = stateCodecPrimitiveDecode();
-    debugABSY = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    locationX = stateCodecPrimitiveDecode();
+    deadlyShadowClones = buffer_read(global.stateCodecBuffer, buffer_f32);
+    debugABSX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    debugABSY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    locationX = buffer_read(global.stateCodecBuffer, buffer_f32);
     locationY = stateCodecPrimitiveDecode();
-    moveToLocation = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    moveToLocation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

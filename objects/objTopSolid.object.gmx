@@ -63,11 +63,11 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(isSolid);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isSolid);
 }
 else
 {
-    isSolid = stateCodecPrimitiveDecode();
+    isSolid = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

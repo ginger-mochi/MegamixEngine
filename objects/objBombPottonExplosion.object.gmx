@@ -187,13 +187,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(onlyDamageMines);
-    stateCodecPrimitiveEncode(remaining);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onlyDamageMines);
+    buffer_write(global.stateCodecBuffer, buffer_f32, remaining);
 }
 else
 {
-    onlyDamageMines = stateCodecPrimitiveDecode();
-    remaining = stateCodecPrimitiveDecode();
+    onlyDamageMines = buffer_read(global.stateCodecBuffer, buffer_f32);
+    remaining = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

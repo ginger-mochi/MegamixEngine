@@ -164,15 +164,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canDamage);
-    stateCodecPrimitiveEncode(faction);
-    stateCodecPrimitiveEncode(parent);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, faction);
+    buffer_write(global.stateCodecBuffer, buffer_f32, parent);
 }
 else
 {
-    canDamage = stateCodecPrimitiveDecode();
-    faction = stateCodecPrimitiveDecode();
-    parent = stateCodecPrimitiveDecode();
+    canDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    faction = buffer_read(global.stateCodecBuffer, buffer_f32);
+    parent = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

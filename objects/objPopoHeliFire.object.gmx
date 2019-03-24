@@ -121,14 +121,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgSpeed);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
     stateCodecPrimitiveEncode(parent);
 }
 else
 {
-    imgSpeed = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    imgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
 }
 </string>

@@ -171,15 +171,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boobeamCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boobeamCount);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
 }
 else
 {
-    boobeamCount = stateCodecPrimitiveDecode();
+    boobeamCount = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

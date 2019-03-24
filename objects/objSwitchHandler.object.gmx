@@ -212,23 +212,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(binary);
-    stateCodecPrimitiveEncode(flagOffLength);
-    stateCodecPrimitiveEncode(flagOnLength);
-    stateCodecPrimitiveEncode(inverse);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(stayActive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, binary);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flagOffLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flagOnLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inverse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stayActive);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    binary = stateCodecPrimitiveDecode();
-    flagOffLength = stateCodecPrimitiveDecode();
-    flagOnLength = stateCodecPrimitiveDecode();
-    inverse = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    stayActive = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    binary = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flagOffLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flagOnLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    inverse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stayActive = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

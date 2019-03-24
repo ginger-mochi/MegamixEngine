@@ -396,14 +396,14 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(futureGrav);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
 }
 else
 {
     futureGrav = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

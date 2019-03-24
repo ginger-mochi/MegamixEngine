@@ -293,29 +293,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecPrimitiveEncode(bullet);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(pattern);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(setSide);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setSide);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
     stateCodecPrimitiveEncode(storeXScale);
-    stateCodecPrimitiveEncode(yMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yMax);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     bullet = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     pattern = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    setSide = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setSide = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
     storeXScale = stateCodecPrimitiveDecode();
-    yMax = stateCodecPrimitiveDecode();
+    yMax = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

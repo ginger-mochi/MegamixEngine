@@ -94,29 +94,29 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(allowSpawn);
-    stateCodecPrimitiveEncode(conditionCode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, allowSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_string, conditionCode);
     stateCodecPrimitiveEncode(conditionScript);
-    stateCodecPrimitiveEncode(conditionScriptArgC);
+    buffer_write(global.stateCodecBuffer, buffer_f32, conditionScriptArgC);
     stateCodecPrimitiveEncode(conditionScriptArgV);
-    stateCodecPrimitiveEncode(despawnType);
-    stateCodecPrimitiveEncode(faction);
-    stateCodecPrimitiveEncode(playerXDistance);
-    stateCodecPrimitiveEncode(playerYDistance);
-    stateCodecPrimitiveEncode(spawnConditionNegate);
+    buffer_write(global.stateCodecBuffer, buffer_f32, despawnType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, faction);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playerXDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playerYDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnConditionNegate);
 }
 else
 {
-    allowSpawn = stateCodecPrimitiveDecode();
-    conditionCode = stateCodecPrimitiveDecode();
+    allowSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    conditionCode = buffer_read(global.stateCodecBuffer, buffer_string);
     conditionScript = stateCodecPrimitiveDecode();
-    conditionScriptArgC = stateCodecPrimitiveDecode();
+    conditionScriptArgC = buffer_read(global.stateCodecBuffer, buffer_f32);
     conditionScriptArgV = stateCodecPrimitiveDecode();
-    despawnType = stateCodecPrimitiveDecode();
-    faction = stateCodecPrimitiveDecode();
-    playerXDistance = stateCodecPrimitiveDecode();
-    playerYDistance = stateCodecPrimitiveDecode();
-    spawnConditionNegate = stateCodecPrimitiveDecode();
+    despawnType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    faction = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playerXDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    playerYDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnConditionNegate = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

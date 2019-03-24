@@ -166,19 +166,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(canBounce);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(xsp);
-    stateCodecPrimitiveEncode(ysp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canBounce);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xsp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ysp);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    canBounce = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    xsp = stateCodecPrimitiveDecode();
-    ysp = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canBounce = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xsp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ysp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -266,21 +266,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(instantLeave);
-    stateCodecPrimitiveEncode(introType);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(protoLock);
-    stateCodecPrimitiveEncode(startIntro);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, instantLeave);
+    buffer_write(global.stateCodecBuffer, buffer_f32, introType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, protoLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startIntro);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    instantLeave = stateCodecPrimitiveDecode();
-    introType = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    protoLock = stateCodecPrimitiveDecode();
-    startIntro = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    instantLeave = buffer_read(global.stateCodecBuffer, buffer_f32);
+    introType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    protoLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startIntro = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

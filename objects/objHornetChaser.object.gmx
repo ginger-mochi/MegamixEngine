@@ -296,14 +296,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmChase);
-    stateCodecPrimitiveEncode(chase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmChase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chase);
     stateCodecIDEncode(pickup);
 }
 else
 {
-    alarmChase = stateCodecPrimitiveDecode();
-    chase = stateCodecPrimitiveDecode();
+    alarmChase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    chase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pickup = stateCodecIDDecode();
 }
 </string>

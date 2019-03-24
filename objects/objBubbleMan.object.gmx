@@ -462,35 +462,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecPrimitiveEncode(bubbleLimit);
-    stateCodecPrimitiveEncode(bubbles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bubbles);
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
-    stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(yCount);
-    stateCodecPrimitiveEncode(yStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poseImgSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yStart);
 }
 else
 {
-    animBack = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     bubbleLimit = stateCodecPrimitiveDecode();
-    bubbles = stateCodecPrimitiveDecode();
+    bubbles = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
-    poseImgSpeed = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    targX = stateCodecPrimitiveDecode();
-    yCount = stateCodecPrimitiveDecode();
-    yStart = stateCodecPrimitiveDecode();
+    poseImgSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yStart = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

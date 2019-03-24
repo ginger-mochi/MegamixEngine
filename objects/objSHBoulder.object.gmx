@@ -174,49 +174,49 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(boulderCount);
-    stateCodecPrimitiveEncode(code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, boulderCount);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
     stateCodecPrimitiveEncode(customSprite);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(dropBlockCollision);
-    stateCodecPrimitiveEncode(dropGrav);
-    stateCodecPrimitiveEncode(dropXspeed);
-    stateCodecPrimitiveEncode(dropYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropBlockCollision);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropXspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropYspeed);
     stateCodecPrimitiveEncode(endRef);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(isEnd);
-    stateCodecPrimitiveEncode(isStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isStart);
     stateCodecIDEncode(nextBoulder);
-    stateCodecPrimitiveEncode(nextXdir);
-    stateCodecPrimitiveEncode(nextYdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nextXdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nextYdir);
     stateCodecPrimitiveEncode(particleSprite);
     stateCodecIDEncode(prevBoulder);
-    stateCodecPrimitiveEncode(prevXdir);
-    stateCodecPrimitiveEncode(prevYdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevXdir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevYdir);
     stateCodecPrimitiveEncode(script);
     stateCodecPrimitiveEncode(startRef);
 }
 else
 {
-    boulderCount = stateCodecPrimitiveDecode();
-    code = stateCodecPrimitiveDecode();
+    boulderCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
     customSprite = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    dropBlockCollision = stateCodecPrimitiveDecode();
-    dropGrav = stateCodecPrimitiveDecode();
-    dropXspeed = stateCodecPrimitiveDecode();
-    dropYspeed = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropBlockCollision = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropXspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     endRef = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    isEnd = stateCodecPrimitiveDecode();
-    isStart = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isStart = buffer_read(global.stateCodecBuffer, buffer_f32);
     nextBoulder = stateCodecIDDecode();
-    nextXdir = stateCodecPrimitiveDecode();
-    nextYdir = stateCodecPrimitiveDecode();
+    nextXdir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nextYdir = buffer_read(global.stateCodecBuffer, buffer_f32);
     particleSprite = stateCodecPrimitiveDecode();
     prevBoulder = stateCodecIDDecode();
-    prevXdir = stateCodecPrimitiveDecode();
-    prevYdir = stateCodecPrimitiveDecode();
+    prevXdir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevYdir = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
     startRef = stateCodecPrimitiveDecode();
 }

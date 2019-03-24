@@ -192,17 +192,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(flameCleared);
-    stateCodecPrimitiveEncode(flameTimer);
-    stateCodecPrimitiveEncode(launchTimer);
-    stateCodecPrimitiveEncode(launched);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameCleared);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, launchTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, launched);
 }
 else
 {
-    flameCleared = stateCodecPrimitiveDecode();
-    flameTimer = stateCodecPrimitiveDecode();
-    launchTimer = stateCodecPrimitiveDecode();
-    launched = stateCodecPrimitiveDecode();
+    flameCleared = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    launchTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    launched = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

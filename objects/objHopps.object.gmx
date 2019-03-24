@@ -216,29 +216,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activated);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(cooldownTimerMax1);
-    stateCodecPrimitiveEncode(cooldownTimerMax2);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(imageTimerMax);
-    stateCodecPrimitiveEncode(liftOff);
-    stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(xSOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimerMax1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimerMax2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, liftOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, radius);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSOffset);
 }
 else
 {
-    activated = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    cooldownTimerMax1 = stateCodecPrimitiveDecode();
-    cooldownTimerMax2 = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    imageTimerMax = stateCodecPrimitiveDecode();
-    liftOff = stateCodecPrimitiveDecode();
-    radius = stateCodecPrimitiveDecode();
-    xSOffset = stateCodecPrimitiveDecode();
+    activated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimerMax1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimerMax2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    liftOff = buffer_read(global.stateCodecBuffer, buffer_f32);
+    radius = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

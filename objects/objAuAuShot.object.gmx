@@ -173,17 +173,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shotCharge);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotCharge);
 }
 else
 {
-    imgIndex = stateCodecPrimitiveDecode();
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shotCharge = stateCodecPrimitiveDecode();
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotCharge = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

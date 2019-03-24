@@ -307,35 +307,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(dropCount);
-    stateCodecPrimitiveEncode(dropWait);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(megaX);
-    stateCodecPrimitiveEncode(moveWait);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(riseAndFallWait);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(xSpd);
-    stateCodecPrimitiveEncode(ySpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dropWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, megaX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, riseAndFallWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ySpd);
 }
 else
 {
-    dir = stateCodecPrimitiveDecode();
-    dropCount = stateCodecPrimitiveDecode();
-    dropWait = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    megaX = stateCodecPrimitiveDecode();
-    moveWait = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    riseAndFallWait = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    xSpd = stateCodecPrimitiveDecode();
-    ySpd = stateCodecPrimitiveDecode();
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dropWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    megaX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    riseAndFallWait = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ySpd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

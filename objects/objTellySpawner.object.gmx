@@ -134,17 +134,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(maxTellies);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxTellies);
     stateCodecPrimitiveEncode(shoottimer);
-    stateCodecPrimitiveEncode(travelSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, travelSpeed);
 }
 else
 {
-    delay = stateCodecPrimitiveDecode();
-    maxTellies = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxTellies = buffer_read(global.stateCodecBuffer, buffer_f32);
     shoottimer = stateCodecPrimitiveDecode();
-    travelSpeed = stateCodecPrimitiveDecode();
+    travelSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -241,31 +241,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
     stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(e);
-    stateCodecPrimitiveEncode(egg1);
-    stateCodecPrimitiveEncode(egg2);
-    stateCodecPrimitiveEncode(egg3);
+    buffer_write(global.stateCodecBuffer, buffer_f32, e);
+    buffer_write(global.stateCodecBuffer, buffer_f32, egg1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, egg2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, egg3);
     stateCodecIDArrayEncode(eggArray);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     cooldownTimer = stateCodecPrimitiveDecode();
-    e = stateCodecPrimitiveDecode();
-    egg1 = stateCodecPrimitiveDecode();
-    egg2 = stateCodecPrimitiveDecode();
-    egg3 = stateCodecPrimitiveDecode();
+    e = buffer_read(global.stateCodecBuffer, buffer_f32);
+    egg1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    egg2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    egg3 = buffer_read(global.stateCodecBuffer, buffer_f32);
     eggArray = stateCodecIDArrayDecode();
-    img = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

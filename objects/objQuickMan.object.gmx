@@ -472,37 +472,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aiBug);
-    stateCodecPrimitiveEncode(bugActive);
-    stateCodecPrimitiveEncode(has_fired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aiBug);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bugActive);
+    buffer_write(global.stateCodecBuffer, buffer_f32, has_fired);
     stateCodecPrimitiveEncode(jumpHeightFor);
-    stateCodecPrimitiveEncode(jump_count);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jump_count);
     stateCodecPrimitiveEncode(jump_x_offset);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(pref_xspeed);
-    stateCodecPrimitiveEncode(run_speed);
-    stateCodecPrimitiveEncode(run_time);
-    stateCodecPrimitiveEncode(xDistanceTravelled);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pref_xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, run_speed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, run_time);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xDistanceTravelled);
 }
 else
 {
-    aiBug = stateCodecPrimitiveDecode();
-    bugActive = stateCodecPrimitiveDecode();
-    has_fired = stateCodecPrimitiveDecode();
+    aiBug = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bugActive = buffer_read(global.stateCodecBuffer, buffer_f32);
+    has_fired = buffer_read(global.stateCodecBuffer, buffer_f32);
     jumpHeightFor = stateCodecPrimitiveDecode();
-    jump_count = stateCodecPrimitiveDecode();
+    jump_count = buffer_read(global.stateCodecBuffer, buffer_f32);
     jump_x_offset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    pref_xspeed = stateCodecPrimitiveDecode();
-    run_speed = stateCodecPrimitiveDecode();
-    run_time = stateCodecPrimitiveDecode();
-    xDistanceTravelled = stateCodecPrimitiveDecode();
+    pref_xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    run_speed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    run_time = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xDistanceTravelled = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

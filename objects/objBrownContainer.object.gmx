@@ -139,15 +139,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animate);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(wasHit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animate);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wasHit);
 }
 else
 {
-    animate = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    wasHit = stateCodecPrimitiveDecode();
+    animate = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wasHit = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

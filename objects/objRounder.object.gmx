@@ -163,25 +163,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(aim);
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bulletID);
-    stateCodecPrimitiveEncode(circle);
-    stateCodecPrimitiveEncode(loops);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, aim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bulletID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, circle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, loops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    aim = stateCodecPrimitiveDecode();
-    angle = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    bulletID = stateCodecPrimitiveDecode();
-    circle = stateCodecPrimitiveDecode();
-    loops = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    aim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bulletID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    circle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    loops = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -143,17 +143,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
     stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(turnTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTimer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
     imgSpd = stateCodecPrimitiveDecode();
-    turnTimer = stateCodecPrimitiveDecode();
+    turnTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

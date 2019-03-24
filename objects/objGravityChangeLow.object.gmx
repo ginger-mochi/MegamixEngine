@@ -95,13 +95,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(blink);
-    stateCodecPrimitiveEncode(gravMultiplier);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blink);
+    buffer_write(global.stateCodecBuffer, buffer_f32, gravMultiplier);
 }
 else
 {
-    blink = stateCodecPrimitiveDecode();
-    gravMultiplier = stateCodecPrimitiveDecode();
+    blink = buffer_read(global.stateCodecBuffer, buffer_f32);
+    gravMultiplier = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

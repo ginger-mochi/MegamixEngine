@@ -165,18 +165,18 @@ stateCodecInstance();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(character);
-    stateCodecPrimitiveEncode(controlsLocked);
-    stateCodecPrimitiveEncode(player);
-    stateCodecPrimitiveEncode(selectedCharacter);
-    stateCodecPrimitiveEncode(selection);
+    buffer_write(global.stateCodecBuffer, buffer_f32, controlsLocked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, player);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selectedCharacter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selection);
 }
 else
 {
     character = stateCodecPrimitiveDecode();
-    controlsLocked = stateCodecPrimitiveDecode();
-    player = stateCodecPrimitiveDecode();
-    selectedCharacter = stateCodecPrimitiveDecode();
-    selection = stateCodecPrimitiveDecode();
+    controlsLocked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    player = buffer_read(global.stateCodecBuffer, buffer_f32);
+    selectedCharacter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    selection = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

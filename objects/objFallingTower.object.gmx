@@ -455,37 +455,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(additionalTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, additionalTile);
     stateCodecPrimitiveEncode(blockObject);
-    stateCodecPrimitiveEncode(fall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fall);
     stateCodecPrimitiveEncode(getY);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(myTile);
-    stateCodecPrimitiveEncode(sectionBottom);
-    stateCodecPrimitiveEncode(sectionTop);
-    stateCodecPrimitiveEncode(setCamera);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(xOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionBottom);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionTop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setCamera);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, width);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOffset);
 }
 else
 {
-    additionalTile = stateCodecPrimitiveDecode();
+    additionalTile = buffer_read(global.stateCodecBuffer, buffer_f32);
     blockObject = stateCodecPrimitiveDecode();
-    fall = stateCodecPrimitiveDecode();
+    fall = buffer_read(global.stateCodecBuffer, buffer_f32);
     getY = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
-    sectionBottom = stateCodecPrimitiveDecode();
-    sectionTop = stateCodecPrimitiveDecode();
-    setCamera = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    width = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myTile = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionBottom = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionTop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setCamera = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    width = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

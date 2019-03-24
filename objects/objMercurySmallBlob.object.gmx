@@ -182,21 +182,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(big);
-    stateCodecPrimitiveEncode(blobID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, big);
+    buffer_write(global.stateCodecBuffer, buffer_f32, blobID);
     stateCodecPrimitiveEncode(blobMove);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(trigBlob);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, trigBlob);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    big = stateCodecPrimitiveDecode();
-    blobID = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    big = buffer_read(global.stateCodecBuffer, buffer_f32);
+    blobID = buffer_read(global.stateCodecBuffer, buffer_f32);
     blobMove = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    trigBlob = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    trigBlob = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -157,15 +157,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(endTimer);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(tailWag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tailWag);
 }
 else
 {
-    endTimer = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    tailWag = stateCodecPrimitiveDecode();
+    endTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tailWag = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

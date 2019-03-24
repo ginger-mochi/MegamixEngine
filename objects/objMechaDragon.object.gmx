@@ -349,32 +349,32 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
     stateCodecPrimitiveEncode(fireHurtSprite);
     stateCodecPrimitiveEncode(fireSprite);
-    stateCodecPrimitiveEncode(isDying);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
     stateCodecPrimitiveEncode(normalHurtSprite);
     stateCodecPrimitiveEncode(normalSprite);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     fireHurtSprite = stateCodecPrimitiveDecode();
     fireSprite = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
+    isDying = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     normalHurtSprite = stateCodecPrimitiveDecode();
     normalSprite = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
 }
 </string>

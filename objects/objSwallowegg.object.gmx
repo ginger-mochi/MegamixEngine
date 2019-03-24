@@ -226,27 +226,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(flameFrame);
-    stateCodecPrimitiveEncode(hasEgg);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spawnEgg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flameFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasEgg);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnEgg);
     stateCodecPrimitiveEncode(spawnEggReset);
-    stateCodecPrimitiveEncode(stopX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopX);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    flameFrame = stateCodecPrimitiveDecode();
-    hasEgg = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spawnEgg = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flameFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasEgg = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnEgg = buffer_read(global.stateCodecBuffer, buffer_f32);
     spawnEggReset = stateCodecPrimitiveDecode();
-    stopX = stateCodecPrimitiveDecode();
+    stopX = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

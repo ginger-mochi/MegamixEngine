@@ -189,31 +189,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(delayTurn);
-    stateCodecPrimitiveEncode(direct);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, direct);
     stateCodecPrimitiveEncode(homeX);
     stateCodecPrimitiveEncode(homeY);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(moveDistX);
-    stateCodecPrimitiveEncode(moveDistY);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDistX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDistY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
 }
 else
 {
-    delayTurn = stateCodecPrimitiveDecode();
-    direct = stateCodecPrimitiveDecode();
+    delayTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    direct = buffer_read(global.stateCodecBuffer, buffer_f32);
     homeX = stateCodecPrimitiveDecode();
     homeY = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    moveDelay = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    moveDistX = stateCodecPrimitiveDecode();
-    moveDistY = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDistX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDistY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -320,25 +320,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownImageMax);
-    stateCodecPrimitiveEncode(cooldownImageTimer);
-    stateCodecPrimitiveEncode(currentPlatformOffset);
-    stateCodecPrimitiveEncode(imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownImageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentPlatformOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
     stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(platformCalc);
-    stateCodecPrimitiveEncode(platformOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, platformCalc);
+    buffer_write(global.stateCodecBuffer, buffer_f32, platformOffset);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    cooldownImageMax = stateCodecPrimitiveDecode();
-    cooldownImageTimer = stateCodecPrimitiveDecode();
-    currentPlatformOffset = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownImageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentPlatformOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
     mySolid = stateCodecIDDecode();
-    platformCalc = stateCodecPrimitiveDecode();
-    platformOffset = stateCodecPrimitiveDecode();
+    platformCalc = buffer_read(global.stateCodecBuffer, buffer_f32);
+    platformOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

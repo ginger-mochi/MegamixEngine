@@ -209,24 +209,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(collectPlayer);
-    stateCodecPrimitiveEncode(disappear);
-    stateCodecPrimitiveEncode(flashTimer);
-    stateCodecPrimitiveEncode(grabable);
-    stateCodecPrimitiveEncode(heavy);
-    stateCodecPrimitiveEncode(pushout);
-    stateCodecPrimitiveEncode(respawnupondeath);
-    stateCodecPrimitiveEncode(usePlayerColor);
+    buffer_write(global.stateCodecBuffer, buffer_f32, disappear);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, grabable);
+    buffer_write(global.stateCodecBuffer, buffer_f32, heavy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pushout);
+    buffer_write(global.stateCodecBuffer, buffer_f32, respawnupondeath);
+    buffer_write(global.stateCodecBuffer, buffer_f32, usePlayerColor);
 }
 else
 {
     collectPlayer = stateCodecIDDecode();
-    disappear = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
-    grabable = stateCodecPrimitiveDecode();
-    heavy = stateCodecPrimitiveDecode();
-    pushout = stateCodecPrimitiveDecode();
-    respawnupondeath = stateCodecPrimitiveDecode();
-    usePlayerColor = stateCodecPrimitiveDecode();
+    disappear = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    grabable = buffer_read(global.stateCodecBuffer, buffer_f32);
+    heavy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pushout = buffer_read(global.stateCodecBuffer, buffer_f32);
+    respawnupondeath = buffer_read(global.stateCodecBuffer, buffer_f32);
+    usePlayerColor = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

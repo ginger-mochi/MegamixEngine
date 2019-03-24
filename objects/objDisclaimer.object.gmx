@@ -109,15 +109,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(disclaimerText);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timerMax);
+    buffer_write(global.stateCodecBuffer, buffer_string, disclaimerText);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timerMax);
 }
 else
 {
-    disclaimerText = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timerMax = stateCodecPrimitiveDecode();
+    disclaimerText = buffer_read(global.stateCodecBuffer, buffer_string);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

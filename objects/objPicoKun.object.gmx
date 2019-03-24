@@ -314,29 +314,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(decrementedCount);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(superArmDeathOnDrop);
-    stateCodecPrimitiveEncode(superArmFlashInterval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, decrementedCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmDeathOnDrop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashInterval);
     stateCodecPrimitiveEncode(superArmFlashOwner);
-    stateCodecPrimitiveEncode(superArmFlashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmFlashTimer);
     stateCodecPrimitiveEncode(superArmHoldOwner);
-    stateCodecPrimitiveEncode(superArmSquirmTimer);
-    stateCodecPrimitiveEncode(superArmThrown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmSquirmTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, superArmThrown);
 }
 else
 {
-    decrementedCount = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    superArmDeathOnDrop = stateCodecPrimitiveDecode();
-    superArmFlashInterval = stateCodecPrimitiveDecode();
+    decrementedCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmDeathOnDrop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmFlashInterval = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmFlashOwner = stateCodecPrimitiveDecode();
-    superArmFlashTimer = stateCodecPrimitiveDecode();
+    superArmFlashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     superArmHoldOwner = stateCodecPrimitiveDecode();
-    superArmSquirmTimer = stateCodecPrimitiveDecode();
-    superArmThrown = stateCodecPrimitiveDecode();
+    superArmSquirmTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    superArmThrown = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

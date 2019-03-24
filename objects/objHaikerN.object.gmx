@@ -254,31 +254,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(SPEED);
-    stateCodecPrimitiveEncode(a);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(endXoffset);
-    stateCodecPrimitiveEncode(horSpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(prevX);
-    stateCodecPrimitiveEncode(prevY);
-    stateCodecPrimitiveEncode(spawnXOffset);
-    stateCodecPrimitiveEncode(spawnYOffset);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, SPEED);
+    buffer_write(global.stateCodecBuffer, buffer_f32, a);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endXoffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, horSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnXOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawnYOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    SPEED = stateCodecPrimitiveDecode();
-    a = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    endXoffset = stateCodecPrimitiveDecode();
-    horSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    prevX = stateCodecPrimitiveDecode();
-    prevY = stateCodecPrimitiveDecode();
-    spawnXOffset = stateCodecPrimitiveDecode();
-    spawnYOffset = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    SPEED = buffer_read(global.stateCodecBuffer, buffer_f32);
+    a = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    endXoffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    horSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnXOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawnYOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

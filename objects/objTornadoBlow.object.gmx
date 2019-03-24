@@ -346,15 +346,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasDoneGrav);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(location);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasDoneGrav);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, location);
 }
 else
 {
-    hasDoneGrav = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    location = stateCodecPrimitiveDecode();
+    hasDoneGrav = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    location = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

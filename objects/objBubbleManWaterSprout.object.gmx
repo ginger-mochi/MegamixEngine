@@ -162,32 +162,32 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngle);
     stateCodecPrimitiveEncode(cAngle);
-    stateCodecPrimitiveEncode(cDir);
-    stateCodecPrimitiveEncode(cDistance);
-    stateCodecPrimitiveEncode(destroyCounter);
-    stateCodecPrimitiveEncode(imageTimer);
-    stateCodecPrimitiveEncode(img);
-    stateCodecPrimitiveEncode(imgalarm);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, destroyCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, img);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgalarm);
     stateCodecPrimitiveEncode(moveCounter);
-    stateCodecPrimitiveEncode(moveDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDist);
     stateCodecPrimitiveEncode(yMin);
     stateCodecPrimitiveEncode(yScale);
     stateCodecPrimitiveEncode(yStart);
 }
 else
 {
-    addAngle = stateCodecPrimitiveDecode();
+    addAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
     cAngle = stateCodecPrimitiveDecode();
-    cDir = stateCodecPrimitiveDecode();
-    cDistance = stateCodecPrimitiveDecode();
-    destroyCounter = stateCodecPrimitiveDecode();
-    imageTimer = stateCodecPrimitiveDecode();
-    img = stateCodecPrimitiveDecode();
-    imgalarm = stateCodecPrimitiveDecode();
+    cDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    destroyCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    img = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgalarm = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveCounter = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
+    moveDist = buffer_read(global.stateCodecBuffer, buffer_f32);
     yMin = stateCodecPrimitiveDecode();
     yScale = stateCodecPrimitiveDecode();
     yStart = stateCodecPrimitiveDecode();

@@ -169,17 +169,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(bounced);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(xSpdConst);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounced);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xSpdConst);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    bounced = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    xSpdConst = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bounced = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xSpdConst = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -375,35 +375,35 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(inWater);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(maxSpeed);
-    stateCodecPrimitiveEncode(physicsLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inWater);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, physicsLock);
     stateCodecIDEncode(rider);
-    stateCodecPrimitiveEncode(riderPhysicsAllowed);
-    stateCodecPrimitiveEncode(scroll);
-    stateCodecPrimitiveEncode(shootYOffset);
-    stateCodecPrimitiveEncode(spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, riderPhysicsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, scroll);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootYOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
     stateCodecIDEncode(waterPlat);
-    stateCodecPrimitiveEncode(weaponsAllowed);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, weaponsAllowed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    inWater = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    maxSpeed = stateCodecPrimitiveDecode();
-    physicsLock = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    inWater = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    physicsLock = buffer_read(global.stateCodecBuffer, buffer_f32);
     rider = stateCodecIDDecode();
-    riderPhysicsAllowed = stateCodecPrimitiveDecode();
-    scroll = stateCodecPrimitiveDecode();
-    shootYOffset = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
+    riderPhysicsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    scroll = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootYOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
     waterPlat = stateCodecIDDecode();
-    weaponsAllowed = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    weaponsAllowed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

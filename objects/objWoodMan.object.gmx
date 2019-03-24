@@ -371,11 +371,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_im);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(leafTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseShieldTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _im);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leafTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseShieldTimer);
     stateCodecPrimitiveEncode(phaseShieldTimerStart);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
@@ -383,11 +383,11 @@ if (global.stateCodecEncode)
 }
 else
 {
-    _im = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    leafTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseShieldTimer = stateCodecPrimitiveDecode();
+    _im = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leafTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseShieldTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     phaseShieldTimerStart = stateCodecPrimitiveDecode();
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();

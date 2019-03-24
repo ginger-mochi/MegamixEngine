@@ -425,16 +425,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(cutter);
-    stateCodecPrimitiveEncode(delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cutter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
     stateCodecPrimitiveEncode(getLastXspeed);
-    stateCodecPrimitiveEncode(hasKnockback);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(knockbackTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasKnockback);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, knockbackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(spriteJump);
@@ -443,16 +443,16 @@ if (global.stateCodecEncode)
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    cutter = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cutter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
     getLastXspeed = stateCodecPrimitiveDecode();
-    hasKnockback = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    knockbackTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    hasKnockback = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    knockbackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
     spriteJump = stateCodecPrimitiveDecode();

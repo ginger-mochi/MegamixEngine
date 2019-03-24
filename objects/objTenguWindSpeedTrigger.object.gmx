@@ -162,15 +162,15 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(lastPlayerCount);
     stateCodecDSEncode(lastPlayerX, ds_type_list);
-    stateCodecPrimitiveEncode(windAccel);
-    stateCodecPrimitiveEncode(windSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, windAccel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, windSpeed);
 }
 else
 {
     lastPlayerCount = stateCodecPrimitiveDecode();
     lastPlayerX = stateCodecDSDecode(ds_type_list);
-    windAccel = stateCodecPrimitiveDecode();
-    windSpeed = stateCodecPrimitiveDecode();
+    windAccel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    windSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

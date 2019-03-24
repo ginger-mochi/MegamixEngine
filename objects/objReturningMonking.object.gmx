@@ -208,21 +208,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecPrimitiveEncode(contactStart);
-    stateCodecPrimitiveEncode(doneCritSwing);
-    stateCodecPrimitiveEncode(state);
-    stateCodecPrimitiveEncode(swingCooldown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, doneCritSwing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, state);
+    buffer_write(global.stateCodecBuffer, buffer_f32, swingCooldown);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     contactStart = stateCodecPrimitiveDecode();
-    doneCritSwing = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
-    swingCooldown = stateCodecPrimitiveDecode();
+    doneCritSwing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    state = buffer_read(global.stateCodecBuffer, buffer_f32);
+    swingCooldown = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -436,44 +436,44 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, anim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackCount);
     stateCodecPrimitiveEncode(backSprite);
     stateCodecIDEncode(ball);
-    stateCodecPrimitiveEncode(ballDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ballDir);
     stateCodecPrimitiveEncode(leftBound);
     stateCodecIDEncode(leftHand);
-    stateCodecPrimitiveEncode(lockID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockID);
     stateCodecIDEncode(mySolid);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(rightBound);
     stateCodecIDEncode(rightHand);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(type);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, type);
     stateCodecPrimitiveEncode(upperBound);
 }
 else
 {
-    anim = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    attackCount = stateCodecPrimitiveDecode();
+    anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackCount = buffer_read(global.stateCodecBuffer, buffer_f32);
     backSprite = stateCodecPrimitiveDecode();
     ball = stateCodecIDDecode();
-    ballDir = stateCodecPrimitiveDecode();
+    ballDir = buffer_read(global.stateCodecBuffer, buffer_f32);
     leftBound = stateCodecPrimitiveDecode();
     leftHand = stateCodecIDDecode();
-    lockID = stateCodecPrimitiveDecode();
+    lockID = buffer_read(global.stateCodecBuffer, buffer_f32);
     mySolid = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     rightBound = stateCodecPrimitiveDecode();
     rightHand = stateCodecIDDecode();
-    timer = stateCodecPrimitiveDecode();
-    type = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    type = buffer_read(global.stateCodecBuffer, buffer_f32);
     upperBound = stateCodecPrimitiveDecode();
 }
 </string>

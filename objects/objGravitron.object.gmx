@@ -152,15 +152,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecIDEncode(bulletID);
-    stateCodecPrimitiveEncode(myGravity);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myGravity);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     bulletID = stateCodecIDDecode();
-    myGravity = stateCodecPrimitiveDecode();
+    myGravity = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

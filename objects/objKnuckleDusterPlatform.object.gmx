@@ -117,20 +117,20 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(distanceTimer);
-    stateCodecPrimitiveEncode(knuckleDusterPlatform);
-    stateCodecPrimitiveEncode(resetDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distanceTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, knuckleDusterPlatform);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetDelay);
     stateCodecPrimitiveEncode(storeDir);
-    stateCodecPrimitiveEncode(test);
+    buffer_write(global.stateCodecBuffer, buffer_f32, test);
 }
 else
 {
     delayTimer = stateCodecPrimitiveDecode();
-    distanceTimer = stateCodecPrimitiveDecode();
-    knuckleDusterPlatform = stateCodecPrimitiveDecode();
-    resetDelay = stateCodecPrimitiveDecode();
+    distanceTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    knuckleDusterPlatform = buffer_read(global.stateCodecBuffer, buffer_f32);
+    resetDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
     storeDir = stateCodecPrimitiveDecode();
-    test = stateCodecPrimitiveDecode();
+    test = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

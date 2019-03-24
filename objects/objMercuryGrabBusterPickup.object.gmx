@@ -142,17 +142,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(goToMercury);
-    stateCodecPrimitiveEncode(hlth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, goToMercury);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hlth);
     stateCodecPrimitiveEncode(parent);
-    stateCodecPrimitiveEncode(usePlayerColor);
+    buffer_write(global.stateCodecBuffer, buffer_f32, usePlayerColor);
 }
 else
 {
-    goToMercury = stateCodecPrimitiveDecode();
-    hlth = stateCodecPrimitiveDecode();
+    goToMercury = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hlth = buffer_read(global.stateCodecBuffer, buffer_f32);
     parent = stateCodecPrimitiveDecode();
-    usePlayerColor = stateCodecPrimitiveDecode();
+    usePlayerColor = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

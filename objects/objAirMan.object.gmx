@@ -363,47 +363,45 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecDSEncode(airShoot, ds_type_grid);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bladeThrow);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(flashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bladeThrow);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashTimer);
     stateCodecPrimitiveEncode(getLastXspeed);
     stateCodecPrimitiveEncode(getLastYspeed);
-    stateCodecPrimitiveEncode(getX);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(lastShot0);
-    stateCodecPrimitiveEncode(lastShot1);
-    stateCodecPrimitiveEncode(lastShot2);
-    stateCodecPrimitiveEncode(maxBlowSpeed);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastShot0);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastShot1);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastShot2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxBlowSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(throwTimer);
-    stateCodecPrimitiveEncode(timesFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, throwTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timesFired);
 }
 else
 {
-    airShoot = stateCodecDSDecode(ds_type_grid);
-    attackTimer = stateCodecPrimitiveDecode();
-    bladeThrow = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bladeThrow = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     getLastXspeed = stateCodecPrimitiveDecode();
     getLastYspeed = stateCodecPrimitiveDecode();
-    getX = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    lastShot0 = stateCodecPrimitiveDecode();
-    lastShot1 = stateCodecPrimitiveDecode();
-    lastShot2 = stateCodecPrimitiveDecode();
-    maxBlowSpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    getX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastShot0 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastShot1 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastShot2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxBlowSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    throwTimer = stateCodecPrimitiveDecode();
-    timesFired = stateCodecPrimitiveDecode();
+    throwTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timesFired = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

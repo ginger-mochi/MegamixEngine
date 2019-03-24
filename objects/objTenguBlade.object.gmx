@@ -321,16 +321,16 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(notDashing);
-    stateCodecPrimitiveEncode(nothingStruck);
-    stateCodecPrimitiveEncode(slashLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, notDashing);
+    buffer_write(global.stateCodecBuffer, buffer_f32, nothingStruck);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slashLock);
     stateCodecPrimitiveEncode(xst);
 }
 else
 {
-    notDashing = stateCodecPrimitiveDecode();
-    nothingStruck = stateCodecPrimitiveDecode();
-    slashLock = stateCodecPrimitiveDecode();
+    notDashing = buffer_read(global.stateCodecBuffer, buffer_f32);
+    nothingStruck = buffer_read(global.stateCodecBuffer, buffer_f32);
+    slashLock = buffer_read(global.stateCodecBuffer, buffer_f32);
     xst = stateCodecPrimitiveDecode();
 }
 </string>

@@ -300,23 +300,23 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bodyShark);
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(hatchIndex);
-    stateCodecPrimitiveEncode(hitInvun);
-    stateCodecPrimitiveEncode(isDying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hatchIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitInvun);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDying);
     stateCodecPrimitiveEncode(leftShark);
-    stateCodecPrimitiveEncode(phaseMultiple);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseMultiple);
     stateCodecPrimitiveEncode(timer);
 }
 else
 {
     bodyShark = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
-    hatchIndex = stateCodecPrimitiveDecode();
-    hitInvun = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hatchIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hitInvun = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDying = buffer_read(global.stateCodecBuffer, buffer_f32);
     leftShark = stateCodecPrimitiveDecode();
-    phaseMultiple = stateCodecPrimitiveDecode();
+    phaseMultiple = buffer_read(global.stateCodecBuffer, buffer_f32);
     timer = stateCodecPrimitiveDecode();
 }
 </string>

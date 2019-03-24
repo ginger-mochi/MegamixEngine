@@ -181,23 +181,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(downtag);
-    stateCodecPrimitiveEncode(flipped);
-    stateCodecPrimitiveEncode(oneShot);
-    stateCodecPrimitiveEncode(state);
-    stateCodecPrimitiveEncode(touchingPlayer);
-    stateCodecPrimitiveEncode(transition_anim);
-    stateCodecPrimitiveEncode(uptag);
+    buffer_write(global.stateCodecBuffer, buffer_string, downtag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flipped);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oneShot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, state);
+    buffer_write(global.stateCodecBuffer, buffer_f32, touchingPlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, transition_anim);
+    buffer_write(global.stateCodecBuffer, buffer_string, uptag);
 }
 else
 {
-    downtag = stateCodecPrimitiveDecode();
-    flipped = stateCodecPrimitiveDecode();
-    oneShot = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
-    touchingPlayer = stateCodecPrimitiveDecode();
-    transition_anim = stateCodecPrimitiveDecode();
-    uptag = stateCodecPrimitiveDecode();
+    downtag = buffer_read(global.stateCodecBuffer, buffer_string);
+    flipped = buffer_read(global.stateCodecBuffer, buffer_f32);
+    oneShot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    state = buffer_read(global.stateCodecBuffer, buffer_f32);
+    touchingPlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    transition_anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    uptag = buffer_read(global.stateCodecBuffer, buffer_string);
 }
 </string>
           </argument>

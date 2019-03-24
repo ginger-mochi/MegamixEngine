@@ -121,17 +121,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(lastLocationX);
-    stateCodecPrimitiveEncode(lastLocationY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastLocationX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastLocationY);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    lastLocationX = stateCodecPrimitiveDecode();
-    lastLocationY = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastLocationX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastLocationY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

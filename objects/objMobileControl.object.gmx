@@ -268,39 +268,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cursorDown);
-    stateCodecPrimitiveEncode(dev_split_frac);
-    stateCodecPrimitiveEncode(integrate_shot);
-    stateCodecPrimitiveEncode(js_center_x);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cursorDown);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dev_split_frac);
+    buffer_write(global.stateCodecBuffer, buffer_f32, integrate_shot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_center_x);
     stateCodecPrimitiveEncode(js_drag_radius_frac);
-    stateCodecPrimitiveEncode(js_h);
-    stateCodecPrimitiveEncode(js_jump);
-    stateCodecPrimitiveEncode(js_jump_v_dampening);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_h);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_jump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_jump_v_dampening);
     stateCodecPrimitiveEncode(js_null_radius_frac);
-    stateCodecPrimitiveEncode(js_shoot_x);
-    stateCodecPrimitiveEncode(js_shoot_y);
-    stateCodecPrimitiveEncode(js_v);
-    stateCodecPrimitiveEncode(jump_frac);
-    stateCodecPrimitiveEncode(pauseFrac);
-    stateCodecPrimitiveEncode(slide_frac);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_shoot_x);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_shoot_y);
+    buffer_write(global.stateCodecBuffer, buffer_f32, js_v);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jump_frac);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pauseFrac);
+    buffer_write(global.stateCodecBuffer, buffer_f32, slide_frac);
 }
 else
 {
-    cursorDown = stateCodecPrimitiveDecode();
-    dev_split_frac = stateCodecPrimitiveDecode();
-    integrate_shot = stateCodecPrimitiveDecode();
-    js_center_x = stateCodecPrimitiveDecode();
+    cursorDown = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dev_split_frac = buffer_read(global.stateCodecBuffer, buffer_f32);
+    integrate_shot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    js_center_x = buffer_read(global.stateCodecBuffer, buffer_f32);
     js_drag_radius_frac = stateCodecPrimitiveDecode();
-    js_h = stateCodecPrimitiveDecode();
-    js_jump = stateCodecPrimitiveDecode();
-    js_jump_v_dampening = stateCodecPrimitiveDecode();
+    js_h = buffer_read(global.stateCodecBuffer, buffer_f32);
+    js_jump = buffer_read(global.stateCodecBuffer, buffer_f32);
+    js_jump_v_dampening = buffer_read(global.stateCodecBuffer, buffer_f32);
     js_null_radius_frac = stateCodecPrimitiveDecode();
-    js_shoot_x = stateCodecPrimitiveDecode();
-    js_shoot_y = stateCodecPrimitiveDecode();
-    js_v = stateCodecPrimitiveDecode();
-    jump_frac = stateCodecPrimitiveDecode();
-    pauseFrac = stateCodecPrimitiveDecode();
-    slide_frac = stateCodecPrimitiveDecode();
+    js_shoot_x = buffer_read(global.stateCodecBuffer, buffer_f32);
+    js_shoot_y = buffer_read(global.stateCodecBuffer, buffer_f32);
+    js_v = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jump_frac = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pauseFrac = buffer_read(global.stateCodecBuffer, buffer_f32);
+    slide_frac = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

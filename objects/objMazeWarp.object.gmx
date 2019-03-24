@@ -178,18 +178,18 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(camY);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(tileCheckStart);
-    stateCodecPrimitiveEncode(tileDistanceCheck);
-    stateCodecPrimitiveEncode(tileSurface);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileCheckStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileDistanceCheck);
+    stateCodecSurfaceEncode(tileSurface);
 }
 else
 {
     camY = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    tileCheckStart = stateCodecPrimitiveDecode();
-    tileDistanceCheck = stateCodecPrimitiveDecode();
-    tileSurface = stateCodecPrimitiveDecode();
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileCheckStart = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileDistanceCheck = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileSurface = stateCodecSurfaceDecode();
 }
 </string>
           </argument>

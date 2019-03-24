@@ -123,15 +123,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
     stateCodecPrimitiveEncode(obj);
     stateCodecPrimitiveEncode(shoottimer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
     obj = stateCodecPrimitiveDecode();
     shoottimer = stateCodecPrimitiveDecode();
 }

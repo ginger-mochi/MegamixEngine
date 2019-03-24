@@ -163,19 +163,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(number);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(stopAtSolid);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, number);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopAtSolid);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    number = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    stopAtSolid = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    number = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopAtSolid = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

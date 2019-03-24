@@ -203,24 +203,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(child);
-    stateCodecPrimitiveEncode(delayDisplay);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(jitter);
-    stateCodecPrimitiveEncode(jitterTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayDisplay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jitter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jitterTime);
     stateCodecPrimitiveEncode(kamapotSpeed);
-    stateCodecPrimitiveEncode(moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
 }
 else
 {
     child = stateCodecIDDecode();
-    delayDisplay = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    jitter = stateCodecPrimitiveDecode();
-    jitterTime = stateCodecPrimitiveDecode();
+    delayDisplay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jitter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jitterTime = buffer_read(global.stateCodecBuffer, buffer_f32);
     kamapotSpeed = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

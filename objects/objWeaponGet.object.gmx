@@ -184,39 +184,39 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(controlsLocked);
-    stateCodecPrimitiveEncode(currentReward);
-    stateCodecPrimitiveEncode(fadeInTimer);
-    stateCodecPrimitiveEncode(finalFadeOut);
-    stateCodecPrimitiveEncode(flashTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, controlsLocked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, currentReward);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fadeInTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, finalFadeOut);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flashTimer);
     stateCodecPrimitiveEncode(optionText);
     stateCodecPrimitiveEncode(reward);
-    stateCodecPrimitiveEncode(rewardN);
-    stateCodecPrimitiveEncode(rewardText);
-    stateCodecPrimitiveEncode(rewardTimer);
-    stateCodecPrimitiveEncode(selection);
-    stateCodecPrimitiveEncode(spinFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rewardN);
+    buffer_write(global.stateCodecBuffer, buffer_string, rewardText);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rewardTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selection);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spinFrame);
     stateCodecPrimitiveEncode(spinSpeed);
-    stateCodecPrimitiveEncode(textTick);
-    stateCodecPrimitiveEncode(textTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, textTick);
+    buffer_write(global.stateCodecBuffer, buffer_f32, textTimer);
 }
 else
 {
-    controlsLocked = stateCodecPrimitiveDecode();
-    currentReward = stateCodecPrimitiveDecode();
-    fadeInTimer = stateCodecPrimitiveDecode();
-    finalFadeOut = stateCodecPrimitiveDecode();
-    flashTimer = stateCodecPrimitiveDecode();
+    controlsLocked = buffer_read(global.stateCodecBuffer, buffer_f32);
+    currentReward = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fadeInTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    finalFadeOut = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flashTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionText = stateCodecPrimitiveDecode();
     reward = stateCodecPrimitiveDecode();
-    rewardN = stateCodecPrimitiveDecode();
-    rewardText = stateCodecPrimitiveDecode();
-    rewardTimer = stateCodecPrimitiveDecode();
-    selection = stateCodecPrimitiveDecode();
-    spinFrame = stateCodecPrimitiveDecode();
+    rewardN = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rewardText = buffer_read(global.stateCodecBuffer, buffer_string);
+    rewardTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    selection = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spinFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
     spinSpeed = stateCodecPrimitiveDecode();
-    textTick = stateCodecPrimitiveDecode();
-    textTimer = stateCodecPrimitiveDecode();
+    textTick = buffer_read(global.stateCodecBuffer, buffer_f32);
+    textTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

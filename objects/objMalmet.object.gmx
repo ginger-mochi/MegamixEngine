@@ -210,25 +210,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(accel);
-    stateCodecPrimitiveEncode(animBack);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(shootDelay);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(targY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, accel);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animBack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targY);
 }
 else
 {
-    accel = stateCodecPrimitiveDecode();
-    animBack = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    shootDelay = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    targX = stateCodecPrimitiveDecode();
-    targY = stateCodecPrimitiveDecode();
+    accel = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animBack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -267,27 +267,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(chain);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(imgSpd);
-    stateCodecPrimitiveEncode(keptYSpeed);
-    stateCodecPrimitiveEncode(moveV);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(previousShotType);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shootWait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, chain);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, keptYSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveV);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, previousShotType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootWait);
 }
 else
 {
-    chain = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    imgSpd = stateCodecPrimitiveDecode();
-    keptYSpeed = stateCodecPrimitiveDecode();
-    moveV = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    previousShotType = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shootWait = stateCodecPrimitiveDecode();
+    chain = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    keptYSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveV = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    previousShotType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootWait = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

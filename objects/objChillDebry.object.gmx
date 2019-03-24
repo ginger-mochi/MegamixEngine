@@ -96,19 +96,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(ground);
-    stateCodecPrimitiveEncode(inWater);
-    stateCodecPrimitiveEncode(stopOnFlash);
-    stateCodecPrimitiveEncode(xspeed);
-    stateCodecPrimitiveEncode(yspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ground);
+    buffer_write(global.stateCodecBuffer, buffer_f32, inWater);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopOnFlash);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeed);
 }
 else
 {
-    ground = stateCodecPrimitiveDecode();
-    inWater = stateCodecPrimitiveDecode();
-    stopOnFlash = stateCodecPrimitiveDecode();
-    xspeed = stateCodecPrimitiveDecode();
-    yspeed = stateCodecPrimitiveDecode();
+    ground = buffer_read(global.stateCodecBuffer, buffer_f32);
+    inWater = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopOnFlash = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

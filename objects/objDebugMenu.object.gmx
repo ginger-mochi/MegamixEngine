@@ -397,23 +397,23 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(endy);
-    stateCodecPrimitiveEncode(mode);
-    stateCodecPrimitiveEncode(option);
-    stateCodecPrimitiveEncode(optionText);
+    buffer_write(global.stateCodecBuffer, buffer_f32, endy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, option);
+    buffer_write(global.stateCodecBuffer, buffer_string, optionText);
     stateCodecPrimitiveEncode(pauseLock);
-    stateCodecPrimitiveEncode(playerID);
-    stateCodecPrimitiveEncode(quickScrollTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, playerID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, quickScrollTimer);
 }
 else
 {
-    endy = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
-    option = stateCodecPrimitiveDecode();
-    optionText = stateCodecPrimitiveDecode();
+    endy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode = buffer_read(global.stateCodecBuffer, buffer_f32);
+    option = buffer_read(global.stateCodecBuffer, buffer_f32);
+    optionText = buffer_read(global.stateCodecBuffer, buffer_string);
     pauseLock = stateCodecPrimitiveDecode();
-    playerID = stateCodecPrimitiveDecode();
-    quickScrollTimer = stateCodecPrimitiveDecode();
+    playerID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    quickScrollTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

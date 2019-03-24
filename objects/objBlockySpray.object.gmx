@@ -146,13 +146,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounceTimes);
-    stateCodecPrimitiveEncode(iWantToDie);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounceTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, iWantToDie);
 }
 else
 {
-    bounceTimes = stateCodecPrimitiveDecode();
-    iWantToDie = stateCodecPrimitiveDecode();
+    bounceTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    iWantToDie = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

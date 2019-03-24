@@ -140,25 +140,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(argCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, argCount);
     stateCodecPrimitiveEncode(caller);
     stateCodecPrimitiveEncode(event);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(step);
+    buffer_write(global.stateCodecBuffer, buffer_f32, step);
     stateCodecPrimitiveEncode(subEvent);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(triggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, triggered);
 }
 else
 {
-    argCount = stateCodecPrimitiveDecode();
+    argCount = buffer_read(global.stateCodecBuffer, buffer_f32);
     caller = stateCodecPrimitiveDecode();
     event = stateCodecPrimitiveDecode();
     script = stateCodecPrimitiveDecode();
-    step = stateCodecPrimitiveDecode();
+    step = buffer_read(global.stateCodecBuffer, buffer_f32);
     subEvent = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    triggered = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    triggered = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

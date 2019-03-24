@@ -327,21 +327,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(dpsTimer);
-    stateCodecPrimitiveEncode(hasShield);
-    stateCodecPrimitiveEncode(shieldDPS);
-    stateCodecPrimitiveEncode(shieldDamageCount);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dpsTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasShield);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shieldDPS);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shieldDamageCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    dpsTimer = stateCodecPrimitiveDecode();
-    hasShield = stateCodecPrimitiveDecode();
-    shieldDPS = stateCodecPrimitiveDecode();
-    shieldDamageCount = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dpsTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasShield = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shieldDPS = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shieldDamageCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

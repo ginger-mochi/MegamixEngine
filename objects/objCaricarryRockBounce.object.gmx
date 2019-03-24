@@ -123,17 +123,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bounces);
-    stateCodecPrimitiveEncode(bouncesMax);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(xscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bounces);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bouncesMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xscale);
 }
 else
 {
-    bounces = stateCodecPrimitiveDecode();
-    bouncesMax = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    xscale = stateCodecPrimitiveDecode();
+    bounces = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bouncesMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xscale = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -121,16 +121,16 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(bullet);
-    stateCodecPrimitiveEncode(interval);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, interval);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
 }
 else
 {
     bullet = stateCodecPrimitiveDecode();
-    interval = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
+    interval = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -215,21 +215,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(angle);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pivot);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, angle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pivot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    angle = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    pivot = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    angle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pivot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

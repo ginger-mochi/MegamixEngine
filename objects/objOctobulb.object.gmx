@@ -518,39 +518,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(activeTimer);
-    stateCodecPrimitiveEncode(anim);
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animSpeed);
-    stateCodecPrimitiveEncode(animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, activeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, anim);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
     stateCodecIDEncode(body);
-    stateCodecPrimitiveEncode(energy);
-    stateCodecPrimitiveEncode(expectedEnergy);
-    stateCodecPrimitiveEncode(jellyfishTimer);
-    stateCodecPrimitiveEncode(lockID);
-    stateCodecPrimitiveEncode(maxEnergy);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(useRails);
+    buffer_write(global.stateCodecBuffer, buffer_f32, energy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, expectedEnergy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jellyfishTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, maxEnergy);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, useRails);
 }
 else
 {
-    activeTimer = stateCodecPrimitiveDecode();
-    anim = stateCodecPrimitiveDecode();
-    animFrame = stateCodecPrimitiveDecode();
-    animSpeed = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
+    activeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    anim = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     body = stateCodecIDDecode();
-    energy = stateCodecPrimitiveDecode();
-    expectedEnergy = stateCodecPrimitiveDecode();
-    jellyfishTimer = stateCodecPrimitiveDecode();
-    lockID = stateCodecPrimitiveDecode();
-    maxEnergy = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    useRails = stateCodecPrimitiveDecode();
+    energy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    expectedEnergy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jellyfishTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    maxEnergy = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    useRails = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

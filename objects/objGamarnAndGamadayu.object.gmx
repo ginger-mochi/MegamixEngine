@@ -225,19 +225,19 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(attack);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(frogAnimTimer);
-    stateCodecPrimitiveEncode(frogFrame);
-    stateCodecPrimitiveEncode(rideFrame);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, frogAnimTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, frogFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rideFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
 }
 else
 {
     attack = stateCodecPrimitiveDecode();
     dir = stateCodecPrimitiveDecode();
-    frogAnimTimer = stateCodecPrimitiveDecode();
-    frogFrame = stateCodecPrimitiveDecode();
-    rideFrame = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    frogAnimTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    frogFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rideFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

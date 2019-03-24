@@ -148,23 +148,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animLength);
     stateCodecPrimitiveEncode(animTime);
-    stateCodecPrimitiveEncode(animateOnTransition);
-    stateCodecPrimitiveEncode(animationLayer);
-    stateCodecPrimitiveEncode(i);
-    stateCodecPrimitiveEncode(tileID);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animateOnTransition);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animationLayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, i);
+    buffer_write(global.stateCodecBuffer, buffer_f32, tileID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animLength = stateCodecPrimitiveDecode();
+    animLength = buffer_read(global.stateCodecBuffer, buffer_f32);
     animTime = stateCodecPrimitiveDecode();
-    animateOnTransition = stateCodecPrimitiveDecode();
-    animationLayer = stateCodecPrimitiveDecode();
-    i = stateCodecPrimitiveDecode();
-    tileID = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animateOnTransition = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animationLayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    i = buffer_read(global.stateCodecBuffer, buffer_f32);
+    tileID = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

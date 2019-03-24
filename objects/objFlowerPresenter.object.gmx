@@ -169,17 +169,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(actionTimer);
-    stateCodecPrimitiveEncode(flower);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(state);
+    buffer_write(global.stateCodecBuffer, buffer_f32, actionTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, flower);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, state);
 }
 else
 {
-    actionTimer = stateCodecPrimitiveDecode();
-    flower = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
+    actionTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    flower = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    state = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

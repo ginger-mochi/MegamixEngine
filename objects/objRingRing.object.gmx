@@ -181,17 +181,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(megax);
-    stateCodecPrimitiveEncode(megay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, megax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, megay);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    megax = stateCodecPrimitiveDecode();
-    megay = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    megax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    megay = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

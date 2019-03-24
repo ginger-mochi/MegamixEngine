@@ -320,39 +320,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecPrimitiveEncode(childObject);
     stateCodecPrimitiveEncode(childStore);
-    stateCodecPrimitiveEncode(enemiesDefeated);
-    stateCodecPrimitiveEncode(enemiesOnScreen);
-    stateCodecPrimitiveEncode(enemiesToDefeat);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(initalSpawn);
-    stateCodecPrimitiveEncode(numA);
-    stateCodecPrimitiveEncode(numCur);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(variant);
+    buffer_write(global.stateCodecBuffer, buffer_f32, enemiesDefeated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, enemiesOnScreen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, enemiesToDefeat);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, initalSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, numA);
+    buffer_write(global.stateCodecBuffer, buffer_f32, numCur);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variant);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     childObject = stateCodecPrimitiveDecode();
     childStore = stateCodecPrimitiveDecode();
-    enemiesDefeated = stateCodecPrimitiveDecode();
-    enemiesOnScreen = stateCodecPrimitiveDecode();
-    enemiesToDefeat = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    initalSpawn = stateCodecPrimitiveDecode();
-    numA = stateCodecPrimitiveDecode();
-    numCur = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    variant = stateCodecPrimitiveDecode();
+    enemiesDefeated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    enemiesOnScreen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    enemiesToDefeat = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    initalSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    numA = buffer_read(global.stateCodecBuffer, buffer_f32);
+    numCur = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variant = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

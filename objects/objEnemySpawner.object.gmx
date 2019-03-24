@@ -147,23 +147,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmTime);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecPrimitiveEncode(enx);
     stateCodecPrimitiveEncode(eny);
-    stateCodecPrimitiveEncode(ex);
-    stateCodecPrimitiveEncode(lines);
-    stateCodecPrimitiveEncode(spawntime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lines);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spawntime);
 }
 else
 {
-    alarmTime = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    alarmTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     enx = stateCodecPrimitiveDecode();
     eny = stateCodecPrimitiveDecode();
-    ex = stateCodecPrimitiveDecode();
-    lines = stateCodecPrimitiveDecode();
-    spawntime = stateCodecPrimitiveDecode();
+    ex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lines = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spawntime = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

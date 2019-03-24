@@ -355,51 +355,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bouncePhase);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(cutter);
-    stateCodecPrimitiveEncode(getLastY);
-    stateCodecPrimitiveEncode(jumpAmount);
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bouncePhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cutter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getLastY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
     stateCodecPrimitiveEncode(spriteJump);
     stateCodecPrimitiveEncode(spriteRun);
     stateCodecPrimitiveEncode(spriteStand);
-    stateCodecPrimitiveEncode(startXScale);
-    stateCodecPrimitiveEncode(startXspeed);
-    stateCodecPrimitiveEncode(teleportIndex);
-    stateCodecPrimitiveEncode(teleportSakugarne);
-    stateCodecPrimitiveEncode(teleportTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startXScale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startXspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportSakugarne);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportTimer);
     stateCodecPrimitiveEncode(teleportX);
-    stateCodecPrimitiveEncode(teleportY);
-    stateCodecPrimitiveEncode(teleporting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleporting);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bouncePhase = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    cutter = stateCodecPrimitiveDecode();
-    getLastY = stateCodecPrimitiveDecode();
-    jumpAmount = stateCodecPrimitiveDecode();
-    jumpTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bouncePhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cutter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    getLastY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
     spriteJump = stateCodecPrimitiveDecode();
     spriteRun = stateCodecPrimitiveDecode();
     spriteStand = stateCodecPrimitiveDecode();
-    startXScale = stateCodecPrimitiveDecode();
-    startXspeed = stateCodecPrimitiveDecode();
-    teleportIndex = stateCodecPrimitiveDecode();
-    teleportSakugarne = stateCodecPrimitiveDecode();
-    teleportTimer = stateCodecPrimitiveDecode();
+    startXScale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startXspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportSakugarne = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     teleportX = stateCodecPrimitiveDecode();
-    teleportY = stateCodecPrimitiveDecode();
-    teleporting = stateCodecPrimitiveDecode();
+    teleportY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleporting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

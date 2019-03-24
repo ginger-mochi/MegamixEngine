@@ -256,25 +256,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(animOffset);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseRepeatCount);
-    stateCodecPrimitiveEncode(prevPhase);
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseRepeatCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    animOffset = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseRepeatCount = stateCodecPrimitiveDecode();
-    prevPhase = stateCodecPrimitiveDecode();
-    shootCount = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseRepeatCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    prevPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

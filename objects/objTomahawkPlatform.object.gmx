@@ -189,25 +189,25 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(drawDir);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, drawDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(spd);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(timeri);
-    stateCodecPrimitiveEncode(touchedStopper);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeri);
+    buffer_write(global.stateCodecBuffer, buffer_f32, touchedStopper);
     stateCodecPrimitiveEncode(yo);
 }
 else
 {
     dir = stateCodecPrimitiveDecode();
-    drawDir = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    drawDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     spd = stateCodecPrimitiveDecode();
     startDir = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    timeri = stateCodecPrimitiveDecode();
-    touchedStopper = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeri = buffer_read(global.stateCodecBuffer, buffer_f32);
+    touchedStopper = buffer_read(global.stateCodecBuffer, buffer_f32);
     yo = stateCodecPrimitiveDecode();
 }
 </string>

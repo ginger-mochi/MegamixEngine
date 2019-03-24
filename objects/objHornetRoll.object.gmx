@@ -271,33 +271,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(extendX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, extendX);
     stateCodecIDEncode(myPlatform);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(restX);
-    stateCodecPrimitiveEncode(speedExtendBegin);
-    stateCodecPrimitiveEncode(speedExtendEnd);
-    stateCodecPrimitiveEncode(speedRestore);
-    stateCodecPrimitiveEncode(speedRetractBegin);
-    stateCodecPrimitiveEncode(speedRetractEnd);
-    stateCodecPrimitiveEncode(timeRestExtend);
-    stateCodecPrimitiveEncode(timeRestRetract);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, restX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedExtendBegin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedExtendEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedRestore);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedRetractBegin);
+    buffer_write(global.stateCodecBuffer, buffer_f32, speedRetractEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeRestExtend);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeRestRetract);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    extendX = stateCodecPrimitiveDecode();
+    extendX = buffer_read(global.stateCodecBuffer, buffer_f32);
     myPlatform = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    restX = stateCodecPrimitiveDecode();
-    speedExtendBegin = stateCodecPrimitiveDecode();
-    speedExtendEnd = stateCodecPrimitiveDecode();
-    speedRestore = stateCodecPrimitiveDecode();
-    speedRetractBegin = stateCodecPrimitiveDecode();
-    speedRetractEnd = stateCodecPrimitiveDecode();
-    timeRestExtend = stateCodecPrimitiveDecode();
-    timeRestRetract = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    restX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedExtendBegin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedExtendEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedRestore = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedRetractBegin = buffer_read(global.stateCodecBuffer, buffer_f32);
+    speedRetractEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeRestExtend = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeRestRetract = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

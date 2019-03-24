@@ -126,17 +126,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(damage);
-    stateCodecPrimitiveEncode(str);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, damage);
+    buffer_write(global.stateCodecBuffer, buffer_string, str);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
     stateCodecPrimitiveEncode(xspeed);
     stateCodecPrimitiveEncode(yspeed);
 }
 else
 {
-    damage = stateCodecPrimitiveDecode();
-    str = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    damage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    str = buffer_read(global.stateCodecBuffer, buffer_string);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
     xspeed = stateCodecPrimitiveDecode();
     yspeed = stateCodecPrimitiveDecode();
 }

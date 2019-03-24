@@ -167,14 +167,14 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animEndme);
-    stateCodecPrimitiveEncode(shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animEndme);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
     stateCodecIDArrayEncode(top);
 }
 else
 {
-    animEndme = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
+    animEndme = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     top = stateCodecIDArrayDecode();
 }
 </string>

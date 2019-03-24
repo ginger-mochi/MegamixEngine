@@ -579,51 +579,51 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
     stateCodecIDArrayEncode(child);
-    stateCodecPrimitiveEncode(directX);
-    stateCodecPrimitiveEncode(explodeTimer);
-    stateCodecPrimitiveEncode(eyeOffset);
-    stateCodecPrimitiveEncode(eyeTimer);
-    stateCodecPrimitiveEncode(freeMegaman);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(hatFrame);
-    stateCodecPrimitiveEncode(hatOffset);
-    stateCodecPrimitiveEncode(isDying);
+    buffer_write(global.stateCodecBuffer, buffer_f32, directX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explodeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, eyeOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, eyeTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, freeMegaman);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hatFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hatOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isDying);
     stateCodecPrimitiveEncode(met1);
     stateCodecPrimitiveEncode(met2);
     stateCodecPrimitiveEncode(met3);
     stateCodecPrimitiveEncode(met4);
     stateCodecIDEncode(myHat);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(spreadYspeed);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spreadYspeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
     child = stateCodecIDArrayDecode();
-    directX = stateCodecPrimitiveDecode();
-    explodeTimer = stateCodecPrimitiveDecode();
-    eyeOffset = stateCodecPrimitiveDecode();
-    eyeTimer = stateCodecPrimitiveDecode();
-    freeMegaman = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    hatFrame = stateCodecPrimitiveDecode();
-    hatOffset = stateCodecPrimitiveDecode();
-    isDying = stateCodecPrimitiveDecode();
+    directX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explodeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    eyeOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    eyeTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    freeMegaman = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hatFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hatOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isDying = buffer_read(global.stateCodecBuffer, buffer_f32);
     met1 = stateCodecPrimitiveDecode();
     met2 = stateCodecPrimitiveDecode();
     met3 = stateCodecPrimitiveDecode();
     met4 = stateCodecPrimitiveDecode();
     myHat = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    spreadYspeed = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spreadYspeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

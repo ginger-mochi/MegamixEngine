@@ -226,22 +226,22 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(X);
     stateCodecPrimitiveEncode(Y);
-    stateCodecPrimitiveEncode(alarmTimer);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(length);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(wait);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, length);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, wait);
     stateCodecPrimitiveEncode(waitMemory);
 }
 else
 {
     X = stateCodecPrimitiveDecode();
     Y = stateCodecPrimitiveDecode();
-    alarmTimer = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    length = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    wait = stateCodecPrimitiveDecode();
+    alarmTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    length = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    wait = buffer_read(global.stateCodecBuffer, buffer_f32);
     waitMemory = stateCodecPrimitiveDecode();
 }
 </string>

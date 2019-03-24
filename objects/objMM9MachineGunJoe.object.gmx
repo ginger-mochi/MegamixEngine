@@ -291,33 +291,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpCount);
-    stateCodecPrimitiveEncode(jumpCountMax);
-    stateCodecPrimitiveEncode(myDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpCountMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myDir);
     stateCodecPrimitiveEncode(radius);
-    stateCodecPrimitiveEncode(resetDir);
-    stateCodecPrimitiveEncode(shootAmount);
-    stateCodecPrimitiveEncode(shootCount);
-    stateCodecPrimitiveEncode(shootCountMax);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(waitCount);
-    stateCodecPrimitiveEncode(yspeedJump);
+    buffer_write(global.stateCodecBuffer, buffer_f32, resetDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootCountMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitCount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yspeedJump);
 }
 else
 {
-    jumpCount = stateCodecPrimitiveDecode();
-    jumpCountMax = stateCodecPrimitiveDecode();
-    myDir = stateCodecPrimitiveDecode();
+    jumpCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpCountMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myDir = buffer_read(global.stateCodecBuffer, buffer_f32);
     radius = stateCodecPrimitiveDecode();
-    resetDir = stateCodecPrimitiveDecode();
-    shootAmount = stateCodecPrimitiveDecode();
-    shootCount = stateCodecPrimitiveDecode();
-    shootCountMax = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    waitCount = stateCodecPrimitiveDecode();
-    yspeedJump = stateCodecPrimitiveDecode();
+    resetDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootCountMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitCount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yspeedJump = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

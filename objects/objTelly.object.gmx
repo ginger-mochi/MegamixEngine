@@ -176,15 +176,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cycleHold);
-    stateCodecPrimitiveEncode(left);
-    stateCodecPrimitiveEncode(travelSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cycleHold);
+    buffer_write(global.stateCodecBuffer, buffer_f32, left);
+    buffer_write(global.stateCodecBuffer, buffer_f32, travelSpeed);
 }
 else
 {
-    cycleHold = stateCodecPrimitiveDecode();
-    left = stateCodecPrimitiveDecode();
-    travelSpeed = stateCodecPrimitiveDecode();
+    cycleHold = buffer_read(global.stateCodecBuffer, buffer_f32);
+    left = buffer_read(global.stateCodecBuffer, buffer_f32);
+    travelSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -388,29 +388,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(additionalTile);
-    stateCodecPrimitiveEncode(distance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, additionalTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distance);
     stateCodecPrimitiveEncode(getY);
-    stateCodecPrimitiveEncode(height);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(myTile);
+    buffer_write(global.stateCodecBuffer, buffer_f32, height);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myTile);
     stateCodecDSEncode(objects, ds_type_list);
-    stateCodecPrimitiveEncode(width);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, width);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
-    additionalTile = stateCodecPrimitiveDecode();
-    distance = stateCodecPrimitiveDecode();
+    additionalTile = buffer_read(global.stateCodecBuffer, buffer_f32);
+    distance = buffer_read(global.stateCodecBuffer, buffer_f32);
     getY = stateCodecPrimitiveDecode();
-    height = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    myTile = stateCodecPrimitiveDecode();
+    height = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myTile = buffer_read(global.stateCodecBuffer, buffer_f32);
     objects = stateCodecDSDecode(ds_type_list);
-    width = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    width = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -223,31 +223,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(counter);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(mySpeed);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(sB);
-    stateCodecPrimitiveEncode(sL);
-    stateCodecPrimitiveEncode(sR);
-    stateCodecPrimitiveEncode(sT);
-    stateCodecPrimitiveEncode(timer);
-    stateCodecPrimitiveEncode(unlockBounds);
-    stateCodecPrimitiveEncode(waitFrames);
+    buffer_write(global.stateCodecBuffer, buffer_f32, counter);
+    buffer_write(global.stateCodecBuffer, buffer_string, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sB);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sL);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sR);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sT);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, unlockBounds);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitFrames);
 }
 else
 {
-    counter = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    sB = stateCodecPrimitiveDecode();
-    sL = stateCodecPrimitiveDecode();
-    sR = stateCodecPrimitiveDecode();
-    sT = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
-    unlockBounds = stateCodecPrimitiveDecode();
-    waitFrames = stateCodecPrimitiveDecode();
+    counter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_string);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sB = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sL = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sR = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sT = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    unlockBounds = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitFrames = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

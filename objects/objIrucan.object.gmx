@@ -195,13 +195,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(started);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, started);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    started = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    started = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

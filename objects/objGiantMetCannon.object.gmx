@@ -364,39 +364,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
     stateCodecPrimitiveEncode(bottomPart);
-    stateCodecPrimitiveEncode(cFrame);
-    stateCodecPrimitiveEncode(curYOffset);
-    stateCodecPrimitiveEncode(delayTimer);
-    stateCodecPrimitiveEncode(delayTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, curYOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayTimerMax);
     stateCodecPrimitiveEncode(missile1);
     stateCodecPrimitiveEncode(missile2);
-    stateCodecPrimitiveEncode(oldPhase);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(randomMissiles);
-    stateCodecPrimitiveEncode(shotType);
-    stateCodecPrimitiveEncode(spriteOffset);
-    stateCodecPrimitiveEncode(yOffsetMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, oldPhase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, randomMissiles);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spriteOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffsetMax);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     bottomPart = stateCodecPrimitiveDecode();
-    cFrame = stateCodecPrimitiveDecode();
-    curYOffset = stateCodecPrimitiveDecode();
-    delayTimer = stateCodecPrimitiveDecode();
-    delayTimerMax = stateCodecPrimitiveDecode();
+    cFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    curYOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
     missile1 = stateCodecPrimitiveDecode();
     missile2 = stateCodecPrimitiveDecode();
-    oldPhase = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    randomMissiles = stateCodecPrimitiveDecode();
-    shotType = stateCodecPrimitiveDecode();
-    spriteOffset = stateCodecPrimitiveDecode();
-    yOffsetMax = stateCodecPrimitiveDecode();
+    oldPhase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    randomMissiles = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spriteOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffsetMax = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

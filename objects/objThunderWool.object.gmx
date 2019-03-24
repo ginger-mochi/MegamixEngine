@@ -286,17 +286,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(isLightning);
-    stateCodecPrimitiveEncode(state);
-    stateCodecPrimitiveEncode(stateTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, isLightning);
+    buffer_write(global.stateCodecBuffer, buffer_f32, state);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stateTimer);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    isLightning = stateCodecPrimitiveDecode();
-    state = stateCodecPrimitiveDecode();
-    stateTimer = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    isLightning = buffer_read(global.stateCodecBuffer, buffer_f32);
+    state = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stateTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

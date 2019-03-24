@@ -181,13 +181,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(jumpTimer);
-    stateCodecPrimitiveEncode(landtimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landtimer);
 }
 else
 {
-    jumpTimer = stateCodecPrimitiveDecode();
-    landtimer = stateCodecPrimitiveDecode();
+    jumpTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landtimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

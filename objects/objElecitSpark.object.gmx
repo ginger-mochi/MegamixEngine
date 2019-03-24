@@ -114,13 +114,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(spot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spot);
 }
 else
 {
-    moveTimer = stateCodecPrimitiveDecode();
-    spot = stateCodecPrimitiveDecode();
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spot = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

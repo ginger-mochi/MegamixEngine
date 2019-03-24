@@ -334,20 +334,20 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(appear);
-    stateCodecPrimitiveEncode(canShift);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(index);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, appear);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canShift);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, index);
     stateCodecPrimitiveEncode(owner);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    appear = stateCodecPrimitiveDecode();
-    canShift = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    index = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    appear = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canShift = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    index = buffer_read(global.stateCodecBuffer, buffer_f32);
     owner = stateCodecPrimitiveDecode();
 }
 </string>

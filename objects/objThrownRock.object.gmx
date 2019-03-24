@@ -130,13 +130,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(explod);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, explod);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    explod = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    explod = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

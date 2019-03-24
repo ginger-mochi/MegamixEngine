@@ -280,21 +280,21 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(collapse);
-    stateCodecPrimitiveEncode(realContactDamage);
-    stateCodecPrimitiveEncode(shootAmount);
-    stateCodecPrimitiveEncode(shootAmountMax);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, collapse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, realContactDamage);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAmount);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAmountMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
 }
 else
 {
-    collapse = stateCodecPrimitiveDecode();
-    realContactDamage = stateCodecPrimitiveDecode();
-    shootAmount = stateCodecPrimitiveDecode();
-    shootAmountMax = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
+    collapse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    realContactDamage = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAmount = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAmountMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

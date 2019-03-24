@@ -153,12 +153,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(countdownToDestruction);
+    buffer_write(global.stateCodecBuffer, buffer_f32, countdownToDestruction);
     stateCodecPrimitiveEncode(plzTarget);
 }
 else
 {
-    countdownToDestruction = stateCodecPrimitiveDecode();
+    countdownToDestruction = buffer_read(global.stateCodecBuffer, buffer_f32);
     plzTarget = stateCodecPrimitiveDecode();
 }
 </string>

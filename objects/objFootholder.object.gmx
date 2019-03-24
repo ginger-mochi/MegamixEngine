@@ -399,41 +399,41 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmTurn);
-    stateCodecPrimitiveEncode(backtrack);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(mode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmTurn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, backtrack);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mode);
     stateCodecPrimitiveEncode(moveTarget);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(mySpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, mySpeed);
     stateCodecPrimitiveEncode(prevMoveTarget);
-    stateCodecPrimitiveEncode(reversePath);
-    stateCodecPrimitiveEncode(startMode);
-    stateCodecPrimitiveEncode(targetMode);
-    stateCodecPrimitiveEncode(variation);
-    stateCodecPrimitiveEncode(xDir);
-    stateCodecPrimitiveEncode(xs);
-    stateCodecPrimitiveEncode(yDir);
-    stateCodecPrimitiveEncode(ys);
+    buffer_write(global.stateCodecBuffer, buffer_f32, reversePath);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startMode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetMode);
+    buffer_write(global.stateCodecBuffer, buffer_f32, variation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xs);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, ys);
 }
 else
 {
-    alarmTurn = stateCodecPrimitiveDecode();
-    backtrack = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    mode = stateCodecPrimitiveDecode();
+    alarmTurn = buffer_read(global.stateCodecBuffer, buffer_f32);
+    backtrack = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mode = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveTarget = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    mySpeed = stateCodecPrimitiveDecode();
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    mySpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     prevMoveTarget = stateCodecPrimitiveDecode();
-    reversePath = stateCodecPrimitiveDecode();
-    startMode = stateCodecPrimitiveDecode();
-    targetMode = stateCodecPrimitiveDecode();
-    variation = stateCodecPrimitiveDecode();
-    xDir = stateCodecPrimitiveDecode();
-    xs = stateCodecPrimitiveDecode();
-    yDir = stateCodecPrimitiveDecode();
-    ys = stateCodecPrimitiveDecode();
+    reversePath = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startMode = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetMode = buffer_read(global.stateCodecBuffer, buffer_f32);
+    variation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xs = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    ys = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

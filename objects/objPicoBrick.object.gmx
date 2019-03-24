@@ -270,55 +270,55 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(elementCode);
-    stateCodecPrimitiveEncode(elementName);
+    buffer_write(global.stateCodecBuffer, buffer_string, elementCode);
+    buffer_write(global.stateCodecBuffer, buffer_string, elementName);
     stateCodecPrimitiveEncode(elementScript);
-    stateCodecPrimitiveEncode(hp);
-    stateCodecPrimitiveEncode(hpmax);
-    stateCodecPrimitiveEncode(lockTransitions);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hpmax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockTransitions);
     stateCodecPrimitiveEncode(moveSpeed);
-    stateCodecPrimitiveEncode(music);
-    stateCodecPrimitiveEncode(musicLoop);
-    stateCodecPrimitiveEncode(musicLoopSecondsEnd);
-    stateCodecPrimitiveEncode(musicLoopSecondsStart);
-    stateCodecPrimitiveEncode(musicTrackNumber);
-    stateCodecPrimitiveEncode(musicType);
-    stateCodecPrimitiveEncode(musicVolume);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(phaseTimer);
-    stateCodecPrimitiveEncode(priority);
-    stateCodecPrimitiveEncode(sectionBottom);
-    stateCodecPrimitiveEncode(sectionLeft);
-    stateCodecPrimitiveEncode(sectionRight);
-    stateCodecPrimitiveEncode(sectionTop);
-    stateCodecPrimitiveEncode(settingTransplant);
-    stateCodecPrimitiveEncode(useEndStageBehavior);
+    buffer_write(global.stateCodecBuffer, buffer_string, music);
+    buffer_write(global.stateCodecBuffer, buffer_f32, musicLoop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, musicLoopSecondsEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, musicLoopSecondsStart);
+    buffer_write(global.stateCodecBuffer, buffer_f32, musicTrackNumber);
+    buffer_write(global.stateCodecBuffer, buffer_string, musicType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, musicVolume);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phaseTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, priority);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionBottom);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionLeft);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionRight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sectionTop);
+    buffer_write(global.stateCodecBuffer, buffer_f32, settingTransplant);
+    buffer_write(global.stateCodecBuffer, buffer_f32, useEndStageBehavior);
 }
 else
 {
-    elementCode = stateCodecPrimitiveDecode();
-    elementName = stateCodecPrimitiveDecode();
+    elementCode = buffer_read(global.stateCodecBuffer, buffer_string);
+    elementName = buffer_read(global.stateCodecBuffer, buffer_string);
     elementScript = stateCodecPrimitiveDecode();
-    hp = stateCodecPrimitiveDecode();
-    hpmax = stateCodecPrimitiveDecode();
-    lockTransitions = stateCodecPrimitiveDecode();
+    hp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hpmax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lockTransitions = buffer_read(global.stateCodecBuffer, buffer_f32);
     moveSpeed = stateCodecPrimitiveDecode();
-    music = stateCodecPrimitiveDecode();
-    musicLoop = stateCodecPrimitiveDecode();
-    musicLoopSecondsEnd = stateCodecPrimitiveDecode();
-    musicLoopSecondsStart = stateCodecPrimitiveDecode();
-    musicTrackNumber = stateCodecPrimitiveDecode();
-    musicType = stateCodecPrimitiveDecode();
-    musicVolume = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    phaseTimer = stateCodecPrimitiveDecode();
-    priority = stateCodecPrimitiveDecode();
-    sectionBottom = stateCodecPrimitiveDecode();
-    sectionLeft = stateCodecPrimitiveDecode();
-    sectionRight = stateCodecPrimitiveDecode();
-    sectionTop = stateCodecPrimitiveDecode();
-    settingTransplant = stateCodecPrimitiveDecode();
-    useEndStageBehavior = stateCodecPrimitiveDecode();
+    music = buffer_read(global.stateCodecBuffer, buffer_string);
+    musicLoop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    musicLoopSecondsEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    musicLoopSecondsStart = buffer_read(global.stateCodecBuffer, buffer_f32);
+    musicTrackNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
+    musicType = buffer_read(global.stateCodecBuffer, buffer_string);
+    musicVolume = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phaseTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    priority = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionBottom = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionLeft = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionRight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sectionTop = buffer_read(global.stateCodecBuffer, buffer_f32);
+    settingTransplant = buffer_read(global.stateCodecBuffer, buffer_f32);
+    useEndStageBehavior = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

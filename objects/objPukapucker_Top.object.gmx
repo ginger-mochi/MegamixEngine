@@ -191,11 +191,11 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(bodyInstanceStore);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bodyInstanceStore);
 }
 else
 {
-    bodyInstanceStore = stateCodecPrimitiveDecode();
+    bodyInstanceStore = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

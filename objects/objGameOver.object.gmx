@@ -136,15 +136,15 @@ stateCodecInstance();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(controlsLocked);
+    buffer_write(global.stateCodecBuffer, buffer_f32, controlsLocked);
     stateCodecPrimitiveEncode(optionText);
-    stateCodecPrimitiveEncode(selection);
+    buffer_write(global.stateCodecBuffer, buffer_f32, selection);
 }
 else
 {
-    controlsLocked = stateCodecPrimitiveDecode();
+    controlsLocked = buffer_read(global.stateCodecBuffer, buffer_f32);
     optionText = stateCodecPrimitiveDecode();
-    selection = stateCodecPrimitiveDecode();
+    selection = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

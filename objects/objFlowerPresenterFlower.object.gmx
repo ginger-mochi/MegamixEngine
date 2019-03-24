@@ -251,29 +251,29 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(imgIndex);
-    stateCodecPrimitiveEncode(jetTimer);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(rotateChange);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(totalChange);
-    stateCodecPrimitiveEncode(turnTimes);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imgIndex);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jetTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rotateChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, totalChange);
+    buffer_write(global.stateCodecBuffer, buffer_f32, turnTimes);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    imgIndex = stateCodecPrimitiveDecode();
-    jetTimer = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    rotateChange = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    totalChange = stateCodecPrimitiveDecode();
-    turnTimes = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imgIndex = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jetTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rotateChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    totalChange = buffer_read(global.stateCodecBuffer, buffer_f32);
+    turnTimes = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

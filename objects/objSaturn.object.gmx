@@ -470,39 +470,39 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(bossTriggered);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(delayUse);
-    stateCodecPrimitiveEncode(hasFired);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(jumpY);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(setX);
-    stateCodecPrimitiveEncode(shotsFired);
-    stateCodecPrimitiveEncode(storeSpeed);
-    stateCodecPrimitiveEncode(suckSpeed);
-    stateCodecPrimitiveEncode(timeStopLock);
-    stateCodecPrimitiveEncode(xOff);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossTriggered);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delayUse);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, setX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, suckSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timeStopLock);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOff);
 }
 else
 {
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    bossTriggered = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    delayUse = stateCodecPrimitiveDecode();
-    hasFired = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    jumpY = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    setX = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
-    storeSpeed = stateCodecPrimitiveDecode();
-    suckSpeed = stateCodecPrimitiveDecode();
-    timeStopLock = stateCodecPrimitiveDecode();
-    xOff = stateCodecPrimitiveDecode();
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossTriggered = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delayUse = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    setX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    suckSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timeStopLock = buffer_read(global.stateCodecBuffer, buffer_f32);
+    xOff = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

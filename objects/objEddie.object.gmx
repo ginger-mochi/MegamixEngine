@@ -229,25 +229,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(code);
-    stateCodecPrimitiveEncode(disappearTime);
-    stateCodecPrimitiveEncode(moveTowardsPlayer);
-    stateCodecPrimitiveEncode(myItem);
-    stateCodecPrimitiveEncode(permanent);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_string, code);
+    buffer_write(global.stateCodecBuffer, buffer_f32, disappearTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTowardsPlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myItem);
+    buffer_write(global.stateCodecBuffer, buffer_f32, permanent);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(script);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    code = stateCodecPrimitiveDecode();
-    disappearTime = stateCodecPrimitiveDecode();
-    moveTowardsPlayer = stateCodecPrimitiveDecode();
-    myItem = stateCodecPrimitiveDecode();
-    permanent = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    code = buffer_read(global.stateCodecBuffer, buffer_string);
+    disappearTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTowardsPlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myItem = buffer_read(global.stateCodecBuffer, buffer_f32);
+    permanent = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     script = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

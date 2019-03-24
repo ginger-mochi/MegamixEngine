@@ -109,12 +109,12 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(alarmSpawn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, alarmSpawn);
     stateCodecPrimitiveEncode(objectDrop);
 }
 else
 {
-    alarmSpawn = stateCodecPrimitiveDecode();
+    alarmSpawn = buffer_read(global.stateCodecBuffer, buffer_f32);
     objectDrop = stateCodecPrimitiveDecode();
 }
 </string>

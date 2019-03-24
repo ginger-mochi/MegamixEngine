@@ -191,25 +191,25 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(direct);
-    stateCodecPrimitiveEncode(moveDelay);
-    stateCodecPrimitiveEncode(moveDir);
-    stateCodecPrimitiveEncode(moveDist);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(shootAngle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, direct);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDist);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAngle);
 }
 else
 {
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    direct = stateCodecPrimitiveDecode();
-    moveDelay = stateCodecPrimitiveDecode();
-    moveDir = stateCodecPrimitiveDecode();
-    moveDist = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    shootAngle = stateCodecPrimitiveDecode();
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    direct = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDist = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAngle = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

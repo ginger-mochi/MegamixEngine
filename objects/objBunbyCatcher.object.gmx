@@ -306,37 +306,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(catcherSpeed);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(grabbedPlayer);
-    stateCodecPrimitiveEncode(imageOffset);
-    stateCodecPrimitiveEncode(leaveTime);
-    stateCodecPrimitiveEncode(leaving);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, catcherSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, grabbedPlayer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, imageOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leaveTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leaving);
     stateCodecPrimitiveEncode(myPlayer);
-    stateCodecPrimitiveEncode(othersGrabbed);
-    stateCodecPrimitiveEncode(poppedUp);
-    stateCodecPrimitiveEncode(stopTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, othersGrabbed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, poppedUp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, stopTimer);
     stateCodecPrimitiveEncode(stopX);
-    stateCodecPrimitiveEncode(xOffset);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, xOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
-    animTimer = stateCodecPrimitiveDecode();
-    catcherSpeed = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    grabbedPlayer = stateCodecPrimitiveDecode();
-    imageOffset = stateCodecPrimitiveDecode();
-    leaveTime = stateCodecPrimitiveDecode();
-    leaving = stateCodecPrimitiveDecode();
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    catcherSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    grabbedPlayer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    imageOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leaveTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leaving = buffer_read(global.stateCodecBuffer, buffer_f32);
     myPlayer = stateCodecPrimitiveDecode();
-    othersGrabbed = stateCodecPrimitiveDecode();
-    poppedUp = stateCodecPrimitiveDecode();
-    stopTimer = stateCodecPrimitiveDecode();
+    othersGrabbed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    poppedUp = buffer_read(global.stateCodecBuffer, buffer_f32);
+    stopTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     stopX = stateCodecPrimitiveDecode();
-    xOffset = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    xOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

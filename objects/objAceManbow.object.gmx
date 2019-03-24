@@ -189,26 +189,26 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(cooldownMax);
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(moveDistance);
-    stateCodecPrimitiveEncode(moveTimer);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(storeSpd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, moveTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, storeSpd);
     stateCodecPrimitiveEncode(storeYScale);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    cooldownMax = stateCodecPrimitiveDecode();
-    cooldownTimer = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    moveDistance = stateCodecPrimitiveDecode();
-    moveTimer = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    storeSpd = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    moveTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    storeSpd = buffer_read(global.stateCodecBuffer, buffer_f32);
     storeYScale = stateCodecPrimitiveDecode();
 }
 </string>

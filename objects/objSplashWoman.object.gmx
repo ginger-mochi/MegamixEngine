@@ -565,50 +565,50 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(addAngleY);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(attackTimerMax);
-    stateCodecPrimitiveEncode(cAngleY);
-    stateCodecPrimitiveEncode(cDistanceY);
-    stateCodecPrimitiveEncode(canInitShoot);
-    stateCodecPrimitiveEncode(detectAnimation);
-    stateCodecPrimitiveEncode(detectRoof);
-    stateCodecPrimitiveEncode(distanceYToFish);
-    stateCodecPrimitiveEncode(fishCreated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, addAngleY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cAngleY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cDistanceY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canInitShoot);
+    buffer_write(global.stateCodecBuffer, buffer_f32, detectAnimation);
+    buffer_write(global.stateCodecBuffer, buffer_f32, detectRoof);
+    buffer_write(global.stateCodecBuffer, buffer_f32, distanceYToFish);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fishCreated);
     stateCodecPrimitiveEncode(fishDirection);
-    stateCodecPrimitiveEncode(fishSpawnX);
-    stateCodecPrimitiveEncode(fishToggle);
-    stateCodecPrimitiveEncode(fishYDistance);
-    stateCodecPrimitiveEncode(hitWall);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fishSpawnX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fishToggle);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fishYDistance);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hitWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(pose);
     stateCodecPrimitiveEncode(poseImgSpeed);
-    stateCodecPrimitiveEncode(redetectWall);
-    stateCodecPrimitiveEncode(shotsFired);
+    buffer_write(global.stateCodecBuffer, buffer_f32, redetectWall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shotsFired);
     stateCodecPrimitiveEncode(starty);
 }
 else
 {
-    addAngleY = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    attackTimerMax = stateCodecPrimitiveDecode();
-    cAngleY = stateCodecPrimitiveDecode();
-    cDistanceY = stateCodecPrimitiveDecode();
-    canInitShoot = stateCodecPrimitiveDecode();
-    detectAnimation = stateCodecPrimitiveDecode();
-    detectRoof = stateCodecPrimitiveDecode();
-    distanceYToFish = stateCodecPrimitiveDecode();
-    fishCreated = stateCodecPrimitiveDecode();
+    addAngleY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cAngleY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cDistanceY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canInitShoot = buffer_read(global.stateCodecBuffer, buffer_f32);
+    detectAnimation = buffer_read(global.stateCodecBuffer, buffer_f32);
+    detectRoof = buffer_read(global.stateCodecBuffer, buffer_f32);
+    distanceYToFish = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fishCreated = buffer_read(global.stateCodecBuffer, buffer_f32);
     fishDirection = stateCodecPrimitiveDecode();
-    fishSpawnX = stateCodecPrimitiveDecode();
-    fishToggle = stateCodecPrimitiveDecode();
-    fishYDistance = stateCodecPrimitiveDecode();
-    hitWall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    fishSpawnX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fishToggle = buffer_read(global.stateCodecBuffer, buffer_f32);
+    fishYDistance = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hitWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     pose = stateCodecPrimitiveDecode();
     poseImgSpeed = stateCodecPrimitiveDecode();
-    redetectWall = stateCodecPrimitiveDecode();
-    shotsFired = stateCodecPrimitiveDecode();
+    redetectWall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shotsFired = buffer_read(global.stateCodecBuffer, buffer_f32);
     starty = stateCodecPrimitiveDecode();
 }
 </string>

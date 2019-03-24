@@ -411,31 +411,31 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_costume);
-    stateCodecPrimitiveEncode(attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _costume);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
     stateCodecIDEncode(barrier1);
     stateCodecIDEncode(barrier2);
-    stateCodecPrimitiveEncode(hasCostume);
-    stateCodecPrimitiveEncode(hasTriggeredFall);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(shooting);
-    stateCodecPrimitiveEncode(shots);
-    stateCodecPrimitiveEncode(targX);
-    stateCodecPrimitiveEncode(targetPID);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasCostume);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasTriggeredFall);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shooting);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shots);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetPID);
 }
 else
 {
-    _costume = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
+    _costume = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
     barrier1 = stateCodecIDDecode();
     barrier2 = stateCodecIDDecode();
-    hasCostume = stateCodecPrimitiveDecode();
-    hasTriggeredFall = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    shooting = stateCodecPrimitiveDecode();
-    shots = stateCodecPrimitiveDecode();
-    targX = stateCodecPrimitiveDecode();
-    targetPID = stateCodecPrimitiveDecode();
+    hasCostume = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasTriggeredFall = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shooting = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shots = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetPID = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

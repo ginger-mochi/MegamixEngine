@@ -5,24 +5,8 @@
 /// global.stateCodecEncode - if true, write; if false, read
 
 // serialize game state information
+stateCodecBuiltIn();
 stateCodecGlobals();
-
-// serialize random seed (modifies seed in order to be loadable.)
-if (global.stateCodecEncode)
-{
-    var newSeed = irandom($ffffff);
-    random_set_seed(newSeed);
-    var check = irandom($ffffff);
-    buffer_write(global.stateCodecBuffer, buffer_s32, newSeed);
-    buffer_write(global.stateCodecBuffer, buffer_s32, check);
-}
-else
-{
-    var newSeed = buffer_read(global.stateCodecBuffer, buffer_s32);
-    var check = buffer_read(global.stateCodecBuffer, buffer_s32);
-    random_set_seed(newSeed);
-    assert(check == irandom($ffffff), "random seed determinism check failed.")
-}
 
 // serialize all instances
 

@@ -255,33 +255,33 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(animFrame);
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(leftLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animFrame);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, leftLimit);
     stateCodecIDEncode(myMissile);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(pixelsMoved);
-    stateCodecPrimitiveEncode(rightLimit);
-    stateCodecPrimitiveEncode(shootAfter);
-    stateCodecPrimitiveEncode(spd);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, pixelsMoved);
+    buffer_write(global.stateCodecBuffer, buffer_f32, rightLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootAfter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, spd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    animFrame = stateCodecPrimitiveDecode();
-    col = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
-    leftLimit = stateCodecPrimitiveDecode();
+    animFrame = buffer_read(global.stateCodecBuffer, buffer_f32);
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    leftLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
     myMissile = stateCodecIDDecode();
-    phase = stateCodecPrimitiveDecode();
-    pixelsMoved = stateCodecPrimitiveDecode();
-    rightLimit = stateCodecPrimitiveDecode();
-    shootAfter = stateCodecPrimitiveDecode();
-    spd = stateCodecPrimitiveDecode();
-    startDir = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    pixelsMoved = buffer_read(global.stateCodecBuffer, buffer_f32);
+    rightLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootAfter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    spd = buffer_read(global.stateCodecBuffer, buffer_f32);
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

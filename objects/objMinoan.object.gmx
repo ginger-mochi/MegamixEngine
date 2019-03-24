@@ -136,17 +136,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(canCreateMinoan);
-    stateCodecPrimitiveEncode(dir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canCreateMinoan);
+    buffer_write(global.stateCodecBuffer, buffer_f32, dir);
     stateCodecIDEncode(minoanID);
-    stateCodecPrimitiveEncode(prevDead);
+    buffer_write(global.stateCodecBuffer, buffer_f32, prevDead);
 }
 else
 {
-    canCreateMinoan = stateCodecPrimitiveDecode();
-    dir = stateCodecPrimitiveDecode();
+    canCreateMinoan = buffer_read(global.stateCodecBuffer, buffer_f32);
+    dir = buffer_read(global.stateCodecBuffer, buffer_f32);
     minoanID = stateCodecIDDecode();
-    prevDead = stateCodecPrimitiveDecode();
+    prevDead = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

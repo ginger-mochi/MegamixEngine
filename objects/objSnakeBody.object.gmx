@@ -168,24 +168,24 @@ event_inherited();
 if (global.stateCodecEncode)
 {
     stateCodecIDEncode(bod);
-    stateCodecPrimitiveEncode(getLength);
-    stateCodecPrimitiveEncode(shake);
-    stateCodecPrimitiveEncode(shakeDir);
-    stateCodecPrimitiveEncode(shakeSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, getLength);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shake);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shakeSpeed);
     stateCodecIDEncode(snakeBoss);
-    stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(yOffset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startDir);
+    buffer_write(global.stateCodecBuffer, buffer_f32, yOffset);
 }
 else
 {
     bod = stateCodecIDDecode();
-    getLength = stateCodecPrimitiveDecode();
-    shake = stateCodecPrimitiveDecode();
-    shakeDir = stateCodecPrimitiveDecode();
-    shakeSpeed = stateCodecPrimitiveDecode();
+    getLength = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shake = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shakeDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shakeSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
     snakeBoss = stateCodecIDDecode();
-    startDir = stateCodecPrimitiveDecode();
-    yOffset = stateCodecPrimitiveDecode();
+    startDir = buffer_read(global.stateCodecBuffer, buffer_f32);
+    yOffset = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

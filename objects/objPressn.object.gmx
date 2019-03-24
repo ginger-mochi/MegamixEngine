@@ -193,19 +193,19 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(airDrag);
-    stateCodecPrimitiveEncode(phase);
-    stateCodecPrimitiveEncode(saveXSpeed);
-    stateCodecPrimitiveEncode(targetX);
-    stateCodecPrimitiveEncode(waitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, airDrag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, saveXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, targetX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waitTimer);
 }
 else
 {
-    airDrag = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
-    saveXSpeed = stateCodecPrimitiveDecode();
-    targetX = stateCodecPrimitiveDecode();
-    waitTimer = stateCodecPrimitiveDecode();
+    airDrag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
+    saveXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    targetX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

@@ -323,43 +323,43 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(_hitTimer);
-    stateCodecPrimitiveEncode(animTimer);
-    stateCodecPrimitiveEncode(attackTimer);
-    stateCodecPrimitiveEncode(canFlip);
-    stateCodecPrimitiveEncode(canRegen);
-    stateCodecPrimitiveEncode(changkeyNumber);
+    buffer_write(global.stateCodecBuffer, buffer_f32, _hitTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, animTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, attackTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canFlip);
+    buffer_write(global.stateCodecBuffer, buffer_f32, canRegen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, changkeyNumber);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(introDone);
-    stateCodecPrimitiveEncode(lastXscale);
-    stateCodecPrimitiveEncode(shootLimit);
-    stateCodecPrimitiveEncode(shootTime);
-    stateCodecPrimitiveEncode(shootTimer);
-    stateCodecPrimitiveEncode(sineCounter);
-    stateCodecPrimitiveEncode(sineCounter2);
-    stateCodecPrimitiveEncode(waveHeight);
-    stateCodecPrimitiveEncode(waveSpeed);
-    stateCodecPrimitiveEncode(waveWidth);
+    buffer_write(global.stateCodecBuffer, buffer_f32, introDone);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lastXscale);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootLimit);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTime);
+    buffer_write(global.stateCodecBuffer, buffer_f32, shootTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sineCounter);
+    buffer_write(global.stateCodecBuffer, buffer_f32, sineCounter2);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waveHeight);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waveSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waveWidth);
 }
 else
 {
-    _hitTimer = stateCodecPrimitiveDecode();
-    animTimer = stateCodecPrimitiveDecode();
-    attackTimer = stateCodecPrimitiveDecode();
-    canFlip = stateCodecPrimitiveDecode();
-    canRegen = stateCodecPrimitiveDecode();
-    changkeyNumber = stateCodecPrimitiveDecode();
+    _hitTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    animTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    attackTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canFlip = buffer_read(global.stateCodecBuffer, buffer_f32);
+    canRegen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    changkeyNumber = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    introDone = stateCodecPrimitiveDecode();
-    lastXscale = stateCodecPrimitiveDecode();
-    shootLimit = stateCodecPrimitiveDecode();
-    shootTime = stateCodecPrimitiveDecode();
-    shootTimer = stateCodecPrimitiveDecode();
-    sineCounter = stateCodecPrimitiveDecode();
-    sineCounter2 = stateCodecPrimitiveDecode();
-    waveHeight = stateCodecPrimitiveDecode();
-    waveSpeed = stateCodecPrimitiveDecode();
-    waveWidth = stateCodecPrimitiveDecode();
+    introDone = buffer_read(global.stateCodecBuffer, buffer_f32);
+    lastXscale = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootLimit = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTime = buffer_read(global.stateCodecBuffer, buffer_f32);
+    shootTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sineCounter = buffer_read(global.stateCodecBuffer, buffer_f32);
+    sineCounter2 = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waveHeight = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waveSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waveWidth = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

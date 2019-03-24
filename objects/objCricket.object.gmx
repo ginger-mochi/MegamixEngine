@@ -247,27 +247,27 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
     stateCodecPrimitiveEncode(dir);
-    stateCodecPrimitiveEncode(hops);
-    stateCodecPrimitiveEncode(init);
-    stateCodecPrimitiveEncode(offset);
-    stateCodecPrimitiveEncode(phase);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, offset);
+    buffer_write(global.stateCodecBuffer, buffer_f32, phase);
     stateCodecPrimitiveEncode(startDir);
-    stateCodecPrimitiveEncode(startHops);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, startHops);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
     dir = stateCodecPrimitiveDecode();
-    hops = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
-    offset = stateCodecPrimitiveDecode();
-    phase = stateCodecPrimitiveDecode();
+    hops = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
+    offset = buffer_read(global.stateCodecBuffer, buffer_f32);
+    phase = buffer_read(global.stateCodecBuffer, buffer_f32);
     startDir = stateCodecPrimitiveDecode();
-    startHops = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    startHops = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

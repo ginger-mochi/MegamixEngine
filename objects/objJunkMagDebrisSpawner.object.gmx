@@ -129,15 +129,15 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(hasSwitch);
-    stateCodecPrimitiveEncode(myFlag);
-    stateCodecPrimitiveEncode(timer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasSwitch);
+    buffer_write(global.stateCodecBuffer, buffer_f32, myFlag);
+    buffer_write(global.stateCodecBuffer, buffer_f32, timer);
 }
 else
 {
-    hasSwitch = stateCodecPrimitiveDecode();
-    myFlag = stateCodecPrimitiveDecode();
-    timer = stateCodecPrimitiveDecode();
+    hasSwitch = buffer_read(global.stateCodecBuffer, buffer_f32);
+    myFlag = buffer_read(global.stateCodecBuffer, buffer_f32);
+    timer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

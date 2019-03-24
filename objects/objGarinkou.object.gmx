@@ -177,23 +177,23 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(col);
-    stateCodecPrimitiveEncode(init);
+    buffer_write(global.stateCodecBuffer, buffer_f32, col);
+    buffer_write(global.stateCodecBuffer, buffer_f32, init);
     stateCodecPrimitiveEncode(jumpDistance);
     stateCodecPrimitiveEncode(jumpHeight);
-    stateCodecPrimitiveEncode(jumpType);
-    stateCodecPrimitiveEncode(jumpXSpeed);
-    stateCodecPrimitiveEncode(landTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpType);
+    buffer_write(global.stateCodecBuffer, buffer_f32, jumpXSpeed);
+    buffer_write(global.stateCodecBuffer, buffer_f32, landTimer);
 }
 else
 {
-    col = stateCodecPrimitiveDecode();
-    init = stateCodecPrimitiveDecode();
+    col = buffer_read(global.stateCodecBuffer, buffer_f32);
+    init = buffer_read(global.stateCodecBuffer, buffer_f32);
     jumpDistance = stateCodecPrimitiveDecode();
     jumpHeight = stateCodecPrimitiveDecode();
-    jumpType = stateCodecPrimitiveDecode();
-    jumpXSpeed = stateCodecPrimitiveDecode();
-    landTimer = stateCodecPrimitiveDecode();
+    jumpType = buffer_read(global.stateCodecBuffer, buffer_f32);
+    jumpXSpeed = buffer_read(global.stateCodecBuffer, buffer_f32);
+    landTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

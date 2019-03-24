@@ -164,37 +164,37 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(active);
-    stateCodecPrimitiveEncode(bossesDefeated);
-    stateCodecPrimitiveEncode(bossesToDefeat);
+    buffer_write(global.stateCodecBuffer, buffer_f32, active);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossesDefeated);
+    buffer_write(global.stateCodecBuffer, buffer_f32, bossesToDefeat);
     stateCodecPrimitiveEncode(clearedBossX);
     stateCodecPrimitiveEncode(clearedBossY);
-    stateCodecPrimitiveEncode(delay);
-    stateCodecPrimitiveEncode(finalTeleportX);
-    stateCodecPrimitiveEncode(finalTeleportY);
-    stateCodecPrimitiveEncode(hasBossSpawned);
+    buffer_write(global.stateCodecBuffer, buffer_f32, delay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, finalTeleportX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, finalTeleportY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, hasBossSpawned);
     stateCodecIDEncode(inst);
-    stateCodecPrimitiveEncode(lockOn);
+    buffer_write(global.stateCodecBuffer, buffer_f32, lockOn);
     stateCodecPrimitiveEncode(myRoom);
-    stateCodecPrimitiveEncode(teleportX);
-    stateCodecPrimitiveEncode(teleportY);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportX);
+    buffer_write(global.stateCodecBuffer, buffer_f32, teleportY);
 }
 else
 {
-    active = stateCodecPrimitiveDecode();
-    bossesDefeated = stateCodecPrimitiveDecode();
-    bossesToDefeat = stateCodecPrimitiveDecode();
+    active = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossesDefeated = buffer_read(global.stateCodecBuffer, buffer_f32);
+    bossesToDefeat = buffer_read(global.stateCodecBuffer, buffer_f32);
     clearedBossX = stateCodecPrimitiveDecode();
     clearedBossY = stateCodecPrimitiveDecode();
-    delay = stateCodecPrimitiveDecode();
-    finalTeleportX = stateCodecPrimitiveDecode();
-    finalTeleportY = stateCodecPrimitiveDecode();
-    hasBossSpawned = stateCodecPrimitiveDecode();
+    delay = buffer_read(global.stateCodecBuffer, buffer_f32);
+    finalTeleportX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    finalTeleportY = buffer_read(global.stateCodecBuffer, buffer_f32);
+    hasBossSpawned = buffer_read(global.stateCodecBuffer, buffer_f32);
     inst = stateCodecIDDecode();
-    lockOn = stateCodecPrimitiveDecode();
+    lockOn = buffer_read(global.stateCodecBuffer, buffer_f32);
     myRoom = stateCodecPrimitiveDecode();
-    teleportX = stateCodecPrimitiveDecode();
-    teleportY = stateCodecPrimitiveDecode();
+    teleportX = buffer_read(global.stateCodecBuffer, buffer_f32);
+    teleportY = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

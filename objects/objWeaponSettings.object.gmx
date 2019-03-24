@@ -115,13 +115,13 @@ if (global.stateCodecEncode)
 {
     stateCodecPrimitiveEncode(levelEndScript);
     stateCodecPrimitiveEncode(levelStartScript);
-    stateCodecPrimitiveEncode(onlyUnlockOnLevelEnd);
+    buffer_write(global.stateCodecBuffer, buffer_f32, onlyUnlockOnLevelEnd);
 }
 else
 {
     levelEndScript = stateCodecPrimitiveDecode();
     levelStartScript = stateCodecPrimitiveDecode();
-    onlyUnlockOnLevelEnd = stateCodecPrimitiveDecode();
+    onlyUnlockOnLevelEnd = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

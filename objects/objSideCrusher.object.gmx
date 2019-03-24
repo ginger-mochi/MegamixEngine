@@ -169,13 +169,13 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(fallen);
-    stateCodecPrimitiveEncode(goUp);
+    buffer_write(global.stateCodecBuffer, buffer_f32, fallen);
+    buffer_write(global.stateCodecBuffer, buffer_f32, goUp);
 }
 else
 {
-    fallen = stateCodecPrimitiveDecode();
-    goUp = stateCodecPrimitiveDecode();
+    fallen = buffer_read(global.stateCodecBuffer, buffer_f32);
+    goUp = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>

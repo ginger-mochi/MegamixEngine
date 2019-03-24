@@ -171,17 +171,17 @@ event_inherited();
 
 if (global.stateCodecEncode)
 {
-    stateCodecPrimitiveEncode(cooldownTimer);
-    stateCodecPrimitiveEncode(cooldownTimerMax);
-    stateCodecPrimitiveEncode(water);
-    stateCodecPrimitiveEncode(waterDelay);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimer);
+    buffer_write(global.stateCodecBuffer, buffer_f32, cooldownTimerMax);
+    buffer_write(global.stateCodecBuffer, buffer_f32, water);
+    buffer_write(global.stateCodecBuffer, buffer_f32, waterDelay);
 }
 else
 {
-    cooldownTimer = stateCodecPrimitiveDecode();
-    cooldownTimerMax = stateCodecPrimitiveDecode();
-    water = stateCodecPrimitiveDecode();
-    waterDelay = stateCodecPrimitiveDecode();
+    cooldownTimer = buffer_read(global.stateCodecBuffer, buffer_f32);
+    cooldownTimerMax = buffer_read(global.stateCodecBuffer, buffer_f32);
+    water = buffer_read(global.stateCodecBuffer, buffer_f32);
+    waterDelay = buffer_read(global.stateCodecBuffer, buffer_f32);
 }
 </string>
           </argument>
