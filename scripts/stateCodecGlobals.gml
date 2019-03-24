@@ -197,8 +197,8 @@ if (global.stateCodecEncode)
 }
 else
 {
-    global.view_xview[0] = stateCodecPrimitiveDecode()
-    global.view_yview[0] = stateCodecPrimitiveDecode()
+    view_xview[0] = stateCodecPrimitiveDecode()
+    view_yview[0] = stateCodecPrimitiveDecode()
     global.aliveBosses = stateCodecPrimitiveDecode()
     global.alwaysHealth = stateCodecPrimitiveDecode()
     global.ammo = stateCodecPrimitiveDecode()

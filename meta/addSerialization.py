@@ -112,22 +112,42 @@ for result in walkObjects(sys.argv[-1], True):
     for var in sorted(list(result.instanceVariablesDefinite)):
         hasSerialization = True
         hasVars = True
+		isArray = False
+		type = ''
         if var in result.instanceVariableType.keys():
-            swizzledType = result.instanceVariableType[var]
-            if swizzledType == 'id':
-                if var in result.instanceVariableIsArray:
-                    codeEncode += "{}stateCodecIDArrayEncode({});\n".format(indent, var)
-                    codeDecode += "{}{} = stateCodecIDArrayDecode();\n".format(indent, var)
-                else:
-                    codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
-                    codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
-			else if swizzledType == 'surface':
-				codeEncode += "{}stateCodecSurfaceEncode({});\n".format(indent, var)
-				codeDecode += "{}{} = stateCodecSurfaceDecode();\n".format(indent, var)
-            else:
-                # encoding/decoding data structures will require a lot of sneakiness.
-                codeEncode += "{}stateCodecDSEncode({}, ds_type_{});\n".format(indent, var, swizzledType)
-                codeDecode += "{}{} = stateCodecDSDecode(ds_type_{});\n".format(indent, var, swizzledType)
+            type = result.instanceVariableType[var]
+		if var in result.instanceVariableIsArray:
+			isArray = True
+		if type == 'id':
+			if isArray:
+				codeEncode += "{}stateCodecIDArrayEncode({});\n".format(indent, var)
+				codeDecode += "{}{} = stateCodecIDArrayDecode();\n".format(indent, var)
+			else:
+				codeEncode += "{}stateCodecIDEncode({});\n".format(indent, var)
+				codeDecode += "{}{} = stateCodecIDDecode();\n".format(indent, var)
+		else if type == 'surface':
+			assert(!isArray)
+			codeEncode += "{}stateCodecSurfaceEncode({});\n".format(indent, var)
+			codeDecode += "{}{} = stateCodecSurfaceDecode();\n".format(indent, var)
+		else if type == 'map' or type == 'list' or type == 'grid' or type == 'stack' or type == 'queue' or type == 'priority':
+			assert(!isArray)
+			# encoding/decoding data structures will require a lot of sneakiness.
+			codeEncode += "{}stateCodecDSEncode({}, ds_type_{});\n".format(indent, var, type)
+			codeDecode += "{}{} = stateCodecDSDecode(ds_type_{});\n".format(indent, var, type)
+		else if type == 'number':
+			if isArray:
+				codeEncode += "{}stateCodecPrimitiveEncode({});\n".format(indent, var)
+				codeDecode += "{}{} = stateCodecPrimitiveDecode();\n".format(indent, var)
+			else:
+				codeEncode += '{}buffer_write(global.stateCodecBuffer, buffer_f32, {});\n'.format(indent, var)
+				codeDecode += '{}{} = buffer_read(global.stateCodecBuffer, buffer_f32);\n'.format(indent, var)
+		else if type == 'string':
+			if isArray:
+				codeEncode += "{}stateCodecPrimitiveEncode({});\n".format(indent, var)
+				codeDecode += "{}{} = stateCodecPrimitiveDecode();\n".format(indent, var)
+			else:
+				codeEncode += '{}buffer_write(global.stateCodecBuffer, buffer_string, {});\n'.format(indent, var)
+				codeDecode += '{}{} = buffer_read(global.stateCodecBuffer, buffer_string);\n'.format(indent, var)
         else:
             codeEncode += "{}stateCodecPrimitiveEncode({});\n".format(indent, var)
             codeDecode += "{}{} = stateCodecPrimitiveDecode();\n".format(indent, var)

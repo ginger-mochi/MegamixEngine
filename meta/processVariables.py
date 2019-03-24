@@ -42,6 +42,8 @@ class ObjectParseResult:
 		self.instanceVariablesDefiniteAll = []
 		# maps vars which have a known type to their type ('id', 'map', etc.)
 		self.instanceVariableType = {}
+		# maps variables to a list of all rhs of the assignments they appear in.
+		self.instanceVariableAssignments = {}
 		
 def walkObjects(directory, verbose=False, ignore=None):
 	# yields ObjectParseResults for all objects in the given directory.
@@ -110,7 +112,7 @@ def walkObjects(directory, verbose=False, ignore=None):
 			vars = set()
 			locals = set()
 			definite = set()
-			swizzledType = dict()
+			rhs = dict()
 			isArray = set()
 			
 			for match in reFindVars.finditer(fcontents):
@@ -139,34 +141,8 @@ def walkObjects(directory, verbose=False, ignore=None):
 					
 					# try to determine swizzle type
 					assignment = match.group('assignment').strip()
-					if assignment.endswith('.id') or assignment == 'id':
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_create'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_find'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_nearest'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_place'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_position'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('instance_copy'):
-						swizzledType[varName] = 'id'
-					elif assignment.startswith('surface_create'):
-						swizzledType[varName] = 'surface'
-					elif assignment.startswith('ds_map_create'):
-						swizzledType[varName] = 'map'
-					elif assignment.startswith('ds_list_create'):
-						swizzledType[varName] = 'list'
-					elif assignment.startswith('ds_grid_create'):
-						swizzledType[varName] = 'grid'
-					elif assignment.startswith('ds_stack_create'):
-						swizzledType[varName] = 'stack'
-					elif assignment.startswith('ds_queue_create'):
-						swizzledType[varName] = 'queue'
-					elif assignment.startswith('ds_priority_create'):
-						swizzledType[varName] = 'priority'
+					if varName not in rhs:
+						rhs[varName].append(assignment)
 					if len(match.captures("accessor")) > 0:
 						accessor = match.group("accessor")
 						if (not accessor.startswith("?") and not accessor.startswith("|") and not accessor.startswith("#") and not accessor.startswith("@")):
@@ -176,6 +152,10 @@ def walkObjects(directory, verbose=False, ignore=None):
 					vars.add(varName)
 					if match.span()[0] < createEnd:
 						definite.add(varName)
+				else: # other/global?
+					if match.group(1) == "global":
+						assignment = match.group('assignment').strip()
+						
 			for match in reFindLocals.finditer(fcontents):
 				# list of vars declared in this var statement (can be more than one!)
 				localDecls = match.captures(2)
@@ -225,7 +205,10 @@ def walkObjects(directory, verbose=False, ignore=None):
 			result.instanceVariables = vars
 			result.instanceVariablesQuestionable = questionable
 			result.instanceVariablesDefinite = vars - questionable
-			result.instanceVariableType = swizzledType
+			result.instanceVariableAssignments = rhs
+			result.instanceVariableType = {}
+			for varName in rhs.keys():
+				result.instanceVariableType[varName] = inferTypeFromAssignments(rhs[varName])
 			result.instanceVariableIsArray = isArray
 			if parentFile is not None:
 				result.instanceVariableType = {**result.parentResult.instanceVariableType, **swizzledType}
@@ -253,7 +236,82 @@ def walkObjects(directory, verbose=False, ignore=None):
 		print("median instance vars: ", statistics.median(instanceVarCounts))
 		print("median questionable: ", statistics.median(questionableVarCounts))
 		print("median locals: ", statistics.median(localVarCounts))
+		yield(globals)
 
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+		
+def inferTypeFromAssignment(assignment):
+	if assignment.endswith('.id') or assignment == 'id':
+		return 'id'
+	elif assignment.startswith('instance_create'):
+		return 'id'
+	elif assignment.startswith('instance_find'):
+		return 'id'
+	elif assignment.startswith('instance_nearest'):
+		return 'id'
+	elif assignment.startswith('instance_place'):
+		return 'id'
+	elif assignment.startswith('instance_position'):
+		return 'id'
+	elif assignment.startswith('instance_copy'):
+		return 'id'
+	elif assignment.startswith('surface_create'):
+		return 'surface'
+	elif assignment.startswith('ds_map_create'):
+		return 'map'
+	elif assignment.startswith('ds_list_create'):
+		return 'list'
+	elif assignment.startswith('ds_grid_create'):
+		return 'grid'
+	elif assignment.startswith('ds_stack_create'):
+		return 'stack'
+	elif assignment.startswith('ds_queue_create'):
+		return 'queue'
+	elif assignment.startswith('ds_priority_create'):
+		return 'priority'
+	elif assignment.startswith('string(') or assignment.startswith('"'):
+		return 'string'
+	elif is_number(assignment):
+		return 'number'
+	return '?'
+		
+def inferTypeFromAssignments(assignments):
+	# takes a list of assigned values, produces a string suggesting the type.
+	# valid outputs are as follows: '', 'number', 'string', 'mixed', 'id', 'surface', 'map', 'list', 'grid', 'stack', 'queue', 'priority'
+	# mixed is very worrying and requires bespoke logic to handle.
+	might_be_number = False
+	might_be_string = False
+	# these can be ascertained with a high probability when encountered.
+	definite_types = ['id', 'surface', 'map', 'list', 'grid', 'stack', 'queue', 'priority']
+	decided_types = []
+	for assignment in assignments:
+		type = inferTypeFromAssignment
+		if type == '?':
+			#ignore assignments which cannot be analyzed
+			continue
+		if 'number' == type:
+			might_be_number = True
+		if 'string' == type:
+			might_be_string = True
+		types.append(type)
+		if type in definite_types and type not in decided_types:
+			decided_types.append(type)
+	if len(decided_types) > 1:
+		return "mixed"
+	if len(decided_types) == 1:
+		return decided_types[0]
+	if might_be_number and not might_be_string:
+		return 'number'
+	if might_be_string and not might_be_number:
+		return 'string'
+	return ""
+	
+		
 def matchBrace(code, index=0):
 	# finds index of matching brace for brace at given index
 	braces = 0
