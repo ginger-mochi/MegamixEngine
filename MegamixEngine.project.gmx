@@ -5164,6 +5164,7 @@
       <scripts name="Chrono">
         <script>scripts\chronoInit.gml</script>
         <script>scripts\chronoGet.gml</script>
+        <script>scripts\chronoReset.gml</script>
       </scripts>
       <script>scripts\scrNoEffect.gml</script>
       <script>scripts\eventExecute.gml</script>
