@@ -1,0 +1,8 @@
+version: "1"
+rules:
+  - base: master
+    upstream: MegamixEngine:master
+    mergeMethod: merge
+  - base: dev
+    upstream: MegamixEngine:dev
+    mergeMethod: merge
