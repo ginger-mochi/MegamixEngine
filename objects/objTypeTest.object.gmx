@@ -39,7 +39,6 @@ fonts[1] = global.font2;
 fonts[2] = global.fontSmall;
 fonts[3] = global.fontSmall2;
 fonts[4] = global.fontTiny;
-fonts[5] = global.fontElementMan;
 
 compressDaku = false;
 </string>
